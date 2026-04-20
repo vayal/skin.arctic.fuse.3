@@ -29,7 +29,10 @@
 
         <include content="Object_Hidden_List">
             <param name="id">50</param>
-            <content limit="1">$VAR[Path_VideoOSD_TMDbType,plugin://plugin.video.themoviedb.helper/?info=details&amp;tmdb_type=,]$VAR[Path_VideoOSD_TMDbQuery]</content>
+            <content sortby="title" sortorder="ascending" target="videos" limit="1" browse="never" paginate="false">
+                plugin://plugin.video.velocity2/?action=smart_list&type=recent
+            </content>
+            <onfocus>SetProperty(TMDbHelper.WidgetContainer,50)</onfocus>
             <onfocus>Action(Info)</onfocus>
             <onfocus>Dialog.Close(1193,force)</onfocus>
         </include>

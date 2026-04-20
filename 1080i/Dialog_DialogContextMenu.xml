@@ -183,7 +183,7 @@
             <icon>special://skin/extras/icons/fire2.png</icon>
             <visible>[String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.base_dbtype),tvshow) | String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.base_dbtype),season) | String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.base_dbtype),episode) | String.IsEqual(Window(Home).Property(TMDbHelper.ListItem.base_dbtype),movie)]</visible>
             <onclick>Dialog.Close(contextmenu,true)</onclick>
-            <onclick>RunScript(plugin.video.themoviedb.helper,related_lists,query=$VAR[Path_ContextParams_Query],tmdb_type=$VAR[Path_ContextParams_TMDbType])</onclick>
+            <onclick>ActivateWindow(Videos,plugin://plugin.video.velocity2/?action=discover,return)</onclick>
             <visible>$EXP[Exp_TMDbHelper_IsData]</visible>
         </item>
         <item>

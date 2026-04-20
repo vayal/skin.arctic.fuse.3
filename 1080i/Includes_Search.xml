@@ -128,7 +128,7 @@
             <property name="widget_id">$NUMBER[501]</property>
             <property name="show_artwork">true</property>
             <property name="widget_numitems">$INFO[Container(501).NumItems]</property>
-             <onclick>RunPlugin(plugin://plugin.video.velocity2/?action=discover)</onclick>
+             <onclick>RunPlugin($VAR[Velocity.Path.Discover])</onclick>
             <visible>!Integer.IsEqual(Container(501).NumItems,0)</visible>
         </item>
         <include>skinvariables-searchwidgets-selector</include>
@@ -281,7 +281,7 @@
             <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical)">$INFO[Container(399).ListItem(-1).Property(action)]</onleft>
             <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical)">$INFO[Container(399).ListItem(1).Property(action)]</onright>
 
-             <onup condition="!Skin.HasSetting(Search.DisableDiscover) + !Skin.HasSetting(Search.DisableCombined)">RunPlugin(plugin://plugin.video.velocity2/?action=discover)</onup>
+             <onup condition="!Skin.HasSetting(Search.DisableDiscover) + !Skin.HasSetting(Search.DisableCombined)">RunPlugin($VAR[Velocity.Path.Discover])</onup>
             <ondown>301</ondown>
 
             <texturefocus />

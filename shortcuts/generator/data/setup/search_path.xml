@@ -146,15 +146,15 @@
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-TMDBSets</condition>
-            <value>plugin://plugin.video.themoviedb.helper?info=search&amp;amp;tmdb_type=collection&amp;amp;query=</value>
+            <value>TBD</value>
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-TMDBPeople</condition>
-            <value>plugin://plugin.video.themoviedb.helper?info=search&amp;amp;tmdb_type=person&amp;amp;query=</value>
+            <value>TBD</value>
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-TMDBKeywords</condition>
-            <value>plugin://plugin.video.themoviedb.helper?info=search&amp;amp;tmdb_type=keyword&amp;amp;query=</value>
+            <value>TBD</value>
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-TMDBListsTrakt</condition>

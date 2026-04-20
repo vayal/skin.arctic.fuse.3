@@ -1,35 +1,60 @@
-<!--
-  Velocity Plugin Path Wrappers
-  Centralized URL variables for plugin.video.velocity2 actions
-  Use these instead of hardcoded plugin://plugin.video.velocity2/?... strings
--->
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
 
-<!-- Home -->
-<variable name="Velocity.Path.Home" value="plugin://plugin.video.velocity2/?action=home" />
+    <!--
+      Velocity Plugin Path Wrappers
+      Centralized URL variables for plugin.video.velocity2 actions
+      Use these instead of hardcoded plugin://plugin.video.velocity2/?... strings
+    -->
 
-<!-- Discovery -->
-<variable name="Velocity.Path.Discover" value="plugin://plugin.video.velocity2/?action=discover" />
+    <!-- Home -->
+    <variable name="Velocity.Path.Home">
+        <value>plugin://plugin.video.velocity2/?action=home</value>
+    </variable>
 
-<!-- Search Hub (entry screen) -->
-<variable name="Velocity.Path.SearchHub" value="plugin://plugin.video.velocity2/?action=search_hub" />
+    <!-- Discovery -->
+    <variable name="Velocity.Path.Discover">
+        <value>plugin://plugin.video.velocity2/?action=discover</value>
+    </variable>
 
-<!-- Execute Search (base with query append) -->
-<variable name="Velocity.Path.ExecuteSearch" value="plugin://plugin.video.velocity2/?action=execute_search" />
+    <!-- Search Hub (entry screen) -->
+    <variable name="Velocity.Path.SearchHub">
+        <value>plugin://plugin.video.velocity2/?action=search_hub</value>
+    </variable>
 
-<!-- List Base (browse/list) -->
-<variable name="Velocity.Path.ListBase" value="plugin://plugin.video.velocity2/?action=list" />
+    <!-- Execute Search (base with query append) -->
+    <variable name="Velocity.Path.ExecuteSearch">
+        <value>plugin://plugin.video.velocity2/?action=execute_search</value>
+    </variable>
 
-<!-- Smart List Base -->
-<variable name="Velocity.Path.SmartListBase" value="plugin://plugin.video.velocity2/?action=smart_list" />
+    <!-- List Base (browse/list) -->
+    <variable name="Velocity.Path.ListBase">
+        <value>plugin://plugin.video.velocity2/?action=list</value>
+    </variable>
 
-<!-- View Show Base -->
-<variable name="Velocity.Path.ViewShowBase" value="plugin://plugin.video.velocity2/?action=view_show" />
+    <!-- Smart List Base -->
+    <variable name="Velocity.Path.SmartListBase">
+        <value>plugin://plugin.video.velocity2/?action=smart_list</value>
+    </variable>
 
-<!-- View Season Base -->
-<variable name="Velocity.Path.ViewSeasonBase" value="plugin://plugin.video.velocity2/?action=view_season" />
+    <!-- View Show Base -->
+    <variable name="Velocity.Path.ViewShowBase">
+        <value>plugin://plugin.video.velocity2/?action=view_show</value>
+    </variable>
 
-<!-- Play Base -->
-<variable name="Velocity.Path.PlayBase" value="plugin://plugin.video.velocity2/?action=play" />
+    <!-- View Season Base -->
+    <variable name="Velocity.Path.ViewSeasonBase">
+        <value>plugin://plugin.video.velocity2/?action=view_season</value>
+    </variable>
 
-<!-- Select Base (alternative to play) -->
-<variable name="Velocity.Path.SelectBase" value="plugin://plugin.video.velocity2/?action=select" />
+    <!-- Play Base -->
+    <variable name="Velocity.Path.PlayBase">
+        <value>plugin://plugin.video.velocity2/?action=play</value>
+    </variable>
+
+    <!-- Select Base (alternative to play) -->
+    <variable name="Velocity.Path.SelectBase">
+        <value>plugin://plugin.video.velocity2/?action=select</value>
+    </variable>
+
+</includes>

@@ -200,7 +200,7 @@
                 <label>$LOCALIZE[14116]</label>
                 <onclick>Close</onclick>
                 <onclick>Skin.SetString(InfoPanel.FullSwitch,Full,Home)</onclick>
-                <onclick>RunScript(plugin.video.themoviedb.helper,add_tmdb=$INFO[Window(Home).Property(TMDBHelper.ListItem.Monitor.TMDb_ID)],tmdb_type=$INFO[Window(Home).Property(TMDBHelper.ListItem.Monitor.TMDb_Type)],call_auto=1190,return)</onclick>
+                <onclick>ActivateWindow(Videos,plugin://plugin.video.velocity2/?action=home,return)</onclick>
                 <visible>!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Monitor.TMDb_ID))</visible>
                 <visible>String.IsEmpty(Window(Home).Property(TMDBHelper.IsUpdating))</visible>
             </include>
