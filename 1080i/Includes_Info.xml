@@ -1070,6 +1070,8 @@
         <param name="visible_plot">true</param>
         <param name="visible_meta">true</param>
         <param name="listitem">ListItem</param>
+        <!-- When true, Info_Line / Info_Plot_Main show for plugin items where DBType may not match library enums (Omega + InfoTagVideo gaps). -->
+        <param name="override">false</param>
         <definition>
 
             <control type="grouplist">
@@ -1103,6 +1105,7 @@
                     <param name="container">$PARAM[container]</param>
                     <param name="listitem">$PARAM[listitem]</param>
                     <param name="visible">$PARAM[visible_line]</param>
+                    <param name="override">$PARAM[override]</param>
                 </include>
 
                 <!-- Plot -->
@@ -1114,6 +1117,7 @@
                     <param name="height">$PARAM[plotheight]</param>
                     <param name="visible">$PARAM[visible_plot]</param>
                     <param name="use_textbox">$PARAM[use_textbox]</param>
+                    <param name="override">$PARAM[override]</param>
                 </include>
 
                 <!-- Meta -->

@@ -241,6 +241,8 @@
 
     <include name="Home_Control">
         <param name="onclick_condition">true</param>
+        <!-- skin_key: HomeSwitcher.* id (Home, 1101, …). window: Kodi window id / skinvariables slug (home, 1101, …). -->
+        <param name="skin_key">1105</param>
         <definition>
             <include>Home_ControlList</include>
             <control type="button" id="300">
@@ -259,8 +261,8 @@
                 <onfocus condition="![$PARAM[overlay]]">ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
                 <onfocus condition="$PARAM[overlay]">SetProperty(Background.ShowOverlay,True,Home)</onfocus>
                 <onfocus condition="![$PARAM[overlay]]">ClearProperty(Background.ShowOverlay,Home)</onfocus>
-                <onclick condition="$PARAM[onclick_condition] + !String.IsEmpty(Skin.String(HomeSwitcher.$PARAM[window].Shortcut.Target))">ActivateWindow($INFO[Skin.String(HomeSwitcher.$PARAM[window].Shortcut.Target)],$INFO[Skin.String(HomeSwitcher.$PARAM[window].Shortcut.Path)],return)</onclick>
-                <onclick condition="$PARAM[onclick_condition] + String.IsEmpty(Skin.String(HomeSwitcher.$PARAM[window].Shortcut.Target))">$INFO[Skin.String(HomeSwitcher.$PARAM[window].Shortcut.Path)]</onclick>
+                <onclick condition="$PARAM[onclick_condition] + !String.IsEmpty(Skin.String(HomeSwitcher.$PARAM[skin_key].Shortcut.Target))">ActivateWindow($INFO[Skin.String(HomeSwitcher.$PARAM[skin_key].Shortcut.Target)],$INFO[Skin.String(HomeSwitcher.$PARAM[skin_key].Shortcut.Path)],return)</onclick>
+                <onclick condition="$PARAM[onclick_condition] + String.IsEmpty(Skin.String(HomeSwitcher.$PARAM[skin_key].Shortcut.Target))">$INFO[Skin.String(HomeSwitcher.$PARAM[skin_key].Shortcut.Path)]</onclick>
                 <onclick condition="Window.IsVisible(1108)">ActivateWindow(addonbrowser)</onclick>
                 <onclick condition="Window.IsVisible(1107)">ActivateWindow(tvchannels)</onclick>
                 <onclick condition="Window.IsVisible(1105)">SetFocus(3001)</onclick>
@@ -354,22 +356,27 @@
                     <height>1080</height>
                     <include content="Home_Object">
                         <param name="window">home</param>
+                        <param name="skin_key">Home</param>
                         <param name="id">00</param>
                     </include>
                     <include content="Home_Object" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1101.Toggle))">
                         <param name="window">1101</param>
+                        <param name="skin_key">1101</param>
                         <param name="id">01</param>
                     </include>
                     <include content="Home_Object" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1102.Toggle))">
                         <param name="window">1102</param>
+                        <param name="skin_key">1102</param>
                         <param name="id">02</param>
                     </include>
                     <include content="Home_Object" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1103.Toggle))">
                         <param name="window">1103</param>
+                        <param name="skin_key">1103</param>
                         <param name="id">03</param>
                     </include>
                     <include content="Home_Object" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1104.Toggle))">
                         <param name="window">1104</param>
+                        <param name="skin_key">1104</param>
                         <param name="id">04</param>
                     </include>
                 </control>
@@ -547,6 +554,9 @@
     </include>
 
     <include name="Home_Submenu_Panel">
+        <param name="window">home</param>
+        <param name="skin_key">Home</param>
+        <param name="id">00</param>
         <definition>
             <control type="group">
 
@@ -640,57 +650,57 @@
             </control>
             <include content="Home_Focus_Object" condition="!Skin.HasSetting(HomeSwitcher.Vertical)">
                 <param name="window">$PARAM[window]</param>
+                <param name="skin_key">$PARAM[skin_key]</param>
             </include>
         </definition>
     </include>
 
     <include name="Home_Object">
         <param name="use_icons">Skin.HasSetting(HomeSwitcher.EnableIcons)</param>
-        <param name="window" />
+        <param name="skin_key">1101</param>
         <definition>
-            <!-- One grouplist child per menu slot (label row + focus hitbox live here) -->
             <control type="group">
+                <top>100</top>
+                <width>560</width>
+                <height>80</height>
                 <control type="group">
-                    <top>100</top>
-                    <width>560</width>
-                    <height>80</height>
+                    <left>80</left>
+                    <control type="label">
+                        <font>font_main_bold</font>
+                        <textcolor>main_fg_30</textcolor>
+                        <label>$INFO[Skin.String(HomeSwitcher.$PARAM[skin_key].Name)]</label>
+                        <left>30</left>
+                        <visible>![$PARAM[use_icons]]</visible>
+                    </control>
                     <control type="group">
-                        <left>80</left>
-                        <control type="label">
-                            <font>font_main_bold</font>
-                            <textcolor>main_fg_30</textcolor>
-                            <label>$INFO[Skin.String(HomeSwitcher.$PARAM[window].Name)]</label>
-                            <left>30</left>
-                            <visible>![$PARAM[use_icons]]</visible>
-                        </control>
-                        <control type="group">
-                            <left>10</left>
-                            <width>80</width>
-                            <visible>$PARAM[use_icons]</visible>
-                            <control type="image">
-                                <include>Home_Grouplist_Icon_Definition</include>
-                                <texture background="true" colordiffuse="main_fg_30">$VAR[Home_Icon_$PARAM[window]]</texture>
-                            </control>
+                        <left>10</left>
+                        <width>80</width>
+                        <visible>$PARAM[use_icons]</visible>
+                        <control type="image">
+                            <include>Home_Grouplist_Icon_Definition</include>
+                            <texture background="true" colordiffuse="main_fg_30">$VAR[Home_Icon_$PARAM[window]]</texture>
                         </control>
                     </control>
                 </control>
-                <include content="Home_Focus_Object">
-                    <param name="window">$PARAM[window]</param>
-                </include>
             </control>
+            <include content="Home_Focus_Object">
+                <param name="window">$PARAM[window]</param>
+                <param name="skin_key">$PARAM[skin_key]</param>
+            </include>
         </definition>
     </include>
 
     <include name="Home_Focus_Object">
         <param name="window" />
+        <param name="skin_key">1101</param>
         <definition>
-            <!-- Grouplist parents (Home_Switcher_*) only accept group children; wrap spacer button -->
             <control type="group">
                 <include content="Home_Focus_Faker">
                     <param name="window">$PARAM[window]</param>
+                    <param name="skin_key">$PARAM[skin_key]</param>
                 </include>
                 <include content="Home_Spacer">
-                    <param name="name">$INFO[Skin.String(HomeSwitcher.$PARAM[window].Name)]</param>
+                    <param name="name">$INFO[Skin.String(HomeSwitcher.$PARAM[skin_key].Name)]</param>
                     <param name="icon">$VAR[Home_Icon_$PARAM[window]]</param>
                 </include>
             </control>
@@ -699,6 +709,7 @@
 
     <include name="Home_Focus_Faker">
         <param name="use_icons">Skin.HasSetting(HomeSwitcher.EnableIcons)</param>
+        <param name="skin_key">1101</param>
         <definition>
             <control type="group">
                 <left>-480</left>
@@ -711,7 +722,7 @@
                         <font>font_main_bold</font>
                         <textcolor>00ffffff</textcolor>
                         <focusedcolor>00ffffff</focusedcolor>
-                        <label>$INFO[Skin.String(HomeSwitcher.$PARAM[window].Name)]</label>
+                        <label>$INFO[Skin.String(HomeSwitcher.$PARAM[skin_key].Name)]</label>
                         <width>auto</width>
                         <include>Texture_Highlight_Button_FakeFocus_H</include>
                         <visible>![$PARAM[use_icons]]</visible>
@@ -719,7 +730,7 @@
                     <control type="label">
                         <font>font_main_bold</font>
                         <textcolor>$VAR[ColorSelected]</textcolor>
-                        <label>$INFO[Skin.String(HomeSwitcher.$PARAM[window].Name)]</label>
+                        <label>$INFO[Skin.String(HomeSwitcher.$PARAM[skin_key].Name)]</label>
                         <left>30</left>
                         <visible>![$PARAM[use_icons]]</visible>
                     </control>
@@ -771,22 +782,27 @@
                     <height>1080</height>
                     <include content="Home_Submenu_Panel">
                         <param name="window">home</param>
+                        <param name="skin_key">Home</param>
                         <param name="id">00</param>
                     </include>
                     <include content="Home_Submenu_Panel" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1101.Toggle))">
                         <param name="window">1101</param>
+                        <param name="skin_key">1101</param>
                         <param name="id">01</param>
                     </include>
                     <include content="Home_Submenu_Panel" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1102.Toggle))">
                         <param name="window">1102</param>
+                        <param name="skin_key">1102</param>
                         <param name="id">02</param>
                     </include>
                     <include content="Home_Submenu_Panel" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1103.Toggle))">
                         <param name="window">1103</param>
+                        <param name="skin_key">1103</param>
                         <param name="id">03</param>
                     </include>
                     <include content="Home_Submenu_Panel" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1104.Toggle))">
                         <param name="window">1104</param>
+                        <param name="skin_key">1104</param>
                         <param name="id">04</param>
                     </include>
                 </control>
@@ -806,22 +822,27 @@
                 <left>120</left>
                 <include content="Home_Submenu_Panel">
                     <param name="window">home</param>
+                    <param name="skin_key">Home</param>
                     <param name="id">00</param>
                 </include>
                 <include content="Home_Submenu_Panel" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1101.Toggle))">
                     <param name="window">1101</param>
+                    <param name="skin_key">1101</param>
                     <param name="id">01</param>
                 </include>
                 <include content="Home_Submenu_Panel" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1102.Toggle))">
                     <param name="window">1102</param>
+                    <param name="skin_key">1102</param>
                     <param name="id">02</param>
                 </include>
                 <include content="Home_Submenu_Panel" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1103.Toggle))">
                     <param name="window">1103</param>
+                    <param name="skin_key">1103</param>
                     <param name="id">03</param>
                 </include>
                 <include content="Home_Submenu_Panel" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1104.Toggle))">
                     <param name="window">1104</param>
+                    <param name="skin_key">1104</param>
                     <param name="id">04</param>
                 </include>
             </control>

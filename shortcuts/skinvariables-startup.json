@@ -38,9 +38,15 @@
                         "Skin.Reset(HomeSwitcher.1108.Toggle)",
                         "Skin.SetBool(HomeSwitcher.LoopBack)",
                         "Skin.SetString(HomeSwitcher.Home.Shortcut.Path,ActivateWindow(1181))",
-                        "Skin.SetString(HomeSwitcher.Home.Spotlight.Path,plugin://plugin.video.velocity2/?action=home)",
+                        "Skin.SetString(HomeSwitcher.Home.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&list_id=home_spotlight_mixed&page=1)",
                         "Skin.SetString(HomeSwitcher.Home.Spotlight.Target,videos)",
-                        "Skin.SetString(HomeSwitcher.Home.Spotlight.Label,Velocity)",
+                        "Skin.SetString(HomeSwitcher.Home.Spotlight.Label,Spotlight)",
+                        "Skin.SetString(HomeSwitcher.1101.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&list_id=series_spotlight_trending&page=1)",
+                        "Skin.SetString(HomeSwitcher.1101.Spotlight.Target,videos)",
+                        "Skin.SetString(HomeSwitcher.1101.Spotlight.Label,Spotlight)",
+                        "Skin.SetString(HomeSwitcher.1102.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&list_id=movies_spotlight_trending&page=1)",
+                        "Skin.SetString(HomeSwitcher.1102.Spotlight.Target,videos)",
+                        "Skin.SetString(HomeSwitcher.1102.Spotlight.Label,Spotlight)",
                         "Skin.SetString(HomeSwitcher.1101.Shortcut.Path,ActivateWindow(videos,plugin://plugin.video.velocity2/?action=home,return))",
                         "Skin.SetString(HomeSwitcher.1102.Shortcut.Path,ActivateWindow(videos,plugin://plugin.video.velocity2/?action=home,return))",
                         "Skin.SetBool(DefaultConfig.InitDone)"
@@ -132,6 +138,30 @@
                 [{
                     "rules": ["String.IsEmpty(Skin.String(HomeSwitcher.Home.Mode))"],
                     "value": "Skin.SetString(HomeSwitcher.Home.Mode,Standard)"
+                }],
+                [{
+                    "rules": ["String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Target))"],
+                    "value": [
+                        "Skin.SetString(HomeSwitcher.Home.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&list_id=home_spotlight_mixed&page=1)",
+                        "Skin.SetString(HomeSwitcher.Home.Spotlight.Target,videos)",
+                        "Skin.SetString(HomeSwitcher.Home.Spotlight.Label,Spotlight)"
+                    ]
+                }],
+                [{
+                    "rules": ["String.IsEmpty(Skin.String(HomeSwitcher.1101.Spotlight.Target))"],
+                    "value": [
+                        "Skin.SetString(HomeSwitcher.1101.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&list_id=series_spotlight_trending&page=1)",
+                        "Skin.SetString(HomeSwitcher.1101.Spotlight.Target,videos)",
+                        "Skin.SetString(HomeSwitcher.1101.Spotlight.Label,Spotlight)"
+                    ]
+                }],
+                [{
+                    "rules": ["String.IsEmpty(Skin.String(HomeSwitcher.1102.Spotlight.Target))"],
+                    "value": [
+                        "Skin.SetString(HomeSwitcher.1102.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&list_id=movies_spotlight_trending&page=1)",
+                        "Skin.SetString(HomeSwitcher.1102.Spotlight.Target,videos)",
+                        "Skin.SetString(HomeSwitcher.1102.Spotlight.Label,Spotlight)"
+                    ]
                 }],
                 [{
                     "rules": ["String.IsEmpty(Skin.String(HomeSwitcher.1101.Mode))"],

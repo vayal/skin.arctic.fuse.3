@@ -23,6 +23,7 @@
 
         <include content="Home_Control" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1109.Toggle))">
             <param name="window">1109</param>
+            <param name="skin_key">1109</param>
             <param name="overlay">true</param>
         </include>
 

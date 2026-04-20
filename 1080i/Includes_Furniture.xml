@@ -309,17 +309,15 @@
                         <include content="Furniture_Busy_Spinner" condition="$PARAM[hasspinner]">
                             <param name="spinspinner">$PARAM[spinspinner]</param>
                         </include>
-                        <include content="Object_Control" condition="$PARAM[hasprogress]">
-                            <param name="control">group</param>
-                            <description>Busy animation</description>
+                        <control type="group">
+                            <visible>[$PARAM[hasprogress]]</visible>
                             <animation effect="rotate" condition="$PARAM[spinspinner]" start="0" end="-360" loop="true" time="2000" center="auto">Conditional</animation>
-                            <description>Busy animation</description>
                             <control type="image">
                                 <bordersize>-4</bordersize>
                                 <texture colordiffuse="$VAR[ColorHighlight]" flipx="$PARAM[flipspinner]" flipy="$PARAM[flipspinner]">$INFO[$PARAM[progress],progress/circle/p,.png]</texture>
                                 <aspectratio align="center" aligny="center">keep</aspectratio>
                             </control>
-                        </include>
+                        </control>
                     </control>
                 </control>
             </control>

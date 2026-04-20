@@ -584,8 +584,15 @@
         </definition>
     </include>
 
+    <!-- Omega: buttons inside list item layouts are rejected (log: unsupported control type 7). Use a 1×1 invisible image as the focus sink instead. -->
     <include name="List_ButtonMenu_Row_HiddenButton_View">
-        <control type="button">
+        <control type="image">
+            <enablefocus>true</enablefocus>
+            <left>0</left>
+            <top>0</top>
+            <width>4</width>
+            <height>4</height>
+            <texture colordiffuse="00FFFFFF">common/white.png</texture>
             <visible allowhiddenfocus="true">false</visible>
             <animation effect="fade" start="0" end="0" time="400" reversible="false">Focus</animation>
             <include>List_ButtonMenu_Row_HiddenButton_View_OnFocus</include>
@@ -604,7 +611,13 @@
         </definition>
     </include>
     <include name="List_ButtonMenu_Row_HiddenButton_ERow">
-        <control type="button">
+        <control type="image">
+            <enablefocus>true</enablefocus>
+            <left>0</left>
+            <top>0</top>
+            <width>4</width>
+            <height>4</height>
+            <texture colordiffuse="00FFFFFF">common/white.png</texture>
             <visible allowhiddenfocus="true">false</visible>
             <include>List_ButtonMenu_Row_HiddenButton_ERow_OnFocus</include>
         </control>
@@ -737,7 +750,13 @@
     </include>
 
     <include name="List_Widget_Row_HiddenButton">
-        <control type="button">
+        <control type="image">
+            <enablefocus>true</enablefocus>
+            <left>0</left>
+            <top>0</top>
+            <width>4</width>
+            <height>4</height>
+            <texture colordiffuse="00FFFFFF">common/white.png</texture>
             <visible allowhiddenfocus="true">false</visible>
             <animation effect="fade" start="0" end="0" time="600" reversible="false">Focus</animation>
             <include content="List_Widget_Row_HiddenButton_OnFocus">

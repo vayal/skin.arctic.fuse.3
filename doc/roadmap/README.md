@@ -51,6 +51,7 @@ flowchart TD
 - [Agent Guardrails](./appendix-agent-guardrails.md)
 - [Verification Checklists](./appendix-verification-checklists.md)
 - [Traceability Matrix](./appendix-traceability-matrix.md)
+- [Kodi UI verification matrix](./kodi-ui-verification-matrix.md) — code-backed top bar, hub IDs, and Standard widget rows for manual QA in Kodi
 
 ## Phase Status Tracking (Single Source)
 

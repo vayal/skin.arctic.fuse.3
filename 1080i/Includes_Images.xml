@@ -262,8 +262,11 @@
     </variable>
 
     <variable name="Image_Foreground_NoService">
-        <value condition="!String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
-        <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301)">$INFO[Container(301).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(fanart)) + !String.StartsWith(Container.ListItem.Art(fanart),plugin://)">$INFO[Container.ListItem.Art(fanart)]</value>
+        <value condition="[String.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301) | Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301)] + !String.IsEmpty(Container(301).ListItem.Art(fanart)) + !String.StartsWith(Container(301).ListItem.Art(fanart),plugin://)">$INFO[Container(301).ListItem.Art(fanart)]</value>
+        <value condition="[String.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301) | Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301)] + !String.IsEmpty(Container(301).ListItem.Art(landscape)) + !String.StartsWith(Container(301).ListItem.Art(landscape),plugin://)">$INFO[Container(301).ListItem.Art(landscape)]</value>
+        <value condition="[String.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301) | Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301)] + !String.IsEmpty(Container(301).ListItem.Art(thumb)) + !String.StartsWith(Container(301).ListItem.Art(thumb),plugin://)">$INFO[Container(301).ListItem.Art(thumb)]</value>
+        <value condition="[String.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301) | Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301)] + !String.IsEmpty(Container(301).ListItem.Art(poster)) + !String.StartsWith(Container(301).ListItem.Art(poster),plugin://)">$INFO[Container(301).ListItem.Art(poster)]</value>
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),501)">$INFO[Container(501).ListItem.Art(fanart)]</value>
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),502)">$INFO[Container(502).ListItem.Art(fanart)]</value>
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),503)">$INFO[Container(503).ListItem.Art(fanart)]</value>

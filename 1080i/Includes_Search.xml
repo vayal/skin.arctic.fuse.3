@@ -10,6 +10,7 @@
             <include>Hub_Window_Background</include>
             <include content="Home_Control">
                 <param name="window">$PARAM[window]</param>
+                <param name="skin_key">1105</param>
                 <param name="overlay">[false]</param>
                 <onfocus condition="!Skin.HasSetting(HomeSwitcher.Vertical)">SetFocus(3001)</onfocus>
             </include>

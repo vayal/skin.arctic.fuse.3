@@ -1,38 +1,14 @@
 [
     {
-        "label": "Continue Watching",
+        "label": "In Progress Series",
         "icon": "",
-        "path": "plugin://plugin.video.velocity2/?action=smart_list&type=continue_watching",
-        "target": "videos"
-    },
-    {
-        "label": "Recently Watched",
-        "icon": "",
-        "path": "plugin://plugin.video.velocity2/?action=smart_list&type=recently_watched",
-        "target": "videos"
-    },
-    {
-        "label": "New Episodes",
-        "icon": "",
-        "path": "plugin://plugin.video.velocity2/?action=smart_list&type=new_episodes",
+        "path": "plugin://plugin.video.velocity2/?action=list&list_id=home_in_progress_series&page=1",
         "target": "videos"
     },
     {
         "label": "In Progress Movies",
         "icon": "",
-        "path": "plugin://plugin.video.velocity2/?action=smart_list&type=in_progress_movies",
-        "target": "videos"
-    },
-    {
-        "label": "Discover",
-        "icon": "",
-        "path": "plugin://plugin.video.velocity2/?action=discover",
-        "target": "videos"
-    },
-    {
-        "label": "Velocity Home",
-        "icon": "",
-        "path": "plugin://plugin.video.velocity2/?action=home",
+        "path": "plugin://plugin.video.velocity2/?action=list&list_id=home_in_progress_movies&page=1",
         "target": "videos"
     }
 ]
