@@ -6,8 +6,8 @@
         <definition>
             <!-- Logical hub id ($PARAM[window]) matches this window ($PARAM[window_id]); set WidgetContainer on the *current* window only (UseLocalWindowIDs maps 1101→11101 etc.). -->
             <!-- Do not require WidgetContainer empty: another include may have set 501 first; hubs with spotlight must win on load. -->
-            <onload condition="String.IsEqual($PARAM[window],$PARAM[window_id]) + !String.IsEmpty(Skin.String(HomeSwitcher.$PARAM[window].Spotlight.Target))">SetProperty(TMDbHelper.WidgetContainer,301)</onload>
-            <onload condition="String.IsEqual($PARAM[window],$PARAM[window_id]) + String.IsEmpty(Window.Property(TMDbHelper.WidgetContainer)) + String.IsEmpty(Skin.String(HomeSwitcher.$PARAM[window].Spotlight.Target))">SetProperty(TMDbHelper.WidgetContainer,501)</onload>
+            <onload condition="String.IsEqual($PARAM[window],$PARAM[window_id]) + !String.IsEmpty(Skin.String(HomeSwitcher.$PARAM[window].Spotlight.Target))">SetProperty(Velocity.WidgetContainer,301)</onload>
+            <onload condition="String.IsEqual($PARAM[window],$PARAM[window_id]) + String.IsEmpty(Window.Property(Velocity.WidgetContainer)) + String.IsEmpty(Skin.String(HomeSwitcher.$PARAM[window].Spotlight.Target))">SetProperty(Velocity.WidgetContainer,501)</onload>
             <onload condition="String.IsEqual($PARAM[window],$PARAM[window_id]) + String.IsEmpty(Skin.String(HomeSwitcher.$PARAM[window].Name))">Skin.SetString(HomeSwitcher.$PARAM[window].Name,$PARAM[defaultname])</onload>
         </definition>
     </include>
@@ -39,10 +39,10 @@
                 <param name="window_id">$PARAM[window_id]</param>
             </include>
 
-            <onload condition="String.IsEmpty(Window(1105).Property(TMDbHelper.WidgetContainer))">SetProperty(TMDbHelper.WidgetContainer,501,1105)</onload>
-            <onload condition="String.IsEmpty(Window(1106).Property(TMDbHelper.WidgetContainer))">SetProperty(TMDbHelper.WidgetContainer,501,1106)</onload>
-            <onload condition="String.IsEmpty(Window(1107).Property(TMDbHelper.WidgetContainer))">SetProperty(TMDbHelper.WidgetContainer,501,1107)</onload>
-            <onload condition="String.IsEmpty(Window(1108).Property(TMDbHelper.WidgetContainer))">SetProperty(TMDbHelper.WidgetContainer,501,1108)</onload>
+            <onload condition="String.IsEmpty(Window(1105).Property(Velocity.WidgetContainer))">SetProperty(Velocity.WidgetContainer,501,1105)</onload>
+            <onload condition="String.IsEmpty(Window(1106).Property(Velocity.WidgetContainer))">SetProperty(Velocity.WidgetContainer,501,1106)</onload>
+            <onload condition="String.IsEmpty(Window(1107).Property(Velocity.WidgetContainer))">SetProperty(Velocity.WidgetContainer,501,1107)</onload>
+            <onload condition="String.IsEmpty(Window(1108).Property(Velocity.WidgetContainer))">SetProperty(Velocity.WidgetContainer,501,1108)</onload>
 
             <menucontrol>300</menucontrol>
 
@@ -120,7 +120,7 @@
                     <onback condition="Player.HasMedia">309</onback>
 
                     <ondown>ActivateWindow(1180)</ondown>
-                    <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PARAM[id])</onfocus>
+                    <onfocus>SetProperty(Velocity.WidgetContainer,$PARAM[id])</onfocus>
                     <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
                     <onfocus condition="![$PARAM[home_switcher]]">ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
                     <onfocus condition="$PARAM[home_switcher]">SetProperty(HomeSwitcher.IsVisible,True,Home)</onfocus>
@@ -169,7 +169,7 @@
 
                 <include>Hub_Grouplist_OnLeftRight</include>
                 <ondown>ActivateWindow(1180)</ondown>
-                <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PARAM[id])</onfocus>
+                <onfocus>SetProperty(Velocity.WidgetContainer,$PARAM[id])</onfocus>
                 <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
                 <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
                 <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
@@ -243,7 +243,7 @@
     </include>
 
     <!-- Match 301 as int or string; show chrome whenever spotlight mode is active (feeder may still be empty briefly or if Velocity returns no rows). -->
-    <expression name="Hub_Spotlight_Visible_Expression">[[String.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301) | Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301)]]</expression>
+    <expression name="Hub_Spotlight_Visible_Expression">[[String.IsEqual(Window.Property(Velocity.WidgetContainer),301) | Integer.IsEqual(Window.Property(Velocity.WidgetContainer),301)]]</expression>
 
     <include name="Hub_Wall_Info">
         <control type="group">
@@ -253,7 +253,7 @@
             <include>Home_Info_Animation</include>
             <include>Info_Panel_Dimensions</include>
             <include content="Info_Panel">
-                <param name="visible">[!$EXP[Exp_InfoDialogs] + Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),$PARAM[id])]</param>
+                <param name="visible">[!$EXP[Exp_InfoDialogs] + Integer.IsEqual(Window.Property(Velocity.WidgetContainer),$PARAM[id])]</param>
                 <param name="visible_line">false</param>
                 <param name="visible_plot">false</param>
                 <param name="visible_meta">false</param>
@@ -272,7 +272,7 @@
                 <control type="group">
                     <top>200</top>
                     <include content="Info_Panel">
-                        <param name="visible">[!$EXP[Exp_InfoDialogs] + Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),$PARAM[id])]</param>
+                        <param name="visible">[!$EXP[Exp_InfoDialogs] + Integer.IsEqual(Window.Property(Velocity.WidgetContainer),$PARAM[id])]</param>
                         <param name="visible_line">false</param>
                         <param name="visible_plot">false</param>
                         <param name="visible_meta">false</param>
@@ -286,7 +286,7 @@
                 <include>Info_Panel_Dimensions</include>
                 <include>Home_Info_Animation</include>
                 <include content="Info_Panel">
-                    <param name="visible">[!$EXP[Exp_InfoDialogs] + Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),$PARAM[id])]</param>
+                    <param name="visible">[!$EXP[Exp_InfoDialogs] + Integer.IsEqual(Window.Property(Velocity.WidgetContainer),$PARAM[id])]</param>
                     <param name="visible_line">true</param>
                     <param name="visible_plot">true</param>
                     <param name="visible_meta">true</param>
@@ -359,7 +359,7 @@
 
     <include name="Hub_Spotlight_Button">
         <!-- <onfocus>SetProperty(HomeSwitcher.IsVisible,True,Home)</onfocus> -->
-        <onfocus>SetProperty(TMDbHelper.WidgetContainer,301)</onfocus>
+        <onfocus>SetProperty(Velocity.WidgetContainer,301)</onfocus>
         <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
         <!-- Hide the switcher strip only when the feeder actually has items (full-hero mode). If NumItems is 0, clearing this traps users with no Left-path back to 300 and an empty hero. -->
         <onfocus condition="!Integer.IsEqual(Container(301).NumItems,0)">ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
@@ -633,7 +633,7 @@
                 <visible>!String.IsEmpty(Skin.String(HomeSwitcher.$PARAM[window].Spotlight.Target))</visible>
                 <control type="wraplist" id="301">
                     <preloaditems>2</preloaditems>
-                    <onfocus>SetProperty(TMDbHelper.WidgetContainer,301)</onfocus>
+                    <onfocus>SetProperty(Velocity.WidgetContainer,301)</onfocus>
                     <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
                     <!-- Do not SetFocus from here while NumItems is still 0: directory jobs start asynchronously; yanking focus can prevent CDirectoryProvider from ever filling 301 on Omega. -->
                     <orientation>horizontal</orientation>
@@ -756,8 +756,8 @@
     </include>
 
     <include name="Hub_Window_Slide_OnSpotlight">
-        <animation effect="slide" start="0" end="0,240" time="400" tween="quadratic" reversible="false" condition="!ControlGroup(310).HasFocus() + !String.IsEmpty(Window(Home).Property(HomeSwitcher.IsVisible)) + [String.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301) | Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301)]">Conditional</animation>
-        <animation effect="slide" end="0" start="0,240" time="400" tween="quadratic" reversible="false" condition="![!ControlGroup(310).HasFocus() + !String.IsEmpty(Window(Home).Property(HomeSwitcher.IsVisible)) + [String.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301) | Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),301)]]">Conditional</animation>
+        <animation effect="slide" start="0" end="0,240" time="400" tween="quadratic" reversible="false" condition="!ControlGroup(310).HasFocus() + !String.IsEmpty(Window(Home).Property(HomeSwitcher.IsVisible)) + [String.IsEqual(Window.Property(Velocity.WidgetContainer),301) | Integer.IsEqual(Window.Property(Velocity.WidgetContainer),301)]">Conditional</animation>
+        <animation effect="slide" end="0" start="0,240" time="400" tween="quadratic" reversible="false" condition="![!ControlGroup(310).HasFocus() + !String.IsEmpty(Window(Home).Property(HomeSwitcher.IsVisible)) + [String.IsEqual(Window.Property(Velocity.WidgetContainer),301) | Integer.IsEqual(Window.Property(Velocity.WidgetContainer),301)]]">Conditional</animation>
     </include>
 
     <include name="Hub_Window_Background">
@@ -949,91 +949,7 @@
         </control>
     </include>
 
-    <include name="Hub_Weather_Widget">
-        <control type="group">
-            <top>0</top>
-            <right>40</right>
-            <left>80</left>
-            <top>320</top>
-            <bottom>90</bottom>
-            <visible>String.IsEqual(Container(601).ListItem.Property(guid),weather)</visible>
-            <control type="group">
-                <left>0%</left>
-                <height>660</height>
-                <bottom>0</bottom>
-                <width>20%</width>
-                <control type="group">
-                    <right>40</right>
-                    <include content="Weather_Details_HighLow">
-                        <param name="diffuse">diffuse/tall_w320_h720.png</param>
-                        <param name="day">Day0</param>
-                    </include>
-                </control>
-            </control>
-            <control type="group">
-                <left>20%</left>
-                <height>660</height>
-                <bottom>0</bottom>
-                <width>20%</width>
-                <control type="group">
-                    <right>40</right>
-                    <include content="Weather_Details_HighLow">
-                        <param name="diffuse">diffuse/tall_w320_h720.png</param>
-                        <param name="day">Day1</param>
-                    </include>
-                </control>
-            </control>
-            <control type="group">
-                <left>40%</left>
-                <height>660</height>
-                <bottom>0</bottom>
-                <width>20%</width>
-                <control type="group">
-                    <right>40</right>
-                    <include content="Weather_Details_HighLow">
-                        <param name="diffuse">diffuse/tall_w320_h720.png</param>
-                        <param name="day">Day2</param>
-                    </include>
-                </control>
-            </control>
-            <control type="group">
-                <left>60%</left>
-                <height>660</height>
-                <bottom>0</bottom>
-                <width>20%</width>
-                <control type="group">
-                    <right>40</right>
-                    <include content="Weather_Details_HighLow">
-                        <param name="diffuse">diffuse/tall_w320_h720.png</param>
-                        <param name="day">Day3</param>
-                    </include>
-                </control>
-            </control>
-            <control type="group">
-                <left>80%</left>
-                <height>660</height>
-                <bottom>0</bottom>
-                <width>20%</width>
-                <control type="group">
-                    <right>40</right>
-                    <include content="Weather_Details_HighLow">
-                        <param name="diffuse">diffuse/tall_w320_h720.png</param>
-                        <param name="day">Day4</param>
-                    </include>
-                </control>
-            </control>
-        </control>
-    </include>
-
     <include name="Hub_Settings_Items">
-        <item>
-            <label>$LOCALIZE[400]</label>
-            <property name="guid">weather</property>
-            <property name="widget_id">$NUMBER[501]</property>
-            <property name="show_overlay">true</property>
-            <onclick>ActivateWindow(1161)</onclick>
-            <visible>!Integer.IsEqual(Container(501).NumItems,0) | Container(501).IsUpdating</visible>
-        </item>
         <item>
             <label>$LOCALIZE[1036]</label>
             <property name="guid">favourites</property>

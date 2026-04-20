@@ -1075,18 +1075,6 @@
             "link": "true"
         },
         {
-            "name": "Weather",
-            "path": "ActivateWindow(weather)",
-            "icon": "special://skin/extras/icons/sun2.png",
-            "link": "true"
-        },
-        {
-            "name": "Weather",
-            "path": "ActivateWindow(1161)",
-            "icon": "special://skin/extras/icons/cloud-sun-rain.png",
-            "link": "true"
-        },
-        {
             "name": "Favourites",
             "path": "ActivateWindow(1160)",
             "icon": "special://skin/extras/icons/heart.png",

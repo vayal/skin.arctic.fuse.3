@@ -164,7 +164,6 @@
                     <onclick>Dialog.Close(musicinformation)</onclick>
                     <onclick>Dialog.Close(videoosd,true)</onclick>
                     <onclick>Dialog.Close(1140,true)</onclick>
-                    <onclick>Dialog.Close(1141,true)</onclick>
                     <onclick>Dialog.Close(videobookmarks,true)</onclick>
                     <onclick>Skin.SetString(InfoPanel.FullSwitch,Full,Home)</onclick>
                     <onclick>ActivateWindow(Videos,plugin://plugin.video.velocity2/?action=home,return)</onclick>
@@ -199,7 +198,6 @@
             <onclick>Dialog.Close(1114,true)</onclick>
             <onclick>Dialog.Close(videoosd,true)</onclick>
             <onclick>Dialog.Close(1140,true)</onclick>
-            <onclick>Dialog.Close(1141,true)</onclick>
             <onclick>Dialog.Close(videobookmarks,true)</onclick>
         </include>
         <!-- Movies -->

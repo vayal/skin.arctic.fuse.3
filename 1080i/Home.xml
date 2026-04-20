@@ -2,8 +2,6 @@
 <window>
     <onload>RunScript(script.skinvariables,run_executebuiltin=special://skin/shortcuts/skinvariables-splash.json,use_rules=True)</onload>
     <include>Action_BuildViews</include>
-    <onload>Skin.SetString(TMDbHelper.Corner.Radius,20)</onload>
-    <onload>Skin.SetString(TMDbHelper.UseLocalWindowIDs,10000|11101|11102|11103|11104|11105|11106|11107|11108|11109)</onload>
     <include>Action_ButtonMenu_Onload</include>
     <include>Action_BuildShortcuts_OnLoad</include>
 
@@ -17,7 +15,7 @@
     <onload condition="String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Label))">Skin.SetString(HomeSwitcher.Home.Spotlight.Label,Spotlight)</onload>
     <onload condition="!String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Target)) + [String.Contains(Skin.String(HomeSwitcher.Home.Spotlight.Path),action=discover) | String.Contains(Skin.String(HomeSwitcher.Home.Spotlight.Path),smart_list)]">Skin.SetString(HomeSwitcher.Home.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&amp;list_id=home_spotlight_mixed&amp;page=1)</onload>
     <!-- Hub_Onload runs above before Target/Path may be seeded; it can leave WidgetContainer at 501. Re-point to spotlight feeder once Target exists. -->
-    <onload condition="!String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Target))">SetProperty(TMDbHelper.WidgetContainer,301)</onload>
+    <onload condition="!String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Target))">SetProperty(Velocity.WidgetContainer,301)</onload>
 
     <!-- Home §2.1 in-progress tabs: seed WidgetMeta + restore last tab (skin-vision-blueprint-v0 §2.2). -->
     <onload condition="String.IsEmpty(Skin.String(Velocity.Home.InProgressTab))">Skin.SetString(Velocity.Home.InProgressTab,series)</onload>

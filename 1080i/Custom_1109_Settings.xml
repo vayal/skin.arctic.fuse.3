@@ -9,14 +9,15 @@
     <controls>
 
         <control type="list" id="501">
+            <visible>false</visible>
             <orientation>horizontal</orientation>
             <autoscroll delay="0" time="20000" repeat="0">true</autoscroll>
-            <onclick>Weather.LocationNext</onclick>
+            <onclick>noop</onclick>
             <onup>601</onup>
             <onfocus>SetFocus(601)</onfocus>
             <itemlayout />
             <focusedlayout />
-            <content sortby="random" target="images">resource://resource.images.weatherfanart.multi/$INFO[Weather.FanartCode]/</content>
+            <content />
         </control>
 
         <include>Hub_Window_Background</include>
@@ -41,9 +42,6 @@
                 <include content="Hub_Combined_Widgets_Grouplist">
                     <include>Hub_Settings_Widgets</include>
                 </include>
-
-                <include>Hub_Weather_Widget</include>
-
 
                 <include content="List_SettingsWidget">
                     <param name="id">503</param>

@@ -117,7 +117,7 @@
             <property name="CustomInfo01">$LOCALIZE[8]</property>
             <property name="CustomInfo02">$INFO[Weather.Location]</property>
             <property name="is_weather">true</property>
-            <onclick>ActivateWindow(1161)</onclick>
+            <onclick>noop</onclick>
         </item>
     </include>
 

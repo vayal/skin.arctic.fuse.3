@@ -57,3 +57,16 @@ Phase execution status is tracked only in:
 | Phase 02 fixture mirror | skin-repo roadmap evidence pointer | [Phase 02 Fixture Mirror](./phase-02-fixtures-mirror.md) |
 | Phase 02 validation report | acceptance and blocker tracking | [Phase 02 Validation Report](./phase-02-validation-report.md) |
 
+## 7) Phase 07 final evidence (decision closure pointers)
+
+Phase 07 is documented in [Phase 07 - Stabilization and Freeze](./phase-07-stabilization-and-freeze.md) and [Phase 07 Validation Report](./phase-07-validation-report.md).
+
+| Decision | Where closure is recorded (skin repo) |
+|---|---|
+| `D-003` | [D-003](../d003-view-mode-matrix.md); UI cross-check [kodi-ui-verification-matrix.md](./kodi-ui-verification-matrix.md) §2–3; Phase 07 report §2.4 / §5 |
+| `D-015` | [D-015](../d015-addon-required-lists-contract.md); Phase 07 report §2.7, §5, §6 §1 |
+| `D-021` | [Skin Vision Blueprint](../skin-vision-blueprint-v0.md); [phase-04-validation-report.md](./phase-04-validation-report.md); Phase 07 report §3 |
+| `D-038` | [D-038](../d038-legacy-property-ledger.md) §2–4 (Phase 07 reconciliation); Phase 07 report §4 |
+
+Prior phase validation reports remain authoritative for **static** batch completion: [phase-01-preflight-and-contract-lock.md](./phase-01-preflight-and-contract-lock.md), [phase-02-validation-report.md](./phase-02-validation-report.md), [phase-03-validation-report.md](./phase-03-validation-report.md), [phase-04-validation-report.md](./phase-04-validation-report.md), [phase-05-validation-report.md](./phase-05-validation-report.md), [phase-06-validation-report.md](./phase-06-validation-report.md).
+

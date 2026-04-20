@@ -98,3 +98,20 @@ Bootstrap reset steps for existing users:
 Fallback reset (if a focused builtin path is unavailable in user setup):
 1. Run builtin: `Skin.ResetSettings`
 2. Run builtin: `ActivateWindow(Startup)`
+
+---
+
+## Runtime evidence (operator capture)
+
+CI and agent environments cannot run Kodi UI. Use this subsection to attach **evidence** that closes validation items 1–4 in the addendum above.
+
+**Procedure:** Follow [kodi-ui-verification-matrix.md](./kodi-ui-verification-matrix.md) §6 after a bootstrap reset (steps in this document). For each bullet, paste one of: short narrative + Kodi version, screenshot path, or relevant `kodi.log` excerpt (no secrets).
+
+| Check | Result (pass/fail) | Evidence (link or “attached below”) |
+|-------|--------------------|-------------------------------------|
+| Home hub navigation | | |
+| Series hub (1101) navigation | | |
+| Movies hub (1102) navigation | | |
+| Provider drill-in (if in scope) | | |
+
+**Optional:** Link a gist or ticket instead of inline paste.

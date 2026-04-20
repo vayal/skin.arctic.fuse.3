@@ -13,9 +13,9 @@ Migrate control-plane skin wiring from helper-model dependencies to Velocity/nat
 
 Checks:
 
-- [ ] Phase 02 accepted
-- [ ] Batch B in D-038 is locked
-- [ ] addon payload fixtures available for integration tests
+- [x] Phase 02 accepted (see [Phase 02 validation report](./phase-02-validation-report.md))
+- [x] Batch B in D-038 is locked ([D-038](../d038-legacy-property-ledger.md) §3 / §4)
+- [x] Addon payload fixtures available ([phase-02-fixtures-mirror](./phase-02-fixtures-mirror.md) → addon `plans/phase02-fixtures/`)
 
 ## File-Level Touch List
 

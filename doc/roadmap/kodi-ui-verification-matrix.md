@@ -13,7 +13,7 @@
 | **Skin bootstrap & switcher** | [phase-03-skin-core-plumbing-migration.md](./phase-03-skin-core-plumbing-migration.md), [phase-03-validation-report.md](./phase-03-validation-report.md) | Default hubs on, names, Velocity paths, optional hub toggles cleared |
 | **Inventory / traceability** | [inventory/01-home-and-hubs.md](./inventory/01-home-and-hubs.md), [appendix-traceability-matrix.md](./appendix-traceability-matrix.md) | Structural IDs (`HomeSwitcher.*`, hub windows) |
 | **Product / addon contract names** | [screen-by-screen-build-contract.md](../screen-by-screen-build-contract.md) | **Target** UX and named feeds (e.g. `series_spotlight_trending`) — **not** yet 1:1 with skin XML paths today |
-| **Roadmap status** | [README.md](./README.md) | Phase table — **note:** README lists Phase 03 as `blocked` while [phase-03-validation-report.md](./phase-03-validation-report.md) records acceptance pass; reconcile before treating Phase 03 as closed |
+| **Roadmap status** | [README.md](./README.md) | Phase 03 is **completed** in the phase table; static acceptance matches [phase-03-validation-report.md](./phase-03-validation-report.md); runtime hub checks still require operator-captured evidence in that report |
 
 **Rule of thumb:** For “does the skin do what we shipped?” verify against **§2–§5** below (code-backed). For “does the addon eventually match the long-form contract?” track **screen-by-screen** separately and map `smart_list` / `list` types to those contract IDs in addon docs.
 
@@ -62,18 +62,16 @@
 
 ### 4.1 Home (`skinvariables-homewidgets-standard`)
 
-| Order | Row label | Content URL |
-|------:|-----------|-------------|
-| 1 | Continue Watching | `plugin://plugin.video.velocity2/?action=smart_list&type=continue_watching` |
-| 2 | Recently Watched | `…&type=recently_watched` |
-| 3 | New Episodes | `…&type=new_episodes` |
-| 4 | In Progress Movies | `…&type=in_progress_movies` |
-| 5 | Discover | `…&action=discover` |
-| 6 | Velocity Home | `…&action=home` |
+**Source:** [script-skinvariables-generator-overrides.xml](../../1080i/script-skinvariables-generator-overrides.xml) include `skinvariables-homewidgets-standard` (not the old six-row `smart_list` layout).
 
-**Kodi check:** From Home, focus widget stack — row titles and opening each row should hit Velocity with the query above.
+| Order | Row label | Content / behavior |
+|------:|-----------|---------------------|
+| 1 | In progress (tab strip) | `plugin://script.skinvariables/?info=get_shortcuts_node&guid=velocity-home-inprogress&menu=homewidgets-inprogress-tabs&…` — landscape row **501** |
+| 2 | Poster row (follows tab) | `$INFO[Window.Property(WidgetMeta.501.FolderPath)]` — Velocity lists from [Home.xml](../../1080i/Home.xml) `onload`: `home_in_progress_series` / `home_in_progress_movies` per `Velocity.Home.InProgressTab` |
 
-**Spotlight / hero:** Driven by `Skin.String(HomeSwitcher.Home.Spotlight.*)` set in startup to Velocity `action=home` (separate from the stacked rows).
+**Kodi check:** Tab strip changes tab label; poster row loads the matching `plugin://plugin.video.velocity2/?action=list&list_id=home_in_progress_*&page=1` path.
+
+**Spotlight / hero:** `Skin.String(HomeSwitcher.Home.Spotlight.*)` from [skinvariables-startup.json](../../shortcuts/skinvariables-startup.json) / [Home.xml](../../1080i/Home.xml) — `plugin://plugin.video.velocity2/?action=list&list_id=home_spotlight_mixed&page=1` (not `action=home`).
 
 ### 4.2 Series hub 1101 (`skinvariables-1101widgets-standard`)
 
@@ -114,17 +112,18 @@ Overrides define **`skinvariables-1101submenu-staticitems`** and **`skinvariable
 | Row set / order | Contract tables describe spotlight + in-progress tabs + provider rows + genres | **1101/1102/Home** rows match **overrides** (§4), not every contract row yet |
 | “Mini-hubs” | Contract: per **streaming provider** roster | **1106–1108** in skin are **calendar/up next**, **PVR**, **addons** — different concept; treat contract mini-hub section as **future** unless product says otherwise |
 | Optional hubs | Phase 03: default off | Still **implemented** if user sets toggles — OK, but QA should note if 1103/1104 reappear unexpectedly |
+| **Search tabs (videodb/musicdb)** | [screen-by-screen-build-contract.md](../screen-by-screen-build-contract.md) search scope centers on Velocity discover + movies/TV | Base generator [script-skinvariables-generator-includes-.xml](../../1080i/script-skinvariables-generator-includes-.xml) still defines **Movies / TV / Music / Artists** rows using `videodb://` and `musicdb://` smart-playlist URLs alongside Velocity `plugin://plugin.video.velocity2/?action=execute_search`. **Canonical product path:** Velocity `execute_search` + Discover (see `Custom_1105_Search.xml` / `Includes_Search.xml`). Library DB tabs remain as optional Kodi-library compatibility; trimming them is **Phase 04+** unless product drops local-library search entirely. |
 
 ---
 
 ## 6) Minimal pass/fail checklist (copy for tickets)
 
 - [ ] Top bar: Search (if enabled) + Home + **Series** + **Movies**; no 1103/1104/1106–1108 on clean profile after skin init  
-- [ ] Home: six standard rows (§4.1) populate or show empty state; spotlight opens Velocity home path  
+- [ ] Home: in-progress tab row + poster row (§4.1) populate or show empty state; spotlight uses `home_spotlight_mixed` Velocity list  
 - [ ] 1101: six rows (§4.2); submenu two items  
 - [ ] 1102: six rows (§4.3); submenu two items  
 - [ ] No missing textures in log for submenu icons (e.g. `resume.png` if referenced elsewhere)  
-- [ ] Document Phase 03 **blocked vs completed** in [README.md](./README.md) once team agrees with [phase-03-validation-report.md](./phase-03-validation-report.md)
+- [x] Phase 03 status reconciled in [README.md](./README.md) with [phase-03-validation-report.md](./phase-03-validation-report.md)
 
 ---
 

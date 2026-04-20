@@ -1051,14 +1051,6 @@
             <selected>!Skin.HasSetting(OSD.OnDown.DisableVideoBookmarks)</selected>
             <label>$LOCALIZE[298] + $LOCALIZE[31429]</label>
         </include>
-        <include content="Settings_Button">
-            <param name="id">8025</param>
-            <param name="control">radiobutton</param>
-            <param name="dialog">true</param>
-            <onclick>Skin.ToggleSetting(OSD.OnDown.Disable1141)</onclick>
-            <selected>!Skin.HasSetting(OSD.OnDown.Disable1141)</selected>
-            <label>$LOCALIZE[206]</label>
-        </include>
     </include>
 
     <include name="DialogCustom_VideoInfo_Items">
@@ -1067,7 +1059,7 @@
             <param name="control">radiobutton</param>
             <param name="dialog">true</param>
             <label>TMDbHelper</label>
-            <include>Action_TMDbHelper_Toggle_Onclick</include>
+            <include>Action_Skin_LegacyBlurDataToggle_Onclick</include>
             <selected>$EXP[Exp_TMDbHelper_IsData]</selected>
         </include>
 
@@ -1238,7 +1230,7 @@
             <param name="id">$PARAM[id]</param>
             <label>$LOCALIZE[31080] $PARAM[number]</label>
             <label2>$INFO[Skin.String(DialogInfo.$PARAM[type].Item$PARAM[number])]</label2>
-            <onclick>RunScript(script.skinvariables,run_dialog=select,list=Trailer / Trakt / Wikipedia / Plot / Artwork / UserRating / Versions / Extras / Refresh,separator=' / ',heading=$PARAM[type] $PARAM[number],"executebuiltin=Skin.SetString(DialogInfo.$PARAM[type].Item$PARAM[number],{v})")</onclick>
+            <onclick>RunScript(script.skinvariables,run_dialog=select,list=Trailer / Trakt / Plot / Artwork / UserRating / Versions / Extras / Refresh,separator=' / ',heading=$PARAM[type] $PARAM[number],"executebuiltin=Skin.SetString(DialogInfo.$PARAM[type].Item$PARAM[number],{v})")</onclick>
         </include>
     </include>
 

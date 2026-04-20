@@ -9,8 +9,6 @@
             <visible>!Window.IsActive(pvrchannelguide)</visible>
             <visible>!Window.IsActive(pvrosdchannels)</visible>
             <visible>!Window.IsActive(videobookmarks)</visible>
-            <visible>!Window.IsActive(1141)</visible>
-
             <include>Animation_OSD_Dialog_VisibleChange</include>
             <control type="group">
                 <include>OSD_Info_Dimensions</include>
@@ -35,8 +33,8 @@
                     <include>OSD_List_Dimensions</include>
                     <onup>Close</onup>
                     <ondown>ActivateWindow($VAR[Action_OSD_1140_OnDown])</ondown>
-                    <onfocus>SetProperty(TMDbHelper.WidgetContainer,7000,1140)</onfocus>
-                    <onunfocus>ClearProperty(TMDbHelper.WidgetContainer,1140)</onunfocus>
+                    <onfocus>SetProperty(Velocity.WidgetContainer,7000,1140)</onfocus>
+                    <onunfocus>ClearProperty(Velocity.WidgetContainer,1140)</onunfocus>
                     <include content="Animation_ConditionalFade">
                         <param name="condition">Container(7000).IsUpdating</param>
                     </include>

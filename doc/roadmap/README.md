@@ -61,11 +61,11 @@ Use this table as the only execution status tracker for roadmap phases.
 |---|---|---|
 | [Phase 01 - Preflight and Contract Lock](./phase-01-preflight-and-contract-lock.md) | completed | [Phase 01 completion note](./phase-01-preflight-and-contract-lock.md) |
 | [Phase 02 - Addon Contract Implementation](./phase-02-addon-contract-implementation.md) | completed | [Phase 02 validation report](./phase-02-validation-report.md) |
-| [Phase 03 - Skin Core Plumbing Migration](./phase-03-skin-core-plumbing-migration.md) | blocked | [Phase 03 validation report](./phase-03-validation-report.md) |
-| [Phase 04 - Skin Removal and Policy Enforcement](./phase-04-skin-removal-and-policy-enforcement.md) | pending | TBD |
-| [Phase 05 - Metadata and Rendering Migration](./phase-05-metadata-and-rendering-migration.md) | pending | TBD |
-| [Phase 06 - Deferred Exceptions and Final Cleanup](./phase-06-deferred-exceptions-and-final-cleanup.md) | pending | TBD |
-| [Phase 07 - Stabilization and Freeze](./phase-07-stabilization-and-freeze.md) | pending | TBD |
+| [Phase 03 - Skin Core Plumbing Migration](./phase-03-skin-core-plumbing-migration.md) | completed | [Phase 03 validation report](./phase-03-validation-report.md) (static Batch B; runtime hub journeys require operator evidence in same report) |
+| [Phase 04 - Skin Removal and Policy Enforcement](./phase-04-skin-removal-and-policy-enforcement.md) | completed | [Phase 04 validation report](./phase-04-validation-report.md) |
+| [Phase 05 - Metadata and Rendering Migration](./phase-05-metadata-and-rendering-migration.md) | completed | [Phase 05 validation report](./phase-05-validation-report.md) |
+| [Phase 06 - Deferred Exceptions and Final Cleanup](./phase-06-deferred-exceptions-and-final-cleanup.md) | completed | [Phase 06 validation report](./phase-06-validation-report.md); [D-038](../d038-legacy-property-ledger.md) §4 exception list updated |
+| [Phase 07 - Stabilization and Freeze](./phase-07-stabilization-and-freeze.md) | blocked | [Phase 07 validation report](./phase-07-validation-report.md) — **blocked:** no Kodi runtime evidence for mandatory end-to-end journeys and D-015 pagination checks; Phase 03 addendum runtime table still empty. Re-run in Kodi per [kodi-ui-verification-matrix.md](./kodi-ui-verification-matrix.md), attach evidence, then set status to **completed** only when all Phase 07 acceptance criteria pass. |
 
 ## Canonical Source Documents
 

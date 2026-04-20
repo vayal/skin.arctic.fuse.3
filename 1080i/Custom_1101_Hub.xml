@@ -7,7 +7,7 @@
     <onload condition="String.IsEmpty(Skin.String(HomeSwitcher.1101.Spotlight.Target))">Skin.SetString(HomeSwitcher.1101.Spotlight.Target,videos)</onload>
     <onload condition="String.IsEmpty(Skin.String(HomeSwitcher.1101.Spotlight.Target))">Skin.SetString(HomeSwitcher.1101.Spotlight.Label,Spotlight)</onload>
     <onload condition="!String.IsEmpty(Skin.String(HomeSwitcher.1101.Spotlight.Target)) + [String.Contains(Skin.String(HomeSwitcher.1101.Spotlight.Path),action=discover) | String.Contains(Skin.String(HomeSwitcher.1101.Spotlight.Path),smart_list)]">Skin.SetString(HomeSwitcher.1101.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&amp;list_id=series_spotlight_trending&amp;page=1)</onload>
-    <onload condition="!String.IsEmpty(Skin.String(HomeSwitcher.1101.Spotlight.Target))">SetProperty(TMDbHelper.WidgetContainer,301)</onload>
+    <onload condition="!String.IsEmpty(Skin.String(HomeSwitcher.1101.Spotlight.Target))">SetProperty(Velocity.WidgetContainer,301)</onload>
     <controls>
         <include content="Hub_Window">
             <param name="window">1101</param>
