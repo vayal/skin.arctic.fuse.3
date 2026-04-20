@@ -503,7 +503,7 @@ Legend:
 |---|---|---|---|---|---|---|---|
 | D-001 | Home/Hubs | Keep/remove `nextaired-home-rails` | Present in inventory, not aligned to current core 3-hub vision | Remove from main UX (or move to optional/deferred surface) | P1 | accept | remove |
 | D-002 | Home | Home submenu static items | Exists via generator includes | Keep minimal (or none) in v1; avoid extra clutter | P1 | accept | remove |
-| D-003 | Home/Hubs | Keep all hub widget modes (`standard/combined/wall`) | Multiple modes coexist | Hardcode one primary mode for personal fork | P1 | modify | build full matrix of available modes vs lists/hubs, then lock per list/hub (not per individual widget) |
+| D-003 | Home/Hubs | Keep all hub widget modes (`standard/combined/wall`) | Multiple modes coexist | Hardcode one primary mode for personal fork | P1 | accept | locked via `doc/d003-view-mode-matrix.md` with case-by-case decisions and no fallback mode switching |
 | D-004 | Search | Keep/remove autocomplete dropdown | Still available | Remove or disable by default for cleaner controller flow | P1 | accept | keep current |
 | D-005 | Search | Final selector tabs list | Not explicitly locked | Keep only core tabs used weekly | P0 | accept | Option A: Discover, Movies, TV Shows |
 | D-006 | Search | Search mode strategy | Combined+standard both exist | Hardcode one (recommended combined) | P1 | accept | combined for movies and series |
@@ -515,13 +515,13 @@ Legend:
 | D-012 | Movies | Final UI copy for in-progress row | Concept decided; naming semi-locked | Use `In Progress` | P1 | accept | In Progress |
 | D-013 | Movies | Final Movies row specs | Partially defined | Mirror Series philosophy exactly where possible | P0 | accept | user agreed |
 | D-014 | Genre discovery | Main-hub genre button placement | Decided conceptually | Keep at end of hub rows (after provider icons) | P1 | accept | user agreed |
-| D-015 | Genre discovery | Genre button target behavior | Decided `B2` filtered list | Confirm final list route contract shape | P0 | modify | use dedicated addon-fed genre lists; finalize in dedicated addon work document after skin decisions |
+| D-015 | Genre discovery | Genre button target behavior | Decided `B2` filtered list | Confirm final list route contract shape | P0 | accept | locked in `doc/d015-addon-required-lists-contract.md` with standardized media-specific provider/genre routes and explicit contract guarantees |
 | D-016 | Provider mini-hub | Final row order inside provider hub | Mostly defined | Spotlight -> Trending -> Most Popular -> 4 Genre rows | P0 | accept | user agreed |
 | D-017 | Provider mini-hub | Genre set fixed list viability | Fixed list chosen | Accept fixed 8 genres globally | P1 | accept | fixed global genre set |
 | D-018 | Details page | Final content depth in details page | Broadly undecided | Balanced: key metadata + plot + trailer + limited related rows | P0 | accept | remove Wikipedia, person widgets, cast rows, crew widgets, extra buttons |
 | D-019 | Details page | Keep/remove person/crew deep rails | Historically helper-heavy | Remove/defer by default | P1 | accept | remove |
 | D-020 | Details page | Keep/remove extended custom plot mode depth | Exists and complex | Keep simplified mode only | P1 | accept | no small info dialogs; keep full info/details screens only |
-| D-021 | Context menu | Final action set in expanded context menu | Not fully locked | Keep only high-value actions (details, trailer, provider/global discover jump) | P0 | modify | keep context menu; remove only deprecated/undesired items and align with details-page/no-info-dialog direction |
+| D-021 | Context menu | Final action set in expanded context menu | Not fully locked | Keep only high-value actions (details, trailer, provider/global discover jump) | P0 | accept | remove skin expanded items (Plot/Wiki/Discover jump/Trailer/Add-to-menu-node/View options); keep only Velocity addon context items; no fallback |
 | D-022 | OSD | Keep/remove playlist OSD dialog | Available | Keep only if heavily used; otherwise remove | P1 | accept | remove |
 | D-023 | OSD | Keep/remove cast OSD dialog | Hidden currently | Remove/defer permanently | P1 | accept | remove |
 | D-024 | OSD | Keep/remove PVR info extras | Present | Remove/defer for non-PVR personal flow | P1 | accept | remove all PVR functionality for this personal-use fork |
@@ -534,7 +534,7 @@ Legend:
 | D-031 | Empty-state | Global empty behavior | Chosen D2 | Accept `No items available` consistently | P0 | accept | user agreed |
 | D-032 | Card chrome | Image-only cards for poster/landscape/square | Chosen | Accept globally | P0 | accept | user agreed |
 | D-033 | Focus behavior | Spotlight focus defaults | Info-first chosen | Accept and apply across Home/Series/Movies | P0 | accept | user agreed |
-| D-034 | Settings | Minimal retained settings set | Not defined | Keep only high-value user toggles; hardcode rest | P1 | modify | defer removal; not required now unless we actively refactor settings surfaces |
+| D-034 | Settings | Minimal retained settings set | Not defined | Keep only high-value user toggles; hardcode rest | P1 | modify | explicit defer: do not change settings surfaces in this phase; settings cleanup is a later dedicated phase |
 | D-035 | Settings | Keep/remove shortcut editor UI | Present but complex | Defer/remove from user-facing flow | P1 | accept | remove/hide |
 | D-036 | Settings | Keep/remove legacy helper settings entries | Still present in settings files | Remove to reduce confusion | P1 | accept | remove legacy helper settings entries; preserve media info/progress labels (watched/in-progress/unwatched) |
 | D-037 | Contracts | Action dispatch simplification level | Mixed legacy/stateful complexity | Simplify to minimal required actions | P1 | accept | medium simplification |
