@@ -1,0 +1,22 @@
+---
+description: Kodi skin XML — structure, safety, and AF-style conventions
+globs: **/*.xml
+alwaysApply: false
+---
+
+# Kodi skin XML (AF fork)
+
+## Conventions
+
+- Prefer **includes** and **variables** over duplicating long `plugin://` strings.
+- **URL-encode** query values where needed; use Kodi’s `ListItem` path as produced by Velocity — do not invent non-existent `action` names without checking the addon dispatch table.
+- After structural changes to a window, verify **focus** and **onload** chains do not infinite-loop.
+
+## Testing mindset
+
+- Changes are validated in **Kodi** (target version matches skin’s `addon.xml` xbmc.gui version).
+- Do not assume browser-only CSS; layout is **XML controls** and **skin engine** behavior.
+
+## Files
+
+- Respect upstream AF3 file layout when merging upstream updates; isolate your fork’s changes in clearly named includes (e.g. `Includes_Velocity.xml`).

@@ -128,7 +128,7 @@
             <property name="widget_id">$NUMBER[501]</property>
             <property name="show_artwork">true</property>
             <property name="widget_numitems">$INFO[Container(501).NumItems]</property>
-            <onclick>RunPlugin(plugin://plugin.video.themoviedb.helper/?info=user_discover$INFO[Window(Home).Property(TMDbHelper.UserDiscover.Folderpath.ParamString),&amp;,])</onclick>
+             <onclick>RunPlugin(plugin://plugin.video.velocity2/?action=discover)</onclick>
             <visible>!Integer.IsEqual(Container(501).NumItems,0)</visible>
         </item>
         <include>skinvariables-searchwidgets-selector</include>
@@ -142,7 +142,7 @@
                 <include content="View_Furniture_Footer_ViewLine">
                     <param name="visible">true</param>
                     <param name="label">$INFO[Container(601).ListItem.Property(widget_numitems),, $LOCALIZE[31022]]</param>
-                    <param name="label_fallback">$INFO[System.AddonVersion(skin.arctic.fuse.3),arctic.fuse v,]</param>
+                    <param name="label_fallback">$INFO[System.AddonVersion(skin.velocity.af3),arctic.fuse v,]</param>
                 </include>
             </control>
         </control>
@@ -281,7 +281,7 @@
             <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical)">$INFO[Container(399).ListItem(-1).Property(action)]</onleft>
             <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical)">$INFO[Container(399).ListItem(1).Property(action)]</onright>
 
-            <onup condition="!Skin.HasSetting(Search.DisableDiscover) + !Skin.HasSetting(Search.DisableCombined)">RunPlugin(plugin://plugin.video.themoviedb.helper/?info=user_discover$INFO[Window(Home).Property(TMDbHelper.UserDiscover.Folderpath.ParamString),&amp;,])</onup>
+             <onup condition="!Skin.HasSetting(Search.DisableDiscover) + !Skin.HasSetting(Search.DisableCombined)">RunPlugin(plugin://plugin.video.velocity2/?action=discover)</onup>
             <ondown>301</ondown>
 
             <texturefocus />

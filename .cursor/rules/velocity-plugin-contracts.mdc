@@ -1,0 +1,27 @@
+---
+description: Velocity plugin URLs and smart_list types — contract for skin widgets
+alwaysApply: true
+---
+
+# Velocity plugin contract (skin)
+
+## Base
+
+- Addon id: `plugin.video.velocity2` (use `plugin://plugin.video.velocity2/?action=...`).
+
+## High-traffic paths
+
+- Home: `action=home`
+- Catalog list (paged): `action=list&list_id=<id>&page=<n>` — may add **Next Page >>** folder item when the addon returns `next_page`.
+- Smart rails: `action=smart_list&type=<type>` where `type` includes: `up_next`, `active_shows`, `new_episodes`, `in_progress_movies`, `recent` / `recently_watched`, `continue_watching`
+- TV: `action=view_show&id=<tv-*>` → `action=view_season&show_id=<id>&season=<n>`
+- Play: `action=play&id=<internal_id>` or `action=select` (same resolve path)
+- Discovery: `action=discover` or `action=discovery&preset_id=...`
+
+## Pitfall
+
+- **Spotlight vs widgets:** reusing the same `list` path as a full browse may show **Next Page** in the hero; use a dedicated contract (e.g. future `paginate=false`) or cap items in the skin — see addon roadmap `plans/af3-skin-fork-roadmap.md` Phase 2.
+
+## Source of truth
+
+Full tables: addon repo `plans/velocity-addon-reference-for-skin-forks.md` (copy into this repo as `docs/VELOCITY_ADDON_REFERENCE.md` if missing).

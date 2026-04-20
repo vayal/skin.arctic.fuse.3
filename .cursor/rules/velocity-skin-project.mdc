@@ -1,0 +1,20 @@
+---
+description: Velocity skin fork — project scope, repo split, no Python addon code here
+alwaysApply: true
+---
+
+# Velocity skin fork — project context
+
+This repository is a **Kodi skin** (e.g. Arctic Fuse 3 fork) tuned for **Velocity only** (`plugin.video.velocity2`). It is **not** the Velocity video addon; do not add Python addon code, daemon logic, or SQLite schemas here.
+
+## Expectations
+
+- Primary languages: **XML** (skin), optional **includes**, **language PO**, assets.
+- **Navigation** must use `plugin://plugin.video.velocity2/?...` actions documented for the Velocity addon — never assume TMDbHelper or `plugin.video.themoviedb.helper` for core flows unless explicitly maintaining a compatibility shim.
+- Centralize Velocity paths in **wrapper includes** (one place to change `action=` and query params).
+- When unsure of the correct `action` or HTTP contract, read `docs/VELOCITY_ADDON_REFERENCE.md` in this repo or the addon repo’s `plans/velocity-addon-reference-for-skin-forks.md`.
+
+## Do not
+
+- Copy large chunks of upstream skin into Velocity repo or vice versa without clear purpose.
+- Hardcode obsolete helper addon IDs in new code paths.
