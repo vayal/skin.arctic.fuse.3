@@ -21,6 +21,18 @@
         <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.1104.Icon))">$INFO[Skin.String(HomeSwitcher.1104.Icon)]</value>
         <value>special://skin/extras/icons/shapes.png</value>
     </variable>
+    <variable name="Home_Icon_1106">
+        <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.1106.Icon))">$INFO[Skin.String(HomeSwitcher.1106.Icon)]</value>
+        <value>$VAR[Home_Switcher_Right_Buttons_Calendar]</value>
+    </variable>
+    <variable name="Home_Icon_1107">
+        <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.1107.Icon))">$INFO[Skin.String(HomeSwitcher.1107.Icon)]</value>
+        <value>special://skin/extras/icons/livetv.png</value>
+    </variable>
+    <variable name="Home_Icon_1108">
+        <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.1108.Icon))">$INFO[Skin.String(HomeSwitcher.1108.Icon)]</value>
+        <value>special://skin/extras/icons/addon.png</value>
+    </variable>
 
     <include name="Home_ControlList_Item">
         <property name="enabled">true</property>
@@ -634,45 +646,55 @@
 
     <include name="Home_Object">
         <param name="use_icons">Skin.HasSetting(HomeSwitcher.EnableIcons)</param>
+        <param name="window" />
         <definition>
+            <!-- One grouplist child per menu slot (label row + focus hitbox live here) -->
             <control type="group">
-                <top>100</top>
-                <width>560</width>
-                <height>80</height>
                 <control type="group">
-                    <left>80</left>
-                    <control type="label">
-                        <font>font_main_bold</font>
-                        <textcolor>main_fg_30</textcolor>
-                        <label>$INFO[Skin.String(HomeSwitcher.$PARAM[window].Name)]</label>
-                        <left>30</left>
-                        <visible>![$PARAM[use_icons]]</visible>
-                    </control>
+                    <top>100</top>
+                    <width>560</width>
+                    <height>80</height>
                     <control type="group">
-                        <left>10</left>
-                        <width>80</width>
-                        <visible>$PARAM[use_icons]</visible>
-                        <control type="image">
-                            <include>Home_Grouplist_Icon_Definition</include>
-                            <texture background="true" colordiffuse="main_fg_30">$VAR[Home_Icon_$PARAM[window]]</texture>
+                        <left>80</left>
+                        <control type="label">
+                            <font>font_main_bold</font>
+                            <textcolor>main_fg_30</textcolor>
+                            <label>$INFO[Skin.String(HomeSwitcher.$PARAM[window].Name)]</label>
+                            <left>30</left>
+                            <visible>![$PARAM[use_icons]]</visible>
+                        </control>
+                        <control type="group">
+                            <left>10</left>
+                            <width>80</width>
+                            <visible>$PARAM[use_icons]</visible>
+                            <control type="image">
+                                <include>Home_Grouplist_Icon_Definition</include>
+                                <texture background="true" colordiffuse="main_fg_30">$VAR[Home_Icon_$PARAM[window]]</texture>
+                            </control>
                         </control>
                     </control>
                 </control>
+                <include content="Home_Focus_Object">
+                    <param name="window">$PARAM[window]</param>
+                </include>
             </control>
-            <include content="Home_Focus_Object">
-                <param name="window">$PARAM[window]</param>
-            </include>
         </definition>
     </include>
 
     <include name="Home_Focus_Object">
-        <include content="Home_Focus_Faker">
-            <param name="window">$PARAM[window]</param>
-        </include>
-        <include content="Home_Spacer">
-            <param name="name">$INFO[Skin.String(HomeSwitcher.$PARAM[window].Name)]</param>
-            <param name="icon">$VAR[Home_Icon_$PARAM[window]]</param>
-        </include>
+        <param name="window" />
+        <definition>
+            <!-- Grouplist parents (Home_Switcher_*) only accept group children; wrap spacer button -->
+            <control type="group">
+                <include content="Home_Focus_Faker">
+                    <param name="window">$PARAM[window]</param>
+                </include>
+                <include content="Home_Spacer">
+                    <param name="name">$INFO[Skin.String(HomeSwitcher.$PARAM[window].Name)]</param>
+                    <param name="icon">$VAR[Home_Icon_$PARAM[window]]</param>
+                </include>
+            </control>
+        </definition>
     </include>
 
     <include name="Home_Focus_Faker">

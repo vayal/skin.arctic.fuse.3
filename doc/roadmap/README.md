@@ -60,7 +60,7 @@ Use this table as the only execution status tracker for roadmap phases.
 |---|---|---|
 | [Phase 01 - Preflight and Contract Lock](./phase-01-preflight-and-contract-lock.md) | completed | [Phase 01 completion note](./phase-01-preflight-and-contract-lock.md) |
 | [Phase 02 - Addon Contract Implementation](./phase-02-addon-contract-implementation.md) | completed | [Phase 02 validation report](./phase-02-validation-report.md) |
-| [Phase 03 - Skin Core Plumbing Migration](./phase-03-skin-core-plumbing-migration.md) | completed | [Phase 03 validation report](./phase-03-validation-report.md) |
+| [Phase 03 - Skin Core Plumbing Migration](./phase-03-skin-core-plumbing-migration.md) | blocked | [Phase 03 validation report](./phase-03-validation-report.md) |
 | [Phase 04 - Skin Removal and Policy Enforcement](./phase-04-skin-removal-and-policy-enforcement.md) | pending | TBD |
 | [Phase 05 - Metadata and Rendering Migration](./phase-05-metadata-and-rendering-migration.md) | pending | TBD |
 | [Phase 06 - Deferred Exceptions and Final Cleanup](./phase-06-deferred-exceptions-and-final-cleanup.md) | pending | TBD |

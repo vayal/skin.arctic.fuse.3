@@ -17,6 +17,7 @@ This matrix links decision artifacts and migration batches to roadmap phases and
 |---|---|---|---|
 | Batch A | remove-first approved surfaces | Phase 04 | `Dialog_DialogContextMenu.xml`, `Custom_1141_OSD_Cast.xml`, `Dialog_DialogPVRInfo.xml`, `DialogPVR*`, `Settings.xml`, `Includes_SkinSettings.xml`, `script-wikipedia.xml`, `Custom_1120_Dialog_SelectCrew.xml`, `Custom_1118_Dialog_Settings.xml`, `Custom_1113_Dialog_Plot.xml` |
 | Batch B | control-plane replacement | Phase 03 | `Includes_Paths.xml`, `Includes_Actions.xml`, `Includes_DialogInfo.xml`, `DialogVideoInfo.xml`, `Dialog_DialogPlot.xml`, `Custom_1114_Dialog_CustomPlot.xml`, `Custom_1193_VideoOSDInfo.xml`, `Includes_Search.xml`, `Custom_1105_Search.xml` |
+| Batch B.1 | fork default IA bootstrap prerequisite corrective slice | Phase 03 | `shortcuts/skinvariables-startup.json`, `1080i/Home.xml`, `1080i/Includes_Home.xml`, `1080i/Includes_Hubs.xml`, [Phase 03 Validation Report](./phase-03-validation-report.md) |
 | Batch C | metadata/rendering replacement | Phase 05 | `Includes_Images.xml`, `Includes_Labels.xml`, `Includes_Info.xml`, `Includes_Overlay.xml`, `Includes_Views*`, `Includes_Widgets.xml`, `Includes_Lists.xml`, `Home.xml`, `Includes_Home.xml`, trailer/view/options/favourites/infooption dialogs |
 | Batch D | deferred exceptions and residual cleanup | Phase 06 | `Custom_1105_Search.xml`, `MyWeather.xml`, `Custom_1161_Dialog_Weather.xml`, `Custom_1180_Dialog_Bumper.xml` |
 
