@@ -303,8 +303,8 @@
 
     <include name="DialogPlot_Artwork">
         <param name="poster_icon">$VAR[Image_Overlay_Poster]</param>
-        <param name="square_icon">$INFO[Window(Home).Property(TMDbHelper.ListItem.Base_Icon)]</param>
-        <param name="c_logo_icon">$INFO[Window(Home).Property(TMDbHelper.ListItem.Base_Clearlogo)]</param>
+        <param name="square_icon">$VAR[Image_Overlay_Icon]</param>
+        <param name="c_logo_icon">$VAR[Image_Overlay_Clearlogo]</param>
         <param name="hidden_icon">true</param>
         <definition>
             <control type="group">

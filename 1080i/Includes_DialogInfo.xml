@@ -130,7 +130,7 @@
                     <param name="plotwidth">$PARAM[plotwidth]</param>
                     <param name="include_title">true</param>
                     <param name="include_details">false</param>
-                    <param name="croplogo">Window(Home).Property(TMDbHelper.ListItem.Current.CropImage)</param>
+                    <param name="croplogo">ListItem.Art(clearlogo)</param>
                 </include>
                 <include content="Info_Panel" condition="String.IsEqual(ListItem.Property(tmdb_type),person)">
                     <param name="use_textbox">true</param>
@@ -138,7 +138,7 @@
                     <param name="plotwidth">$PARAM[plotwidth]</param>
                     <param name="include_title">true</param>
                     <param name="include_details">false</param>
-                    <param name="croplogo">Window(Home).Property(TMDbHelper.ListItem.Current.CropImage)</param>
+                    <param name="croplogo">ListItem.Art(clearlogo)</param>
                 </include>
             </control>
             <control type="group">
@@ -305,62 +305,11 @@
     </include>
 
     <include name="DialogInfo_PersonWidgets">
-
-
         <include content="Widget_Info_Row">
             <param name="id">01</param>
-            <param name="baseid">50</param>
-            <param name="groupid">5101</param>
             <param name="label">$LOCALIZE[20342]</param>
-            <param name="include">List_Poster_Row</param>
-            <param name="widgetfade_include">true</param>
-            <param name="set_widgetcontainer">false</param>
-            <param name="menuid">8000</param>
-            <param name="detailed">true</param>
-            <param name="widget_hideartwork">true</param>
-            <param name="widget_showoverlay">true</param>
-            <param name="altvisible">true</param>
-            <onfocus>SetProperty(CurrentID,$INFO[Window.Property(BaseID)])</onfocus>
             <content>special://skin/extras/playlists/Null.xsp</content>
-            <include>DialogInfo_Widgets_Action</include>
         </include>
-        <include content="Widget_Info_Row">
-            <param name="id">02</param>
-            <param name="baseid">50</param>
-            <param name="groupid">5102</param>
-            <param name="label">$LOCALIZE[20343]</param>
-            <param name="include">List_Poster_Row</param>
-            <param name="widgetfade_include">true</param>
-            <param name="set_widgetcontainer">false</param>
-            <param name="menuid">8000</param>
-            <param name="detailed">true</param>
-            <param name="widget_hideartwork">true</param>
-            <param name="widget_showoverlay">true</param>
-            <param name="visible">$EXP[Exp_InfoDialogs_WidgetsGroup_HasFocus]</param>
-            <param name="altvisible">!String.IsEqual(Window.Property(CurrentID),Window.Property(BaseID))</param>
-            <onfocus>SetProperty(CurrentID,$INFO[Window.Property(BaseID)])</onfocus>
-            <content>special://skin/extras/playlists/Null.xsp</content>
-            <include>DialogInfo_Widgets_Action</include>
-        </include>
-        <include content="Widget_Info_Row">
-            <param name="id">03</param>
-            <param name="baseid">50</param>
-            <param name="groupid">5103</param>
-            <param name="label">$LOCALIZE[31050]</param>
-            <param name="include">List_Poster_Row</param>
-            <param name="widgetfade_include">true</param>
-            <param name="set_widgetcontainer">false</param>
-            <param name="menuid">8000</param>
-            <param name="detailed">true</param>
-            <param name="widget_hideartwork">true</param>
-            <param name="widget_showoverlay">true</param>
-            <param name="visible">$EXP[Exp_InfoDialogs_WidgetsGroup_HasFocus]</param>
-            <param name="altvisible">!String.IsEqual(Window.Property(CurrentID),Window.Property(BaseID))</param>
-            <onfocus>SetProperty(CurrentID,$INFO[Window.Property(BaseID)])</onfocus>
-            <content>special://skin/extras/playlists/Null.xsp</content>
-            <include>DialogInfo_Widgets_Action</include>
-        </include>
-
     </include>
 
     <include name="DialogInfo_VideoWidgets">
@@ -1158,7 +1107,7 @@
     </include>
 
     <include name="DialogInfo_Onload">
-        <onload>ClearProperty(TMDbHelper.WidgetContainer)</onload>
+        <onload>ClearProperty(Search.WidgetContainer)</onload>
         <include>DialogInfo_FileProperties_Onload</include>
         <onload>SetProperty(Poster,$VAR[Image_Poster],managevideoversions)</onload>
         <onload>SetProperty(Poster,$VAR[Image_Poster],managevideoextras)</onload>
@@ -1359,11 +1308,11 @@
             <onclick>Dialog.Close(1172,true)</onclick>
             <include content="Action_PlayTrailer_OnClick">
                 <param name="trailer">ListItem.Trailer</param>
-                <param name="trailer_fallback">Window(Home).Property(TMDbHelper.ListItem.Trailer)</param>
+                <param name="trailer_fallback" />
                 <param name="title">$VAR[Label_Title]</param>
                 <param name="items">$VAR[Path_VideoInfo_Trailers]</param>
             </include>
-            <visible>!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Trailer))</visible>
+            <visible>!String.IsEmpty(ListItem.Trailer)</visible>
         </item>
     </include>
 
@@ -1373,8 +1322,7 @@
             <icon>special://skin/extras/icons/trakt.png</icon>
             <onclick>Dialog.Close(1172,true)</onclick>
             <onclick>$VAR[Action_Sync]</onclick>
-            <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.TraktIsAuth)) + !String.IsEqual(  ListItem.DBType,musicvideo)</visible>
-            <visible>$EXP[Exp_TMDbHelper_IsData]</visible>
+            <visible>!String.IsEqual(ListItem.DBType,musicvideo)</visible>
         </item>
     </include>
 
@@ -1392,8 +1340,16 @@
             <label>$LOCALIZE[207]</label>
             <icon>special://skin/extras/icons/quote.png</icon>
             <onclick>Dialog.Close(1172,true)</onclick>
-            <onclick>ActivateWindow(1113)</onclick>
-            <visible>$EXP[Exp_TMDbHelper_IsData]</visible>
+            <onclick>SetProperty(header,$VAR[Label_Title],1114)</onclick>
+            <onclick>SetProperty(textbox,$ESCINFO[ListItem.Plot,[B][COLOR=dialog_fg_90]$LOCALIZE[31028][/COLOR][/B][CR],],1114)</onclick>
+            <onclick>SetProperty(poster,$VAR[Image_Poster],1114)</onclick>
+            <onclick>SetProperty(landscape,$VAR[Image_LandscapeOnly],1114)</onclick>
+            <onclick>SetProperty(clearlogo,$VAR[Image_Clearlogo],1114)</onclick>
+            <onclick>SetProperty(tmdb_id,$INFO[ListItem.Property(tmdb_id)],1114)</onclick>
+            <onclick>SetProperty(tmdb_type,$INFO[ListItem.Property(tmdb_type)],1114)</onclick>
+            <onclick>SetProperty(dbtype,$INFO[ListItem.DBType],1114)</onclick>
+            <onclick>ClearProperty(path,1114)</onclick>
+            <onclick>ActivateWindow(1114)</onclick>
         </item>
     </include>
     <include name="DialogInfo_VideoButtons_Artwork">

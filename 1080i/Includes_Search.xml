@@ -51,7 +51,7 @@
                             <control type="group" id="500">
                                 <include content="Hub_Combined_Widget" condition="!Skin.HasSetting(Search.DisableDiscover) + !Skin.HasSetting(Search.DisableCombined)">
                                     <param name="id">501</param>
-                                    <param name="content">$INFO[window(home).property(tmdbhelper.userdiscover.folderpath)]$INFO[Control.GetLabel(3000).index(1),&amp;with_text_query=,]</param>
+                                    <param name="content">$INFO[Window(Home).Property(TMDbHelper.UserDiscover.FolderPath)]$INFO[Control.GetLabel(3000).index(1),&amp;with_text_query=,]</param>
                                     <param name="include">List_Poster_Row</param>
                                     <param name="target">videos</param>
                                     <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),discover)</param>
@@ -100,7 +100,7 @@
                 <align>left</align>
                 <height>80</height>
                 <textcolor>main_fg_90</textcolor>
-                <visible>[String.IsEmpty(Window.Property(TMDBHelper.WidgetContainer)) | [Integer.IsEqual(Container(601).NumItems,0) + !Skin.HasSetting(Search.DisableCombined)] | [Skin.HasSetting(Search.DisableCombined) + Integer.IsEqual(Container(602).NumItems,0)]]</visible>
+                <visible>[String.IsEmpty(Window.Property(Search.WidgetContainer)) | [Integer.IsEqual(Container(601).NumItems,0) + !Skin.HasSetting(Search.DisableCombined)] | [Skin.HasSetting(Search.DisableCombined) + Integer.IsEqual(Container(602).NumItems,0)]]</visible>
                 <include>Home_Animation</include>
                 <left>view_pad</left>
                 <top>280</top>
@@ -113,7 +113,7 @@
                 <align>left</align>
                 <height>80</height>
                 <textcolor>main_fg_30</textcolor>
-                <visible>[String.IsEmpty(Window.Property(TMDBHelper.WidgetContainer)) | [Integer.IsEqual(Container(601).NumItems,0) + !Skin.HasSetting(Search.DisableCombined)] | [Skin.HasSetting(Search.DisableCombined) + Integer.IsEqual(Container(602).NumItems,0)]]</visible>
+                <visible>[String.IsEmpty(Window.Property(Search.WidgetContainer)) | [Integer.IsEqual(Container(601).NumItems,0) + !Skin.HasSetting(Search.DisableCombined)] | [Skin.HasSetting(Search.DisableCombined) + Integer.IsEqual(Container(602).NumItems,0)]]</visible>
                 <include>Home_Animation</include>
                 <left>view_pad</left>
                 <top>360</top>
