@@ -86,10 +86,11 @@
 
     <include file="script-skinvariables-images-includes.xml" />
     <include file="script-skinvariables-labels-includes.xml" />
-    <!-- Generator uses try_emplace: first definition wins. Overrides must load before generator-includes. -->
+    <!-- Hard replacement (Velocity-only): single source of truth in script-skinvariables-generator-overrides.xml.
+         Do not load script-skinvariables-generator-includes-.xml at runtime (no generator fallback). -->
     <include file="script-skinvariables-generator-overrides.xml" />
-    <include file="script-skinvariables-generator-includes-.xml" condition="String.IsEmpty(Skin.String(SkinVariables.SkinUser))" />
-    <include file="script-skinvariables-skinusers.xml" condition="!String.IsEmpty(Skin.String(SkinVariables.SkinUser))" />
+    <!-- <include file="script-skinvariables-generator-includes-.xml" condition="String.IsEmpty(Skin.String(SkinVariables.SkinUser))" /> -->
+    <!-- <include file="script-skinvariables-skinusers.xml" condition="!String.IsEmpty(Skin.String(SkinVariables.SkinUser))" /> -->
     <include file="script-skinvariables-includes.xml" />
     <include file="script-skinviewtypes-includes.xml" />
 

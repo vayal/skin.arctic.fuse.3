@@ -158,12 +158,13 @@
         <value condition="Window.IsVisible(videoplaylist)">videoplaylist</value>
     </variable>
 
+    <!-- Hard replacement: no script.skinvariables template rebuild (generator-includes not loaded). -->
     <include name="Action_BuildShortcuts_OnLoad">
-        <onload>runscript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/skinvariables-build-templates.json",use_rules)</onload>
+        <onload>noop</onload>
     </include>
     <include name="Action_BuildShortcuts_OnUnLoad">
-        <onload>CancelAlarm(rebuild_shortcuts,true)</onload>
-        <onunload>AlarmClock(rebuild_shortcuts,runscript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/skinvariables-build-templates.json",use_rules),00:01,silent)</onunload>
+        <onload>noop</onload>
+        <onunload>noop</onunload>
     </include>
 
     <include name="Action_View_Movement_OnDown">

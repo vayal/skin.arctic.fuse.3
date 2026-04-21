@@ -5,27 +5,17 @@
     <include>Action_ButtonMenu_Onload</include>
     <include>Action_BuildShortcuts_OnLoad</include>
 
+    <!-- Hard replacement: force canonical Velocity spotlight each load (prevents persisted default shortcuts like Random Movies from resurfacing). -->
+    <onload>Skin.SetString(HomeSwitcher.Home.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&amp;list_id=home_spotlight_mixed&amp;page=1)</onload>
+    <onload>Skin.SetString(HomeSwitcher.Home.Spotlight.Target,videos)</onload>
+    <onload>Skin.SetString(HomeSwitcher.Home.Spotlight.Label,Spotlight)</onload>
     <include content="Hub_Onload">
         <param name="window_id">Home</param>
     </include>
-    <onload condition="String.IsEqual(Skin.String(HomeSwitcher.Home.Spotlight.Path),plugin://plugin.video.velocity2/?action=home)">Skin.SetString(HomeSwitcher.Home.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&amp;list_id=home_spotlight_mixed&amp;page=1)</onload>
-    <onload condition="String.IsEqual(Skin.String(HomeSwitcher.Home.Spotlight.Label),Velocity)">Skin.SetString(HomeSwitcher.Home.Spotlight.Label,Spotlight)</onload>
-    <onload condition="String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Target))">Skin.SetString(HomeSwitcher.Home.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&amp;list_id=home_spotlight_mixed&amp;page=1)</onload>
-    <onload condition="String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Target))">Skin.SetString(HomeSwitcher.Home.Spotlight.Target,videos)</onload>
-    <onload condition="String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Label))">Skin.SetString(HomeSwitcher.Home.Spotlight.Label,Spotlight)</onload>
-    <onload condition="!String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Target)) + [String.Contains(Skin.String(HomeSwitcher.Home.Spotlight.Path),action=discover) | String.Contains(Skin.String(HomeSwitcher.Home.Spotlight.Path),smart_list)]">Skin.SetString(HomeSwitcher.Home.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&amp;list_id=home_spotlight_mixed&amp;page=1)</onload>
     <!-- Hub_Onload runs above before Target/Path may be seeded; it can leave WidgetContainer at 501. Re-point to spotlight feeder once Target exists. -->
     <onload condition="!String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Target))">SetProperty(Velocity.WidgetContainer,301)</onload>
 
-    <!-- Home §2.1 in-progress tabs: seed WidgetMeta + restore last tab (skin-vision-blueprint-v0 §2.2). -->
-    <onload condition="String.IsEmpty(Skin.String(Velocity.Home.InProgressTab))">Skin.SetString(Velocity.Home.InProgressTab,series)</onload>
-    <onload condition="String.IsEqual(Skin.String(Velocity.Home.InProgressTab),movies)">SetProperty(WidgetMeta.501.FolderPath,plugin://plugin.video.velocity2/?action=list&amp;list_id=in_progress_movies&amp;page=1)</onload>
-    <onload condition="!String.IsEqual(Skin.String(Velocity.Home.InProgressTab),movies)">SetProperty(WidgetMeta.501.FolderPath,plugin://plugin.video.velocity2/?action=list&amp;list_id=continue_watching&amp;page=1)</onload>
-    <onload condition="String.IsEqual(Skin.String(HomeSwitcher.Home.Mode),Standard) + String.IsEqual(Skin.String(Velocity.Home.InProgressTab),movies)">AlarmClock(velocityhomeiptab501,SetFocus(501,1),00:02,silent)</onload>
-    <onload condition="[String.IsEqual(Skin.String(HomeSwitcher.Home.Mode),Wall) | String.IsEqual(Skin.String(HomeSwitcher.Home.Mode),Combined)] + String.IsEqual(Skin.String(Velocity.Home.InProgressTab),movies)">AlarmClock(velocityhomeiptab601,SetFocus(601,1),00:02,silent)</onload>
-
-    <onunload condition="String.Contains(Window.Property(WidgetMeta.501.FolderPath),in_progress_movies)">Skin.SetString(Velocity.Home.InProgressTab,movies)</onunload>
-    <onunload condition="!String.IsEmpty(Window.Property(WidgetMeta.501.FolderPath)) + !String.Contains(Window.Property(WidgetMeta.501.FolderPath),in_progress_movies)">Skin.SetString(Velocity.Home.InProgressTab,series)</onunload>
+    <!-- Home Standard widgets are direct independent rows (no stacked WidgetMeta/tab indirection). -->
 
     <onload condition="!Skin.HasSetting(Home.FirstRun)">Skin.SetBool(Hub.Home.DisableSubmenu)</onload>
     <onload condition="!Skin.HasSetting(Home.FirstRun)">Skin.SetString(Shortcuts.RebuildDateTime,FirstRun)</onload>

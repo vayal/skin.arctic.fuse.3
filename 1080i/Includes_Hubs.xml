@@ -663,9 +663,7 @@
                         </control>
                     </focusedlayout>
                     <!-- Match Velocity widget rows: keep <content limit> empty for Omega directory binding; Velocity addon caps spotlight feeds at 20 items. -->
-                    <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">
-                        plugin://plugin.video.velocity2/?action=list&amp;list_id=$PARAM[list_id]&amp;page=1
-                    </content>
+                    <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=$PARAM[list_id]&amp;page=1</content>
                 </control>
             </control>
         </definition>

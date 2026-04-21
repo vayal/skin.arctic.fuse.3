@@ -377,71 +377,64 @@ Common request template:
 
 ---
 
-## 12) Contract Alignment Matrix (Addon-Native)
+## 12) Contract Alignment Matrix (Skin vs D-015)
 
-This section is the single source of truth using addon-native rail names and definitions.
+This section tracks what the skin actually calls today and how that aligns to
+`doc/d015-addon-required-lists-contract.md`.
 
 Legend:
-- **Present**: explicit addon contract exists and is currently used.
-- **Missing**: not currently available as a dedicated addon contract.
+- **Used**: actively referenced by skin routes in current XML.
+- **Not used**: contract exists in D-015 but is not referenced by current skin routes.
+- **Missing**: required by D-015 but not present as a dedicated contract route in current implementation.
+- **Out of D-015 scope**: route is used by skin but is not a D-015 list contract ID.
 
-### 12.1 Addon-native rails currently in use
+### 12.1 D-015 contracts currently used by skin
 
-- Spotlight rails:
-  - `home_spotlight_mixed`
-  - `series_spotlight_trending`
-  - `movies_spotlight_trending`
-- Smart rails:
-  - `continue_watching`
-  - `recently_watched`
-  - `up_next`
-  - `active_shows`
-  - `new_episodes`
-  - `in_progress_movies`
-- Provider entry rails:
-  - `series_provider_icons`
-  - `movies_provider_icons`
-- Seeded genre list families:
-  - `genre-movie-*` (19)
-  - `genre-tv-*` (16)
+| Contract ID | D-015 section | Current status |
+|---|---|---|
+| `home_spotlight_mixed` | Home | Used |
+| `home_in_progress_series` | Home | Used |
+| `home_in_progress_movies` | Home | Used |
+| `series_spotlight_trending` | Series | Used |
+| `series_continue_watching_episodes` | Series | Used |
+| `series_in_progress_shows` | Series | Used |
+| `series_global_trending` | Series | Used |
+| `series_provider_icons` | Series | Used |
+| `movies_spotlight_trending` | Movies | Used |
+| `movies_in_progress` | Movies | Used |
+| `movies_global_trending` | Movies | Used |
+| `movies_provider_icons` | Movies | Used |
 
-### 12.2 Compatibility mapping from legacy skin wording
+### 12.2 D-015 contracts not currently wired by skin
 
-Use these only as compatibility labels; addon-native names above are authoritative:
+| Contract group | D-015 section | Current status |
+|---|---|---|
+| `provider_{provider_id}_{media}_spotlight` | Provider mini-hubs | Not used |
+| `provider_{provider_id}_{media}_trending` | Provider mini-hubs | Not used |
+| `provider_{provider_id}_{media}_popular` | Provider mini-hubs | Not used |
+| `provider_{provider_id}_{media}_genre_{genre}` | Provider mini-hubs | Not used |
+| `genre_global_*` | Global genre discovery | Not used (skin uses `action=browse_genres`) |
+| `search_movies` | Search | Not used |
+| `search_tvshows` | Search | Not used |
 
-| Legacy skin wording | Addon-native rail to use |
-|---|---|
-| `home_in_progress_series` | `continue_watching` |
-| `series_continue_watching_episodes` | `continue_watching` |
-| `home_in_progress_movies` | `in_progress_movies` |
-| `movies_in_progress` | `in_progress_movies` |
-| `series_in_progress_shows` | `active_shows` |
-| `series_global_trending` | `series_spotlight_trending` |
-| `movies_global_trending` | `movies_spotlight_trending` |
+### 12.3 Skin-used rails/routes outside D-015 list IDs
 
-Applied in skin wiring:
+These are used in skin routing but are not modeled as D-015 list contract IDs.
 
-- `1080i/script-skinvariables-generator-overrides.xml`
-- `1080i/Home.xml`
-- `shortcuts/skinvariables-shortcut-homewidgets.json`
+| Route/rail | Current status | Notes |
+|---|---|---|
+| `action=discover` | Used | Used as row items; discovery action route, not a list_id contract |
+| `action=browse_genres&kind=tv` | Used | Genre entry route, not explicit `genre_global_*` contract ID |
+| `action=browse_genres&kind=movie` | Used | Genre entry route, not explicit `genre_global_*` contract ID |
+| Smart rails (`continue_watching`, `recently_watched`, `up_next`, `active_shows`, `new_episodes`, `in_progress_movies`) | Partially used outside core hubs | Still used in non-core/legacy surfaces (for example next-aired, OSD, path helpers), but no longer used in core Home/1101/1102 contract rows |
 
-### 12.3 Missing addon contracts (remaining gaps)
+### 12.4 Key discrepancy summary
 
-| Missing contract family | Status |
-|---|---|
-| `provider_{id}_spotlight` | Missing |
-| `provider_{id}_trending` | Missing |
-| `provider_{id}_popular` | Missing |
-| `provider_{id}_genre_{genre}` | Missing |
+1. **Old alias mapping is obsolete**  
+   Current core hub wiring now calls explicit D-015 contract IDs directly (for example `series_in_progress_shows`, `movies_global_trending`) instead of aliasing to smart rails.
 
-### 12.4 Next work (remaining gaps)
+2. **Provider mini-hub contract families remain unimplemented/unwired**  
+   D-015 defines them, but current skin wiring intentionally does not consume them in this hard-replacement pass.
 
-- Add dedicated provider mini-hub contract family:
-  - `provider_{id}_spotlight`
-  - `provider_{id}_trending`
-  - `provider_{id}_popular`
-  - `provider_{id}_genre_{genre}`
-- Decide whether to keep or replace current alias substitutions long-term:
-  - `series_global_trending` -> `series_spotlight_trending`
-  - `movies_global_trending` -> `movies_spotlight_trending`
-- If needed, implement dedicated episode-priority behavior for `series_continue_watching_episodes` beyond generic `continue_watching`.
+3. **Genre/search contract IDs vs action routes**  
+   D-015 lists explicit `genre_global_*`, `search_movies`, and `search_tvshows` contracts; current skin uses `browse_genres` and `discover` routes instead.
