@@ -2,13 +2,13 @@
     {
         "label": "In Progress Series",
         "icon": "",
-        "path": "plugin://plugin.video.velocity2/?action=list&list_id=home_in_progress_series&page=1",
+        "path": "plugin://plugin.video.velocity2/?action=list&list_id=continue_watching&page=1",
         "target": "videos"
     },
     {
         "label": "In Progress Movies",
         "icon": "",
-        "path": "plugin://plugin.video.velocity2/?action=list&list_id=home_in_progress_movies&page=1",
+        "path": "plugin://plugin.video.velocity2/?action=list&list_id=in_progress_movies&page=1",
         "target": "videos"
     }
 ]

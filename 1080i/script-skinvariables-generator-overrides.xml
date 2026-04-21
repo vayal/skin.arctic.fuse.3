@@ -46,7 +46,7 @@
         <item>
             <label>Continue Watching</label>
             <icon>special://skin/extras/icons/backward-step.png</icon>
-            <property name="path">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_continue_watching_episodes&amp;page=1</property>
+            <property name="path">plugin://plugin.video.velocity2/?action=list&amp;list_id=continue_watching&amp;page=1</property>
             <property name="menu">1101submenu</property>
             <property name="mode" />
             <property name="node" />
@@ -55,13 +55,13 @@
             <property name="target">videos</property>
             <property name="fanart" />
             <onclick>Close</onclick>
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=series_continue_watching_episodes&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=continue_watching&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
         <item>
             <label>Trending</label>
             <icon>special://skin/extras/icons/calendar.png</icon>
-            <property name="path">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_global_trending&amp;page=1</property>
+            <property name="path">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_spotlight_trending&amp;page=1</property>
             <property name="menu">1101submenu</property>
             <property name="mode" />
             <property name="node" />
@@ -70,7 +70,7 @@
             <property name="target">videos</property>
             <property name="fanart" />
             <onclick>Close</onclick>
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=series_global_trending&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=series_spotlight_trending&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
     </include>
@@ -79,7 +79,7 @@
         <item>
             <label>In Progress Series</label>
             <icon>special://skin/extras/icons/backward-step.png</icon>
-            <property name="path">plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_series&amp;page=1</property>
+            <property name="path">plugin://plugin.video.velocity2/?action=list&amp;list_id=continue_watching&amp;page=1</property>
             <property name="velocity_tab">series</property>
             <property name="menu">homewidgets-inprogress-tabs</property>
             <property name="mode" />
@@ -88,13 +88,13 @@
             <property name="guid">velocity-home-inprogress-tab-0</property>
             <property name="target">videos</property>
             <property name="fanart" />
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_series&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=continue_watching&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
         <item>
             <label>In Progress Movies</label>
             <icon>special://skin/extras/icons/backward-step.png</icon>
-            <property name="path">plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_movies&amp;page=1</property>
+            <property name="path">plugin://plugin.video.velocity2/?action=list&amp;list_id=in_progress_movies&amp;page=1</property>
             <property name="velocity_tab">movies</property>
             <property name="menu">homewidgets-inprogress-tabs</property>
             <property name="mode" />
@@ -103,7 +103,7 @@
             <property name="guid">velocity-home-inprogress-tab-1</property>
             <property name="target">videos</property>
             <property name="fanart" />
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_movies&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=in_progress_movies&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
     </include>
@@ -119,7 +119,7 @@
         <item>
             <label>In Progress</label>
             <icon>special://skin/extras/icons/backward-step.png</icon>
-            <property name="path">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_in_progress&amp;page=1</property>
+            <property name="path">plugin://plugin.video.velocity2/?action=list&amp;list_id=in_progress_movies&amp;page=1</property>
             <property name="menu">1102submenu</property>
             <property name="mode" />
             <property name="node" />
@@ -128,13 +128,13 @@
             <property name="target">videos</property>
             <property name="fanart" />
             <onclick>Close</onclick>
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_in_progress&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=in_progress_movies&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
         <item>
             <label>Trending</label>
             <icon>special://skin/extras/icons/calendar.png</icon>
-            <property name="path">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_global_trending&amp;page=1</property>
+            <property name="path">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_spotlight_trending&amp;page=1</property>
             <property name="menu">1102submenu</property>
             <property name="mode" />
             <property name="node" />
@@ -143,7 +143,7 @@
             <property name="target">videos</property>
             <property name="fanart" />
             <onclick>Close</onclick>
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_global_trending&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_spotlight_trending&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
     </include>
@@ -172,7 +172,7 @@
                 <include content="Widget_NoResults">
                     <param name="id">501</param>
                 </include>
-                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_continue_watching_episodes&amp;page=1</content>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=continue_watching&amp;page=1</content>
                 <include content="Defs_AutoScroll" condition="False">
                     <param name="condition">[!Control.HasFocus(501) | System.IdleTime(3)]</param>
                 </include>
@@ -198,7 +198,7 @@
                 <include content="Widget_NoResults">
                     <param name="id">502</param>
                 </include>
-                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_in_progress_shows&amp;page=1</content>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=active_shows&amp;page=1</content>
                 <include content="Defs_AutoScroll" condition="False">
                     <param name="condition">[!Control.HasFocus(502) | System.IdleTime(3)]</param>
                 </include>
@@ -224,7 +224,7 @@
                 <include content="Widget_NoResults">
                     <param name="id">503</param>
                 </include>
-                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_global_trending&amp;page=1</content>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_spotlight_trending&amp;page=1</content>
                 <include content="Defs_AutoScroll" condition="False">
                     <param name="condition">[!Control.HasFocus(503) | System.IdleTime(3)]</param>
                 </include>
@@ -308,7 +308,7 @@
                 <include content="Widget_NoResults">
                     <param name="id">501</param>
                 </include>
-                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_in_progress&amp;page=1</content>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=in_progress_movies&amp;page=1</content>
                 <include content="Defs_AutoScroll" condition="False">
                     <param name="condition">[!Control.HasFocus(501) | System.IdleTime(3)]</param>
                 </include>
@@ -334,7 +334,7 @@
                 <include content="Widget_NoResults">
                     <param name="id">502</param>
                 </include>
-                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_global_trending&amp;page=1</content>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_spotlight_trending&amp;page=1</content>
                 <include content="Defs_AutoScroll" condition="False">
                     <param name="condition">[!Control.HasFocus(502) | System.IdleTime(3)]</param>
                 </include>
@@ -396,7 +396,7 @@
     <include name="skinvariables-1101widgets-wall">
         <include content="Hub_Wall_Widget">
             <param name="id">501</param>
-            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_continue_watching_episodes&amp;page=1</param>
+            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=continue_watching&amp;page=1</param>
             <param name="include">List_Landscape_Row</param>
             <param name="target">videos</param>
             <param name="sortby" />
@@ -406,7 +406,7 @@
         </include>
         <include content="Hub_Wall_Widget">
             <param name="id">502</param>
-            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_in_progress_shows&amp;page=1</param>
+            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=active_shows&amp;page=1</param>
             <param name="include">List_Poster_Row</param>
             <param name="target">videos</param>
             <param name="sortby" />
@@ -416,7 +416,7 @@
         </include>
         <include content="Hub_Wall_Widget">
             <param name="id">503</param>
-            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_global_trending&amp;page=1</param>
+            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_spotlight_trending&amp;page=1</param>
             <param name="include">List_Poster_Row</param>
             <param name="target">videos</param>
             <param name="sortby" />
@@ -454,7 +454,7 @@
             <property name="widget_id">$NUMBER[501]</property>
             <property name="show_overlay">true</property>
             <property name="hide_overlay" />
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=series_continue_watching_episodes&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=continue_watching&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
         <item>
@@ -463,7 +463,7 @@
             <property name="widget_id">$NUMBER[502]</property>
             <property name="show_overlay">true</property>
             <property name="hide_overlay" />
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=series_in_progress_shows&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=active_shows&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
         <item>
@@ -472,7 +472,7 @@
             <property name="widget_id">$NUMBER[503]</property>
             <property name="show_overlay">true</property>
             <property name="hide_overlay" />
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=series_global_trending&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=series_spotlight_trending&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
         <item>
@@ -514,7 +514,7 @@
     <include name="skinvariables-1101widgets-combined">
         <include content="Hub_Combined_Widget">
             <param name="id">501</param>
-            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_continue_watching_episodes&amp;page=1</param>
+            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=continue_watching&amp;page=1</param>
             <param name="include">List_Landscape_Row</param>
             <param name="target">videos</param>
             <param name="sortby" />
@@ -525,7 +525,7 @@
         </include>
         <include content="Hub_Combined_Widget">
             <param name="id">502</param>
-            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_in_progress_shows&amp;page=1</param>
+            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=active_shows&amp;page=1</param>
             <param name="include">List_Poster_Row</param>
             <param name="target">videos</param>
             <param name="sortby" />
@@ -536,7 +536,7 @@
         </include>
         <include content="Hub_Combined_Widget">
             <param name="id">503</param>
-            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_global_trending&amp;page=1</param>
+            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_spotlight_trending&amp;page=1</param>
             <param name="include">List_Poster_Row</param>
             <param name="target">videos</param>
             <param name="sortby" />
@@ -575,7 +575,7 @@
             <property name="widget_id">$NUMBER[501]</property>
             <property name="show_overlay" />
             <property name="hide_overlay">true</property>
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=series_continue_watching_episodes&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=continue_watching&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
         <item>
@@ -584,7 +584,7 @@
             <property name="widget_id">$NUMBER[502]</property>
             <property name="show_overlay" />
             <property name="hide_overlay">true</property>
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=series_in_progress_shows&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=active_shows&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
         <item>
@@ -593,7 +593,7 @@
             <property name="widget_id">$NUMBER[503]</property>
             <property name="show_overlay" />
             <property name="hide_overlay">true</property>
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=series_global_trending&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=series_spotlight_trending&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
         <item>
@@ -618,7 +618,7 @@
     <include name="skinvariables-1102widgets-wall">
         <include content="Hub_Wall_Widget">
             <param name="id">501</param>
-            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_in_progress&amp;page=1</param>
+            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=in_progress_movies&amp;page=1</param>
             <param name="include">List_Poster_Row</param>
             <param name="target">videos</param>
             <param name="sortby" />
@@ -628,7 +628,7 @@
         </include>
         <include content="Hub_Wall_Widget">
             <param name="id">502</param>
-            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_global_trending&amp;page=1</param>
+            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_spotlight_trending&amp;page=1</param>
             <param name="include">List_Poster_Row</param>
             <param name="target">videos</param>
             <param name="sortby" />
@@ -666,7 +666,7 @@
             <property name="widget_id">$NUMBER[501]</property>
             <property name="show_overlay">true</property>
             <property name="hide_overlay" />
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_in_progress&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=in_progress_movies&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
         <item>
@@ -675,7 +675,7 @@
             <property name="widget_id">$NUMBER[502]</property>
             <property name="show_overlay">true</property>
             <property name="hide_overlay" />
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_global_trending&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_spotlight_trending&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
         <item>
@@ -714,7 +714,7 @@
     <include name="skinvariables-1102widgets-combined">
         <include content="Hub_Combined_Widget">
             <param name="id">501</param>
-            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_in_progress&amp;page=1</param>
+            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=in_progress_movies&amp;page=1</param>
             <param name="include">List_Poster_Row</param>
             <param name="target">videos</param>
             <param name="sortby" />
@@ -725,7 +725,7 @@
         </include>
         <include content="Hub_Combined_Widget">
             <param name="id">502</param>
-            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_global_trending&amp;page=1</param>
+            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_spotlight_trending&amp;page=1</param>
             <param name="include">List_Poster_Row</param>
             <param name="target">videos</param>
             <param name="sortby" />
@@ -764,7 +764,7 @@
             <property name="widget_id">$NUMBER[501]</property>
             <property name="show_overlay" />
             <property name="hide_overlay">true</property>
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_in_progress&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=in_progress_movies&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
         <item>
@@ -773,7 +773,7 @@
             <property name="widget_id">$NUMBER[502]</property>
             <property name="show_overlay" />
             <property name="hide_overlay">true</property>
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_global_trending&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_spotlight_trending&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
         <item>
@@ -800,7 +800,7 @@
     <include name="skinvariables-homewidgets-wall">
         <include content="Hub_Wall_Widget">
             <param name="id">501</param>
-            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_series&amp;page=1</param>
+            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=continue_watching&amp;page=1</param>
             <param name="include">List_Poster_Row</param>
             <param name="target">videos</param>
             <param name="sortby" />
@@ -811,7 +811,7 @@
         </include>
         <include content="Hub_Wall_Widget">
             <param name="id">502</param>
-            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_movies&amp;page=1</param>
+            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=in_progress_movies&amp;page=1</param>
             <param name="include">List_Poster_Row</param>
             <param name="target">videos</param>
             <param name="sortby" />
@@ -830,7 +830,7 @@
             <property name="widget_id">$NUMBER[501]</property>
             <property name="show_overlay">true</property>
             <property name="hide_overlay" />
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_series&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=continue_watching&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
         <item>
@@ -839,7 +839,7 @@
             <property name="widget_id">$NUMBER[502]</property>
             <property name="show_overlay">true</property>
             <property name="hide_overlay" />
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_movies&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=in_progress_movies&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
     </include>
@@ -854,7 +854,7 @@
     <include name="skinvariables-homewidgets-combined">
         <include content="Hub_Combined_Widget">
             <param name="id">501</param>
-            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_series&amp;page=1</param>
+            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=continue_watching&amp;page=1</param>
             <param name="include">List_Poster_Row</param>
             <param name="target">videos</param>
             <param name="sortby" />
@@ -866,7 +866,7 @@
         </include>
         <include content="Hub_Combined_Widget">
             <param name="id">502</param>
-            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_movies&amp;page=1</param>
+            <param name="content">plugin://plugin.video.velocity2/?action=list&amp;list_id=in_progress_movies&amp;page=1</param>
             <param name="include">List_Poster_Row</param>
             <param name="target">videos</param>
             <param name="sortby" />
@@ -884,7 +884,7 @@
             <property name="widget_id">$NUMBER[501]</property>
             <property name="show_overlay" />
             <property name="hide_overlay">true</property>
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_series&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=continue_watching&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
         <item>
@@ -893,7 +893,7 @@
             <property name="widget_id">$NUMBER[502]</property>
             <property name="show_overlay" />
             <property name="hide_overlay">true</property>
-            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_movies&amp;page=1,return)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=list&amp;list_id=in_progress_movies&amp;page=1,return)</onclick>
             <visible>True</visible>
         </item>
     </include>

@@ -19,13 +19,13 @@
 
     <!-- Home §2.1 in-progress tabs: seed WidgetMeta + restore last tab (skin-vision-blueprint-v0 §2.2). -->
     <onload condition="String.IsEmpty(Skin.String(Velocity.Home.InProgressTab))">Skin.SetString(Velocity.Home.InProgressTab,series)</onload>
-    <onload condition="String.IsEqual(Skin.String(Velocity.Home.InProgressTab),movies)">SetProperty(WidgetMeta.501.FolderPath,plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_movies&amp;page=1)</onload>
-    <onload condition="!String.IsEqual(Skin.String(Velocity.Home.InProgressTab),movies)">SetProperty(WidgetMeta.501.FolderPath,plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_series&amp;page=1)</onload>
+    <onload condition="String.IsEqual(Skin.String(Velocity.Home.InProgressTab),movies)">SetProperty(WidgetMeta.501.FolderPath,plugin://plugin.video.velocity2/?action=list&amp;list_id=in_progress_movies&amp;page=1)</onload>
+    <onload condition="!String.IsEqual(Skin.String(Velocity.Home.InProgressTab),movies)">SetProperty(WidgetMeta.501.FolderPath,plugin://plugin.video.velocity2/?action=list&amp;list_id=continue_watching&amp;page=1)</onload>
     <onload condition="String.IsEqual(Skin.String(HomeSwitcher.Home.Mode),Standard) + String.IsEqual(Skin.String(Velocity.Home.InProgressTab),movies)">AlarmClock(velocityhomeiptab501,SetFocus(501,1),00:02,silent)</onload>
     <onload condition="[String.IsEqual(Skin.String(HomeSwitcher.Home.Mode),Wall) | String.IsEqual(Skin.String(HomeSwitcher.Home.Mode),Combined)] + String.IsEqual(Skin.String(Velocity.Home.InProgressTab),movies)">AlarmClock(velocityhomeiptab601,SetFocus(601,1),00:02,silent)</onload>
 
-    <onunload condition="String.Contains(Window.Property(WidgetMeta.501.FolderPath),home_in_progress_movies)">Skin.SetString(Velocity.Home.InProgressTab,movies)</onunload>
-    <onunload condition="!String.IsEmpty(Window.Property(WidgetMeta.501.FolderPath)) + !String.Contains(Window.Property(WidgetMeta.501.FolderPath),home_in_progress_movies)">Skin.SetString(Velocity.Home.InProgressTab,series)</onunload>
+    <onunload condition="String.Contains(Window.Property(WidgetMeta.501.FolderPath),in_progress_movies)">Skin.SetString(Velocity.Home.InProgressTab,movies)</onunload>
+    <onunload condition="!String.IsEmpty(Window.Property(WidgetMeta.501.FolderPath)) + !String.Contains(Window.Property(WidgetMeta.501.FolderPath),in_progress_movies)">Skin.SetString(Velocity.Home.InProgressTab,series)</onunload>
 
     <onload condition="!Skin.HasSetting(Home.FirstRun)">Skin.SetBool(Hub.Home.DisableSubmenu)</onload>
     <onload condition="!Skin.HasSetting(Home.FirstRun)">Skin.SetString(Shortcuts.RebuildDateTime,FirstRun)</onload>
