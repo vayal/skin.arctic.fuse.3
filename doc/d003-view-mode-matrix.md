@@ -18,16 +18,20 @@ Mode options:
 
 ## 1) Hub and mini-hub surfaces (HomeSwitcher-backed)
 
+**Canonical window and `HomeSwitcher.*` IDs** match the shipped skin: [Kodi UI verification matrix](roadmap/kodi-ui-verification-matrix.md) §2–3, `shortcuts/skinvariables-startup.json`, `1080i/Includes_Home.xml`. The **Home** root uses the `Home` window and `HomeSwitcher.Home.*` (not `1101`). **Series** = window `1101`, **Movies** = `1102`. **Discovery/search** primary UX is `Custom_1105_Search.xml` (see §2); **1103** / **1104** are optional hub slots, off by default after bootstrap.
+
 | Surface ID | Surface/Window | Uses HomeSwitcher mode | Candidate modes | Decision | Notes |
 |---|---|---|---|---|---|
-| `HS-home` | Home hub (`HomeSwitcher.1101`) | Yes | Standard / Combined / Wall | Combined | locked single mode for curated UX |
-| `HS-series` | Series hub (`HomeSwitcher.1102`) | Yes | Standard / Combined / Wall | Combined | locked single mode for curated UX |
-| `HS-movies` | Movies hub (`HomeSwitcher.1103`) | Yes | Standard / Combined / Wall | Combined | locked single mode for curated UX |
-| `HS-discover` | Discover hub (`HomeSwitcher.1104`) | Yes | Standard / Combined / Wall | Combined | keep aligned with search/discovery combined direction |
-| `HS-nextaired` | NextAired (`HomeSwitcher.1106`) | Legacy/toggle-dependent | Standard / Combined / Wall / N/A | N/A | removed from main UX scope |
-| `HS-pvr` | PVR/TV (`HomeSwitcher.1107`) | Legacy/toggle-dependent | Standard / Combined / Wall / N/A | N/A | all PVR functionality removed in this fork |
-| `HS-weather` | Weather (`HomeSwitcher.1108`) | Legacy/toggle-dependent | Standard / Combined / Wall / N/A | N/A | out of current hub-UX scope; no mode decision in this phase |
-| `HS-settingshub` | Settings hub (`HomeSwitcher.1109`) | Legacy/toggle-dependent | Standard / Combined / Wall / N/A | N/A | settings surfaces explicitly deferred for this phase |
+| `HS-home` | Home root (`Home` window); `HomeSwitcher.Home.*` | Yes | Standard / Combined / Wall | Combined | Primary home IA; spotlight/list wiring under `HomeSwitcher.Home.*` |
+| `HS-series` | Series hub window **1101**; `HomeSwitcher.1101.*` | Yes | Standard / Combined / Wall | Combined | `ReplaceWindow(1101)` from switcher when enabled |
+| `HS-movies` | Movies hub window **1102**; `HomeSwitcher.1102.*` | Yes | Standard / Combined / Wall | Combined | `ReplaceWindow(1102)` from switcher when enabled |
+| `HS-hub-1103` | Optional hub **1103**; `HomeSwitcher.1103.*` | Yes | Standard / Combined / Wall | Combined | Cleared by default in bootstrap; optional slot |
+| `HS-hub-1104` | Optional hub **1104**; `HomeSwitcher.1104.*` | Yes | Standard / Combined / Wall | Combined | Cleared by default in bootstrap; optional slot |
+| `HS-nextaired` | Calendar / Up Next hub **1106**; `HomeSwitcher.1106.*` | Legacy/toggle-dependent | Standard / Combined / Wall / N/A | N/A | Off by default after bootstrap |
+| `HS-pvr` | Live TV hub **1107**; `HomeSwitcher.1107.*` | Legacy/toggle-dependent | Standard / Combined / Wall / N/A | N/A | Off by default; core Kodi PVR may still exist outside this fork’s hub scope |
+| `HS-addons` | Add-ons hub **1108**; `HomeSwitcher.1108.*` | Legacy/toggle-dependent | Standard / Combined / Wall / N/A | Wall default | Off by default; may route to `addonbrowser` |
+| `HS-weather` | Weather | — | — | N/A | **Removed** (Phase 06); not mapped to a hub window or `HomeSwitcher.*` slot |
+| `HS-settingshub` | Settings hub **1109** (`Custom_1109_Settings.xml`); `HomeSwitcher.1109.*` | Legacy/toggle-dependent | Standard / Combined / Wall / N/A | N/A | Settings hub behavior deferred as needed |
 
 Provider mini-hubs (if modeled through HomeSwitcher/generated hub includes):
 

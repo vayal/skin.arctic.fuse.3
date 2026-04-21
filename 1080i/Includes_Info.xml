@@ -111,7 +111,7 @@
                         <param name="bordersize">-12</param>
                         <param name="icon">flags/$VAR[Color_Directory]/ratings/tmdb.png</param>
                         <param name="label">$INFO[$PARAM[container]$PARAM[listitem].Rating]</param>
-                        <param name="visible">[(String.IsEqual($PARAM[container]$PARAM[listitem].DBType,movie) | $PARAM[override_movie] | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,tvshow) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,season)) + !String.IsEmpty($PARAM[container]$PARAM[listitem].Rating)]</param>
+                        <param name="visible">[[String.IsEqual($PARAM[container]$PARAM[listitem].DBType,movie) | $PARAM[override_movie] | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,tvshow) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,season)] + !String.IsEmpty($PARAM[container]$PARAM[listitem].Rating)]</param>
                     </include>
 
                     <!-- Total Episodes -->

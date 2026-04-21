@@ -208,16 +208,16 @@
 
     <include name="Home_Horz_Movement">
         <onup>SetProperty(Bumper.Direction,Up,Home)</onup>
-        <onup>ActivateWindow(1181)</onup>
-        <oninfo>ActivateWindow(1181)</oninfo>
+        <onup>noop</onup>
+        <oninfo>noop</oninfo>
         <ondown>$VAR[Hub_Action_Down]</ondown>
     </include>
 
     <include name="Home_Vert_Movement">
         <onleft>SetProperty(Bumper.Direction,Left,Home)</onleft>
         <!-- <onleft>ActivateWindow(1180)</onleft> -->
-        <onleft>ActivateWindow(1181)</onleft>
-        <oninfo>ActivateWindow(1181)</oninfo>
+        <onleft>noop</onleft>
+        <oninfo>noop</oninfo>
 
         <!-- <onright condition="![String.IsEqual(Skin.String(HomeSwitcher.$PARAM[window].Mode),Wall) | String.IsEqual(Skin.String(HomeSwitcher.$PARAM[window].Mode),Combined)]">SetFocus($INFO[Window.Property(Velocity.WidgetContainer)],0,absolute)</onright>
         <onright condition="[String.IsEqual(Skin.String(HomeSwitcher.$PARAM[window].Mode),Wall) | String.IsEqual(Skin.String(HomeSwitcher.$PARAM[window].Mode),Combined)]">400</onright> -->

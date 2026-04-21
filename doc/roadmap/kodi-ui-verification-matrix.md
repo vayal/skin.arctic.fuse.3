@@ -2,6 +2,8 @@
 
 **Purpose:** One place to test the real Kodi UI against **what the repo actually wires**, while noting where **roadmap / contract docs** still differ. Use this for manual QA passes; update this file when rows or toggles change.
 
+**Full pass:** For a single end-to-end testing guide (bootstrap, journeys, Phase 07 closure), see [Kodi complete manual testing guide](../kodi-complete-testing-guide.md).
+
 **Prerequisites:** `plugin.video.velocity2` installed and signed in as needed; skin reloaded after edits; optional debug log for skin errors.
 
 ---
@@ -51,8 +53,11 @@
 | `1106` | Calendar / Up Next style mini-hub | toggle cleared by default |
 | `1107` | PVR / Live TV | toggle cleared by default |
 | `1108` | Add-ons | toggle cleared by default |
+| `1109` | Settings hub (`Custom_1109_Settings.xml`) | toggle-dependent; gated by `HomeSwitcher.1109.Toggle` |
 
 **View modes:** Empty `HomeSwitcher.<id>.Mode` is filled on first need — `1101`/`1102`/`1103`/`1104`/`1106` default **Standard**; `1107`/`1108` default **Wall** (`skinvariables-startup.json`).
+
+**D-003 alignment:** [d003-view-mode-matrix.md](../d003-view-mode-matrix.md) §1 uses the same window IDs; primary **discovery** UX is the search window (`Custom_1105_Search.xml`), not a dedicated numbered “discover” hub.
 
 ---
 

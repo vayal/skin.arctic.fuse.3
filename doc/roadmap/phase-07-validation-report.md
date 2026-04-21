@@ -50,7 +50,7 @@ Primary sources: [Skin Vision Blueprint v0](../skin-vision-blueprint-v0.md), [Sc
 
 Static alignment: hub wiring and contract IDs are documented in [kodi-ui-verification-matrix.md](./kodi-ui-verification-matrix.md) §4–5 and [screen-by-screen-build-contract.md](../screen-by-screen-build-contract.md) §2. **Runtime** navigation (load rows, play, info) — **not executed**.
 
-**Doc drift (informational):** [d003-view-mode-matrix.md](../d003-view-mode-matrix.md) §1 `HomeSwitcher.*` column does not match the implemented hub map in [kodi-ui-verification-matrix.md](./kodi-ui-verification-matrix.md) §3 (e.g. D-003 lists `HS-home` as `HomeSwitcher.1101` and `HS-movies` as `HomeSwitcher.1103`; the skin uses **Series** = `1101`, **Movies** = `1102`, **Home** = `Home` window). Treat D-003 as mode philosophy; use the verification matrix for window IDs until D-003 is corrected in a doc-only pass.
+**D-003 alignment:** [d003-view-mode-matrix.md](../d003-view-mode-matrix.md) §1 is aligned with [kodi-ui-verification-matrix.md](./kodi-ui-verification-matrix.md) §2–3 (Home = `Home` window + `HomeSwitcher.Home.*`; Series = `1101`; Movies = `1102`; optional `1103`/`1104`; `1108` = Add-ons; weather removed).
 
 ### 2.5 Provider mini-hubs
 
@@ -200,7 +200,6 @@ Use this list for remediation before marking Phase 07 **completed**.
 | **P1** | **Browse / hub / provider / OSD journeys** not validated in Kodi | §2; Phase 03 addendum empty table | **Phase 07** (re-run validation in Kodi) — capture evidence per [kodi-ui-verification-matrix.md](./kodi-ui-verification-matrix.md) |
 | **P1** | **Search-to-play** and **info-and-related** journeys not validated in Kodi | §2 | **Phase 07** (operator session) |
 | **P1** | **Pagination / empty-state / full-list 40** behavior not confirmed against D-015 at runtime | §2.7 | **Phase 02** (addon contract) + **Phase 07** (UI verification) |
-| **P2** | D-003 vs kodi matrix hub ID wording for Movies (`1102` vs `1103` in D-003 table) | §2.4 | **Phase 01** doc hygiene (optional) |
 
 **Minimal blocker report (guardrail format)**
 

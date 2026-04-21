@@ -52,6 +52,7 @@ flowchart TD
 - [Verification Checklists](./appendix-verification-checklists.md)
 - [Traceability Matrix](./appendix-traceability-matrix.md)
 - [Kodi UI verification matrix](./kodi-ui-verification-matrix.md) — code-backed top bar, hub IDs, and Standard widget rows for manual QA in Kodi
+- [Kodi complete manual testing guide](../kodi-complete-testing-guide.md) — end-to-end operator QA to verify all roadmap phases and close Phase 07 runtime evidence
 
 ## Phase Status Tracking (Single Source)
 
