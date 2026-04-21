@@ -60,6 +60,11 @@
 
     <expression name="Exp_Hubs_Spotlight_HasItems">[!Integer.IsEqual(Container(301).NumItems,0) | Container(301).IsUpdating]</expression>
 
+    <!-- Spotlight is enabled when feeder 301 is present/visible in current hub window. -->
+    <expression name="Exp_Hubs_Spotlight_Enabled">[Control.IsVisible(301)]</expression>
+    <!-- First widget row Up → Play(311): feeder has rows or is still binding. -->
+    <expression name="Exp_Hubs_Spotlight_Return_From_Widgets">[$EXP[Exp_Hubs_Spotlight_Enabled] + $EXP[Exp_Hubs_Spotlight_HasItems]]</expression>
+
     <expression name="Exp_Hubs_Spotlight_SlideDown">[[String.IsEqual(Window.Property(Velocity.WidgetContainer),301) | Integer.IsEqual(Window.Property(Velocity.WidgetContainer),301)]]</expression>
     <expression name="Exp_Hubs_Spotlight_ShowButtons">[ControlGroup(310).HasFocus()]</expression>
 

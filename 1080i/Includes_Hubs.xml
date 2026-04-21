@@ -155,7 +155,8 @@
                 <param name="id">$PARAM[id]</param>
                 <top>510</top>
                 <bottom>-40</bottom>
-                <onup condition="Control.IsVisible(310) + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(310)</onup>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(311)</onup>
+                <onup condition="!$EXP[Exp_Hubs_Spotlight_Enabled] + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(300)</onup>
                 <onup>601</onup>
                 <include>$PARAM[include_action]</include>
                 <include content="Action_Widget_OnBack">
@@ -220,9 +221,10 @@
                     <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">SetProperty(Bumper.Direction,Up,Home)</onup>
                     <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">ActivateWindow(1180)</onup>
                     <onup condition="!Control.IsVisible(301) + !Skin.HasSetting(HomeSwitcher.Vertical)">$PARAM[onup]</onup>
-                    <onup condition="Control.IsVisible(310)">310</onup>
-                    <onback condition="!Control.IsVisible(310) + !Player.HasMedia">$PARAM[onup]</onback>
-                    <onback condition="Control.IsVisible(310) + !Player.HasMedia">310</onback>
+                    <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled]">311</onup>
+                    <onup condition="!$EXP[Exp_Hubs_Spotlight_Enabled]">300</onup>
+                    <onback condition="!$EXP[Exp_Hubs_Spotlight_Enabled] + !Player.HasMedia">$PARAM[onup]</onback>
+                    <onback condition="$EXP[Exp_Hubs_Spotlight_Enabled] + !Player.HasMedia">311</onback>
                     <onback condition="Player.HasMedia">SetProperty(FullscreenRefocus,SetFocus(601))</onback>
                     <onback condition="Player.HasMedia">309</onback>
                     <ondown>SetFocus($INFO[Container(601).ListItem.Property(widget_id)])</ondown>
@@ -314,8 +316,8 @@
             <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">SetProperty(Bumper.Direction,Up,Home)</onup>
             <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">ActivateWindow(1180)</onup>
             <onup condition="!Control.IsVisible(301) + !Skin.HasSetting(HomeSwitcher.Vertical)">302</onup>
-            <onup condition="Control.IsVisible(310) + !Integer.IsEqual(Container(301).NumItems,0)">311</onup>
-            <onup condition="Control.IsVisible(310) + Integer.IsEqual(Container(301).NumItems,0)">310</onup>
+            <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled]">311</onup>
+            <onup condition="!$EXP[Exp_Hubs_Spotlight_Enabled]">300</onup>
             <ondown>ActivateWindow(1180)</ondown>
             <include>Hub_Grouplist_OnLeftRight</include>
             <orientation>vertical</orientation>
@@ -333,8 +335,8 @@
             <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">SetProperty(Bumper.Direction,Up,Home)</onup>
             <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">ActivateWindow(1180)</onup>
             <onup condition="!Control.IsVisible(301) + !Skin.HasSetting(HomeSwitcher.Vertical)">302</onup>
-            <onup condition="Control.IsVisible(310) + !Integer.IsEqual(Container(301).NumItems,0)">311</onup>
-            <onup condition="Control.IsVisible(310) + Integer.IsEqual(Container(301).NumItems,0)">310</onup>
+            <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled]">311</onup>
+            <onup condition="!$EXP[Exp_Hubs_Spotlight_Enabled]">300</onup>
             <ondown>ActivateWindow(1180)</ondown>
             <orientation>vertical</orientation>
             <nested />
@@ -363,8 +365,8 @@
         <!-- <onfocus>SetProperty(HomeSwitcher.IsVisible,True,Home)</onfocus> -->
         <onfocus>SetProperty(Velocity.WidgetContainer,301)</onfocus>
         <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
-        <!-- Hide the switcher strip only when the feeder actually has items (full-hero mode). If NumItems is 0, clearing this traps users with no Left-path back to 300 and an empty hero. -->
-        <onfocus condition="!Integer.IsEqual(Container(301).NumItems,0)">ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+        <!-- Keep menu navigation via onup, but do not keep menu strip highlighted while spotlight has focus. -->
+        <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
         <!-- <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus> -->
         <onfocus>SetProperty(InfoPanel.FullSwitch,Spotlight,Home)</onfocus>
 
@@ -439,13 +441,13 @@
                     <onup condition="Skin.HasSetting(HomeSwitcher.Vertical)">ActivateWindow(1180)</onup>
                     <ondown>$VAR[Hub_Action_Widgets]</ondown>
                     <onleft condition="Skin.HasSetting(HomeSwitcher.Vertical)">300</onleft>
-                    <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical) + String.IsEqual($PARAM[id],312)">311</onleft>
-                    <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical) + String.IsEqual($PARAM[id],311) + Integer.IsEqual(Container(301).NumItems,0)">SetFocus(300)</onleft>
-                    <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical) + String.IsEqual($PARAM[id],311) + !Integer.IsEqual(Container(301).NumItems,0)">Control.Move(301,-1)</onleft>
-                    <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical) + String.IsEqual($PARAM[id],311)">312</onright>
-                    <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical) + String.IsEqual($PARAM[id],312) + !Integer.IsEqual(Container(301).NumItems,0)">Control.Move(301,1)</onright>
-                    <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical) + String.IsEqual($PARAM[id],312) + !Integer.IsEqual(Container(301).NumItems,0)">SetFocus(311)</onright>
-                    <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical) + String.IsEqual($PARAM[id],312) + Integer.IsEqual(Container(301).NumItems,0)">$VAR[Hub_Action_Widgets]</onright>
+                    <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],312)">311</onleft>
+                    <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],311) + !$EXP[Exp_Hubs_Spotlight_HasItems]">SetFocus(300)</onleft>
+                    <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],311) + $EXP[Exp_Hubs_Spotlight_HasItems]">Control.Move(301,-1)</onleft>
+                    <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],311)">312</onright>
+                    <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],312) + $EXP[Exp_Hubs_Spotlight_HasItems]">Control.Move(301,1)</onright>
+                    <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],312) + $EXP[Exp_Hubs_Spotlight_HasItems]">SetFocus(311)</onright>
+                    <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],312) + !$EXP[Exp_Hubs_Spotlight_HasItems]">$VAR[Hub_Action_Widgets]</onright>
                 </control>
             </control>
         </definition>
@@ -453,9 +455,9 @@
 
     <include name="Hub_Spotlight_OnLeft">
         <include>Hub_Grouplist_OnLeft</include>
-        <!-- Horizontal: Left cycles the feeder when it has rows; when empty (or still loading with 0 rows), Left must return to the hub switcher (300). Without this, an empty spotlight leaves no onleft target and the Home/Series/Movies strip stays hidden (Play focus clears HomeSwitcher.IsVisible). -->
-        <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical) + !Integer.IsEqual(Container(301).NumItems,0)">Control.Move(301,-1)</onleft>
-        <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual(Container(301).NumItems,0)">SetFocus(300)</onleft>
+        <!-- Horizontal: Left cycles feeder while directory has rows or is still binding (Exp_Hubs_Spotlight_HasItems); else return to hub switcher (300). -->
+        <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical) + $EXP[Exp_Hubs_Spotlight_HasItems]">Control.Move(301,-1)</onleft>
+        <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical) + !$EXP[Exp_Hubs_Spotlight_HasItems]">SetFocus(300)</onleft>
     </include>
 
     <include name="Hub_Spotlight">
@@ -483,6 +485,8 @@
 
                 <control type="grouplist" id="310">
                     <itemgap>20</itemgap>
+                    <!-- Ensure spotlight enters on primary action button (not inert grouplist shell). -->
+                    <onfocus>SetFocus(311)</onfocus>
 
                     <include content="Animation_Fade_Out">
                         <param name="condition">!ControlGroup(310).HasFocus() + !String.IsEmpty(Window(Home).Property(HomeSwitcher.IsVisible)) + Skin.HasSetting(Spotlight.EnableSlide)</param>
@@ -493,8 +497,7 @@
 
                     <orientation>horizontal</orientation>
                     <include>Hub_Spotlight_OnLeft</include>
-                    <!-- Unconditional noop here ate Right before nested Play/Info buttons (Play → Info broke). Carousel advance stays on buttons / feeder only. -->
-                    <onright condition="$EXP[Exp_Hubs_Spotlight_HasItems] + !Control.HasFocus(311) + !Control.HasFocus(312)">Control.Move(301,1)</onright>
+                    <!-- Horizontal carousel: only buttons 311/312 (and hidden 301) handle Right/Left — avoid grouplist onright stealing focus from Play. -->
 
                     <onup condition="Skin.HasSetting(HomeSwitcher.Vertical)">SetProperty(Bumper.Direction,Up,Home)</onup>
                     <onup condition="Skin.HasSetting(HomeSwitcher.Vertical)">ActivateWindow(1180)</onup>
@@ -639,6 +642,12 @@
                     <preloaditems>2</preloaditems>
                     <onfocus>SetProperty(Velocity.WidgetContainer,301)</onfocus>
                     <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
+                    <onup condition="!Skin.HasSetting(HomeSwitcher.Vertical)">300</onup>
+                    <onup condition="Skin.HasSetting(HomeSwitcher.Vertical)">SetProperty(Bumper.Direction,Up,Home)</onup>
+                    <onup condition="Skin.HasSetting(HomeSwitcher.Vertical)">ActivateWindow(1180)</onup>
+                    <ondown>$VAR[Hub_Action_Widgets]</ondown>
+                    <onleft condition="$EXP[Exp_Hubs_Spotlight_HasItems]">Control.Move(301,-1)</onleft>
+                    <onright condition="$EXP[Exp_Hubs_Spotlight_HasItems]">Control.Move(301,1)</onright>
                     <!-- Do not SetFocus from here while NumItems is still 0: directory jobs start asynchronously; yanking focus can prevent CDirectoryProvider from ever filling 301 on Omega. -->
                     <orientation>horizontal</orientation>
                     <scrolltime tween="quadratic">400</scrolltime>
@@ -731,8 +740,8 @@
         <include content="Object_Hidden_Button">
             <param name="id">302</param>
             <onfocus>$VAR[Hub_Action_Reset]</onfocus>
-            <onfocus condition="!Control.IsVisible(301) | [Integer.IsEqual(Container(301).NumItems,0) + !Container(301).IsUpdating]">SetFocus(300)</onfocus>
-            <onfocus condition="Control.IsVisible(301) + !Integer.IsEqual(Container(301).NumItems,0)">SetFocus(301)</onfocus>
+            <onfocus condition="!Control.IsVisible(301) | !$EXP[Exp_Hubs_Spotlight_HasItems]">SetFocus(300)</onfocus>
+            <onfocus condition="Control.IsVisible(301) + $EXP[Exp_Hubs_Spotlight_HasItems]">SetFocus(311)</onfocus>
         </include>
 
         <include content="Object_Hidden_Button">
@@ -745,7 +754,7 @@
         <include content="Object_Hidden_Button">
             <param name="id">304</param>
             <onfocus>$VAR[Hub_Action_Reset]</onfocus>
-            <onfocus condition="Control.IsVisible(301) + !Integer.IsEqual(Container(301).NumItems,0)">SetFocus(301)</onfocus>
+            <onfocus condition="Control.IsVisible(301) + $EXP[Exp_Hubs_Spotlight_HasItems]">SetFocus(311)</onfocus>
             <onfocus>AlarmClock(refocus_300,SetFocus(300),00:00,silent)</onfocus>
         </include>
 

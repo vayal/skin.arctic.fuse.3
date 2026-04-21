@@ -7,7 +7,8 @@
 
     <variable name="Action_FirstStart_HomeFocus">
         <value condition="Skin.HasSetting(HomeSwitcher.DisableFirstWidgetFocus)">SetFocus(300)</value>
-        <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Target))">SetFocus(310)</value>
+        <!-- Menu-first: hub strip (300); Down → spotlight Play per Hub_Action_Down. -->
+        <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Target))">SetFocus(300)</value>
         <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.Home.Mode)) + Control.IsVisible(601)">SetFocus(601)</value>
         <value condition="Control.IsVisible(501)">SetFocus(501)</value>
         <value condition="Control.IsVisible(502)">SetFocus(502)</value>

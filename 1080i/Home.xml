@@ -12,8 +12,7 @@
     <include content="Hub_Onload">
         <param name="window_id">Home</param>
     </include>
-    <!-- Hub_Onload runs above before Target/Path may be seeded; it can leave WidgetContainer at 501. Re-point to spotlight feeder once Target exists. -->
-    <onload condition="!String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Target))">SetProperty(Velocity.WidgetContainer,301)</onload>
+    <!-- Spotlight Path/Target/Label are set above before Hub_Onload; Hub_Onload seeds Velocity.WidgetContainer when Target exists. Default focus stays on menu (300). -->
 
     <!-- Home Standard widgets are direct independent rows (no stacked WidgetMeta/tab indirection). -->
 
