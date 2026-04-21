@@ -314,7 +314,8 @@
             <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">SetProperty(Bumper.Direction,Up,Home)</onup>
             <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">ActivateWindow(1180)</onup>
             <onup condition="!Control.IsVisible(301) + !Skin.HasSetting(HomeSwitcher.Vertical)">302</onup>
-            <onup condition="Control.IsVisible(310)">310</onup>
+            <onup condition="Control.IsVisible(310) + !Integer.IsEqual(Container(301).NumItems,0)">311</onup>
+            <onup condition="Control.IsVisible(310) + Integer.IsEqual(Container(301).NumItems,0)">310</onup>
             <ondown>ActivateWindow(1180)</ondown>
             <include>Hub_Grouplist_OnLeftRight</include>
             <orientation>vertical</orientation>
@@ -332,7 +333,8 @@
             <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">SetProperty(Bumper.Direction,Up,Home)</onup>
             <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">ActivateWindow(1180)</onup>
             <onup condition="!Control.IsVisible(301) + !Skin.HasSetting(HomeSwitcher.Vertical)">302</onup>
-            <onup condition="Control.IsVisible(310)">310</onup>
+            <onup condition="Control.IsVisible(310) + !Integer.IsEqual(Container(301).NumItems,0)">311</onup>
+            <onup condition="Control.IsVisible(310) + Integer.IsEqual(Container(301).NumItems,0)">310</onup>
             <ondown>ActivateWindow(1180)</ondown>
             <orientation>vertical</orientation>
             <nested />
@@ -441,7 +443,9 @@
                     <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical) + String.IsEqual($PARAM[id],311) + Integer.IsEqual(Container(301).NumItems,0)">SetFocus(300)</onleft>
                     <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical) + String.IsEqual($PARAM[id],311) + !Integer.IsEqual(Container(301).NumItems,0)">Control.Move(301,-1)</onleft>
                     <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical) + String.IsEqual($PARAM[id],311)">312</onright>
-                    <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical) + String.IsEqual($PARAM[id],312)">$VAR[Hub_Action_Widgets]</onright>
+                    <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical) + String.IsEqual($PARAM[id],312) + !Integer.IsEqual(Container(301).NumItems,0)">Control.Move(301,1)</onright>
+                    <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical) + String.IsEqual($PARAM[id],312) + !Integer.IsEqual(Container(301).NumItems,0)">SetFocus(311)</onright>
+                    <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical) + String.IsEqual($PARAM[id],312) + Integer.IsEqual(Container(301).NumItems,0)">$VAR[Hub_Action_Widgets]</onright>
                 </control>
             </control>
         </definition>
@@ -524,10 +528,8 @@
                             <param name="label">$VAR[Label_FullscreenWidget_PlayButton]</param>
                             <param name="image">$VAR[Image_FullscreenWidget_PlayButton]</param>
                             <param name="width">140</param>
-                            <onclick>SetFocus(301)</onclick>
-                            <onclick condition="!String.StartsWith(Container(301).ListItem.FolderPath,videodb://)">Action(select)</onclick>
-                            <onclick condition="String.StartsWith(Container(301).ListItem.FolderPath,videodb://)">Action(play)</onclick>
-                            <onclick>SetFocus(311)</onclick>
+                            <onclick condition="!Integer.IsEqual(Container(301).NumItems,0)">SetFocus(301)</onclick>
+                            <onclick condition="!Integer.IsEqual(Container(301).NumItems,0)">Action(select)</onclick>
                             <include content="Hub_Spotlight_Button">
                                 <param name="id">311</param>
                                 <param name="window">$PARAM[window]</param>
@@ -576,6 +578,8 @@
     </include>
 
     <variable name="Hub_Action_Down">
+        <value condition="Control.IsVisible(301) + !Integer.IsEqual(Container(301).NumItems,0)">SetFocus(311)</value>
+        <value condition="Control.IsVisible(310)">SetFocus(311)</value>
         <value condition="Control.IsVisible(301)">SetFocus(310)</value>
         <value condition="Control.IsVisible(601)">SetFocus(601)</value>
         <value condition="Control.IsVisible(602)">SetFocus(602)</value>

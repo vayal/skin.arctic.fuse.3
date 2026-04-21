@@ -88,7 +88,8 @@
                 <param name="item_w">$PARAM[item_w]</param>
                 <param name="itemlayout_w">$PARAM[itemlayout_w]</param>
                 <param name="hidden_button_enabled">true</param>
-                <!-- Velocity hub: first standard row (501) sits under hero chrome; Up must reach Play/Info (310), not the hidden feeder list (301). -->
+                <!-- Velocity hub: first standard row (501) Up should return directly to spotlight Play button. -->
+                <onup condition="Control.IsVisible(310) + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501) + !Integer.IsEqual(Container(301).NumItems,0)">SetFocus(311)</onup>
                 <onup condition="Control.IsVisible(310) + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(310)</onup>
                 <nested />
                 <include content="Object_HitRect">
