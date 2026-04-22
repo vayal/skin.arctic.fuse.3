@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Validate skin XML (1080i)",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/validate-skin-xml.sh",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "xmllint: current file",
+      "type": "shell",
+      "command": "xmllint --noout '${file}'",
+      "problemMatcher": [],
+      "group": "test"
+    }
+  ]
+}
