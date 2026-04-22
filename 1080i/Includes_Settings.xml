@@ -460,17 +460,4 @@
         </control>
     </include>
 
-    <include name="Settings_InfoText">
-        <control type="label">
-            <left>40</left>
-            <right>40</right>
-            <top>100</top>
-            <height>120</height>
-            <font>font_tiny</font>
-            <textcolor>main_fg_70</textcolor>
-            <label>$VAR[Label_Settings_InfoText]</label>
-            <visible>!String.IsEmpty($VAR[Label_Settings_InfoText])</visible>
-        </control>
-    </include>
-
 </includes>

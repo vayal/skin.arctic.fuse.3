@@ -8,7 +8,6 @@
 
         <include content="Hub_Prefab_Window">
             <param name="window">1106</param>
-            <param name="skin_key">1106</param>
             <param name="widgets_wall">Object_Null</param>
             <param name="widgets_combined">Object_Null</param>
             <param name="widgets_standard">NextAired_Content</param>

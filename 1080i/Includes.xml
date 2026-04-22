@@ -33,6 +33,8 @@
     <include file="Dialog_Parts.xml" />
     <include file="Dialog_Sizes.xml" />
     <include file="Dialog_DialogAddonInfo.xml" />
+    <include file="Dialog_DialogPVRInfo.xml" />
+    <include file="Dialog_DialogPVRGuideSearch.xml" />
     <include file="Dialog_DialogPictureInfo.xml" />
     <include file="Dialog_DialogProcessInfo.xml" />
     <include file="Dialog_DialogSelect.xml" />
@@ -73,7 +75,6 @@
     <include file="Includes_LiveTV.xml" />
     <include file="Includes_Addons.xml" />
     <include file="Includes_Paths.xml" />
-    <include file="Includes_Velocity_Paths.xml" />
 
     <include file="Includes_Views.xml" />
     <include file="Includes_Views_List.xml" />
@@ -86,11 +87,8 @@
 
     <include file="script-skinvariables-images-includes.xml" />
     <include file="script-skinvariables-labels-includes.xml" />
-    <!-- Hard replacement (Velocity-only): single source of truth in script-skinvariables-generator-overrides.xml.
-         Do not load script-skinvariables-generator-includes-.xml at runtime (no generator fallback). -->
-    <include file="script-skinvariables-generator-overrides.xml" />
-    <!-- <include file="script-skinvariables-generator-includes-.xml" condition="String.IsEmpty(Skin.String(SkinVariables.SkinUser))" /> -->
-    <!-- <include file="script-skinvariables-skinusers.xml" condition="!String.IsEmpty(Skin.String(SkinVariables.SkinUser))" /> -->
+    <include file="script-skinvariables-generator-includes-.xml" condition="String.IsEmpty(Skin.String(SkinVariables.SkinUser))" />
+    <include file="script-skinvariables-skinusers.xml" condition="!String.IsEmpty(Skin.String(SkinVariables.SkinUser))" />
     <include file="script-skinvariables-includes.xml" />
     <include file="script-skinviewtypes-includes.xml" />
 

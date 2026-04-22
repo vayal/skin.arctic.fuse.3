@@ -1,11 +1,11 @@
 {
     "infolabels": {
         "listitem_trailer": "Container.ListItem.Trailer",
-        "focused_listitem_trailer": "ListItem.Trailer",
+        "tmdbhelper_trailer": "Window(Home).Property(TMDbHelper.ListItem.Trailer)",
         "listitem_title": "Container.ListItem.Title",
+        "tmdbhelper_title": "Window(Home).Property(TMDbHelper.ListItem.Title)",
         "listitem_tvshowtitle": "Container.ListItem.TVShowTitle",
-        "focused_title": "ListItem.Title",
-        "focused_tvshowtitle": "ListItem.TVShowTitle"
+        "tmdbhelper_tvshowtitle": "Window(Home).Property(TMDbHelper.ListItem.TVShowTitle)"
     },
     "values": {
         "trailer": [
@@ -13,10 +13,7 @@
                 "rules": ["!String.IsEmpty(Container.ListItem.Trailer)"],
                 "value": "{listitem_trailer}"
             },
-            {
-                "rules": ["!String.IsEmpty(ListItem.Trailer)"],
-                "value": "{focused_listitem_trailer}"
-            }
+            "{tmdbhelper_trailer}"
         ],
         "title": [
             {
@@ -28,13 +25,10 @@
                 "value": "{listitem_title}"
             },
             {
-                "rules": ["!String.IsEmpty(ListItem.TVShowtitle)"],
-                "value": "{focused_tvshowtitle}"
+                "rules": ["!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.TVShowTitle))"],
+                "value": "{tmdbhelper_tvshowtitle}"
             },
-            {
-                "rules": ["!String.IsEmpty(ListItem.Title)"],
-                "value": "{focused_title}"
-            }
+            "{tmdbhelper_title}"
         ]
     },
     "actions": [

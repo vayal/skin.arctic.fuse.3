@@ -75,7 +75,7 @@
                     <param name="condition">$PARAM[conditional_fade]</param>
                 </include>
                 <include content="Animation_Widget_FadeOut" condition="$PARAM[widgetfade_include]">
-                    <param name="condition">!Control.HasFocus($PARAM[id]) + !Integer.IsEqual(Window.Property(Velocity.WidgetContainer),$PARAM[id]) + ![$PARAM[widgetfade_disable]]</param>
+                    <param name="condition">!Control.HasFocus($PARAM[id]) + !Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),$PARAM[id]) + ![$PARAM[widgetfade_disable]]</param>
                 </include>
 
             </include>
@@ -88,13 +88,6 @@
                 <param name="item_w">$PARAM[item_w]</param>
                 <param name="itemlayout_w">$PARAM[itemlayout_w]</param>
                 <param name="hidden_button_enabled">true</param>
-                <!-- Velocity hub: first standard row (501) Up should return directly to spotlight Play button. -->
-                <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetProperty(Velocity.WidgetContainer,301)</onup>
-                <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(311)</onup>
-                <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetProperty(Velocity.WidgetContainer,301)</onup>
-                <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(311)</onup>
-                <onup condition="!$EXP[Exp_Hubs_Spotlight_Enabled] + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(300)</onup>
-                <onup condition="!$EXP[Exp_Hubs_Spotlight_Enabled] + Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(300)</onup>
                 <nested />
                 <include content="Object_HitRect">
                     <param name="x">0</param>
@@ -117,7 +110,7 @@
                 <onfocus condition="!$EXP[Exp_InfoDialogs] + $PARAM[widget_showoverlay]">SetProperty(Background.ShowOverlay,True,Home)</onfocus>
 
                 <include content="Animation_Widget_FadeOut" condition="$PARAM[widgetfade_include]">
-                    <param name="condition">!Control.HasFocus($PARAM[id]) + !Integer.IsEqual(Window.Property(Velocity.WidgetContainer),$PARAM[id]) + ![$PARAM[widgetfade_disable]]</param>
+                    <param name="condition">!Control.HasFocus($PARAM[id]) + !Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),$PARAM[id]) + ![$PARAM[widgetfade_disable]]</param>
                 </include>
 
                 <include content="Animation_ConditionalFade">
@@ -575,7 +568,7 @@
                     <param name="refocus">$PARAM[refocus]</param>
                 </include>
 
-                <onfocus>SetProperty(Velocity.WidgetContainer,$PARAM[id])</onfocus>
+                <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PARAM[id])</onfocus>
                 <nested />
 
             </include>
@@ -612,7 +605,7 @@
                     <param name="menuid">$PARAM[menuid]</param>
                     <param name="onback">[Integer.IsEqual(Container($PARAM[baseid]$PARAM[id]).CurrentItem,1)]</param>
                 </include>
-                <onfocus condition="$PARAM[set_widgetcontainer]">SetProperty(Velocity.WidgetContainer,$PARAM[baseid]$PARAM[id])</onfocus>
+                <onfocus condition="$PARAM[set_widgetcontainer]">SetProperty(TMDbHelper.WidgetContainer,$PARAM[baseid]$PARAM[id])</onfocus>
                 <nested />
             </include>
         </definition>

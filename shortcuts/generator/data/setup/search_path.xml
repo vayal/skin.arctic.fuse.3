@@ -138,11 +138,11 @@
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-TMDBMovies</condition>
-            <value>plugin://plugin.video.velocity2/?action=execute_search&amp;amp;q=</value>
+            <value>plugin://plugin.video.themoviedb.helper?info=search&amp;amp;tmdb_type=movie&amp;amp;query=</value>
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-TMDBShows</condition>
-            <value>plugin://plugin.video.velocity2/?action=execute_search&amp;amp;q=</value>
+            <value>plugin://plugin.video.themoviedb.helper?info=search&amp;amp;tmdb_type=tv&amp;amp;query=</value>
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-TMDBSets</condition>
@@ -268,11 +268,11 @@
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-TMDBMovies</condition>
-            <value></value>
+            <value>&amp;amp;nextpage=false&amp;amp;cacheonly=true</value>
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-TMDBShows</condition>
-            <value></value>
+            <value>&amp;amp;nextpage=false&amp;amp;cacheonly=true</value>
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-TMDBSets</condition>

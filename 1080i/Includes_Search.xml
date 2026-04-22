@@ -10,7 +10,6 @@
             <include>Hub_Window_Background</include>
             <include content="Home_Control">
                 <param name="window">$PARAM[window]</param>
-                <param name="skin_key">1105</param>
                 <param name="overlay">[false]</param>
                 <onfocus condition="!Skin.HasSetting(HomeSwitcher.Vertical)">SetFocus(3001)</onfocus>
             </include>
@@ -52,7 +51,7 @@
                             <control type="group" id="500">
                                 <include content="Hub_Combined_Widget" condition="!Skin.HasSetting(Search.DisableDiscover) + !Skin.HasSetting(Search.DisableCombined)">
                                     <param name="id">501</param>
-                                    <param name="content">$INFO[Window(Home).Property(TMDbHelper.UserDiscover.FolderPath)]$INFO[Control.GetLabel(3000).index(1),&amp;with_text_query=,]</param>
+                                    <param name="content">$INFO[window(home).property(tmdbhelper.userdiscover.folderpath)]$INFO[Control.GetLabel(3000).index(1),&amp;with_text_query=,]</param>
                                     <param name="include">List_Poster_Row</param>
                                     <param name="target">videos</param>
                                     <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),discover)</param>
@@ -101,7 +100,7 @@
                 <align>left</align>
                 <height>80</height>
                 <textcolor>main_fg_90</textcolor>
-                <visible>[String.IsEmpty(Window.Property(Search.WidgetContainer)) | [Integer.IsEqual(Container(601).NumItems,0) + !Skin.HasSetting(Search.DisableCombined)] | [Skin.HasSetting(Search.DisableCombined) + Integer.IsEqual(Container(602).NumItems,0)]]</visible>
+                <visible>[String.IsEmpty(Window.Property(TMDBHelper.WidgetContainer)) | [Integer.IsEqual(Container(601).NumItems,0) + !Skin.HasSetting(Search.DisableCombined)] | [Skin.HasSetting(Search.DisableCombined) + Integer.IsEqual(Container(602).NumItems,0)]]</visible>
                 <include>Home_Animation</include>
                 <left>view_pad</left>
                 <top>280</top>
@@ -114,7 +113,7 @@
                 <align>left</align>
                 <height>80</height>
                 <textcolor>main_fg_30</textcolor>
-                <visible>[String.IsEmpty(Window.Property(Search.WidgetContainer)) | [Integer.IsEqual(Container(601).NumItems,0) + !Skin.HasSetting(Search.DisableCombined)] | [Skin.HasSetting(Search.DisableCombined) + Integer.IsEqual(Container(602).NumItems,0)]]</visible>
+                <visible>[String.IsEmpty(Window.Property(TMDBHelper.WidgetContainer)) | [Integer.IsEqual(Container(601).NumItems,0) + !Skin.HasSetting(Search.DisableCombined)] | [Skin.HasSetting(Search.DisableCombined) + Integer.IsEqual(Container(602).NumItems,0)]]</visible>
                 <include>Home_Animation</include>
                 <left>view_pad</left>
                 <top>360</top>
@@ -129,7 +128,7 @@
             <property name="widget_id">$NUMBER[501]</property>
             <property name="show_artwork">true</property>
             <property name="widget_numitems">$INFO[Container(501).NumItems]</property>
-             <onclick>RunPlugin($VAR[Velocity.Path.Discover])</onclick>
+            <onclick>RunPlugin(plugin://plugin.video.themoviedb.helper/?info=user_discover$INFO[Window(Home).Property(TMDbHelper.UserDiscover.Folderpath.ParamString),&amp;,])</onclick>
             <visible>!Integer.IsEqual(Container(501).NumItems,0)</visible>
         </item>
         <include>skinvariables-searchwidgets-selector</include>
@@ -143,7 +142,7 @@
                 <include content="View_Furniture_Footer_ViewLine">
                     <param name="visible">true</param>
                     <param name="label">$INFO[Container(601).ListItem.Property(widget_numitems),, $LOCALIZE[31022]]</param>
-                    <param name="label_fallback">$INFO[System.AddonVersion(skin.velocity.af3),arctic.fuse v,]</param>
+                    <param name="label_fallback">$INFO[System.AddonVersion(skin.arctic.fuse.3),arctic.fuse v,]</param>
                 </include>
             </control>
         </control>
@@ -282,7 +281,7 @@
             <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical)">$INFO[Container(399).ListItem(-1).Property(action)]</onleft>
             <onright condition="!Skin.HasSetting(HomeSwitcher.Vertical)">$INFO[Container(399).ListItem(1).Property(action)]</onright>
 
-             <onup condition="!Skin.HasSetting(Search.DisableDiscover) + !Skin.HasSetting(Search.DisableCombined)">RunPlugin($VAR[Velocity.Path.Discover])</onup>
+            <onup condition="!Skin.HasSetting(Search.DisableDiscover) + !Skin.HasSetting(Search.DisableCombined)">RunPlugin(plugin://plugin.video.themoviedb.helper/?info=user_discover$INFO[Window(Home).Property(TMDbHelper.UserDiscover.Folderpath.ParamString),&amp;,])</onup>
             <ondown>301</ondown>
 
             <texturefocus />

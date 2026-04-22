@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="window" id="1102">
-    <!-- Hard replacement: always pin spotlight to Velocity canonical feed. -->
-    <onload>Skin.SetString(HomeSwitcher.1102.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_spotlight_trending&amp;page=1)</onload>
-    <onload>Skin.SetString(HomeSwitcher.1102.Spotlight.Target,videos)</onload>
-    <onload>Skin.SetString(HomeSwitcher.1102.Spotlight.Label,Spotlight)</onload>
     <include content="Hub_Onload">
         <param name="window_id">1102</param>
     </include>
-    <onload condition="!String.IsEmpty(Skin.String(HomeSwitcher.1102.Spotlight.Target))">SetProperty(Velocity.WidgetContainer,301)</onload>
     <controls>
         <include content="Hub_Window">
             <param name="window">1102</param>
-            <param name="skin_key">1102</param>
-            <param name="velocity_spotlight_list_id">movies_spotlight_trending</param>
         </include>
     </controls>
 </window>

@@ -164,9 +164,10 @@
                     <onclick>Dialog.Close(musicinformation)</onclick>
                     <onclick>Dialog.Close(videoosd,true)</onclick>
                     <onclick>Dialog.Close(1140,true)</onclick>
+                    <onclick>Dialog.Close(1141,true)</onclick>
                     <onclick>Dialog.Close(videobookmarks,true)</onclick>
                     <onclick>Skin.SetString(InfoPanel.FullSwitch,Full,Home)</onclick>
-                    <onclick>ActivateWindow(Videos,plugin://plugin.video.velocity2/?action=home,return)</onclick>
+                    <onclick>RunScript(plugin.video.themoviedb.helper,add_path=$INFO[Container(7001).ListItem.FolderPath],call_auto=1190,origin_tmdb_type=$INFO[Window.Property(origin_tmdb_type)],origin_tmdb_id=$INFO[Window.Property(origin_tmdb_id)],origin_season=$INFO[Window.Property(origin_season)],origin_episode=$INFO[Window.Property(origin_episode)],return)</onclick>
                     <content>$INFO[Window.Property(ModePath)]</content>
                     <visible>!String.IsEmpty(Window.Property(ModePath))</visible>
                 </include>
@@ -194,10 +195,11 @@
             <onfocus>ClearProperty(ModePath)</onfocus>
             <onfocus>ClearProperty(ModeName)</onfocus>
             <onclick>Skin.SetString(InfoPanel.FullSwitch,Full,Home)</onclick>
-            <onclick>ActivateWindow(Videos,plugin://plugin.video.velocity2/?action=home,return)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=$INFO[Window.Property(path)],call_auto=1190,origin_tmdb_type=$INFO[Window.Property(origin_tmdb_type)],origin_tmdb_id=$INFO[Window.Property(origin_tmdb_id)],origin_season=$INFO[Window.Property(origin_season)],origin_episode=$INFO[Window.Property(origin_episode)],return)</onclick>
             <onclick>Dialog.Close(1114,true)</onclick>
             <onclick>Dialog.Close(videoosd,true)</onclick>
             <onclick>Dialog.Close(1140,true)</onclick>
+            <onclick>Dialog.Close(1141,true)</onclick>
             <onclick>Dialog.Close(videobookmarks,true)</onclick>
         </include>
         <!-- Movies -->
@@ -209,7 +211,7 @@
             <param name="icon">special://skin/extras/icons/film.png</param>
             <usealttexture>String.IsEqual(Window.Property(ModeName),$LOCALIZE[342])</usealttexture>
             <onfocus>SetProperty(ModeName,$LOCALIZE[342])</onfocus>
-            <onfocus>SetProperty(ModePath,special://skin/extras/playlists/Null.xsp)</onfocus>
+            <onfocus>SetProperty(ModePath,$INFO[Window.Property(TMDb_ID),plugin://plugin.video.themoviedb.helper/?info=stars_in_movies&amp;tmdb_type=person&amp;tmdb_id=,&amp;limit=250&amp;sort_by=premiered&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;exclude_key=genre&amp;exclude_value=Documentary / News / Talk])</onfocus>
             <onclick condition="!Container(7001).IsUpdating + !Integer.IsEqual(Container(7001).NumItems,0)">SetFocus(7001)</onclick>
         </include>
         <!-- TV Shows -->
@@ -221,7 +223,7 @@
             <param name="icon">special://skin/extras/icons/tv.png</param>
             <usealttexture>String.IsEqual(Window.Property(ModeName),$LOCALIZE[20343])</usealttexture>
             <onfocus>SetProperty(ModeName,$LOCALIZE[20343])</onfocus>
-            <onfocus>SetProperty(ModePath,special://skin/extras/playlists/Null.xsp)</onfocus>
+            <onfocus>SetProperty(ModePath,$INFO[Window.Property(TMDb_ID),plugin://plugin.video.themoviedb.helper/?info=stars_in_tvshows&amp;tmdb_type=person&amp;tmdb_id=,&amp;limit=250&amp;sort_by=premiered&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;exclude_key=genre&amp;exclude_value=Documentary / News / Talk])</onfocus>
             <onclick condition="!Container(7001).IsUpdating + !Integer.IsEqual(Container(7001).NumItems,0)">SetFocus(7001)</onclick>
         </include>
         <!-- Crew -->
@@ -233,7 +235,7 @@
             <param name="icon">special://skin/extras/icons/director.png</param>
             <usealttexture>String.IsEqual(Window.Property(ModeName),$LOCALIZE[31035])</usealttexture>
             <onfocus>SetProperty(ModeName,$LOCALIZE[31035])</onfocus>
-            <onfocus>SetProperty(ModePath,special://skin/extras/playlists/Null.xsp)</onfocus>
+            <onfocus>SetProperty(ModePath,$INFO[Window.Property(TMDb_ID),plugin://plugin.video.themoviedb.helper/?info=crew_in_both&amp;tmdb_type=person&amp;tmdb_id=,&amp;limit=250&amp;sort_by=premiered&amp;nextpage=false&amp;cacheonly=true&amp;length=1])</onfocus>
             <onclick condition="!Container(7001).IsUpdating + !Integer.IsEqual(Container(7001).NumItems,0)">SetFocus(7001)</onclick>
         </include>
         <!-- Cast -->
@@ -245,7 +247,7 @@
             <param name="icon">special://skin/extras/icons/person.png</param>
             <usealttexture>String.IsEqual(Window.Property(ModeName),$LOCALIZE[31076])</usealttexture>
             <onfocus>SetProperty(ModeName,$LOCALIZE[31076])</onfocus>
-            <onfocus>SetProperty(ModePath,special://skin/extras/playlists/Null.xsp)</onfocus>
+            <onfocus>SetProperty(ModePath,$INFO[Window.Property(TMDb_ID),plugin://plugin.video.themoviedb.helper/?info=cast&amp;tmdb_id=,&amp;limit=250]$INFO[Window.Property(tmdb_type),&amp;tmdb_type=,&amp;nextpage=false&amp;cacheonly=true&amp;length=1])</onfocus>
             <onclick condition="!Container(7001).IsUpdating + !Integer.IsEqual(Container(7001).NumItems,0)">SetFocus(7001)</onclick>
         </include>
         <!-- Crew -->
@@ -257,7 +259,7 @@
             <param name="icon">special://skin/extras/icons/director.png</param>
             <usealttexture>String.IsEqual(Window.Property(ModeName),$LOCALIZE[31383])</usealttexture>
             <onfocus>SetProperty(ModeName,$LOCALIZE[31383])</onfocus>
-            <onfocus>SetProperty(ModePath,special://skin/extras/playlists/Null.xsp)</onfocus>
+            <onfocus>SetProperty(ModePath,$INFO[Window.Property(TMDb_ID),plugin://plugin.video.themoviedb.helper/?info=crew&amp;tmdb_id=,&amp;limit=250]$INFO[Window.Property(tmdb_type),&amp;tmdb_type=,&amp;nextpage=false&amp;cacheonly=true&amp;length=1])</onfocus>
             <onclick condition="!Container(7001).IsUpdating + !Integer.IsEqual(Container(7001).NumItems,0)">SetFocus(7001)</onclick>
         </include>
     </include>
@@ -301,8 +303,8 @@
 
     <include name="DialogPlot_Artwork">
         <param name="poster_icon">$VAR[Image_Overlay_Poster]</param>
-        <param name="square_icon">$VAR[Image_Overlay_Icon]</param>
-        <param name="c_logo_icon">$VAR[Image_Overlay_Clearlogo]</param>
+        <param name="square_icon">$INFO[Window(Home).Property(TMDbHelper.ListItem.Base_Icon)]</param>
+        <param name="c_logo_icon">$INFO[Window(Home).Property(TMDbHelper.ListItem.Base_Clearlogo)]</param>
         <param name="hidden_icon">true</param>
         <definition>
             <control type="group">

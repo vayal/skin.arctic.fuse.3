@@ -141,7 +141,7 @@
             <onclick condition="$PARAM[condition]">AlarmClock(refocusblura,SetFocus(10000,1,absolute),00:00,silent)</onclick>
             <onclick condition="$PARAM[condition]">AlarmClock(refocusblurb,SetFocus(10001),00:00,silent)</onclick>
             <onclick condition="$PARAM[condition]">AlarmClock(refocusblurc,ActivateWindow(1118),00:00,silent)</onclick>
-            <onclick condition="$PARAM[condition] + $PARAM[condition_service]">AlarmClock(refocusblurd,noop,00:01,silent)</onclick>
+            <onclick condition="$PARAM[condition] + $PARAM[condition_service]">AlarmClock(refocusblurd,RunScript(plugin.video.themoviedb.helper,restart_service),00:01,silent)</onclick>
         </definition>
     </include>
 
@@ -594,7 +594,7 @@
             <param name="label">$LOCALIZE[31220]</param>
             <selected>Skin.String(Background.Image,special://skin/extras/backgrounds/blur/purple_blur.jpg) | String.IsEmpty(Skin.String(Background.Image))</selected>
             <onclick>Skin.SetString(Background.Image,special://skin/extras/backgrounds/blur/purple_blur.jpg)</onclick>
-            <onclick>noop</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,blur_image=$VAR[Image_SimpleBackground],prefix=SimpleBackground)</onclick>
         </include>
         <include content="Button_Dialog_Setting">
             <param name="dialog">true</param>
@@ -605,7 +605,7 @@
             <param name="label">$LOCALIZE[762]</param>
             <selected>Skin.String(Background.Image,special://skin/extras/backgrounds/blur/blue_blur.jpg)</selected>
             <onclick>Skin.SetString(Background.Image,special://skin/extras/backgrounds/blur/blue_blur.jpg)</onclick>
-            <onclick>noop</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,blur_image=$VAR[Image_SimpleBackground],prefix=SimpleBackground)</onclick>
         </include>
         <include content="Button_Dialog_Setting">
             <param name="dialog">true</param>
@@ -616,7 +616,7 @@
             <param name="label">$LOCALIZE[31224]</param>
             <selected>Skin.String(Background.Image,special://skin/extras/backgrounds/pink_blur.jpg)</selected>
             <onclick>Skin.SetString(Background.Image,special://skin/extras/backgrounds/pink_blur.jpg)</onclick>
-            <onclick>noop</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,blur_image=$VAR[Image_SimpleBackground],prefix=SimpleBackground)</onclick>
         </include>
         <include content="Button_Dialog_Setting">
             <param name="dialog">true</param>
@@ -627,7 +627,7 @@
             <param name="label">$LOCALIZE[13342]</param>
             <selected>Skin.String(Background.Image,special://skin/extras/backgrounds/blur/orange_blur.jpg)</selected>
             <onclick>Skin.SetString(Background.Image,special://skin/extras/backgrounds/blur/orange_blur.jpg)</onclick>
-            <onclick>noop</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,blur_image=$VAR[Image_SimpleBackground],prefix=SimpleBackground)</onclick>
         </include>
         <include content="Button_Dialog_Setting">
             <param name="dialog">true</param>
@@ -638,7 +638,7 @@
             <param name="label">$LOCALIZE[31221]</param>
             <selected>Skin.String(Background.Image,special://skin/extras/backgrounds/blur/slate_blur.jpg)</selected>
             <onclick>Skin.SetString(Background.Image,special://skin/extras/backgrounds/blur/slate_blur.jpg)</onclick>
-            <onclick>noop</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,blur_image=$VAR[Image_SimpleBackground],prefix=SimpleBackground)</onclick>
         </include>
         <include content="Button_Dialog_Setting">
             <param name="dialog">true</param>
@@ -649,7 +649,7 @@
             <param name="label">$LOCALIZE[31222]</param>
             <selected>Skin.String(Background.Image,special://skin/extras/backgrounds/blur/coal_blur.jpg)</selected>
             <onclick>Skin.SetString(Background.Image,special://skin/extras/backgrounds/blur/coal_blur.jpg)</onclick>
-            <onclick>noop</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,blur_image=$VAR[Image_SimpleBackground],prefix=SimpleBackground)</onclick>
         </include>
         <include content="Button_Dialog_Setting">
             <param name="dialog">true</param>
@@ -660,7 +660,7 @@
             <param name="label">$LOCALIZE[636]</param>
             <selected>!String.StartsWith(Skin.String(Background.Image),special://skin/extras/backgrounds/blur/) + !String.IsEmpty(Skin.String(Background.Image))</selected>
             <onclick>Skin.SetImage(Background.Image)</onclick>
-            <onclick>noop</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,blur_image=$VAR[Image_SimpleBackground],prefix=SimpleBackground)</onclick>
         </include>
     </include>
 
@@ -1051,6 +1051,14 @@
             <selected>!Skin.HasSetting(OSD.OnDown.DisableVideoBookmarks)</selected>
             <label>$LOCALIZE[298] + $LOCALIZE[31429]</label>
         </include>
+        <include content="Settings_Button">
+            <param name="id">8025</param>
+            <param name="control">radiobutton</param>
+            <param name="dialog">true</param>
+            <onclick>Skin.ToggleSetting(OSD.OnDown.Disable1141)</onclick>
+            <selected>!Skin.HasSetting(OSD.OnDown.Disable1141)</selected>
+            <label>$LOCALIZE[206]</label>
+        </include>
     </include>
 
     <include name="DialogCustom_VideoInfo_Items">
@@ -1059,7 +1067,7 @@
             <param name="control">radiobutton</param>
             <param name="dialog">true</param>
             <label>TMDbHelper</label>
-            <include>Action_Skin_LegacyBlurDataToggle_Onclick</include>
+            <include>Action_TMDbHelper_Toggle_Onclick</include>
             <selected>$EXP[Exp_TMDbHelper_IsData]</selected>
         </include>
 
@@ -1230,7 +1238,7 @@
             <param name="id">$PARAM[id]</param>
             <label>$LOCALIZE[31080] $PARAM[number]</label>
             <label2>$INFO[Skin.String(DialogInfo.$PARAM[type].Item$PARAM[number])]</label2>
-            <onclick>RunScript(script.skinvariables,run_dialog=select,list=Trailer / Trakt / Plot / Artwork / UserRating / Versions / Extras / Refresh,separator=' / ',heading=$PARAM[type] $PARAM[number],"executebuiltin=Skin.SetString(DialogInfo.$PARAM[type].Item$PARAM[number],{v})")</onclick>
+            <onclick>RunScript(script.skinvariables,run_dialog=select,list=Trailer / Trakt / Wikipedia / Plot / Artwork / UserRating / Versions / Extras / Refresh,separator=' / ',heading=$PARAM[type] $PARAM[number],"executebuiltin=Skin.SetString(DialogInfo.$PARAM[type].Item$PARAM[number],{v})")</onclick>
         </include>
     </include>
 

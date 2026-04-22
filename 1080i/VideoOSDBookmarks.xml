@@ -6,6 +6,7 @@
     <include>Animation_OSD_Dialog_WindowChange</include>
     <controls>
         <control type="group">
+            <visible>!Window.IsActive(1141)</visible>
             <include>Animation_OSD_Dialog_VisibleChange</include>
             <control type="group">
                 <include>OSD_Info_Dimensions</include>
@@ -30,7 +31,7 @@
                     <param name="use_label2">true</param>
                     <include>OSD_List_Dimensions</include>
                     <onup>4000</onup>
-                    <ondown>noop</ondown>
+                    <ondown>ActivateWindow($VAR[Action_OSD_VideoBookmarks_OnDown])</ondown>
                 </include>
                 <control type="group">
                     <visible>Integer.IsEqual(Container(11).NumItems,0)</visible>

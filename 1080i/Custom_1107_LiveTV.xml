@@ -12,7 +12,6 @@
 
         <include content="Hub_Prefab_Window">
             <param name="window">1107</param>
-            <param name="skin_key">1107</param>
             <param name="widgets_wall">LiveTV_Wall_Widgets</param>
             <param name="widgets_combined">LiveTV_Combined_Widgets</param>
             <param name="widgets_standard">LiveTV_Content</param>

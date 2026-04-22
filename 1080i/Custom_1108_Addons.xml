@@ -6,7 +6,6 @@
     <controls>
         <include content="Hub_Prefab_Window">
             <param name="window">1108</param>
-            <param name="skin_key">1108</param>
             <param name="widgets_wall">Addons_Wall_Widgets</param>
             <param name="widgets_combined">Addons_Combined_Widgets</param>
             <param name="widgets_standard">Addons_Content</param>

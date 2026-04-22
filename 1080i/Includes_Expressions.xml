@@ -60,14 +60,8 @@
 
     <expression name="Exp_Hubs_Spotlight_HasItems">[!Integer.IsEqual(Container(301).NumItems,0) | Container(301).IsUpdating]</expression>
 
-    <!-- Hub spotlight configured for the active window (Target set). Use for navigation/up-from-widgets — independent of WidgetContainer so return from widgets still reaches Play(311). -->
-    <expression name="Exp_Hubs_Spotlight_Enabled">[[Window.IsVisible(Home) + !String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Target))] | [[Window.IsVisible(1101) | Window.IsVisible(11101)] + !String.IsEmpty(Skin.String(HomeSwitcher.1101.Spotlight.Target))] | [[Window.IsVisible(1102) | Window.IsVisible(11102)] + !String.IsEmpty(Skin.String(HomeSwitcher.1102.Spotlight.Target))]]</expression>
-
-    <expression name="Exp_Hubs_Spotlight_SlideDown">[[String.IsEqual(Window.Property(Velocity.WidgetContainer),301) | Integer.IsEqual(Window.Property(Velocity.WidgetContainer),301)]]</expression>
+    <expression name="Exp_Hubs_Spotlight_SlideDown">[Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),301)]</expression>
     <expression name="Exp_Hubs_Spotlight_ShowButtons">[ControlGroup(310).HasFocus()]</expression>
-
-    <!-- Velocity: TV browse is ONLY a real view_show route. Do not fallback to tmdb_type=tvshow, because cards can carry tvshow metadata with addon-root paths (plugin://plugin.video.velocity2/) and that sends Browse/Info to addon home. -->
-    <expression name="Exp_Velocity_Spotlight_TVBrowse">[[String.Contains(Container(301).ListItem.Path,action=view_show) + !String.IsEmpty(Container(301).ListItem.Path)] | [String.Contains(Container(301).ListItem.FolderPath,action=view_show) + !String.IsEmpty(Container(301).ListItem.FolderPath)]]</expression>
 
     <expression name="Exp_Hubs_Menu_Loopback">[Skin.HasSetting(HomeSwitcher.LoopBack) | Skin.HasSetting(HomeSwitcher.Vertical)]</expression>
 
@@ -138,7 +132,7 @@
 
     <expression name="Exp_OSD_QuickInfo">[$EXP[Exp_OSD_PVRChannelSwitch] | Window.IsActive(fullscreeninfo) | $EXP[Exp_OSD_DelayInfo]]</expression>
 
-    <expression name="Exp_OSD_HideControls">[Window.IsActive(1140) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)]</expression>
+    <expression name="Exp_OSD_HideControls">[Window.IsActive(1140) | Window.IsActive(1141) | Window.IsActive(1142) | Window.IsActive(videobookmarks) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(script-upnext-stillwatching.xml) | Window.IsActive(script-upnext-upnext.xml)]</expression>
 
     <!-- ==== -->
     <!-- Misc -->

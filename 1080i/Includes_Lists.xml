@@ -584,15 +584,8 @@
         </definition>
     </include>
 
-    <!-- Omega: buttons inside list item layouts are rejected (log: unsupported control type 7). Use a 1×1 invisible image as the focus sink instead. -->
     <include name="List_ButtonMenu_Row_HiddenButton_View">
-        <control type="image">
-            <enablefocus>true</enablefocus>
-            <left>0</left>
-            <top>0</top>
-            <width>4</width>
-            <height>4</height>
-            <texture colordiffuse="00FFFFFF">common/white.png</texture>
+        <control type="button">
             <visible allowhiddenfocus="true">false</visible>
             <animation effect="fade" start="0" end="0" time="400" reversible="false">Focus</animation>
             <include>List_ButtonMenu_Row_HiddenButton_View_OnFocus</include>
@@ -603,7 +596,7 @@
         <param name="condition">true</param>
         <param name="prefix" />
         <definition>
-            <onfocus condition="$PARAM[condition]">SetProperty(Velocity.WidgetContainer,$INFO[$PARAM[container]ListItem.Property(widget_id)])</onfocus>
+            <onfocus condition="$PARAM[condition]">SetProperty(TMDbHelper.WidgetContainer,$INFO[$PARAM[container]ListItem.Property(widget_id)])</onfocus>
             <onfocus condition="$PARAM[condition] + !String.IsEmpty($PARAM[container]ListItem.Property(hide_artwork))">SetProperty(Background.HideArtwork,True)</onfocus>
             <onfocus condition="$PARAM[condition] + !String.IsEmpty($PARAM[container]ListItem.Property(show_artwork))">ClearProperty(Background.HideArtwork)</onfocus>
             <onfocus condition="$PARAM[condition] + !String.IsEmpty($PARAM[container]ListItem.Property(show_overlay))">SetProperty(Background.ShowOverlay,True,Home)</onfocus>
@@ -611,13 +604,7 @@
         </definition>
     </include>
     <include name="List_ButtonMenu_Row_HiddenButton_ERow">
-        <control type="image">
-            <enablefocus>true</enablefocus>
-            <left>0</left>
-            <top>0</top>
-            <width>4</width>
-            <height>4</height>
-            <texture colordiffuse="00FFFFFF">common/white.png</texture>
+        <control type="button">
             <visible allowhiddenfocus="true">false</visible>
             <include>List_ButtonMenu_Row_HiddenButton_ERow_OnFocus</include>
         </control>
@@ -750,13 +737,7 @@
     </include>
 
     <include name="List_Widget_Row_HiddenButton">
-        <control type="image">
-            <enablefocus>true</enablefocus>
-            <left>0</left>
-            <top>0</top>
-            <width>4</width>
-            <height>4</height>
-            <texture colordiffuse="00FFFFFF">common/white.png</texture>
+        <control type="button">
             <visible allowhiddenfocus="true">false</visible>
             <animation effect="fade" start="0" end="0" time="600" reversible="false">Focus</animation>
             <include content="List_Widget_Row_HiddenButton_OnFocus">

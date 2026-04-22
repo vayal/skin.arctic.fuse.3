@@ -6,7 +6,6 @@
     <controls>
         <include content="Hub_Window">
             <param name="window">1103</param>
-            <param name="skin_key">1103</param>
         </include>
     </controls>
 </window>

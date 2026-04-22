@@ -2224,7 +2224,9 @@
                         <param name="icon_diffuse">$PARAM[diffuse]</param>
                     </include>
 
-                    <!-- Progress bars (type progress) are not supported inside list itemlayouts on Omega; omit here. -->
+                    <include content="Object_ProgressLine">
+                        <param name="progress">$PARAM[listitem].$PARAM[progress]</param>
+                    </include>
                     <include content="Object_Indicator" condition="!$PARAM[selected] + ![$PARAM[detailed]]">
                         <param name="affix">$PARAM[affix]</param>
                         <param name="listitem">$PARAM[listitem]</param>
@@ -2449,7 +2451,9 @@
                     <visible>[String.IsEqual($PARAM[listitem].DBType,movie) | String.IsEqual($PARAM[listitem].DBType,tvshow)] + String.IsEmpty($PARAM[listitem].Art(landscape)) + String.IsEmpty($PARAM[listitem].Art(tvshow.landscape))</visible>
                 </include>
 
-                <!-- Progress bars (type progress) are not supported inside list itemlayouts on Omega; omit here. -->
+                <include content="Object_ProgressLine">
+                    <param name="progress">$PARAM[listitem].$PARAM[progress]</param>
+                </include>
 
                 <include content="Object_Indicator" condition="!$PARAM[selected]">
                     <param name="affix">$PARAM[affix]</param>

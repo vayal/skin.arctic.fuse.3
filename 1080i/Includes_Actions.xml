@@ -7,8 +7,7 @@
 
     <variable name="Action_FirstStart_HomeFocus">
         <value condition="Skin.HasSetting(HomeSwitcher.DisableFirstWidgetFocus)">SetFocus(300)</value>
-        <!-- Menu-first: hub strip (300); Down → spotlight Play per Hub_Action_Down. -->
-        <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Target))">SetFocus(300)</value>
+        <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Target))">SetFocus(310)</value>
         <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.Home.Mode)) + Control.IsVisible(601)">SetFocus(601)</value>
         <value condition="Control.IsVisible(501)">SetFocus(501)</value>
         <value condition="Control.IsVisible(502)">SetFocus(502)</value>
@@ -18,30 +17,40 @@
         <value>SetFocus(300)</value>
     </variable>
 
-    <include name="Action_Skin_LegacyBlurDataToggle_Onclick">
-        <onclick>noop</onclick>
+    <include name="Action_TMDbHelper_Toggle_Onclick">
+        <onclick>Skin.ToggleSetting(TMDbHelper.EnableData)</onclick>
+        <onclick>ClearProperty(TMDbHelper.ListItem.base_tvshowtitle,Home)</onclick>
+        <onclick>ClearProperty(TMDbHelper.ListItem.base_plot,Home)</onclick>
+        <onclick>ClearProperty(TMDbHelper.ListItem.base_poster,Home)</onclick>
+        <onclick>ClearProperty(TMDbHelper.ListItem.base_clearlogo,Home)</onclick>
+        <onclick>ClearProperty(TMDbHelper.ListItem.base_icon,Home)</onclick>
+        <onclick>ClearProperty(TMDbHelper.ListItem.base_title,Home)</onclick>
+        <onclick>ClearProperty(TMDbHelper.ListItem.base_folderpath,Home)</onclick>
+        <onclick>ClearProperty(TMDbHelper.ListItem.base_dbtype,Home)</onclick>
+        <onclick>ClearProperty(TMDbHelper.ListItem.base_label,Home)</onclick>
     </include>
 
     <variable name="Action_DialogInfo_PlayMedia">
-        <!-- Canonical info contract: movies -> info dialog, tv shows -> browse show route, folders -> browse folder. -->
-        <value condition="String.IsEqual(ListItem.Property(tmdb_type),movie)">Action(info)</value>
-        <value condition="String.IsEqual(ListItem.Property(tmdb_type),tvshow) + !String.IsEmpty(ListItem.Path) + Window.IsVisible(videos)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
-        <value condition="String.IsEqual(ListItem.Property(tmdb_type),tvshow) + !String.IsEmpty(ListItem.Path)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
-        <value condition="String.Contains(ListItem.Path,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-) + Window.IsVisible(videos)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
-        <value condition="String.Contains(ListItem.Path,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
-        <value condition="String.Contains(ListItem.Path,plugin://plugin.video.velocity2/?action=play&amp;id=movie-)">Action(info)</value>
-        <value condition="String.Contains(ListItem.Path,plugin://plugin.video.velocity2/?action=select&amp;id=movie-)">Action(info)</value>
+        <!-- Play FileNameAndPath -->
+        <value condition="!String.IsEmpty(ListItem.FileNameAndPath) + !$EXP[Exp_IsFolder]">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,"playmedia=$INFO[ListItem.FileNameAndPath]")</value>
 
-        <!-- Generic browse/play fallback for non-velocity items. -->
-        <value condition="$EXP[Exp_IsFolder] + Window.IsVisible(videos)">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</value>
-        <value condition="$EXP[Exp_IsFolder]">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</value>
-        <value>Action(info)</value>
+        <!-- Browse Folder -->
+        <value condition="$EXP[Exp_IsFolder] + Window.IsVisible(videos)">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,"call_update=$INFO[ListItem.FolderPath]")</value>
+        <value condition="$EXP[Exp_IsFolder]">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,"call_path=$INFO[ListItem.FolderPath]")</value>
+
+        <!-- Play FolderPath -->
+        <value>RunScript(plugin.video.themoviedb.helper,close_dialog=1190,"playmedia=$INFO[ListItem.FolderPath]")</value>
     </variable>
 
     <variable name="Action_Sync">
-        <value condition="[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow)] + !String.IsEmpty(ListItem.Property(tmdb_id))">noop</value>
-        <value condition="[String.IsEqual(ListItem.DBType,season)] + !String.IsEmpty(ListItem.Property(tvshow.tmdb_id))">noop</value>
-        <value condition="[String.IsEqual(ListItem.DBType,episode)] + !String.IsEmpty(ListItem.Property(tvshow.tmdb_id))">noop</value>
+        <value condition="[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow)] + !String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.themoviedb.helper,sync_trakt,tmdb_id=$INFO[ListItem.Property(tmdb_id)],$VAR[Path_Param_Type],cache_refresh)</value>
+        <value condition="[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Monitor.TMDb_ID))">RunScript(plugin.video.themoviedb.helper,sync_trakt,tmdb_id=$INFO[Window(Home).Property(TMDbHelper.ListItem.Monitor.TMDb_ID)],$VAR[Path_Param_Type],cache_refresh)</value>
+
+        <value condition="[String.IsEqual(ListItem.DBType,season)] + !String.IsEmpty(ListItem.Property(tvshow.tmdb_id))">RunScript(plugin.video.themoviedb.helper,sync_trakt,tmdb_id=$INFO[ListItem.Property(tvshow.tmdb_id)],$VAR[Path_Param_Type],season=$INFO[ListItem.Season],cache_refresh)</value>
+        <value condition="[String.IsEqual(ListItem.DBType,season)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.tvshow.tmdb_id))">RunScript(plugin.video.themoviedb.helper,sync_trakt,tmdb_id=$INFO[Window(Home).Property(TMDbHelper.ListItem.tvshow.tmdb_id)],$VAR[Path_Param_Type],season=$INFO[ListItem.Season],cache_refresh)</value>
+
+        <value condition="[String.IsEqual(ListItem.DBType,episode)] + !String.IsEmpty(ListItem.Property(tvshow.tmdb_id))">RunScript(plugin.video.themoviedb.helper,sync_trakt,tmdb_id=$INFO[ListItem.Property(tvshow.tmdb_id)],$VAR[Path_Param_Type],season=$INFO[ListItem.Season],episode=$INFO[ListItem.Episode],cache_refresh)</value>
+        <value condition="[String.IsEqual(ListItem.DBType,episode)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.tvshow.tmdb_id))">RunScript(plugin.video.themoviedb.helper,sync_trakt,tmdb_id=$INFO[Window(Home).Property(TMDbHelper.ListItem.tvshow.tmdb_id)],$VAR[Path_Param_Type],season=$INFO[ListItem.Season],episode=$INFO[ListItem.Episode],cache_refresh)</value>
     </variable>
 
     <include name="Action_ButtonMenu_Onload">
@@ -49,11 +58,7 @@
 
         <onload condition="String.IsEmpty(Skin.String(OptionsTiles.01.Include))">Skin.SetString(OptionsTiles.01.Include,NowPlaying)</onload>
         <onload condition="String.IsEmpty(Skin.String(OptionsTiles.02.Include))">Skin.SetString(OptionsTiles.02.Include,Settings)</onload>
-        <onload condition="String.IsEmpty(Skin.String(OptionsTiles.03.Include))">Skin.SetString(OptionsTiles.03.Include,SystemInfo)</onload>
-        <onload condition="Skin.String(OptionsTiles.01.Include,Weather)">Skin.SetString(OptionsTiles.01.Include,SystemInfo)</onload>
-        <onload condition="Skin.String(OptionsTiles.02.Include,Weather)">Skin.SetString(OptionsTiles.02.Include,SystemInfo)</onload>
-        <onload condition="Skin.String(OptionsTiles.03.Include,Weather)">Skin.SetString(OptionsTiles.03.Include,SystemInfo)</onload>
-        <onload condition="Skin.String(OptionsTiles.04.Include,Weather)">Skin.SetString(OptionsTiles.04.Include,SystemInfo)</onload>
+        <onload condition="String.IsEmpty(Skin.String(OptionsTiles.03.Include))">Skin.SetString(OptionsTiles.03.Include,Weather)</onload>
         <onload condition="String.IsEmpty(Skin.String(OptionsTiles.04.Include))">Skin.SetString(OptionsTiles.04.Include,SystemInfo)</onload>
 
         <onload condition="!String.IsEmpty(Skin.String(OptionsTiles.01.Target)) + !String.IsEmpty(Skin.String(OptionsTiles.01.Path))">Skin.SetString(OptionsTiles.01.Onclick,ActivateWindow($INFO[Skin.String(OptionsTiles.01.Target)],$INFO[Skin.String(OptionsTiles.01.Path)],return))</onload>
@@ -77,11 +82,9 @@
     <include name="Action_Media_Onload">
         <include>Action_BuildViews</include>
         <onload>ClearProperty(InfoPanel.FullSwitch,Home)</onload>
-        <!-- Ensure Velocity show routes land on Combined Landscape after directory has loaded. -->
-        <onload condition="String.Contains(Container.FolderPath,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-)">AlarmClock(velocity_setview_521,Container.SetViewMode(521),00:01,silent)</onload>
-        <!-- Avoid forcing focus to a control that may not exist in all media views -->
-        <onload condition="Control.IsVisible(500)">AlarmClock(refocus_window,SetFocus(500),00:00,silent)</onload>
-        <onload>noop</onload>
+        <onload>AlarmClock(refocus_window,SetFocus(500),00:00,silent)</onload>
+        <onload>ClearProperty(TMDbHelper.ListItem.BlurImage)</onload>
+        <onload>ClearProperty(TMDbHelper.ListItem.BlurImage.Original)</onload>
     </include>
 
     <variable name="Action_OSD_SkipPrev">
@@ -103,7 +106,7 @@
         <value condition="$EXP[Exp_OSD_HasPlaylist] + !Skin.HasSetting(OSD.OnDown.Disable1140)">1140</value>
         <value condition="$EXP[Exp_OSD_HasPlaylist]">$VAR[Action_OSD_1140_OnDown]</value>
         <value condition="!Skin.HasSetting(OSD.OnDown.DisableVideoBookmarks)">videobookmarks</value>
-        <value>noop</value>
+        <value>$VAR[Action_OSD_VideoBookmarks_OnDown]</value>
     </variable>
 
     <variable name="Action_OSD_PVROSDGuide_OnDown">
@@ -114,11 +117,15 @@
         <value condition="VideoPlayer.Content(livetv) + !Skin.HasSetting(OSD.OnDown.DisablePVROSDGuide)">pvrosdguide</value>
         <value condition="VideoPlayer.Content(livetv)">$VAR[Action_OSD_PVROSDGuide_OnDown]</value>
         <value condition="!Skin.HasSetting(OSD.OnDown.DisableVideoBookmarks)">videobookmarks</value>
-        <value>noop</value>
+        <value>$VAR[Action_OSD_VideoBookmarks_OnDown]</value>
+    </variable>
+
+    <variable name="Action_OSD_VideoBookmarks_OnDown">
+        <value condition="!Skin.HasSetting(OSD.OnDown.Disable1141)">1141</value>
     </variable>
 
     <include name="Action_BlurImage_SimpleBackground_Onload">
-        <onload>noop</onload>
+        <onload>RunScript(plugin.video.themoviedb.helper,blur_image=$VAR[Image_SimpleBackground],prefix=SimpleBackground)</onload>
         <onload>ClearProperty(Background.ShowOverlay,Home)</onload>
         <onload>ClearProperty(InfoPanel.FullSwitch,Home)</onload>
     </include>
@@ -165,13 +172,12 @@
         <value condition="Window.IsVisible(videoplaylist)">videoplaylist</value>
     </variable>
 
-    <!-- Hard replacement: no script.skinvariables template rebuild (generator-includes not loaded). -->
     <include name="Action_BuildShortcuts_OnLoad">
-        <onload>noop</onload>
+        <onload>runscript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/skinvariables-build-templates.json",use_rules)</onload>
     </include>
     <include name="Action_BuildShortcuts_OnUnLoad">
-        <onload>noop</onload>
-        <onunload>noop</onunload>
+        <onload>CancelAlarm(rebuild_shortcuts,true)</onload>
+        <onunload>AlarmClock(rebuild_shortcuts,runscript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/skinvariables-build-templates.json",use_rules),00:01,silent)</onunload>
     </include>
 
     <include name="Action_View_Movement_OnDown">
@@ -212,22 +218,33 @@
     </include>
 
     <variable name="Action_OSD_WikiInfo">
+        <value condition="VideoPlayer.Content(livetv)">runscript(script.wikipedia,wikipedia=$INFO[VideoPlayer.Title])</value>
         <value>RunScript(script.skinvariables,run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-closeosd.json,use_rules=True,"command=ActivateWindow(1193)")</value>
     </variable>
 
     <include name="_Action_Blur_Onload">
         <param name="sourceimage">Art(fanart)</param>
         <definition>
-            <onload>noop</onload>
+            <onload>SetProperty(TMDbHelper.Blur.SourceImage,$PARAM[sourceimage],Home)</onload>
+            <onload>SetProperty(TMDbHelper.Blur.Fallback,$VAR[Image_Blur_Fallback],Home)</onload>
         </definition>
     </include>
     <include name="Action_Blur_Onload">
-        <onload>noop</onload>
+        <include content="_Action_Blur_Onload" condition="!Skin.HasSetting(Background.ExtraFanart) + $EXP[Exp_TMDbHelper_IsBlur]">
+            <param name="sourceimage">Art(fanart)|Property(fanart)||EPGEventIcon||PicturePath</param>
+        </include>
+        <include content="_Action_Blur_Onload" condition="Skin.HasSetting(Background.ExtraFanart) + $EXP[Exp_TMDbHelper_IsBlur]">
+            <param name="sourceimage">Art(tvshow.fanart{x})|Art(fanart{x})|Property(fanart)||EPGEventIcon||PicturePath</param>
+        </include>
+
+        <onload condition="Skin.HasSetting(TMDbHelper.EnableData)">Skin.SetBool(TMDbHelper.Service)</onload>
+        <onload condition="!Skin.HasSetting(TMDbHelper.EnableData)">Skin.Reset(TMDbHelper.Service)</onload>
     </include>
     <include name="_Action_Blur_OnUnload">
         <param name="sourceimage">Art(fanart)</param>
         <definition>
-            <onunload>noop</onunload>
+            <onunload>SetProperty(TMDbHelper.Blur.SourceImage,$PARAM[sourceimage],Home)</onunload>
+            <onunload>SetProperty(TMDbHelper.Blur.Fallback,$VAR[Image_Blur_Fallback],Home)</onunload>
         </definition>
     </include>
     <include name="Action_Blur_OnUnload">
@@ -262,62 +279,62 @@
         <onclick condition="String.IsEmpty($PARAM[trailer]) + !String.IsEmpty($PARAM[trailer_fallback])">SetProperty(PlayTrailer,$ESCINFO[$PARAM[trailer_fallback]],Home)</onclick>
         <onclick condition="!String.IsEmpty($PARAM[trailer])">SetProperty(PlayTrailer,$ESCINFO[$PARAM[trailer]],Home)</onclick>
         <onclick condition="!String.IsEmpty($PARAM[trailer]) | !String.IsEmpty($PARAM[trailer_fallback])">SetProperty(PlayTrailerTitle,$PARAM[title],Home)</onclick>
-        <onclick condition="[!String.IsEmpty($PARAM[trailer]) | !String.IsEmpty($PARAM[trailer_fallback])] + !String.IsEmpty($PARAM[items])">SetProperty(PlayTrailerItems,$PARAM[items],Home)</onclick>
+        <onclick condition="!String.IsEmpty($PARAM[trailer]) | !String.IsEmpty($PARAM[trailer_fallback])">SetProperty(PlayTrailerItems,$PARAM[items],Home)</onclick>
         <onclick condition="!String.IsEmpty($PARAM[trailer]) | !String.IsEmpty($PARAM[trailer_fallback])">ActivateWindow(1123)</onclick>
     </include>
 
     <include name="Action_Scheme_Onclick_Bright">
         <onclick>Skin.Reset(focuscolor.name)</onclick>
         <onclick>Skin.Reset(RevertSelectedText)</onclick>
-        <onclick condition="!Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.Reset(Background.DialogImage)</onclick>
-        <onclick condition="Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.SetString(Background.DialogImage,Adaptive)</onclick>
+        <onclick condition="!$EXP[Exp_TMDbHelper_IsBlur]">Skin.Reset(Background.DialogImage)</onclick>
+        <onclick condition="$EXP[Exp_TMDbHelper_IsBlur]">Skin.SetString(Background.DialogImage,Adaptive)</onclick>
         <onclick>Skin.SetString(Background.Image,special://skin/extras/backgrounds/blur/purple_blur.jpg)</onclick>
-        <onclick>noop</onclick>
+        <onclick>RunScript(plugin.video.themoviedb.helper,blur_image=$VAR[Image_SimpleBackground])</onclick>
     </include>
 
     <include name="Action_Scheme_Onclick_Miami">
         <onclick>Skin.SetString(focuscolor.name,ffe91e63)</onclick>
         <onclick>Skin.SetBool(RevertSelectedText)</onclick>
-        <onclick condition="!Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.Reset(Background.DialogImage)</onclick>
-        <onclick condition="Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.SetString(Background.DialogImage,Adaptive)</onclick>
+        <onclick condition="!$EXP[Exp_TMDbHelper_IsBlur]">Skin.Reset(Background.DialogImage)</onclick>
+        <onclick condition="$EXP[Exp_TMDbHelper_IsBlur]">Skin.SetString(Background.DialogImage,Adaptive)</onclick>
         <onclick>Skin.SetString(Background.Image,special://skin/extras/backgrounds/blur/purple_blur.jpg)</onclick>
-        <onclick>noop</onclick>
+        <onclick>RunScript(plugin.video.themoviedb.helper,blur_image=$VAR[Image_SimpleBackground])</onclick>
     </include>
 
     <include name="Action_Scheme_Onclick_Aqua">
         <onclick>Skin.SetString(focuscolor.name,ff00b8d4)</onclick>
         <onclick>Skin.SetBool(RevertSelectedText)</onclick>
-        <onclick condition="!Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.SetString(Background.DialogImage,Green)</onclick>
-        <onclick condition="Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.SetString(Background.DialogImage,Adaptive)</onclick>
+        <onclick condition="!$EXP[Exp_TMDbHelper_IsBlur]">Skin.SetString(Background.DialogImage,Green)</onclick>
+        <onclick condition="$EXP[Exp_TMDbHelper_IsBlur]">Skin.SetString(Background.DialogImage,Adaptive)</onclick>
         <onclick>Skin.SetString(Background.Image,special://skin/extras/backgrounds/blur/green_blur.jpg)</onclick>
-        <onclick>noop</onclick>
+        <onclick>RunScript(plugin.video.themoviedb.helper,blur_image=$VAR[Image_SimpleBackground])</onclick>
     </include>
 
     <include name="Action_Scheme_Onclick_Sunset">
         <onclick>Skin.SetString(focuscolor.name,fff4511e)</onclick>
         <onclick>Skin.SetBool(RevertSelectedText)</onclick>
-        <onclick condition="!Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.SetString(Background.DialogImage,Blush)</onclick>
-        <onclick condition="Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.SetString(Background.DialogImage,Adaptive)</onclick>
+        <onclick condition="!$EXP[Exp_TMDbHelper_IsBlur]">Skin.SetString(Background.DialogImage,Blush)</onclick>
+        <onclick condition="$EXP[Exp_TMDbHelper_IsBlur]">Skin.SetString(Background.DialogImage,Adaptive)</onclick>
         <onclick>Skin.SetString(Background.Image,special://skin/extras/backgrounds/blur/pink_blur.jpg)</onclick>
-        <onclick>noop</onclick>
+        <onclick>RunScript(plugin.video.themoviedb.helper,blur_image=$VAR[Image_SimpleBackground])</onclick>
     </include>
 
     <include name="Action_Scheme_Onclick_Slate">
         <onclick>Skin.SetString(focuscolor.name,ff0091ea)</onclick>
         <onclick>Skin.SetBool(RevertSelectedText)</onclick>
-        <onclick condition="!Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.SetString(Background.DialogImage,Slate)</onclick>
-        <onclick condition="Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.SetString(Background.DialogImage,Adaptive)</onclick>
+        <onclick condition="!$EXP[Exp_TMDbHelper_IsBlur]">Skin.SetString(Background.DialogImage,Slate)</onclick>
+        <onclick condition="$EXP[Exp_TMDbHelper_IsBlur]">Skin.SetString(Background.DialogImage,Adaptive)</onclick>
         <onclick>Skin.SetString(Background.Image,special://skin/extras/backgrounds/blur/slate_blur.jpg)</onclick>
-        <onclick>noop</onclick>
+        <onclick>RunScript(plugin.video.themoviedb.helper,blur_image=$VAR[Image_SimpleBackground])</onclick>
     </include>
 
     <include name="Action_Scheme_Onclick_Midnight">
         <onclick>Skin.SetString(focuscolor.name,ff5528a8)</onclick>
         <onclick>Skin.SetBool(RevertSelectedText)</onclick>
-        <onclick condition="!Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.SetString(Background.DialogImage,Coal)</onclick>
-        <onclick condition="Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.SetString(Background.DialogImage,Adaptive)</onclick>
+        <onclick condition="!$EXP[Exp_TMDbHelper_IsBlur]">Skin.SetString(Background.DialogImage,Coal)</onclick>
+        <onclick condition="$EXP[Exp_TMDbHelper_IsBlur]">Skin.SetString(Background.DialogImage,Adaptive)</onclick>
         <onclick>Skin.SetString(Background.Image,special://skin/extras/backgrounds/blur/coal_blur.jpg)</onclick>
-        <onclick>noop</onclick>
+        <onclick>RunScript(plugin.video.themoviedb.helper,blur_image=$VAR[Image_SimpleBackground])</onclick>
     </include>
 
     <variable name="Action_Shortcut_SetWidgetStyle">
@@ -325,37 +342,52 @@
         <value>RunPlugin($INFO[Container(22001).ListItem.Property(url)]&amp;func=do_edit&amp;&amp;widget_style&amp;&amp;$LOCALIZE[20021]=Poster&amp;$LOCALIZE[31045]=Landscape&amp;$LOCALIZE[31320]=Square&amp;$LOCALIZE[31424]=Board&amp;$LOCALIZE[31431]=Circle&amp;$LOCALIZE[31423]=Card&amp;&amp;$LOCALIZE[736]&amp;&amp;True)</value>
     </variable>
 
-    <variable name="Action_FullscreenWidget_PlayButton">
-        <!-- Spotlight Play uses explicit onclick + Exp_Velocity_Spotlight_TVBrowse in Includes_Hubs (Hub_Spotlight_Button_Circle); keep fallback for any other caller. -->
-        <value>SendClick(301)</value>
-    </variable>
-
-    <variable name="Action_Velocity_Widget_OnClick">
-        <value condition="String.IsEqual(ListItem.Property(tmdb_type),tvshow) + !String.IsEmpty(ListItem.Path) + Window.IsVisible(videos)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
-        <value condition="String.IsEqual(ListItem.Property(tmdb_type),tvshow) + !String.IsEmpty(ListItem.Path)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
-        <value condition="String.IsEqual(ListItem.Property(tmdb_type),tvshow) + !String.IsEmpty(ListItem.FolderPath) + Window.IsVisible(videos)">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</value>
-        <value condition="String.IsEqual(ListItem.Property(tmdb_type),tvshow) + !String.IsEmpty(ListItem.FolderPath)">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</value>
-        <value condition="String.Contains(ListItem.Path,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-) + Window.IsVisible(videos)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
-        <value condition="String.Contains(ListItem.Path,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
-        <value condition="String.Contains(ListItem.FolderPath,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-) + Window.IsVisible(videos)">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</value>
-        <value condition="String.Contains(ListItem.FolderPath,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-)">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</value>
-        <value>Action(select)</value>
-    </variable>
-
-    <variable name="Action_Velocity_Widget_OnInfo">
-        <!-- Info always opens the video info dialog for Velocity items (movie or tvshow). -->
-        <value>Action(info)</value>
-    </variable>
-
     <variable name="Action_FullscreenWidget_InfoButton">
-        <value condition="Skin.HasSetting(Spotlight.UseMenuButton)">Action(contextmenu)</value>
-        <!-- Spotlight second button: only route to browse when explicit view_show target exists; do not use tmdb_type fallback because it can carry addon-root paths. -->
-        <value condition="String.Contains(Container(301).ListItem.Path,action=view_show) + !String.IsEmpty(Container(301).ListItem.Path)">ActivateWindow(Videos,$INFO[Container(301).ListItem.Path],return)</value>
-        <value condition="String.Contains(Container(301).ListItem.FolderPath,action=view_show) + !String.IsEmpty(Container(301).ListItem.FolderPath)">ActivateWindow(Videos,$INFO[Container(301).ListItem.FolderPath],return)</value>
+        <value condition="Skin.HasSetting(Spotlight.UseMenuButton) + $EXP[Exp_Hubs_Spotlight_HasItems]">Action(contextmenu)</value>
         <value>Action(info)</value>
     </variable>
 
     <variable name="Action_RatingsMonitor">
-        <value>noop</value>
+        <value condition="Skin.String(CustomRating.Movies.Item01,TMDb)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item01,Trakt)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item01,IMDb)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item01,Metacritic)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item01,RottenTomatoesCritic)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item01,RottenTomatoesUser)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item01,MDBList)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item01,Letterboxd)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item01,Awards)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+
+        <value condition="Skin.String(CustomRating.Movies.Item02,TMDb)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item02,Trakt)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item02,IMDb)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item02,Metacritic)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item02,RottenTomatoesCritic)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item02,RottenTomatoesUser)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item02,MDBList)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item02,Letterboxd)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.Movies.Item02,Awards)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+
+        <value condition="Skin.String(CustomRating.TVShows.Item01,TMDb)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item01,Trakt)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item01,IMDb)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item01,Metacritic)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item01,RottenTomatoesCritic)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item01,RottenTomatoesUser)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item01,MDBList)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item01,Letterboxd)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item01,Awards)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+
+        <value condition="Skin.String(CustomRating.TVShows.Item02,TMDb)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item02,Trakt)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item02,IMDb)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item02,Metacritic)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item02,RottenTomatoesCritic)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item02,RottenTomatoesUser)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item02,MDBList)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item02,Letterboxd)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+        <value condition="Skin.String(CustomRating.TVShows.Item02,Awards)">Skin.Reset(TMDbHelper.DisableRatings)</value>
+
+        <value>Skin.SetBool(TMDbHelper.DisableRatings)</value>
     </variable>
 </includes>
