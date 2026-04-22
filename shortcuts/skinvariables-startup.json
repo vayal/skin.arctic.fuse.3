@@ -29,40 +29,14 @@
                         "Skin.SetBool(TMDbHelper.Service)",
                         "Skin.SetString(Background.DialogImage,Adaptive)",
                         "Skin.SetString(Background.Image,special://skin/extras/backgrounds/blur/purple_blur.jpg)",
-                        "Skin.SetString(HomeSwitcher.1101.Toggle,true)",
-                        "Skin.SetString(HomeSwitcher.1102.Toggle,true)",
-                        "Skin.Reset(HomeSwitcher.1103.Toggle)",
-                        "Skin.Reset(HomeSwitcher.1104.Toggle)",
-                        "Skin.Reset(HomeSwitcher.1106.Toggle)",
-                        "Skin.Reset(HomeSwitcher.1107.Toggle)",
-                        "Skin.Reset(HomeSwitcher.1108.Toggle)",
-                        "Skin.SetBool(HomeSwitcher.LoopBack)",
+                        "Skin.SetString(HomeSwitcher.1107.Toggle,true)",
                         "Skin.SetString(HomeSwitcher.Home.Shortcut.Path,ActivateWindow(1181))",
-                        "Skin.SetString(HomeSwitcher.Home.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&list_id=home_spotlight_mixed&page=1)",
+                        "Skin.SetString(HomeSwitcher.Home.Spotlight.Path,special://skin/extras/playlists/RandomMovies.xsp)",
                         "Skin.SetString(HomeSwitcher.Home.Spotlight.Target,videos)",
-                        "Skin.SetString(HomeSwitcher.Home.Spotlight.Label,Spotlight)",
-                        "Skin.SetString(HomeSwitcher.1101.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&list_id=series_spotlight_trending&page=1)",
-                        "Skin.SetString(HomeSwitcher.1101.Spotlight.Target,videos)",
-                        "Skin.SetString(HomeSwitcher.1101.Spotlight.Label,Spotlight)",
-                        "Skin.SetString(HomeSwitcher.1102.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&list_id=movies_spotlight_trending&page=1)",
-                        "Skin.SetString(HomeSwitcher.1102.Spotlight.Target,videos)",
-                        "Skin.SetString(HomeSwitcher.1102.Spotlight.Label,Spotlight)",
-                        "Skin.SetString(HomeSwitcher.1101.Shortcut.Path,ActivateWindow(videos,plugin://plugin.video.velocity2/?action=home,return))",
-                        "Skin.SetString(HomeSwitcher.1102.Shortcut.Path,ActivateWindow(videos,plugin://plugin.video.velocity2/?action=home,return))",
+                        "Skin.SetString(HomeSwitcher.Home.Spotlight.Label,Random Movies)",
                         "Skin.SetBool(DefaultConfig.InitDone)"
                     ]
                 }],
-                "Skin.SetString(HomeSwitcher.1101.Name,Series)",
-                "Skin.SetString(HomeSwitcher.1102.Name,Movies)",
-                "Skin.SetString(HomeSwitcher.1101.Toggle,true)",
-                "Skin.SetString(HomeSwitcher.1102.Toggle,true)",
-                "Skin.SetString(HomeSwitcher.1101.Shortcut.Path,ActivateWindow(videos,plugin://plugin.video.velocity2/?action=home,return))",
-                "Skin.SetString(HomeSwitcher.1102.Shortcut.Path,ActivateWindow(videos,plugin://plugin.video.velocity2/?action=home,return))",
-                "Skin.Reset(HomeSwitcher.1103.Toggle)",
-                "Skin.Reset(HomeSwitcher.1104.Toggle)",
-                "Skin.Reset(HomeSwitcher.1106.Toggle)",
-                "Skin.Reset(HomeSwitcher.1107.Toggle)",
-                "Skin.Reset(HomeSwitcher.1108.Toggle)",
                 "Skin.SetBool(TMDbHelper.UseLocalWidgetContainer)",
                 "Skin.SetBool(TMDbHelper.DisableExtendedProperties)",
                 "Skin.SetBool(TMDbHelper.EnableCurrentWindowImages)",
@@ -140,30 +114,6 @@
                     "value": "Skin.SetString(HomeSwitcher.Home.Mode,Standard)"
                 }],
                 [{
-                    "rules": ["String.IsEmpty(Skin.String(HomeSwitcher.Home.Spotlight.Target))"],
-                    "value": [
-                        "Skin.SetString(HomeSwitcher.Home.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&list_id=home_spotlight_mixed&page=1)",
-                        "Skin.SetString(HomeSwitcher.Home.Spotlight.Target,videos)",
-                        "Skin.SetString(HomeSwitcher.Home.Spotlight.Label,Spotlight)"
-                    ]
-                }],
-                [{
-                    "rules": ["String.IsEmpty(Skin.String(HomeSwitcher.1101.Spotlight.Target))"],
-                    "value": [
-                        "Skin.SetString(HomeSwitcher.1101.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&list_id=series_spotlight_trending&page=1)",
-                        "Skin.SetString(HomeSwitcher.1101.Spotlight.Target,videos)",
-                        "Skin.SetString(HomeSwitcher.1101.Spotlight.Label,Spotlight)"
-                    ]
-                }],
-                [{
-                    "rules": ["String.IsEmpty(Skin.String(HomeSwitcher.1102.Spotlight.Target))"],
-                    "value": [
-                        "Skin.SetString(HomeSwitcher.1102.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&list_id=movies_spotlight_trending&page=1)",
-                        "Skin.SetString(HomeSwitcher.1102.Spotlight.Target,videos)",
-                        "Skin.SetString(HomeSwitcher.1102.Spotlight.Label,Spotlight)"
-                    ]
-                }],
-                [{
                     "rules": ["String.IsEmpty(Skin.String(HomeSwitcher.1101.Mode))"],
                     "value": "Skin.SetString(HomeSwitcher.1101.Mode,Standard)"
                 }],
@@ -195,7 +145,8 @@
                     "rules": ["Skin.HasSetting(TMDbHelper.Service)"],
                     "value": "Skin.SetBool(TMDbHelper.EnableData)"
                 }],
-                "SetProperty(InitStatus,Reticulating Splines,1198)"
+                "SetProperty(InitStatus,Reticulating Splines,1198)",
+                "RunScript(plugin.video.themoviedb.helper,blur_image={var_image_simplebackground},prefix=SimpleBackground)"
             ]
         }],
 

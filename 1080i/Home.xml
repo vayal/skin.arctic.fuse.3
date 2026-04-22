@@ -2,19 +2,14 @@
 <window>
     <onload>RunScript(script.skinvariables,run_executebuiltin=special://skin/shortcuts/skinvariables-splash.json,use_rules=True)</onload>
     <include>Action_BuildViews</include>
+    <onload>Skin.SetString(TMDbHelper.Corner.Radius,20)</onload>
+    <onload>Skin.SetString(TMDbHelper.UseLocalWindowIDs,10000|11101|11102|11103|11104|11105|11106|11107|11108|11109)</onload>
     <include>Action_ButtonMenu_Onload</include>
     <include>Action_BuildShortcuts_OnLoad</include>
 
-    <!-- Hard replacement: force canonical Velocity spotlight each load (prevents persisted default shortcuts like Random Movies from resurfacing). -->
-    <onload>Skin.SetString(HomeSwitcher.Home.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&amp;list_id=home_spotlight_mixed&amp;page=1)</onload>
-    <onload>Skin.SetString(HomeSwitcher.Home.Spotlight.Target,videos)</onload>
-    <onload>Skin.SetString(HomeSwitcher.Home.Spotlight.Label,Spotlight)</onload>
     <include content="Hub_Onload">
         <param name="window_id">Home</param>
     </include>
-    <!-- Spotlight Path/Target/Label are set above before Hub_Onload; Hub_Onload seeds Velocity.WidgetContainer when Target exists. Default focus stays on menu (300). -->
-
-    <!-- Home Standard widgets are direct independent rows (no stacked WidgetMeta/tab indirection). -->
 
     <onload condition="!Skin.HasSetting(Home.FirstRun)">Skin.SetBool(Hub.Home.DisableSubmenu)</onload>
     <onload condition="!Skin.HasSetting(Home.FirstRun)">Skin.SetString(Shortcuts.RebuildDateTime,FirstRun)</onload>
@@ -29,8 +24,6 @@
     <controls>
         <include content="Hub_Window">
             <param name="window">home</param>
-            <param name="skin_key">Home</param>
-            <param name="velocity_spotlight_list_id">home_spotlight_mixed</param>
         </include>
     </controls>
 </window>
