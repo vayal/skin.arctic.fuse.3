@@ -115,6 +115,7 @@
 
     <include name="DialogInfo_Info_Group">
         <param name="indent">520</param>
+        <param name="extended_include" />
         <definition>
             <bottom>-40</bottom>
             <right>$PARAM[indent]</right>
@@ -165,7 +166,7 @@
                 <top>400</top>
                 <orientation>vertical</orientation>
                 <include>DialogInfo_Animation_Left</include>
-                <include condition="!String.IsEqual(ListItem.Property(tmdb_type),person)">$PARAM[extended_include]</include>
+                <include condition="!String.IsEqual(ListItem.Property(tmdb_type),person) + !String.IsEmpty($PARAM[extended_include])">$PARAM[extended_include]</include>
             </control>
         </definition>
     </include>

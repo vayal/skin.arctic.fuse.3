@@ -28,7 +28,7 @@
         <include content="Object_Hidden_List">
             <param name="id">50</param>
             <content sortby="title" sortorder="ascending" target="videos" limit="1" browse="never" paginate="false">
-                plugin://plugin.video.velocity2/?action=smart_list&type=recent
+                plugin://plugin.video.velocity2/?action=smart_list&amp;type=recent
             </content>
             <onfocus>Action(Info)</onfocus>
             <onfocus>Dialog.Close(1193,force)</onfocus>

@@ -463,7 +463,7 @@
                 <height>80</height>
                 <width>80</width>
                 <control type="group">
-                    <visible>Window.IsVisible($PARAM[window])</visible>
+                    <visible>Window.IsVisible($PARAM[window]) + Integer.IsEqual(System.CurrentControlID,300)</visible>
                     <control type="image">
                         <include>Texture_Menu_Highlight_H</include>
                     </control>
@@ -717,7 +717,7 @@
                 <top>100</top>
                 <height>80</height>
                 <control type="group">
-                    <visible>Window.IsVisible($PARAM[window])</visible>
+                    <visible>Window.IsVisible($PARAM[window]) + Integer.IsEqual(System.CurrentControlID,300)</visible>
                     <control type="button">
                         <font>font_main_bold</font>
                         <textcolor>00ffffff</textcolor>

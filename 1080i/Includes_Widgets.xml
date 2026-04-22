@@ -89,8 +89,12 @@
                 <param name="itemlayout_w">$PARAM[itemlayout_w]</param>
                 <param name="hidden_button_enabled">true</param>
                 <!-- Velocity hub: first standard row (501) Up should return directly to spotlight Play button. -->
+                <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetProperty(Velocity.WidgetContainer,301)</onup>
                 <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(311)</onup>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetProperty(Velocity.WidgetContainer,301)</onup>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(311)</onup>
                 <onup condition="!$EXP[Exp_Hubs_Spotlight_Enabled] + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(300)</onup>
+                <onup condition="!$EXP[Exp_Hubs_Spotlight_Enabled] + Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(300)</onup>
                 <nested />
                 <include content="Object_HitRect">
                     <param name="x">0</param>

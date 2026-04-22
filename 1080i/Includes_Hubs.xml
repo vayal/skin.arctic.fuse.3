@@ -105,7 +105,12 @@
                     <preloaditems>0</preloaditems>
                     <top>290</top>
                     <bottom>-40</bottom>
-                    <onup>601</onup>
+                    <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetProperty(Velocity.WidgetContainer,301)</onup>
+                    <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(311)</onup>
+                    <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetProperty(Velocity.WidgetContainer,301)</onup>
+                    <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(311)</onup>
+                    <onup condition="!$EXP[Exp_Hubs_Spotlight_Enabled] + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(300)</onup>
+                    <onup condition="!$EXP[Exp_Hubs_Spotlight_Enabled] + Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(300)</onup>
                     <include>$PARAM[include_action]</include>
                     <include>Hub_Grouplist_OnLeftRight</include>
                     <onback condition="$EXP[Exp_Navigation_OnParent] + !Player.HasMedia">SetFocus($PARAM[id],0,absolute)</onback>
@@ -119,8 +124,17 @@
                     <onback condition="Player.HasMedia">SetProperty(FullscreenRefocus,SetFocus($PARAM[id]))</onback>
                     <onback condition="Player.HasMedia">309</onback>
 
+                    <!-- Guard against parent/root rows from plugin lists: selecting those opens addon root. Use explicit Container($PARAM[id]) context. -->
+                    <onclick condition="Container($PARAM[id]).ListItem.IsParentFolder">Control.Move($PARAM[id],1)</onclick>
+                    <onclick condition="String.IsEqual(Container($PARAM[id]).ListItem.Path,plugin://plugin.video.velocity2/)">Control.Move($PARAM[id],1)</onclick>
+                    <onclick condition="!Container($PARAM[id]).ListItem.IsParentFolder + !String.IsEqual(Container($PARAM[id]).ListItem.Path,plugin://plugin.video.velocity2/)">$VAR[Action_Velocity_Widget_OnClick]</onclick>
+                    <oninfo condition="Container($PARAM[id]).ListItem.IsParentFolder">Control.Move($PARAM[id],1)</oninfo>
+                    <oninfo condition="String.IsEqual(Container($PARAM[id]).ListItem.Path,plugin://plugin.video.velocity2/)">Control.Move($PARAM[id],1)</oninfo>
+                    <oninfo condition="!Container($PARAM[id]).ListItem.IsParentFolder + !String.IsEqual(Container($PARAM[id]).ListItem.Path,plugin://plugin.video.velocity2/)">$VAR[Action_Velocity_Widget_OnInfo]</oninfo>
                     <ondown>ActivateWindow(1180)</ondown>
                     <onfocus>SetProperty(Velocity.WidgetContainer,$PARAM[id])</onfocus>
+                    <onfocus condition="Container($PARAM[id]).ListItem.IsParentFolder">Control.Move($PARAM[id],1)</onfocus>
+                    <onfocus condition="String.IsEqual(Container($PARAM[id]).ListItem.Path,plugin://plugin.video.velocity2/)">Control.Move($PARAM[id],1)</onfocus>
                     <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
                     <onfocus condition="![$PARAM[home_switcher]]">ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
                     <onfocus condition="$PARAM[home_switcher]">SetProperty(HomeSwitcher.IsVisible,True,Home)</onfocus>
@@ -155,9 +169,12 @@
                 <param name="id">$PARAM[id]</param>
                 <top>510</top>
                 <bottom>-40</bottom>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetProperty(Velocity.WidgetContainer,301)</onup>
                 <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(311)</onup>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetProperty(Velocity.WidgetContainer,301)</onup>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled] + Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(311)</onup>
                 <onup condition="!$EXP[Exp_Hubs_Spotlight_Enabled] + !Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(300)</onup>
-                <onup>601</onup>
+                <onup condition="!$EXP[Exp_Hubs_Spotlight_Enabled] + Skin.HasSetting(HomeSwitcher.Vertical) + Integer.IsEqual($PARAM[id],501)">SetFocus(300)</onup>
                 <include>$PARAM[include_action]</include>
                 <include content="Action_Widget_OnBack">
                     <param name="id">$PARAM[id]</param>
@@ -169,8 +186,17 @@
                 <onback condition="Player.HasMedia">309</onback>
 
                 <include>Hub_Grouplist_OnLeftRight</include>
+                <!-- Guard against parent/root rows from plugin lists: selecting those opens addon root. Use explicit Container($PARAM[id]) context. -->
+                <onclick condition="Container($PARAM[id]).ListItem.IsParentFolder">Control.Move($PARAM[id],1)</onclick>
+                <onclick condition="String.IsEqual(Container($PARAM[id]).ListItem.Path,plugin://plugin.video.velocity2/)">Control.Move($PARAM[id],1)</onclick>
+                <onclick condition="!Container($PARAM[id]).ListItem.IsParentFolder + !String.IsEqual(Container($PARAM[id]).ListItem.Path,plugin://plugin.video.velocity2/)">$VAR[Action_Velocity_Widget_OnClick]</onclick>
+                <oninfo condition="Container($PARAM[id]).ListItem.IsParentFolder">Control.Move($PARAM[id],1)</oninfo>
+                <oninfo condition="String.IsEqual(Container($PARAM[id]).ListItem.Path,plugin://plugin.video.velocity2/)">Control.Move($PARAM[id],1)</oninfo>
+                <oninfo condition="!Container($PARAM[id]).ListItem.IsParentFolder + !String.IsEqual(Container($PARAM[id]).ListItem.Path,plugin://plugin.video.velocity2/)">$VAR[Action_Velocity_Widget_OnInfo]</oninfo>
                 <ondown>ActivateWindow(1180)</ondown>
                 <onfocus>SetProperty(Velocity.WidgetContainer,$PARAM[id])</onfocus>
+                <onfocus condition="Container($PARAM[id]).ListItem.IsParentFolder">Control.Move($PARAM[id],1)</onfocus>
+                <onfocus condition="String.IsEqual(Container($PARAM[id]).ListItem.Path,plugin://plugin.video.velocity2/)">Control.Move($PARAM[id],1)</onfocus>
                 <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
                 <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
                 <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
@@ -221,9 +247,11 @@
                     <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">SetProperty(Bumper.Direction,Up,Home)</onup>
                     <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">ActivateWindow(1180)</onup>
                     <onup condition="!Control.IsVisible(301) + !Skin.HasSetting(HomeSwitcher.Vertical)">$PARAM[onup]</onup>
+                    <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled]">SetProperty(Velocity.WidgetContainer,301)</onup>
                     <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled]">311</onup>
                     <onup condition="!$EXP[Exp_Hubs_Spotlight_Enabled]">300</onup>
                     <onback condition="!$EXP[Exp_Hubs_Spotlight_Enabled] + !Player.HasMedia">$PARAM[onup]</onback>
+                    <onback condition="$EXP[Exp_Hubs_Spotlight_Enabled] + !Player.HasMedia">SetProperty(Velocity.WidgetContainer,301)</onback>
                     <onback condition="$EXP[Exp_Hubs_Spotlight_Enabled] + !Player.HasMedia">311</onback>
                     <onback condition="Player.HasMedia">SetProperty(FullscreenRefocus,SetFocus(601))</onback>
                     <onback condition="Player.HasMedia">309</onback>
@@ -316,6 +344,7 @@
             <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">SetProperty(Bumper.Direction,Up,Home)</onup>
             <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">ActivateWindow(1180)</onup>
             <onup condition="!Control.IsVisible(301) + !Skin.HasSetting(HomeSwitcher.Vertical)">302</onup>
+            <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled]">SetProperty(Velocity.WidgetContainer,301)</onup>
             <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled]">311</onup>
             <onup condition="!$EXP[Exp_Hubs_Spotlight_Enabled]">300</onup>
             <ondown>ActivateWindow(1180)</ondown>
@@ -335,6 +364,7 @@
             <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">SetProperty(Bumper.Direction,Up,Home)</onup>
             <onup condition="!Control.IsVisible(301) + Skin.HasSetting(HomeSwitcher.Vertical)">ActivateWindow(1180)</onup>
             <onup condition="!Control.IsVisible(301) + !Skin.HasSetting(HomeSwitcher.Vertical)">302</onup>
+            <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled]">SetProperty(Velocity.WidgetContainer,301)</onup>
             <onup condition="$EXP[Exp_Hubs_Spotlight_Enabled]">311</onup>
             <onup condition="!$EXP[Exp_Hubs_Spotlight_Enabled]">300</onup>
             <ondown>ActivateWindow(1180)</ondown>
@@ -362,32 +392,44 @@
     </include>
 
     <include name="Hub_Spotlight_Button">
-        <!-- <onfocus>SetProperty(HomeSwitcher.IsVisible,True,Home)</onfocus> -->
-        <onfocus>SetProperty(Velocity.WidgetContainer,301)</onfocus>
-        <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
-        <!-- Keep menu navigation via onup, but do not keep menu strip highlighted while spotlight has focus. -->
-        <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
-        <!-- <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus> -->
-        <onfocus>SetProperty(InfoPanel.FullSwitch,Spotlight,Home)</onfocus>
+        <param name="onclick_action">noop</param>
+        <param name="onclick_refocus">$PARAM[id]</param>
+        <definition>
+            <!-- <onfocus>SetProperty(HomeSwitcher.IsVisible,True,Home)</onfocus> -->
+            <onfocus>SetProperty(Velocity.WidgetContainer,301)</onfocus>
+            <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
+            <!-- Keep menu navigation via onup, but do not keep menu strip highlighted while spotlight has focus. -->
+            <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+            <!-- <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus> -->
+            <onfocus>SetProperty(InfoPanel.FullSwitch,Spotlight,Home)</onfocus>
 
-        <oninfo>SetFocus(301)</oninfo>
-        <oninfo>Action(Info)</oninfo>
-        <oninfo>SetFocus($PARAM[id])</oninfo>
+            <oninfo>SetFocus(301)</oninfo>
+            <oninfo>Action(Info)</oninfo>
+            <oninfo>SetFocus($PARAM[id])</oninfo>
 
-        <onback condition="!Player.HasMedia">300</onback>
-        <onback condition="Player.HasMedia">SetProperty(FullscreenRefocus,SetFocus($PARAM[id]))</onback>
-        <onback condition="Player.HasMedia">309</onback>
+            <onclick>SetFocus(301)</onclick>
+            <onclick>$PARAM[onclick_action]</onclick>
+            <onclick>SetFocus($PARAM[onclick_refocus])</onclick>
+
+            <onback condition="!Player.HasMedia">300</onback>
+            <onback condition="Player.HasMedia">SetProperty(FullscreenRefocus,SetFocus($PARAM[id]))</onback>
+            <onback condition="Player.HasMedia">309</onback>
+        </definition>
     </include>
 
     <include name="Hub_Spotlight_Button_Circle">
         <param name="id">311</param>
         <param name="groupid">321</param>
+        <!-- Branch Play vs Browse by numeric $PARAM[id] (311=play, 312=info). Do not use $PARAM[role] in conditional onclick — Kodi often skips expanding it in nested includes (all actions noop). -->
+        <param name="role">play</param>
         <param name="label">$VAR[Label_FullscreenWidget_PlayButton]</param>
         <param name="image">$VAR[Image_FullscreenWidget_PlayButton]</param>
         <param name="bordersize">20</param>
         <param name="size">120</param>
         <param name="left">0</param>
         <param name="width">auto</param>
+        <param name="onclick_action">noop</param>
+        <param name="onclick_refocus">$PARAM[id]</param>
         <definition>
             <!-- Single root: horizontal grouplist (id 310) must not get a direct button child from this include. -->
             <control type="group">
@@ -434,7 +476,38 @@
                     <textcolor>main_fg_90</textcolor>
                     <focusedcolor>main_fg_100</focusedcolor>
                     <label>$PARAM[label]</label>
-                    <nested />
+                    <onfocus>SetProperty(Velocity.WidgetContainer,301)</onfocus>
+                    <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
+                    <onfocus condition="String.Contains(Container(301).ListItem.Path,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-)">SetProperty(Velocity.Spotlight.BrowsePath,$INFO[Container(301).ListItem.Path])</onfocus>
+                    <onfocus condition="!String.Contains(Container(301).ListItem.Path,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-) + String.Contains(Container(301).ListItem.FolderPath,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-)">SetProperty(Velocity.Spotlight.BrowsePath,$INFO[Container(301).ListItem.FolderPath])</onfocus>
+                    <onfocus condition="!String.Contains(Container(301).ListItem.Path,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-) + !String.Contains(Container(301).ListItem.FolderPath,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-)">ClearProperty(Velocity.Spotlight.BrowsePath)</onfocus>
+                    <!-- Ensure spotlight actions never resolve against parent ".." row. -->
+                    <onfocus condition="Container(301).ListItem.IsParentFolder">Control.Move(301,1)</onfocus>
+                    <onfocus>SetProperty(Velocity.Spotlight.LastButton,$PARAM[id])</onfocus>
+                    <!-- Keep menu navigation via onup, but do not keep menu strip highlighted while spotlight has focus. -->
+                    <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                    <onfocus>SetProperty(InfoPanel.FullSwitch,Spotlight,Home)</onfocus>
+
+                    <oninfo>SetFocus(301)</oninfo>
+                    <oninfo>Action(Info)</oninfo>
+                    <oninfo>SetFocus($PARAM[id])</oninfo>
+
+                    <onclick condition="Integer.IsEqual($PARAM[id],311) + $EXP[Exp_Velocity_Spotlight_TVBrowse] + !String.IsEmpty(Container(301).ListItem.Path)">ActivateWindow(Videos,$INFO[Container(301).ListItem.Path],return)</onclick>
+                    <onclick condition="Integer.IsEqual($PARAM[id],311) + $EXP[Exp_Velocity_Spotlight_TVBrowse] + String.IsEmpty(Container(301).ListItem.Path) + !String.IsEmpty(Container(301).ListItem.FolderPath)">ActivateWindow(Videos,$INFO[Container(301).ListItem.FolderPath],return)</onclick>
+                    <onclick condition="Integer.IsEqual($PARAM[id],311) + !$EXP[Exp_Velocity_Spotlight_TVBrowse] + String.Contains(Container(301).ListItem.Path,action=select&amp;id=movie-)">PlayMedia($INFO[String.Replace(Container(301).ListItem.Path,action=select,action=play)])</onclick>
+                    <onclick condition="Integer.IsEqual($PARAM[id],311) + !$EXP[Exp_Velocity_Spotlight_TVBrowse] + String.Contains(Container(301).ListItem.FolderPath,action=select&amp;id=movie-)">PlayMedia($INFO[String.Replace(Container(301).ListItem.FolderPath,action=select,action=play)])</onclick>
+                    <onclick condition="Integer.IsEqual($PARAM[id],311) + !$EXP[Exp_Velocity_Spotlight_TVBrowse] + !String.Contains(Container(301).ListItem.Path,action=select&amp;id=movie-) + !String.Contains(Container(301).ListItem.FolderPath,action=select&amp;id=movie-) + !Container(301).ListItem.IsParentFolder + !String.IsEqual(Container(301).ListItem.Path,plugin://plugin.video.velocity2/)">SetFocus(301)</onclick>
+                    <onclick condition="Integer.IsEqual($PARAM[id],311) + !$EXP[Exp_Velocity_Spotlight_TVBrowse] + !String.Contains(Container(301).ListItem.Path,action=select&amp;id=movie-) + !String.Contains(Container(301).ListItem.FolderPath,action=select&amp;id=movie-) + !Container(301).ListItem.IsParentFolder + !String.IsEqual(Container(301).ListItem.Path,plugin://plugin.video.velocity2/)">AlarmClock(velocity_spotlight_play_select,Action(Select),00:00,silent)</onclick>
+                    <!-- 312 Browse: deterministic TV route from cached spotlight browse path; non-TV falls back to info dialog. -->
+                    <onclick condition="Integer.IsEqual($PARAM[id],312) + !String.IsEmpty(Window.Property(Velocity.Spotlight.BrowsePath))">ActivateWindow(Videos,$INFO[Window.Property(Velocity.Spotlight.BrowsePath)],return)</onclick>
+                    <onclick condition="Integer.IsEqual($PARAM[id],312) + String.IsEmpty(Window.Property(Velocity.Spotlight.BrowsePath))">SetFocus(301)</onclick>
+                    <onclick condition="Integer.IsEqual($PARAM[id],312) + String.IsEmpty(Window.Property(Velocity.Spotlight.BrowsePath))">Action(Info)</onclick>
+                    <onclick condition="Integer.IsEqual($PARAM[id],312) + String.IsEmpty(Window.Property(Velocity.Spotlight.BrowsePath))">SetFocus(312)</onclick>
+                    <onclick>SetFocus($PARAM[onclick_refocus])</onclick>
+
+                    <onback condition="!Player.HasMedia">300</onback>
+                    <onback condition="Player.HasMedia">SetProperty(FullscreenRefocus,SetFocus($PARAM[id]))</onback>
+                    <onback condition="Player.HasMedia">309</onback>
                     <!-- Grouplist (310) onup/ondown/onleft do not propagate to nested buttons; Left from Play would target non-focusable chevron images → stuck focus. -->
                     <onup condition="!Skin.HasSetting(HomeSwitcher.Vertical)">300</onup>
                     <onup condition="Skin.HasSetting(HomeSwitcher.Vertical)">SetProperty(Bumper.Direction,Up,Home)</onup>
@@ -451,13 +524,6 @@
                 </control>
             </control>
         </definition>
-    </include>
-
-    <include name="Hub_Spotlight_OnLeft">
-        <include>Hub_Grouplist_OnLeft</include>
-        <!-- Horizontal: Left cycles feeder while directory has rows or is still binding (Exp_Hubs_Spotlight_HasItems); else return to hub switcher (300). -->
-        <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical) + $EXP[Exp_Hubs_Spotlight_HasItems]">Control.Move(301,-1)</onleft>
-        <onleft condition="!Skin.HasSetting(HomeSwitcher.Vertical) + !$EXP[Exp_Hubs_Spotlight_HasItems]">SetFocus(300)</onleft>
     </include>
 
     <include name="Hub_Spotlight">
@@ -485,8 +551,10 @@
 
                 <control type="grouplist" id="310">
                     <itemgap>20</itemgap>
-                    <!-- Ensure spotlight enters on primary action button (not inert grouplist shell). -->
+                    <!-- Restore hero mode when entering shell from menu, then land on Play. -->
+                    <onfocus>SetProperty(Velocity.WidgetContainer,301)</onfocus>
                     <onfocus>SetFocus(311)</onfocus>
+                    <!-- Hard stop: never dispatch Select from shell (310). Require explicit button focus/click to avoid root fallbacks. -->
 
                     <include content="Animation_Fade_Out">
                         <param name="condition">!ControlGroup(310).HasFocus() + !String.IsEmpty(Window(Home).Property(HomeSwitcher.IsVisible)) + Skin.HasSetting(Spotlight.EnableSlide)</param>
@@ -496,8 +564,8 @@
                     </include>
 
                     <orientation>horizontal</orientation>
-                    <include>Hub_Spotlight_OnLeft</include>
-                    <!-- Horizontal carousel: only buttons 311/312 (and hidden 301) handle Right/Left — avoid grouplist onright stealing focus from Play. -->
+                    <include>Hub_Grouplist_OnLeft</include>
+                    <!-- Horizontal: Left/Right on 301/311/312 only — do not add shell onleft Control.Move (conflicts with Play). Vertical: Hub_Grouplist_OnLeft → menu. -->
 
                     <onup condition="Skin.HasSetting(HomeSwitcher.Vertical)">SetProperty(Bumper.Direction,Up,Home)</onup>
                     <onup condition="Skin.HasSetting(HomeSwitcher.Vertical)">ActivateWindow(1180)</onup>
@@ -528,15 +596,11 @@
                         <include content="Hub_Spotlight_Button_Circle">
                             <param name="id">311</param>
                             <param name="groupid">321</param>
+                            <param name="role">play</param>
                             <param name="label">$VAR[Label_FullscreenWidget_PlayButton]</param>
                             <param name="image">$VAR[Image_FullscreenWidget_PlayButton]</param>
-                            <param name="width">140</param>
-                            <onclick condition="!Integer.IsEqual(Container(301).NumItems,0)">SetFocus(301)</onclick>
-                            <onclick condition="!Integer.IsEqual(Container(301).NumItems,0)">Action(select)</onclick>
-                            <include content="Hub_Spotlight_Button">
-                                <param name="id">311</param>
-                                <param name="window">$PARAM[window]</param>
-                            </include>
+                            <param name="onclick_action">noop</param>
+                            <param name="onclick_refocus">311</param>
                             <onright>312</onright>
                             <left>0</left>
                         </include>
@@ -546,19 +610,15 @@
                     <include content="Hub_Spotlight_Button_Circle">
                         <param name="id">312</param>
                         <param name="groupid">322</param>
+                        <param name="role">info</param>
                         <param name="label"></param>
                         <param name="image">$VAR[Image_FullscreenWidget_InfoButton]</param>
                         <param name="size">120</param>
                         <param name="bordersize">20</param>
                         <param name="left">0</param>
                         <param name="width">140</param>
-                        <onclick>SetFocus(301)</onclick>
-                        <onclick>$VAR[Action_FullscreenWidget_InfoButton]</onclick>
-                        <onclick>SetFocus(312)</onclick>
-                        <include content="Hub_Spotlight_Button">
-                            <param name="id">312</param>
-                            <param name="window">$PARAM[window]</param>
-                        </include>
+                        <param name="onclick_action">$VAR[Action_FullscreenWidget_InfoButton]</param>
+                        <param name="onclick_refocus">312</param>
                     </include>
 
                     <control type="image" id="315">
@@ -642,12 +702,20 @@
                     <preloaditems>2</preloaditems>
                     <onfocus>SetProperty(Velocity.WidgetContainer,301)</onfocus>
                     <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
+                    <!-- Velocity can expose a parent ".." item in some rails; if spotlight lands there, Browse/Info opens addon root. Auto-skip to first real row. -->
+                    <onfocus condition="Container(301).ListItem.IsParentFolder">Control.Move(301,1)</onfocus>
                     <onup condition="!Skin.HasSetting(HomeSwitcher.Vertical)">300</onup>
                     <onup condition="Skin.HasSetting(HomeSwitcher.Vertical)">SetProperty(Bumper.Direction,Up,Home)</onup>
                     <onup condition="Skin.HasSetting(HomeSwitcher.Vertical)">ActivateWindow(1180)</onup>
                     <ondown>$VAR[Hub_Action_Widgets]</ondown>
                     <onleft condition="$EXP[Exp_Hubs_Spotlight_HasItems]">Control.Move(301,-1)</onleft>
                     <onright condition="$EXP[Exp_Hubs_Spotlight_HasItems]">Control.Move(301,1)</onright>
+                    <!-- Select on the hero list must match Play/Browse: Kodi's default plugin action for TV is often Info (see log: Select → DialogVideoInfo). Route TV shows to view_show like widgets. -->
+                    <onclick condition="$EXP[Exp_Velocity_Spotlight_TVBrowse] + !String.IsEmpty(Container(301).ListItem.Path)">ActivateWindow(Videos,$INFO[Container(301).ListItem.Path],return)</onclick>
+                    <onclick condition="$EXP[Exp_Velocity_Spotlight_TVBrowse] + String.IsEmpty(Container(301).ListItem.Path) + !String.IsEmpty(Container(301).ListItem.FolderPath)">ActivateWindow(Videos,$INFO[Container(301).ListItem.FolderPath],return)</onclick>
+                    <onclick condition="Container(301).ListItem.IsParentFolder">Control.Move(301,1)</onclick>
+                    <onclick condition="String.IsEqual(Container(301).ListItem.Path,plugin://plugin.video.velocity2/)">Control.Move(301,1)</onclick>
+                    <onclick condition="!$EXP[Exp_Velocity_Spotlight_TVBrowse] + !Container(301).ListItem.IsParentFolder + !String.IsEqual(Container(301).ListItem.Path,plugin://plugin.video.velocity2/)">Action(Select)</onclick>
                     <!-- Do not SetFocus from here while NumItems is still 0: directory jobs start asynchronously; yanking focus can prevent CDirectoryProvider from ever filling 301 on Omega. -->
                     <orientation>horizontal</orientation>
                     <scrolltime tween="quadratic">400</scrolltime>

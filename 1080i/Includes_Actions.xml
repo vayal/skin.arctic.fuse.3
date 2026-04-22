@@ -23,15 +23,19 @@
     </include>
 
     <variable name="Action_DialogInfo_PlayMedia">
-        <!-- Play FileNameAndPath -->
-        <value condition="!String.IsEmpty(ListItem.FileNameAndPath) + !$EXP[Exp_IsFolder]">PlayMedia($ESCINFO[ListItem.FileNameAndPath])</value>
+        <!-- Canonical info contract: movies -> info dialog, tv shows -> browse show route, folders -> browse folder. -->
+        <value condition="String.IsEqual(ListItem.Property(tmdb_type),movie)">Action(info)</value>
+        <value condition="String.IsEqual(ListItem.Property(tmdb_type),tvshow) + !String.IsEmpty(ListItem.Path) + Window.IsVisible(videos)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
+        <value condition="String.IsEqual(ListItem.Property(tmdb_type),tvshow) + !String.IsEmpty(ListItem.Path)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
+        <value condition="String.Contains(ListItem.Path,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-) + Window.IsVisible(videos)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
+        <value condition="String.Contains(ListItem.Path,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
+        <value condition="String.Contains(ListItem.Path,plugin://plugin.video.velocity2/?action=play&amp;id=movie-)">Action(info)</value>
+        <value condition="String.Contains(ListItem.Path,plugin://plugin.video.velocity2/?action=select&amp;id=movie-)">Action(info)</value>
 
-        <!-- Browse Folder -->
+        <!-- Generic browse/play fallback for non-velocity items. -->
         <value condition="$EXP[Exp_IsFolder] + Window.IsVisible(videos)">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</value>
         <value condition="$EXP[Exp_IsFolder]">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</value>
-
-        <!-- Play FolderPath -->
-        <value>PlayMedia($ESCINFO[ListItem.FolderPath])</value>
+        <value>Action(info)</value>
     </variable>
 
     <variable name="Action_Sync">
@@ -73,6 +77,8 @@
     <include name="Action_Media_Onload">
         <include>Action_BuildViews</include>
         <onload>ClearProperty(InfoPanel.FullSwitch,Home)</onload>
+        <!-- Ensure Velocity show routes land on Combined Landscape after directory has loaded. -->
+        <onload condition="String.Contains(Container.FolderPath,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-)">AlarmClock(velocity_setview_521,Container.SetViewMode(521),00:01,silent)</onload>
         <!-- Avoid forcing focus to a control that may not exist in all media views -->
         <onload condition="Control.IsVisible(500)">AlarmClock(refocus_window,SetFocus(500),00:00,silent)</onload>
         <onload>noop</onload>
@@ -319,8 +325,33 @@
         <value>RunPlugin($INFO[Container(22001).ListItem.Property(url)]&amp;func=do_edit&amp;&amp;widget_style&amp;&amp;$LOCALIZE[20021]=Poster&amp;$LOCALIZE[31045]=Landscape&amp;$LOCALIZE[31320]=Square&amp;$LOCALIZE[31424]=Board&amp;$LOCALIZE[31431]=Circle&amp;$LOCALIZE[31423]=Card&amp;&amp;$LOCALIZE[736]&amp;&amp;True)</value>
     </variable>
 
+    <variable name="Action_FullscreenWidget_PlayButton">
+        <!-- Spotlight Play uses explicit onclick + Exp_Velocity_Spotlight_TVBrowse in Includes_Hubs (Hub_Spotlight_Button_Circle); keep fallback for any other caller. -->
+        <value>SendClick(301)</value>
+    </variable>
+
+    <variable name="Action_Velocity_Widget_OnClick">
+        <value condition="String.IsEqual(ListItem.Property(tmdb_type),tvshow) + !String.IsEmpty(ListItem.Path) + Window.IsVisible(videos)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
+        <value condition="String.IsEqual(ListItem.Property(tmdb_type),tvshow) + !String.IsEmpty(ListItem.Path)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
+        <value condition="String.IsEqual(ListItem.Property(tmdb_type),tvshow) + !String.IsEmpty(ListItem.FolderPath) + Window.IsVisible(videos)">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</value>
+        <value condition="String.IsEqual(ListItem.Property(tmdb_type),tvshow) + !String.IsEmpty(ListItem.FolderPath)">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</value>
+        <value condition="String.Contains(ListItem.Path,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-) + Window.IsVisible(videos)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
+        <value condition="String.Contains(ListItem.Path,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-)">ActivateWindow(Videos,$INFO[ListItem.Path],return)</value>
+        <value condition="String.Contains(ListItem.FolderPath,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-) + Window.IsVisible(videos)">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</value>
+        <value condition="String.Contains(ListItem.FolderPath,plugin://plugin.video.velocity2/?action=view_show&amp;id=tv-)">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</value>
+        <value>Action(select)</value>
+    </variable>
+
+    <variable name="Action_Velocity_Widget_OnInfo">
+        <!-- Info always opens the video info dialog for Velocity items (movie or tvshow). -->
+        <value>Action(info)</value>
+    </variable>
+
     <variable name="Action_FullscreenWidget_InfoButton">
-        <value condition="Skin.HasSetting(Spotlight.UseMenuButton) + $EXP[Exp_Hubs_Spotlight_HasItems]">Action(contextmenu)</value>
+        <value condition="Skin.HasSetting(Spotlight.UseMenuButton)">Action(contextmenu)</value>
+        <!-- Spotlight second button: only route to browse when explicit view_show target exists; do not use tmdb_type fallback because it can carry addon-root paths. -->
+        <value condition="String.Contains(Container(301).ListItem.Path,action=view_show) + !String.IsEmpty(Container(301).ListItem.Path)">ActivateWindow(Videos,$INFO[Container(301).ListItem.Path],return)</value>
+        <value condition="String.Contains(Container(301).ListItem.FolderPath,action=view_show) + !String.IsEmpty(Container(301).ListItem.FolderPath)">ActivateWindow(Videos,$INFO[Container(301).ListItem.FolderPath],return)</value>
         <value>Action(info)</value>
     </variable>
 
