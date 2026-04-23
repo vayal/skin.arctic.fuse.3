@@ -12,9 +12,18 @@
     <onload>Skin.SetString(HomeSwitcher.1101.Name,Series)</onload>
     <onload>Skin.SetString(HomeSwitcher.1102.Name,Movies)</onload>
     <onload>Skin.SetString(HomeSwitcher.1101.Shortcut.Target,videos)</onload>
-    <onload>Skin.SetString(HomeSwitcher.1101.Shortcut.Path,plugin://plugin.video.velocity2/?action=hub_series)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1101.Shortcut.Path,plugin://plugin.video.velocity2/?action=tv_hub)</onload>
     <onload>Skin.SetString(HomeSwitcher.1102.Shortcut.Target,videos)</onload>
-    <onload>Skin.SetString(HomeSwitcher.1102.Shortcut.Path,plugin://plugin.video.velocity2/?action=hub_movies)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1102.Shortcut.Path,plugin://plugin.video.velocity2/?action=movies_hub)</onload>
+    <onload>Skin.SetString(HomeSwitcher.Home.Spotlight.Target,videos)</onload>
+    <onload>Skin.SetString(HomeSwitcher.Home.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&amp;list_id=home_spotlight_mixed&amp;page=1)</onload>
+    <onload>Skin.SetString(HomeSwitcher.Home.Spotlight.Label,Home Spotlight)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1101.Spotlight.Target,videos)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1101.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&amp;list_id=series_spotlight_trending&amp;page=1)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1101.Spotlight.Label,Series Spotlight)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1102.Spotlight.Target,videos)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1102.Spotlight.Path,plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_spotlight_trending&amp;page=1)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1102.Spotlight.Label,Movies Spotlight)</onload>
     <onload condition="!String.IsEmpty(Window(Home).Property(StartupReplaceWindow))">ReplaceWindow($INFO[Window(Home).Property(StartupReplaceWindow)])</onload>
     <onload condition="String.IsEmpty(Window(Home).Property(StartupReplaceWindow))">ReplaceWindow(Home)</onload>
     <include>Action_ButtonMenu_Onload</include>

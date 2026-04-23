@@ -120,6 +120,11 @@
                 <onleft>SetFocus(300)</onleft>
                 <onright>$VAR[Home_$PARAM[window]_onright]</onright>
                 <onright>SetFocus(300)</onright>
+                <!-- Spotlight first when it has items; 302 is a hidden refocus bridge (do not target from menu). -->
+                <ondown condition="$EXP[Exp_Hubs_Spotlight_HasItems] + !String.IsEmpty(Skin.String(HomeSwitcher.$PARAM[window].Spotlight.Target))">SetFocus(310)</ondown>
+                <ondown condition="Control.IsVisible(501)">SetFocus(501)</ondown>
+                <ondown condition="Control.IsVisible(301)">SetFocus(301)</ondown>
+                <ondown>SetFocus(300)</ondown>
                 <onfocus>SetProperty(HomeSwitcher.IsVisible,True,Home)</onfocus>
                 <onfocus condition="$PARAM[overlay]">SetProperty(InfoPanel.FullSwitch,Wall,Home)</onfocus>
                 <onfocus condition="![$PARAM[overlay]]">ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
@@ -134,7 +139,7 @@
             <control type="image">
                 <include>Home_Fade_Animation</include>
                 <visible>!String.IsEmpty(Window(Home).Property(HomeSwitcher.IsVisible))</visible>
-                <texture colordiffuse="main_bg_70">background/combined_topmenu.png</texture>
+                <texture colordiffuse="main_bg_70">special://skin/extras/backgrounds/overlay/combined_topmenu.png</texture>
                 <bottom>0</bottom>
             </control>
         </definition>

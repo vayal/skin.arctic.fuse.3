@@ -2,13 +2,13 @@
     {
         "label": "In-progress Series",
         "icon": "",
-        "path": "plugin://plugin.video.velocity2/?action=home_in_progress_series",
+        "path": "plugin://plugin.video.velocity2/?action=smart_list&type=active_shows",
         "target": "videos"
     },
     {
         "label": "In-progress Movies",
         "icon": "",
-        "path": "plugin://plugin.video.velocity2/?action=home_in_progress_movies",
+        "path": "plugin://plugin.video.velocity2/?action=smart_list&type=in_progress_movies",
         "target": "videos"
     }
 ]
