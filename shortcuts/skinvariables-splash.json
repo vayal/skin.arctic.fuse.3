@@ -69,7 +69,7 @@
                 ],
                 [
                     {
-                        "rules": ["!String.IsEmpty(Skin.String(HomeSwitcher.1107.Toggle)) + System.HasPVRAddon + PVR.HasTVChannels"],
+                        "rules": ["!String.IsEmpty(Skin.String(HomeSwitcher.1107.Toggle)) + System.HasAddon(plugin.video.velocity)"],
                         "value": ["ActivateWindow(1107)", "sleep=0.3"]
 
                     }
