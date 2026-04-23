@@ -8,5 +8,6 @@
   },
   "xml.server.preferBinary": true,
   "xml.validation.resolveExternalEntities": false,
-  "xml.validation.schema.enabled": "never"
+  "xml.validation.schema.enabled": "never",
+  "cursorpyright.analysis.fileEnumerationTimeout": 1000
 }
