@@ -23,10 +23,10 @@
                         "String.IsEmpty(Window.Property(ReloadDone))",
                         "!Skin.HasSetting(DefaultConfig.InitDone)"],
                     "value": [
-                        "Skin.SetBool(TMDbHelper.EnableData)",
-                        "Skin.SetBool(TMDbHelper.EnableCrop)",
-                        "Skin.SetBool(TMDbHelper.EnableBlur)",
-                        "Skin.SetBool(TMDbHelper.Service)",
+                        "Skin.SetBool(Velocity.EnableData)",
+                        "Skin.SetBool(Velocity.EnableCrop)",
+                        "Skin.SetBool(Velocity.EnableBlur)",
+                        "Skin.SetBool(Velocity.Service)",
                         "Skin.SetString(Background.DialogImage,Adaptive)",
                         "Skin.SetString(Background.Image,special://skin/extras/backgrounds/blur/purple_blur.jpg)",
                         "Skin.SetString(HomeSwitcher.1107.Toggle,true)",
@@ -37,13 +37,13 @@
                         "Skin.SetBool(DefaultConfig.InitDone)"
                     ]
                 }],
-                "Skin.SetBool(TMDbHelper.UseLocalWidgetContainer)",
-                "Skin.SetBool(TMDbHelper.DisableExtendedProperties)",
-                "Skin.SetBool(TMDbHelper.EnableCurrentWindowImages)",
-                "Skin.SetBool(TMDbHelper.DirectCallAuto)",
-                "Skin.Reset(TMDbHelper.MonitorContainer)",
-                "Skin.Reset(TMDbHelper.DisableArtwork)",
-                "Skin.SetString(TMDbHelper.Corner.Radius,20)",
+                "Skin.SetBool(Velocity.UseLocalWidgetContainer)",
+                "Skin.SetBool(Velocity.DisableExtendedProperties)",
+                "Skin.SetBool(Velocity.EnableCurrentWindowImages)",
+                "Skin.SetBool(Velocity.DirectCallAuto)",
+                "Skin.Reset(Velocity.MonitorContainer)",
+                "Skin.Reset(Velocity.DisableArtwork)",
+                "Skin.SetString(Velocity.Corner.Radius,20)",
 
                 "Skin.SetString(SkinConstant.Numeric.00,$NUMBER[0])",
                 "Skin.SetString(SkinConstant.Numeric.01,$NUMBER[1])",
@@ -142,11 +142,12 @@
                     "value": "Skin.SetString(HomeSwitcher.1108.Mode,Wall)"
                 }],
                 [{
-                    "rules": ["Skin.HasSetting(TMDbHelper.Service)"],
-                    "value": "Skin.SetBool(TMDbHelper.EnableData)"
+                    "rules": ["Skin.HasSetting(Velocity.Service)"],
+                    "value": "Skin.SetBool(Velocity.EnableData)"
                 }],
                 "SetProperty(InitStatus,Reticulating Splines,1198)",
-                "RunScript(plugin.video.themoviedb.helper,blur_image={var_image_simplebackground},prefix=SimpleBackground)"
+                "RunScript(plugin.video.themoviedb.helper,blur_image={var_image_simplebackground},prefix=SimpleBackground)",
+                "TODO: velocity-map missing endpoint for startup blur-image script hook"
             ]
         }],
 
