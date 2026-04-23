@@ -1077,15 +1077,17 @@
         },
         {
             "name": "Weather",
-            "path": "ActivateWindow(weather)",
+            "path": "noop",
             "icon": "special://skin/extras/icons/sun2.png",
-            "link": "true"
+            "link": "true",
+            "note": "TODO: velocity-map missing endpoint for weather surface"
         },
         {
             "name": "Weather",
-            "path": "ActivateWindow(1161)",
+            "path": "noop",
             "icon": "special://skin/extras/icons/cloud-sun-rain.png",
-            "link": "true"
+            "link": "true",
+            "note": "TODO: velocity-map missing endpoint for weather surface"
         },
         {
             "name": "Favourites",
