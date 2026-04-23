@@ -7,7 +7,7 @@ The main configuration file for any Kodi skin.
 ### Example
 
 ```xml
-<addon id="skin.arctic.fuse.3" name="Arctic Fuse 3" version="3.0.0" provider-name="jurialmunkey">
+<addon id="skin.velocity.af3" name="Arctic Fuse 3" version="3.0.0" provider-name="jurialmunkey">
   <requires>
     <import addon="xbmc.gui" version="5.0.0" />
     <import addon="script.skinvariables" version="3.0.0" />
@@ -30,7 +30,7 @@ The main configuration file for any Kodi skin.
 
 | Field | Description | Example |
 |---|---|---|
-| `id` | Unique identifier (must be lowercase, no spaces) | `skin.arctic.fuse.3` |
+| `id` | Unique identifier (must be lowercase, no spaces) | `skin.velocity.af3` |
 | `name` | Display name | `Arctic Fuse 3` |
 | `version` | Semantic versioning | `3.0.0` |
 | `provider-name` | Author name | `jurialmunkey` |

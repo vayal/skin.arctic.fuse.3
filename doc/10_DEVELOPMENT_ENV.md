@@ -34,7 +34,7 @@ This guide covers setting up a development environment for Kodi skin development
 
 ```bash
 git clone https://github.com/vayal/skin.arctic.fuse.3.git
-cd skin.arctic.fuse.3
+cd skin.velocity.af3
 ```
 
 ### Install Dependencies

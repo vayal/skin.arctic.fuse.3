@@ -15,7 +15,7 @@ A Kodi skin is a collection of files that controls:
 ### Skin File Structure
 
 ```
-skin.arctic.fuse.3/
+skin.velocity.af3/
 ├── addon.xml              # Skin metadata and configuration
 ├── 1080i/                 # Main skin directory
 │   ├── Home.xml           # Primary hub window

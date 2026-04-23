@@ -33,7 +33,7 @@ A Kodi skin is a collection of files that controls:
 ### Skin File Structure
 
 ```
-skin.arctic.fuse.3/
+skin.velocity.af3/
 ├── addon.xml              # Skin metadata and configuration
 ├── 1080i/                 # Main skin directory
 │   ├── Home.xml           # Primary hub window
@@ -117,7 +117,7 @@ Kodi's skin engine processes XML files to render the user interface. The archite
 The main configuration file for any Kodi skin.
 
 ```xml
-<addon id="skin.arctic.fuse.3" name="Arctic Fuse 3" version="3.0.0" provider-name="jurialmunkey">
+<addon id="skin.velocity.af3" name="Arctic Fuse 3" version="3.0.0" provider-name="jurialmunkey">
   <requires>
     <import addon="xbmc.gui" version="5.0.0" />
     <import addon="script.skinvariables" version="3.0.0" />
@@ -792,7 +792,7 @@ View mode enforcement prevents Kodi from arbitrarily changing the view mode:
 
 ```bash
 # Copy skin folder to Kodi userdata
-cp -r skin.arctic.fuse.3 ~/.kodi/addons/
+cp -r skin.velocity.af3 ~/.kodi/addons/
 
 # Enable in Kodi
 # Settings → Interface → Skin → Select "Arctic Fuse 3"
@@ -894,7 +894,7 @@ ERROR: Control(1003) is behind Control(1002)
 ### Package Structure
 
 ```
-skin.arctic.fuse.3.zip
+skin.velocity.af3.zip
 ├── addon.xml
 ├── 1080i/
 ├── colors/
@@ -911,11 +911,11 @@ Add the skin to a Kodi repository:
 
 ```xml
 <!-- repository.xml -->
-<addon id="repository.skin.arctic.fuse.3" name="Arctic Fuse 3 Repository" version="3.0.0" type="repository">
+<addon id="repository.skin.velocity.af3" name="Arctic Fuse 3 Repository" version="3.0.0" type="repository">
   <description>Arctic Fuse 3 Kodi skin repository</description>
   <files>
     <dir name="addons">
-      <file name="skin.arctic.fuse.3.zip" />
+      <file name="skin.velocity.af3.zip" />
     </dir>
   </files>
 </addon>
@@ -926,7 +926,7 @@ Add the skin to a Kodi repository:
 Follow semantic versioning:
 
 ```xml
-<addon id="skin.arctic.fuse.3" name="Arctic Fuse 3" version="3.0.0" provider-name="jurialmunkey">
+<addon id="skin.velocity.af3" name="Arctic Fuse 3" version="3.0.0" provider-name="jurialmunkey">
 ```
 
 - **Major**: Breaking changes

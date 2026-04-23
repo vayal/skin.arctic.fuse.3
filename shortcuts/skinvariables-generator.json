@@ -4,7 +4,7 @@
     "header": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<includes>",
     "footer": "</includes>",
     "buildv": "0.1.5",
-    "skinid": "skin.arctic.fuse.3",
+    "skinid": "skin.velocity.af3",
     "getnfo": {
         "default_home_spotlight_mixed": "plugin://plugin.video.velocity/?action=home_spotlight_mixed",
         "default_home_in_progress_series": "plugin://plugin.video.velocity/?action=home_in_progress_series",

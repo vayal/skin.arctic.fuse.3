@@ -30,7 +30,7 @@
 
 ### Skin Installation
 
-1. Copy skin folder to `~/.kodi/addons/skin.arctic.fuse.3/`
+1. Copy skin folder to `~/.kodi/addons/skin.velocity.af3/`
 2. Enable in Kodi: `Settings → Interface → Skin → Select "Arctic Fuse 3"`
 3. First-run bootstrap executes via `ActivateWindow(Startup)`
 
