@@ -598,6 +598,7 @@
             "name": "Movies",
             "path": "grouping://shortcuts/default/movies/",
             "icon": "special://skin/extras/icons/folder.png",
+            "default": true,
             "link": "false",
             "node": "videos"
         },
@@ -605,6 +606,7 @@
             "name": "TV Shows",
             "path": "grouping://shortcuts/default/tvshows/",
             "icon": "special://skin/extras/icons/folder.png",
+            "default": true,
             "link": "false",
             "node": "videos"
         },
