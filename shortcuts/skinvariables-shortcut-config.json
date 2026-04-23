@@ -553,7 +553,7 @@
         },
         {
             "name": "Velocity Nodes",
-            "path": "plugin://plugin.video.themoviedb.helper/?info=dir_custom_node",
+            "path": "plugin://plugin.video.velocity2/?action=dir_custom_node",
             "icon": "special://skin/extras/icons/plug.png",
             "link": "false",
             "rule": "System.HasAddon(plugin.video.velocity)",
@@ -1116,7 +1116,7 @@
         {
             "icon": "special://skin/extras/icons/configure.png",
             "name": "Configure Velocity",
-            "path": "RunPlugin(plugin://plugin.video.themoviedb.helper/?info=dir_settings)",
+            "path": "RunPlugin(plugin://plugin.video.velocity2/?action=dir_settings)",
             "link": "true",
             "note": "TODO: velocity-map missing endpoint for addon settings route"
         }

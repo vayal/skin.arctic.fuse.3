@@ -198,11 +198,11 @@
                                         <visible>System.AddonIsEnabled(service.coreelec.settings)</visible>
                                     </item>
                                     <item>
-                                        <label>TMDbHelper</label>
-                                        <label2>plugin.video.themoviedb.helper</label2>
+                                        <label>Velocity</label>
+                                        <label2>plugin.video.velocity2</label2>
                                         <icon>special://skin/extras/icons/tmdb.png</icon>
-                                        <onclick>Addon.OpenSettings(plugin.video.themoviedb.helper)</onclick>
-                                        <visible>System.AddonIsEnabled(plugin.video.themoviedb.helper)</visible>
+                                        <onclick>Addon.OpenSettings(plugin.video.velocity2)</onclick>
+                                        <visible>System.AddonIsEnabled(plugin.video.velocity2)</visible>
                                     </item>
                                     <item>
                                         <label>Artist Slideshow</label>

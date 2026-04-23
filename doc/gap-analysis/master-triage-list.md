@@ -47,9 +47,9 @@ User note: Generated home/hub/search outputs must be fixed through `shortcuts/` 
 
 - [x] `1080i/Includes_SkinSettings.xml` - re-implement helper expression gates/settings rows removal and native replacements.
 - [x] `1080i/Home.xml` - re-implement helper startup strings and helper-bound home metadata/property replacements.
-- [ ] `1080i/Includes_Home.xml` - generated output; do not edit directly. Apply PVR/Weather ghost removals in `shortcuts/` templates and regenerate.
-- [ ] `1080i/Includes_Hubs.xml` - replace helper-based widget container/spotlight dependencies.
-- [ ] `1080i/Includes_Search.xml` - re-implement combined search/discover migration and neutralize helper property usage.
+- [x] `1080i/Includes_Home.xml` - generated output; do not edit directly. Apply PVR/Weather ghost removals in `shortcuts/` templates and regenerate.
+- [x] `1080i/Includes_Hubs.xml` - replace helper-based widget container/spotlight dependencies.
+- [x] `1080i/Includes_Search.xml` - re-implement combined search/discover migration and neutralize helper property usage.
 - [x] `1080i/Includes_DialogInfo.xml` - remove/replace helper-heavy details rails with curated Velocity-native bindings.
 - [x] `1080i/Dialog_DialogPlot.xml` - restore full-details flow simplification and remove helper mode/path dependencies.
 - [x] `1080i/Includes_Views.xml` - replace helper aliases and helper widget-container visibility usage.

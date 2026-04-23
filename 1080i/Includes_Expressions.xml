@@ -2,17 +2,17 @@
 <includes>
 
     <!-- ========== -->
-    <!-- TMDBHelper -->
+    <!-- Velocity -->
     <!-- ========== -->
-    <expression name="Exp_TMDbHelper_IsData">[Skin.HasSetting(TMDbHelper.EnableData)]</expression>
-    <expression name="Exp_TMDbHelper_IsBlur">[Skin.HasSetting(TMDbHelper.EnableBlur)]</expression>
-    <expression name="Exp_TMDbHelper_IsCrop">[Skin.HasSetting(TMDbHelper.EnableCrop)]</expression>
+    <expression name="Exp_Velocity_IsData">[Skin.HasSetting(Velocity.EnableData)]</expression>
+    <expression name="Exp_Velocity_IsBlur">[Skin.HasSetting(Velocity.EnableBlur)]</expression>
+    <expression name="Exp_Velocity_IsCrop">[Skin.HasSetting(Velocity.EnableCrop)]</expression>
 
 
     <!-- ============== -->
     <!-- Colour Schemes -->
     <!-- ============== -->
-    <expression name="Exp_DialogTheme_IsAdaptive">[$EXP[Exp_TMDbHelper_IsBlur] + Skin.String(Background.DialogImage,Adaptive)]</expression>
+    <expression name="Exp_DialogTheme_IsAdaptive">[$EXP[Exp_Velocity_IsBlur] + Skin.String(Background.DialogImage,Adaptive)]</expression>
 
     <expression name="Exp_ColourHighlight_IsAqua">[String.IsEqual(Skin.String(focuscolor.name),ff00b8d4) + Skin.HasSetting(RevertSelectedText)]</expression>
     <expression name="Exp_ColourHighlight_IsTropical">[String.IsEqual(Skin.String(focuscolor.name),fff4511e) + Skin.HasSetting(RevertSelectedText)]</expression>
@@ -60,7 +60,7 @@
 
     <expression name="Exp_Hubs_Spotlight_HasItems">[!Integer.IsEqual(Container(301).NumItems,0) | Container(301).IsUpdating]</expression>
 
-    <expression name="Exp_Hubs_Spotlight_SlideDown">[Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),301)]</expression>
+    <expression name="Exp_Hubs_Spotlight_SlideDown">[Integer.IsEqual(Window(Home).Property(Velocity.WidgetContainer),301)]</expression>
     <expression name="Exp_Hubs_Spotlight_ShowButtons">[ControlGroup(310).HasFocus()]</expression>
 
     <expression name="Exp_Hubs_Menu_Loopback">[Skin.HasSetting(HomeSwitcher.LoopBack) | Skin.HasSetting(HomeSwitcher.Vertical)]</expression>

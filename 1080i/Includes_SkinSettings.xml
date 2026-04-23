@@ -382,7 +382,7 @@
             <label>$LOCALIZE[39123]</label>
             <onclick>Skin.ToggleSetting(ContextMenu.DisableArtwork)</onclick>
             <selected>!Skin.HasSetting(ContextMenu.DisableArtwork)</selected>
-            <visible>$EXP[Exp_TMDbHelper_IsData]</visible>
+            <visible>$EXP[Exp_Velocity_IsData]</visible>
         </include>
 
     </include>
@@ -439,7 +439,7 @@
             <label>$LOCALIZE[31093]</label>
             <onclick>Skin.ToggleSetting(Background.ExtraFanart)</onclick>
             <selected>Skin.HasSetting(Background.ExtraFanart)</selected>
-            <visible>$EXP[Exp_TMDbHelper_IsBlur]</visible>
+            <visible>$EXP[Exp_Velocity_IsBlur]</visible>
         </include>
 
         <include content="Settings_Label" description="Navigation">
@@ -590,22 +590,22 @@
     <!-- Details -->
     <include name="SkinSettings_Items_Details">
 
-        <include content="Settings_Label" description="TMDbHelper">
+        <include content="Settings_Label" description="Velocity">
             <param name="window">skinsettings</param>
             <param name="baseid">$PARAM[baseid]</param>
             <param name="id">001</param>
-            <label>TMDbHelper</label>
+            <label>Velocity</label>
         </include>
 
-        <include content="Settings_Button" description="TMDbHelper Service">
+        <include content="Settings_Button" description="Velocity Service">
             <param name="control">radiobutton</param>
             <param name="dialog">false</param>
             <param name="window">skinsettings</param>
             <param name="baseid">$PARAM[baseid]</param>
             <param name="id">002</param>
-            <label>TMDbHelper $LOCALIZE[19099]</label>
-            <include>Action_TMDbHelper_Toggle_Onclick</include>
-            <selected>$EXP[Exp_TMDbHelper_IsData]</selected>
+            <label>Velocity $LOCALIZE[19099]</label>
+            <include>Action_Velocity_Toggle_Onclick</include>
+            <selected>$EXP[Exp_Velocity_IsData]</selected>
         </include>
 
         <include content="Settings_Label" description="Ratings">
@@ -613,7 +613,7 @@
             <param name="baseid">$PARAM[baseid]</param>
             <param name="id">003</param>
             <label>$LOCALIZE[31202]</label>
-            <visible>$EXP[Exp_TMDbHelper_IsData]</visible>
+            <visible>$EXP[Exp_Velocity_IsData]</visible>
         </include>
 
         <include content="Settings_Button" description="CustomDialog Movie  Ratings">
@@ -626,7 +626,7 @@
             <onclick>SetProperty(CustomDialogSettingsTitle,[CAPITALIZE]$LOCALIZE[31202]: $LOCALIZE[342][/CAPITALIZE],Home)</onclick>
             <onclick>SetProperty(CustomDialogSettingsItems,DialogCustom_Ratings_Movies_Items,Home)</onclick>
             <onclick>ActivateWindow(1118)</onclick>
-            <visible>$EXP[Exp_TMDbHelper_IsData]</visible>
+            <visible>$EXP[Exp_Velocity_IsData]</visible>
         </include>
 
         <include content="Settings_Button" description="CustomDialog TV Ratings">
@@ -639,7 +639,7 @@
             <onclick>SetProperty(CustomDialogSettingsTitle,[CAPITALIZE]$LOCALIZE[31202]: $LOCALIZE[20343][/CAPITALIZE],Home)</onclick>
             <onclick>SetProperty(CustomDialogSettingsItems,DialogCustom_Ratings_TVShows_Items,Home)</onclick>
             <onclick>ActivateWindow(1118)</onclick>
-            <visible>$EXP[Exp_TMDbHelper_IsData]</visible>
+            <visible>$EXP[Exp_Velocity_IsData]</visible>
         </include>
 
         <include content="Settings_Label" description="Interface">
@@ -846,7 +846,7 @@
             <onclick>Skin.ResetSettings</onclick>
             <onclick>ActivateWindow(Startup)</onclick>
         </include>
-        <include content="Settings_Button" description="TMDbHelper for PVR">
+        <include content="Settings_Button" description="Velocity for PVR">
             <param name="dialog">false</param>
             <param name="window">skinsettings</param>
             <param name="baseid">$PARAM[baseid]</param>
@@ -854,8 +854,8 @@
             <param name="control">radiobutton</param>
             <param name="slevel">2</param>
             <label>PVR $LOCALIZE[31435]</label>
-            <onclick>Skin.ToggleSetting(TMDbHelper.DisablePVR)</onclick>
-            <selected>!Skin.HasSetting(TMDbHelper.DisablePVR)</selected>
+            <onclick>Skin.ToggleSetting(Velocity.DisablePVR)</onclick>
+            <selected>!Skin.HasSetting(Velocity.DisablePVR)</selected>
         </include>
 
 
@@ -877,12 +877,12 @@
             <param name="baseid">$PARAM[baseid]</param>
             <param name="id">009</param>
             <param name="control">radiobutton</param>
-            <label>plugin.video.themoviedb.helper</label>
-            <label2>$INFO[System.AddonVersion(plugin.video.themoviedb.helper),v,       ]</label2>
-            <onclick condition="!System.HasAddon(plugin.video.themoviedb.helper)">InstallAddon(plugin.video.themoviedb.helper)</onclick>
-            <onclick condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper)">EnableAddon(plugin.video.themoviedb.helper)</onclick>
-            <onclick condition="System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper)">Addon.OpenSettings(plugin.video.themoviedb.helper)</onclick>
-            <selected>System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper)</selected>
+            <label>plugin.video.velocity2</label>
+            <label2>$INFO[System.AddonVersion(plugin.video.velocity2),v,       ]</label2>
+            <onclick condition="!System.HasAddon(plugin.video.velocity2)">InstallAddon(plugin.video.velocity2)</onclick>
+            <onclick condition="!System.AddonIsEnabled(plugin.video.velocity2) + System.HasAddon(plugin.video.velocity2)">EnableAddon(plugin.video.velocity2)</onclick>
+            <onclick condition="System.AddonIsEnabled(plugin.video.velocity2) + System.HasAddon(plugin.video.velocity2)">Addon.OpenSettings(plugin.video.velocity2)</onclick>
+            <selected>System.AddonIsEnabled(plugin.video.velocity2) + System.HasAddon(plugin.video.velocity2)</selected>
         </include>
 
         <include content="Settings_Button">

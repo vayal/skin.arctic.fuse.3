@@ -117,7 +117,7 @@
             <param name="label">PVR</param>
             <param name="icon">$VAR[Home_Icon_1107]</param>
             <param name="action">ReplaceWindow(1107)</param>
-            <param name="enabled">!String.IsEmpty(Skin.String(HomeSwitcher.1107.Toggle)) + System.HasPVRAddon + PVR.HasTVChannels</param>
+            <param name="enabled">!String.IsEmpty(Skin.String(HomeSwitcher.1107.Toggle)) + System.HasPVRAddon</param>
             <param name="visible">Window.IsVisible(1105) | Window.IsVisible(Home) | Window.IsVisible(1101) | Window.IsVisible(1102) | Window.IsVisible(1103) | Window.IsVisible(1104) | Window.IsVisible(1106) | Window.IsVisible(1107)</param>
             <param name="mod">$PARAM[mod]</param>
         </include>
@@ -207,7 +207,7 @@
         <onleft>ActivateWindow(1181)</onleft>
         <oninfo>ActivateWindow(1181)</oninfo>
 
-        <!-- <onright condition="![String.IsEqual(Skin.String(HomeSwitcher.$PARAM[window].Mode),Wall) | String.IsEqual(Skin.String(HomeSwitcher.$PARAM[window].Mode),Combined)]">SetFocus($INFO[Window.Property(TMDBHelper.WidgetContainer)],0,absolute)</onright>
+        <!-- <onright condition="![String.IsEqual(Skin.String(HomeSwitcher.$PARAM[window].Mode),Wall) | String.IsEqual(Skin.String(HomeSwitcher.$PARAM[window].Mode),Combined)]">SetFocus($INFO[Window(Home).Property(Velocity.WidgetContainer)],0,absolute)</onright>
         <onright condition="[String.IsEqual(Skin.String(HomeSwitcher.$PARAM[window].Mode),Wall) | String.IsEqual(Skin.String(HomeSwitcher.$PARAM[window].Mode),Combined)]">400</onright> -->
 
         <onright>400</onright>
@@ -425,7 +425,7 @@
                     <include content="Home_Object_VertIcon" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1107.Toggle))">
                         <param name="icon">special://skin/extras/icons/livetv.png</param>
                         <param name="window">1107</param>
-                        <param name="visible">System.HasPVRAddon + PVR.HasTVChannels</param>
+                        <param name="visible">System.HasPVRAddon</param>
                     </include>
                     <include content="Home_Object_VertIcon" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1108.Toggle))">
                         <param name="icon">special://skin/extras/icons/addon.png</param>
@@ -490,7 +490,7 @@
                 <param name="icon">special://skin/extras/icons/livetv.png</param>
                 <param name="window">1107</param>
                 <param name="id">3107</param>
-                <param name="visible">System.HasPVRAddon + PVR.HasTVChannels</param>
+                <param name="visible">System.HasPVRAddon</param>
             </include>
             <include content="Home_Settings_Button" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1108.Toggle))">
                 <param name="icon">special://skin/extras/icons/addon.png</param>

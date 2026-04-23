@@ -146,7 +146,7 @@
                     "value": "Skin.SetBool(Velocity.EnableData)"
                 }],
                 "SetProperty(InitStatus,Reticulating Splines,1198)",
-                "RunScript(plugin.video.themoviedb.helper,blur_image={var_image_simplebackground},prefix=SimpleBackground)",
+                "RunScript(plugin.video.velocity2,blur_image={var_image_simplebackground},prefix=SimpleBackground)",
                 "TODO: velocity-map missing endpoint for startup blur-image script hook"
             ]
         }],
@@ -160,7 +160,7 @@
                 "!Skin.HasSetting(Startup.DisableWaitForLoad)",
                 "System.HasAlarm(SplashTimeOut)",
                 "System.HasPVRAddon",
-                "!PVR.HasTVChannels",
+                "!false",
                 "!PVR.HasRadioChannels"
             ],
             "value": [
