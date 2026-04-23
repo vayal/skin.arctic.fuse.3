@@ -29,11 +29,11 @@
                 </item>
                 <item>
                     <label>Movies</label>
-                    <onclick>ActivateWindow(Videos,plugin://plugin.video.velocity/?action=hub_movies,return)</onclick>
+                    <onclick>ActivateWindow(Videos,plugin://plugin.video.velocity2/?action=hub_movies,return)</onclick>
                 </item>
                 <item>
                     <label>Series</label>
-                    <onclick>ActivateWindow(Videos,plugin://plugin.video.velocity/?action=hub_series,return)</onclick>
+                    <onclick>ActivateWindow(Videos,plugin://plugin.video.velocity2/?action=hub_series,return)</onclick>
                 </item>
             </content>
         </control>

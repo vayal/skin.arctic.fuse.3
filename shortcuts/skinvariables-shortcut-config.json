@@ -562,7 +562,7 @@
         },
         {
             "name": "Velocity Movies",
-            "path": "plugin://plugin.video.velocity/?action=movies_global_trending",
+            "path": "plugin://plugin.video.velocity2/?action=movies_global_trending",
             "icon": "special://skin/extras/icons/plug.png",
             "link": "false",
             "rule": "System.HasAddon(plugin.video.velocity)",
@@ -570,7 +570,7 @@
         },
         {
             "name": "Velocity TV Shows",
-            "path": "plugin://plugin.video.velocity/?action=series_global_trending",
+            "path": "plugin://plugin.video.velocity2/?action=series_global_trending",
             "icon": "special://skin/extras/icons/plug.png",
             "link": "false",
             "rule": "System.HasAddon(plugin.video.velocity)",
@@ -578,7 +578,7 @@
         },
         {
             "name": "Velocity Spotlight",
-            "path": "plugin://plugin.video.velocity/?action=home_spotlight_mixed",
+            "path": "plugin://plugin.video.velocity2/?action=home_spotlight_mixed",
             "icon": "special://skin/extras/icons/plug.png",
             "link": "false",
             "rule": "System.HasAddon(plugin.video.velocity)",
@@ -586,7 +586,7 @@
         },
         {
             "name": "Velocity All",
-            "path": "plugin://plugin.video.velocity/?action=home_spotlight_mixed",
+            "path": "plugin://plugin.video.velocity2/?action=home_spotlight_mixed",
             "icon": "special://skin/extras/icons/plug.png",
             "link": "false",
             "rule": "System.HasAddon(plugin.video.velocity)",
@@ -596,7 +596,7 @@
     "grouping://shortcuts/default/": [
         {
             "name": "Movies",
-            "path": "plugin://plugin.video.velocity/?action=hub_movies",
+            "path": "plugin://plugin.video.velocity2/?action=hub_movies",
             "icon": "special://skin/extras/icons/folder.png",
             "default": true,
             "link": "false",
@@ -604,7 +604,7 @@
         },
         {
             "name": "TV Shows",
-            "path": "plugin://plugin.video.velocity/?action=hub_series",
+            "path": "plugin://plugin.video.velocity2/?action=hub_series",
             "icon": "special://skin/extras/icons/folder.png",
             "default": true,
             "link": "false",
@@ -642,49 +642,49 @@
     "grouping://shortcuts/default/movies/": [
         {
             "name": "New Movies",
-            "path": "plugin://plugin.video.velocity/?action=movies_global_trending",
+            "path": "plugin://plugin.video.velocity2/?action=movies_global_trending",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
         },
         {
             "name": "Recent Movies",
-            "path": "plugin://plugin.video.velocity/?action=movies_global_trending",
+            "path": "plugin://plugin.video.velocity2/?action=movies_global_trending",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
         },
         {
             "name": "Random Movies",
-            "path": "plugin://plugin.video.velocity/?action=movies_spotlight_trending",
+            "path": "plugin://plugin.video.velocity2/?action=movies_spotlight_trending",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
         },
         {
             "name": "In-Progress Movies",
-            "path": "plugin://plugin.video.velocity/?action=home_in_progress_movies",
+            "path": "plugin://plugin.video.velocity2/?action=home_in_progress_movies",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
         },
         {
             "name": "Top Rated Movies",
-            "path": "plugin://plugin.video.velocity/?action=movies_global_trending",
+            "path": "plugin://plugin.video.velocity2/?action=movies_global_trending",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
         },
         {
             "name": "Top 250 Movies",
-            "path": "plugin://plugin.video.velocity/?action=movies_global_trending",
+            "path": "plugin://plugin.video.velocity2/?action=movies_global_trending",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
         },
         {
             "name": "Unwatched Movies",
-            "path": "plugin://plugin.video.velocity/?action=movies_global_trending",
+            "path": "plugin://plugin.video.velocity2/?action=movies_global_trending",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
@@ -716,14 +716,14 @@
             "name": "New Tv Shows",
             "icon": "DefaultRecentlyAddedMovies.png",
             "node": "videos",
-            "path": "plugin://plugin.video.velocity/?action=series_global_trending",
+            "path": "plugin://plugin.video.velocity2/?action=series_global_trending",
             "link": "false"
         },
         {
             "name": "Recent Tv Shows",
             "icon": "DefaultMusicRecentlyPlayed.png",
             "node": "videos",
-            "path": "plugin://plugin.video.velocity/?action=series_global_trending",
+            "path": "plugin://plugin.video.velocity2/?action=series_global_trending",
             "link": "false"
         },
         {
@@ -737,19 +737,19 @@
             "name": "Random Tv Shows",
             "icon": "DefaultTVShows.png",
             "node": "videos",
-            "path": "plugin://plugin.video.velocity/?action=series_spotlight_trending",
+            "path": "plugin://plugin.video.velocity2/?action=series_spotlight_trending",
             "link": "false"
         },
         {
             "name": "Top Rated Tv Shows",
             "icon": "DefaultMusicTop100Albums.png",
             "node": "videos",
-            "path": "plugin://plugin.video.velocity/?action=series_global_trending",
+            "path": "plugin://plugin.video.velocity2/?action=series_global_trending",
             "link": "false"
         },
         {
             "name": "Unwatched Tv Shows",
-            "path": "plugin://plugin.video.velocity/?action=series_in_progress_shows",
+            "path": "plugin://plugin.video.velocity2/?action=series_in_progress_shows",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
@@ -774,42 +774,42 @@
             "name": "New Episodes",
             "icon": "DefaultRecentlyAddedMovies.png",
             "node": "videos",
-            "path": "plugin://plugin.video.velocity/?action=series_continue_watching_episodes",
+            "path": "plugin://plugin.video.velocity2/?action=series_continue_watching_episodes",
             "link": "false"
         },
         {
             "name": "Recent Episodes",
             "icon": "DefaultMusicRecentlyPlayed.png",
             "node": "videos",
-            "path": "plugin://plugin.video.velocity/?action=series_continue_watching_episodes",
+            "path": "plugin://plugin.video.velocity2/?action=series_continue_watching_episodes",
             "link": "false"
         },
         {
             "name": "Random Episodes",
             "icon": "DefaultTVShows.png",
             "node": "videos",
-            "path": "plugin://plugin.video.velocity/?action=series_continue_watching_episodes",
+            "path": "plugin://plugin.video.velocity2/?action=series_continue_watching_episodes",
             "link": "false"
         },
         {
             "name": "Unwatched Episodes",
             "icon": "DefaultTVShows.png",
             "node": "videos",
-            "path": "plugin://plugin.video.velocity/?action=series_continue_watching_episodes",
+            "path": "plugin://plugin.video.velocity2/?action=series_continue_watching_episodes",
             "link": "false"
         },
         {
             "name": "In-Progress Episodes",
             "icon": "special://skin/extras/icons/timer.png",
             "node": "videos",
-            "path": "plugin://plugin.video.velocity/?action=series_continue_watching_episodes",
+            "path": "plugin://plugin.video.velocity2/?action=series_continue_watching_episodes",
             "link": "false"
         },
         {
             "name": "Top Rated Episodes",
             "icon": "DefaultMusicTop100Albums.png",
             "node": "videos",
-            "path": "plugin://plugin.video.velocity/?action=series_continue_watching_episodes",
+            "path": "plugin://plugin.video.velocity2/?action=series_continue_watching_episodes",
             "link": "false"
         }
     ],
@@ -839,14 +839,14 @@
             "name": "Random Albums",
             "icon": "DefaultMusicAlbums.png",
             "node": "music",
-            "path": "plugin://plugin.video.velocity/?action=home_spotlight_mixed",
+            "path": "plugin://plugin.video.velocity2/?action=home_spotlight_mixed",
             "link": "false"
         },
         {
             "name": "Random Artists",
             "icon": "DefaultMusicArtists.png",
             "node": "music",
-            "path": "plugin://plugin.video.velocity/?action=home_spotlight_mixed",
+            "path": "plugin://plugin.video.velocity2/?action=home_spotlight_mixed",
             "link": "false"
         },
         {
