@@ -2,7 +2,7 @@
 <includes>
 
     <!-- Basic View Constants -->
-    <constant name="view_pad">80</constant>
+    <constant name="view_pad">60</constant>
     <constant name="view_top">180</constant>
     <constant name="view_row">510</constant>
 
