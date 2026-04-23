@@ -642,49 +642,49 @@
     "grouping://shortcuts/default/movies/": [
         {
             "name": "New Movies",
-            "path": "special://skin/extras/playlists/NewMovies.xsp",
+            "path": "plugin://plugin.video.velocity/?action=movies_global_trending",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
         },
         {
             "name": "Recent Movies",
-            "path": "special://skin/extras/playlists/RecentMovies.xsp",
+            "path": "plugin://plugin.video.velocity/?action=movies_global_trending",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
         },
         {
             "name": "Random Movies",
-            "path": "special://skin/extras/playlists/RandomMovies.xsp",
+            "path": "plugin://plugin.video.velocity/?action=movies_spotlight_trending",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
         },
         {
             "name": "In-Progress Movies",
-            "path": "special://skin/extras/playlists/InProgressMovies.xsp",
+            "path": "plugin://plugin.video.velocity/?action=home_in_progress_movies",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
         },
         {
             "name": "Top Rated Movies",
-            "path": "special://skin/extras/playlists/TopRatedMovies.xsp",
+            "path": "plugin://plugin.video.velocity/?action=movies_global_trending",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
         },
         {
             "name": "Top 250 Movies",
-            "path": "special://skin/extras/playlists/Top250Movies.xsp",
+            "path": "plugin://plugin.video.velocity/?action=movies_global_trending",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
         },
         {
             "name": "Unwatched Movies",
-            "path": "special://skin/extras/playlists/UnwatchedMovies.xsp",
+            "path": "plugin://plugin.video.velocity/?action=movies_global_trending",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
@@ -716,14 +716,14 @@
             "name": "New Tv Shows",
             "icon": "DefaultRecentlyAddedMovies.png",
             "node": "videos",
-            "path": "special://skin/extras/playlists/NewShows.xsp",
+            "path": "plugin://plugin.video.velocity/?action=series_global_trending",
             "link": "false"
         },
         {
             "name": "Recent Tv Shows",
             "icon": "DefaultMusicRecentlyPlayed.png",
             "node": "videos",
-            "path": "special://skin/extras/playlists/RecentTvShows.xsp",
+            "path": "plugin://plugin.video.velocity/?action=series_global_trending",
             "link": "false"
         },
         {
@@ -737,19 +737,19 @@
             "name": "Random Tv Shows",
             "icon": "DefaultTVShows.png",
             "node": "videos",
-            "path": "special://skin/extras/playlists/RandomTvShows.xsp",
+            "path": "plugin://plugin.video.velocity/?action=series_spotlight_trending",
             "link": "false"
         },
         {
             "name": "Top Rated Tv Shows",
             "icon": "DefaultMusicTop100Albums.png",
             "node": "videos",
-            "path": "special://skin/extras/playlists/TopRatedTvShows.xsp",
+            "path": "plugin://plugin.video.velocity/?action=series_global_trending",
             "link": "false"
         },
         {
             "name": "Unwatched Tv Shows",
-            "path": "special://skin/extras/playlists/UnwatchedTVShows.xsp",
+            "path": "plugin://plugin.video.velocity/?action=series_in_progress_shows",
             "node": "videos",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
@@ -774,42 +774,42 @@
             "name": "New Episodes",
             "icon": "DefaultRecentlyAddedMovies.png",
             "node": "videos",
-            "path": "special://skin/extras/playlists/NewEpisodes.xsp",
+            "path": "plugin://plugin.video.velocity/?action=series_continue_watching_episodes",
             "link": "false"
         },
         {
             "name": "Recent Episodes",
             "icon": "DefaultMusicRecentlyPlayed.png",
             "node": "videos",
-            "path": "special://skin/extras/playlists/RecentEpisodes.xsp",
+            "path": "plugin://plugin.video.velocity/?action=series_continue_watching_episodes",
             "link": "false"
         },
         {
             "name": "Random Episodes",
             "icon": "DefaultTVShows.png",
             "node": "videos",
-            "path": "special://skin/extras/playlists/RandomEpisodes.xsp",
+            "path": "plugin://plugin.video.velocity/?action=series_continue_watching_episodes",
             "link": "false"
         },
         {
             "name": "Unwatched Episodes",
             "icon": "DefaultTVShows.png",
             "node": "videos",
-            "path": "special://skin/extras/playlists/UnwatchedEpisodes.xsp",
+            "path": "plugin://plugin.video.velocity/?action=series_continue_watching_episodes",
             "link": "false"
         },
         {
             "name": "In-Progress Episodes",
             "icon": "special://skin/extras/icons/timer.png",
             "node": "videos",
-            "path": "special://skin/extras/playlists/InProgressEpisodes.xsp",
+            "path": "plugin://plugin.video.velocity/?action=series_continue_watching_episodes",
             "link": "false"
         },
         {
             "name": "Top Rated Episodes",
             "icon": "DefaultMusicTop100Albums.png",
             "node": "videos",
-            "path": "special://skin/extras/playlists/TopRatedEpisodes.xsp",
+            "path": "plugin://plugin.video.velocity/?action=series_continue_watching_episodes",
             "link": "false"
         }
     ],
@@ -839,14 +839,14 @@
             "name": "Random Albums",
             "icon": "DefaultMusicAlbums.png",
             "node": "music",
-            "path": "special://skin/extras/playlists/RandomAlbums.xsp",
+            "path": "plugin://plugin.video.velocity/?action=home_spotlight_mixed",
             "link": "false"
         },
         {
             "name": "Random Artists",
             "icon": "DefaultMusicArtists.png",
             "node": "music",
-            "path": "special://skin/extras/playlists/RandomArtists.xsp",
+            "path": "plugin://plugin.video.velocity/?action=home_spotlight_mixed",
             "link": "false"
         },
         {
