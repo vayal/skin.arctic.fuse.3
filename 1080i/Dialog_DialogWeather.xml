@@ -22,7 +22,7 @@
                             <include>Size_Group_Head</include>
                             <include content="Part_HeadText">
                                 <param name="id">9999</param>
-                                <param name="label">$INFO[Weather.Location]</param>
+                                <param name="label">$LOCALIZE[8]</param>
                             </include>
                             <include>Part_Line</include>
                             <include>Part_CloseButton</include>
