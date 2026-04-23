@@ -28,10 +28,10 @@
         </definition>
     </include>
     <include name="Home_Info_Animation">
-        <animation effect="fade" start="100" end="100" time="0" reversible="false">Conditional</animation>
+        <animation effect="fade" start="100" end="100" time="0" reversible="false" condition="true">Conditional</animation>
     </include>
     <include name="Home_Slide_Animation">
-        <animation effect="slide" start="0,0" end="0,0" time="0" reversible="false">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,0" time="0" reversible="false" condition="true">Conditional</animation>
     </include>
     <include name="Settings_InfoText">
         <control type="label">
