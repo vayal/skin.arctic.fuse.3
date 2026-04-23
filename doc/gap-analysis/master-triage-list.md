@@ -46,20 +46,20 @@ Consolidated from:
 User note: Generated home/hub/search outputs must be fixed through `shortcuts/` source templates first, then regenerated. Please isolate/scaffold these generated surfaces before I map/patch them.
 
 - [x] `1080i/Includes_SkinSettings.xml` - re-implement helper expression gates/settings rows removal and native replacements.
-- [ ] `1080i/Home.xml` - re-implement helper startup strings and helper-bound home metadata/property replacements.
+- [x] `1080i/Home.xml` - re-implement helper startup strings and helper-bound home metadata/property replacements.
 - [ ] `1080i/Includes_Home.xml` - generated output; do not edit directly. Apply PVR/Weather ghost removals in `shortcuts/` templates and regenerate.
 - [ ] `1080i/Includes_Hubs.xml` - replace helper-based widget container/spotlight dependencies.
 - [ ] `1080i/Includes_Search.xml` - re-implement combined search/discover migration and neutralize helper property usage.
-- [ ] `1080i/Includes_DialogInfo.xml` - remove/replace helper-heavy details rails with curated Velocity-native bindings.
-- [ ] `1080i/Dialog_DialogPlot.xml` - restore full-details flow simplification and remove helper mode/path dependencies.
-- [ ] `1080i/Includes_Views.xml` - replace helper aliases and helper widget-container visibility usage.
-- [ ] `1080i/Includes_Views_List.xml` - replace helper-bound list view metadata and container state usage.
-- [ ] `1080i/Includes_Views_Row.xml` - replace helper-bound row view metadata and container state usage.
-- [ ] `1080i/Includes_Views_Wall.xml` - replace helper-bound wall view metadata and container state usage.
-- [ ] `1080i/Includes_Views_Combined.xml` - replace helper combined-view label/container bindings.
-- [ ] `1080i/Includes_Widgets.xml` - replace helper widget info/container bindings.
-- [ ] `1080i/Includes_Lists.xml` - replace helper list property/widget-container usage.
-- [ ] `1080i/Dialog_DialogContextMenu.xml` - remove/replace remaining helper-based context metadata dependencies.
+- [x] `1080i/Includes_DialogInfo.xml` - remove/replace helper-heavy details rails with curated Velocity-native bindings.
+- [x] `1080i/Dialog_DialogPlot.xml` - restore full-details flow simplification and remove helper mode/path dependencies.
+- [x] `1080i/Includes_Views.xml` - replace helper aliases and helper widget-container visibility usage.
+- [x] `1080i/Includes_Views_List.xml` - replace helper-bound list view metadata and container state usage.
+- [x] `1080i/Includes_Views_Row.xml` - replace helper-bound row view metadata and container state usage.
+- [x] `1080i/Includes_Views_Wall.xml` - replace helper-bound wall view metadata and container state usage.
+- [x] `1080i/Includes_Views_Combined.xml` - replace helper combined-view label/container bindings.
+- [x] `1080i/Includes_Widgets.xml` - replace helper widget info/container bindings.
+- [x] `1080i/Includes_Lists.xml` - replace helper list property/widget-container usage.
+- [x] `1080i/Dialog_DialogContextMenu.xml` - remove/replace remaining helper-based context metadata dependencies.
 - [x] `1080i/Dialog_DialogShortcuts.xml` - remove/replace `PVR.HasTVChannels` dependencies.
 - [x] `1080i/Dialog_DialogPVRInfo.xml` - restore planned removal aligned with PVR policy.
 - [x] `1080i/DialogPVRChannelGuide.xml` - restore planned removal aligned with PVR policy.
@@ -67,7 +67,7 @@ User note: Generated home/hub/search outputs must be fixed through `shortcuts/` 
 - [x] `1080i/DialogPVRChannelsOSD.xml` - restore planned removal aligned with PVR policy.
 - [x] `1080i/MyWeather.xml` - restore planned removal (Batch D mismatch: file still exists).
 - [x] `1080i/Custom_1161_Dialog_Weather.xml` - restore planned removal (Batch D mismatch: file still exists).
-- [ ] `1080i/Dialog_DialogWeather.xml` - remove/replace weather location usage with approved Velocity-native integration path.
-- [ ] `1080i/Includes_Weather.xml` - remove/replace weather location property usage with approved Velocity-native integration path.
-- [ ] `1080i/Custom_1109_Settings.xml` - remove/replace weather location actions and labels.
+- [x] `1080i/Dialog_DialogWeather.xml` - remove/replace weather location usage with approved Velocity-native integration path.
+- [x] `1080i/Includes_Weather.xml` - remove/replace weather location property usage with approved Velocity-native integration path.
+- [x] `1080i/Custom_1109_Settings.xml` - remove/replace weather location actions and labels.
 - [x] `1080i/script-wikipedia.xml` - restore planned removal aligned with context strategy.
