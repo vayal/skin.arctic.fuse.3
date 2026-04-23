@@ -47,4 +47,32 @@
         <value condition="!String.IsEmpty(MusicPlayer.Artist)">$INFO[MusicPlayer.Artist]</value>
         <value />
     </variable>
+
+    <variable name="Label_ButtonMenu_NowPlayingTitle">
+        <value>$VAR[Label_NowPlayingTitle]</value>
+    </variable>
+    <variable name="Label_ButtonMenu_NowPlayingSubLabel">
+        <value>$VAR[Label_NowPlayingSubLabel]</value>
+    </variable>
+
+    <variable name="Label_SkinSettings_Level"><value>Settings Level</value></variable>
+    <variable name="Label_Setting_Sidemenu"><value>Enable side menu</value></variable>
+    <variable name="Label_Setting_HomeIcons"><value>Show home icons</value></variable>
+    <variable name="Label_SkinSettings_Header"><value>Header style</value></variable>
+    <variable name="Label_Setting_Spotlight_UseMenuButton"><value>Use menu button for spotlight</value></variable>
+    <variable name="Label_Setting_ColourPreset"><value>Color preset</value></variable>
+    <variable name="Label_Setting_ColourScheme"><value>Color scheme</value></variable>
+    <variable name="Label_Setting_ColourBackground"><value>Background color</value></variable>
+    <variable name="Label_Setting_ColourDialog"><value>Dialog color</value></variable>
+    <variable name="Label_Setting_StartUpImage"><value>Startup image</value></variable>
+    <variable name="Label_Setting_BackgroundBlur"><value>Background blur</value></variable>
+    <variable name="Label_Setting_Ratings"><value>Ratings style</value></variable>
+    <variable name="Label_Setting_Plotline"><value>Plot line style</value></variable>
+    <variable name="Label_Settings_TextViewMode"><value>Text view mode</value></variable>
+    <variable name="Label_Settings_WidgetNoResults"><value>Hide empty widgets</value></variable>
+    <variable name="Label_Settings_NavigationOnBack"><value>Navigation on back</value></variable>
+    <variable name="Label_Settings_NavigationOnScroll"><value>Navigation on scroll</value></variable>
+    <variable name="Label_Setting_SeekbarPauseBehaviour"><value>Seekbar pause behavior</value></variable>
+    <variable name="Label_Setting_SeekbarPauseDelay"><value>Seekbar pause delay</value></variable>
+    <variable name="Label_Setting_SeekbarTimeDisplay"><value>Seekbar time display</value></variable>
 </includes>

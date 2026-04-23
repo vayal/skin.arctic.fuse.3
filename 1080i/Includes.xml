@@ -12,6 +12,34 @@
     <variable name="Label_Home_Menu_Movies"><value>Movies</value></variable>
     <variable name="Label_Home_Menu_Series"><value>Series</value></variable>
 
+    <!-- Early safety definitions: these names are referenced by downstream includes. -->
+    <include name="Home_Switcher_Horz">
+        <control type="group">
+            <visible>false</visible>
+        </control>
+    </include>
+    <include name="Home_Control">
+        <param name="window">10000</param>
+        <param name="overlay">false</param>
+        <definition>
+            <control type="group">
+                <visible>false</visible>
+            </control>
+        </definition>
+    </include>
+    <include name="Home_Info_Animation">
+        <animation effect="fade" start="100" end="100" time="0" reversible="false">Conditional</animation>
+    </include>
+    <include name="Home_Slide_Animation">
+        <animation effect="slide" start="0,0" end="0,0" time="0" reversible="false">Conditional</animation>
+    </include>
+    <include name="Settings_InfoText">
+        <control type="label">
+            <visible>false</visible>
+            <label />
+        </control>
+    </include>
+
     <include file="Includes_Constants_FlixArt_Large.xml" condition="Skin.String(Skin.FlixArt.Size,Large)" />
     <include file="Includes_Constants_FlixArt_ExtraLarge.xml" condition="Skin.String(Skin.FlixArt.Size,ExtraLarge)" />
     <include file="Includes_Constants_4x3.xml" condition="String.IsEqual(Skin.AspectRatio,4:3)" />
@@ -106,12 +134,6 @@
     <include file="script-skinvariables-generator-includes.xml" />
     <include file="script-skinvariables-skinusers.xml" condition="!String.IsEmpty(Skin.String(SkinVariables.SkinUser))" />
     <include file="script-skinviewtypes-includes.xml" />
-
-    <include name="Home_Switcher_Horz"></include>
-    <include name="Home_Control"></include>
-    <include name="Home_Info_Animation"></include>
-    <include name="Home_Slide_Animation"></include>
-    <include name="Settings_InfoText"></include>
 
     <include file="Includes_Overlay.xml" />
     <include file="Includes_Fallbacks.xml" />
