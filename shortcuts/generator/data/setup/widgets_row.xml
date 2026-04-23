@@ -67,26 +67,32 @@
         </rule>
         <rule>
             <condition>{item_path}==Stacked_Movie_Recommendations</condition>
+            <!-- TODO: velocity-map missing endpoint for this route -->
             <value>plugin://plugin.video.themoviedb.helper/?info=recommendations&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;amp;tmdb_type=movie&amp;amp;query=$INFO[Window.Property(WidgetMeta.{widget_prev_id}.Title)]</value>
         </rule>
         <rule>
             <condition>{item_path}==Stacked_TVShows_Recommendations</condition>
+            <!-- TODO: velocity-map missing endpoint for this route -->
             <value>plugin://plugin.video.themoviedb.helper/?info=recommendations&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;amp;tmdb_type=tv&amp;amp;query=$INFO[Window.Property(WidgetMeta.{widget_prev_id}.TvShowTitle)]</value>
         </rule>
         <rule>
             <condition>{item_path}==Stacked_Movie_Year</condition>
+            <!-- TODO: velocity-map missing endpoint for this route -->
             <value>plugin://plugin.video.themoviedb.helper/?info=discover&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;amp;tmdb_type=movie&amp;amp;sort_by=vote_count.desc&amp;amp;primary_release_year=$INFO[Window.Property(WidgetMeta.{widget_prev_id}.Year)]</value>
         </rule>
         <rule>
             <condition>{item_path}==Stacked_TVShows_Year</condition>
+            <!-- TODO: velocity-map missing endpoint for this route -->
             <value>plugin://plugin.video.themoviedb.helper/?info=discover&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;amp;tmdb_type=tv&amp;amp;sort_by=vote_count.desc&amp;amp;first_air_date_year=$INFO[Window.Property(WidgetMeta.{widget_prev_id}.Year)]</value>
         </rule>
         <rule>
             <condition>{item_path}==Stacked_Movie_Genre</condition>
+            <!-- TODO: velocity-map missing endpoint for this route -->
             <value>plugin://plugin.video.themoviedb.helper/?info=discover&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;amp;tmdb_type=movie&amp;amp;sort_by=vote_count.desc&amp;amp;with_genres=$INFO[Window.Property(WidgetMeta.{widget_prev_id}.Genre)]</value>
         </rule>
         <rule>
             <condition>{item_path}==Stacked_TVShows_Genre</condition>
+            <!-- TODO: velocity-map missing endpoint for this route -->
             <value>plugin://plugin.video.themoviedb.helper/?info=discover&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;amp;tmdb_type=tv&amp;amp;sort_by=vote_count.desc&amp;amp;with_genres=$INFO[Window.Property(WidgetMeta.{widget_prev_id}.Genre)]</value>
         </rule>
         <rule>
@@ -189,34 +195,42 @@
     <rules name="widget_usewidgetlabel">
         <rule>
             <condition>{item_path}&lt;&lt;plugin://plugin.video.themoviedb.helper/?info=random_genres</condition>
+            <!-- TODO: velocity-map missing endpoint for this route -->
             <value>True</value>
         </rule>
         <rule>
             <condition>{item_path}&lt;&lt;plugin://plugin.video.themoviedb.helper/?info=random_keyword</condition>
+            <!-- TODO: velocity-map missing endpoint for this route -->
             <value>True</value>
         </rule>
         <rule>
             <condition>{item_path}&lt;&lt;plugin://plugin.video.themoviedb.helper/?info=random_trendinglists</condition>
+            <!-- TODO: velocity-map missing endpoint for this route -->
             <value>True</value>
         </rule>
         <rule>
             <condition>{item_path}&lt;&lt;plugin://plugin.video.themoviedb.helper/?info=random_popularlists</condition>
+            <!-- TODO: velocity-map missing endpoint for this route -->
             <value>True</value>
         </rule>
         <rule>
             <condition>{item_path}&lt;&lt;plugin://plugin.video.themoviedb.helper/?info=random_likedlists</condition>
+            <!-- TODO: velocity-map missing endpoint for this route -->
             <value>True</value>
         </rule>
         <rule>
             <condition>{item_path}&lt;&lt;plugin://plugin.video.themoviedb.helper/?info=random_mylists</condition>
+            <!-- TODO: velocity-map missing endpoint for this route -->
             <value>True</value>
         </rule>
         <rule>
             <condition>{item_path}&lt;&lt;plugin://plugin.video.themoviedb.helper/?info=trakt_becauseyouwatched</condition>
+            <!-- TODO: velocity-map missing endpoint for this route -->
             <value>True</value>
         </rule>
         <rule>
             <condition>{item_path}&lt;&lt;plugin://plugin.video.themoviedb.helper/?info=trakt_becausemostwatched</condition>
+            <!-- TODO: velocity-map missing endpoint for this route -->
             <value>True</value>
         </rule>
         <rule>
