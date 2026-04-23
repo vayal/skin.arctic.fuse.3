@@ -45,7 +45,7 @@ Consolidated from:
 
 User note: Generated home/hub/search outputs must be fixed through `shortcuts/` source templates first, then regenerated. Please isolate/scaffold these generated surfaces before I map/patch them.
 
-- [ ] `1080i/Includes_SkinSettings.xml` - re-implement helper expression gates/settings rows removal and native replacements.
+- [x] `1080i/Includes_SkinSettings.xml` - re-implement helper expression gates/settings rows removal and native replacements.
 - [ ] `1080i/Home.xml` - re-implement helper startup strings and helper-bound home metadata/property replacements.
 - [ ] `1080i/Includes_Home.xml` - generated output; do not edit directly. Apply PVR/Weather ghost removals in `shortcuts/` templates and regenerate.
 - [ ] `1080i/Includes_Hubs.xml` - replace helper-based widget container/spotlight dependencies.
@@ -60,7 +60,7 @@ User note: Generated home/hub/search outputs must be fixed through `shortcuts/` 
 - [ ] `1080i/Includes_Widgets.xml` - replace helper widget info/container bindings.
 - [ ] `1080i/Includes_Lists.xml` - replace helper list property/widget-container usage.
 - [ ] `1080i/Dialog_DialogContextMenu.xml` - remove/replace remaining helper-based context metadata dependencies.
-- [ ] `1080i/Dialog_DialogShortcuts.xml` - remove/replace `PVR.HasTVChannels` dependencies.
+- [x] `1080i/Dialog_DialogShortcuts.xml` - remove/replace `PVR.HasTVChannels` dependencies.
 - [x] `1080i/Dialog_DialogPVRInfo.xml` - restore planned removal aligned with PVR policy.
 - [x] `1080i/DialogPVRChannelGuide.xml` - restore planned removal aligned with PVR policy.
 - [x] `1080i/DialogPVRGuideSearch.xml` - restore planned removal aligned with PVR policy.
