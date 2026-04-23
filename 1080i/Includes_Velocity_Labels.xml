@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <variable name="Label_OSD_Time">
+        <value>$INFO[Player.Time]</value>
+    </variable>
+    <variable name="Label_OSD_Duration">
+        <value>$INFO[Player.Duration]</value>
+    </variable>
+    <variable name="Label_OSD_Header">
+        <value condition="!String.IsEmpty(VideoPlayer.Title)">$INFO[VideoPlayer.Title]</value>
+        <value condition="!String.IsEmpty(Player.Title)">$INFO[Player.Title]</value>
+        <value>$LOCALIZE[13350]</value>
+    </variable>
+    <variable name="Label_OSD_HintText">
+        <value />
+    </variable>
+
+    <variable name="Label_Player_Status">
+        <value condition="Player.Paused">$LOCALIZE[386]</value>
+        <value condition="Player.Playing">$LOCALIZE[384]</value>
+        <value />
+    </variable>
+    <variable name="Label_Player_StatusDate">
+        <value>$INFO[System.Date]</value>
+    </variable>
+
+    <variable name="Label_FullscreenWidget_PlayButton">
+        <value>$LOCALIZE[208]</value>
+    </variable>
+    <variable name="Label_FullscreenWidget_InfoButton">
+        <value>$LOCALIZE[218]</value>
+    </variable>
+
+    <variable name="Label_ListItem_Status">
+        <value>$INFO[ListItem.Status]</value>
+    </variable>
+    <variable name="Label_ListItem_StatusDate">
+        <value>$INFO[ListItem.Date]</value>
+    </variable>
+
+    <variable name="Label_NowPlayingTitle">
+        <value condition="!String.IsEmpty(Player.Title)">$INFO[Player.Title]</value>
+        <value />
+    </variable>
+    <variable name="Label_NowPlayingSubLabel">
+        <value condition="!String.IsEmpty(VideoPlayer.TVShowTitle)">$INFO[VideoPlayer.TVShowTitle]</value>
+        <value condition="!String.IsEmpty(MusicPlayer.Artist)">$INFO[MusicPlayer.Artist]</value>
+        <value />
+    </variable>
+</includes>

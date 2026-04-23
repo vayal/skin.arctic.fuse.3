@@ -3,6 +3,10 @@
 
     <include file="Includes_Font.xml" />
     <include file="Includes_Images.xml" />
+    <include file="Includes_Velocity_Labels.xml" />
+    <include file="script-skinvariables-includes.xml" />
+    <include file="script-skinvariables-labels-includes.xml" />
+    <include file="script-skinvariables-images-includes.xml" />
     <variable name="Label_Header_Main"><value>Velocity</value></variable>
     <variable name="Label_Home_Menu_Home"><value>Home</value></variable>
     <variable name="Label_Home_Menu_Movies"><value>Movies</value></variable>
