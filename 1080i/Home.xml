@@ -5,6 +5,11 @@
     <onload>Skin.SetString(Velocity.UseLocalWindowIDs,10000|11101|11102|11103|11104|11105|11106|11107|11108|11109)</onload>
     <include>Action_ButtonMenu_Onload</include>
 
+    <!-- One builtin per AlarmClock: chaining with || breaks SplitParams when ClearProperty(...,1198) contains a comma (see kodi.log SplitParams / Window Translator errors). -->
+    <onload condition="System.HasAlarm(SplashTimeOut)">AlarmClock(SplashSafetyVis,ClearProperty(SplashIsVisible,1198),00:00:08,silent)</onload>
+    <onload condition="System.HasAlarm(SplashTimeOut)">AlarmClock(SplashSafetyStopTO,CancelAlarm(SplashTimeOut),00:00:08,silent)</onload>
+    <onload condition="System.HasAlarm(SplashTimeOut)">AlarmClock(SplashSafetyStopVS,CancelAlarm(SplashVarsStart),00:00:08,silent)</onload>
+
     <include content="Hub_Onload">
         <param name="window_id">Home</param>
     </include>

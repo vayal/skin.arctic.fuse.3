@@ -465,7 +465,13 @@
 </include>
     <!-- Combined Info -->
     <include name="skinvariables-1101widgets-wall-info">
-</include>
+        <include content="Hub_Wall_Info">
+            <param name="id">501</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">502</param>
+        </include>
+    </include>
     <!-- Wall Widgets -->
     <include name="skinvariables-1101widgets-combined">
 </include>
@@ -474,9 +480,12 @@
 </include>
     <!-- Combined Info -->
     <include name="skinvariables-1101widgets-combined-info">
-        <control type="group">
-            <visible>false</visible>
-        </control>
+        <include content="Hub_Combined_Info">
+            <param name="id">501</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">502</param>
+        </include>
     </include>
     <!-- Standard Widgets -->
     <include name="skinvariables-1101widgets-standard">
@@ -549,7 +558,13 @@
 </include>
     <!-- Combined Info -->
     <include name="skinvariables-1102widgets-wall-info">
-</include>
+        <include content="Hub_Wall_Info">
+            <param name="id">501</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">502</param>
+        </include>
+    </include>
     <!-- Wall Widgets -->
     <include name="skinvariables-1102widgets-combined">
 </include>
@@ -558,9 +573,12 @@
 </include>
     <!-- Combined Info -->
     <include name="skinvariables-1102widgets-combined-info">
-        <control type="group">
-            <visible>false</visible>
-        </control>
+        <include content="Hub_Combined_Info">
+            <param name="id">501</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">502</param>
+        </include>
     </include>
     <!-- Standard Widgets -->
     <include name="skinvariables-1102widgets-standard">

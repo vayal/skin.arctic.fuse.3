@@ -59,6 +59,10 @@
     <!-- ==== -->
 
     <expression name="Exp_Hubs_Spotlight_HasItems">[!Integer.IsEqual(Container(301).NumItems,0) | Container(301).IsUpdating]</expression>
+    <!-- Menu Down must NOT use Exp_Hubs_Spotlight_HasItems alone: IsUpdating with 0 items is true while the hero is hidden
+         (Hub_Spotlight_Visible_Expression requires Velocity.WidgetContainer==301), so SetFocus(310) would target an invisible
+         spotlight and block Down to widget rows — looks like a loading loop + broken navigation. -->
+    <expression name="Exp_Hubs_Spotlight_HasNonEmptyList">[!Integer.IsEqual(Container(301).NumItems,0)]</expression>
 
     <expression name="Exp_Hubs_Spotlight_SlideDown">[Integer.IsEqual(Window(Home).Property(Velocity.WidgetContainer),301)]</expression>
     <expression name="Exp_Hubs_Spotlight_ShowButtons">[ControlGroup(310).HasFocus()]</expression>

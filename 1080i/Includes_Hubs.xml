@@ -10,7 +10,15 @@
         </definition>
     </include>
 
+    <include name="Hub_Onload_SyncWidgetContainerToHome">
+        <param name="window_id">Home</param>
+        <definition>
+            <onload condition="!String.IsEqual($PARAM[window_id],Home) + !String.IsEqual($PARAM[window_id],home) + !String.IsEmpty(Window($PARAM[window_id]).Property(Velocity.WidgetContainer))">SetProperty(Velocity.WidgetContainer,$INFO[Window($PARAM[window_id]).Property(Velocity.WidgetContainer)],Home)</onload>
+        </definition>
+    </include>
+
     <include name="Hub_Onload">
+        <param name="window_id">Home</param>
         <definition>
 
             <include>Action_Blur_Onload</include>
@@ -36,6 +44,10 @@
             <onload condition="String.IsEmpty(Window(1106).Property(Velocity.WidgetContainer))">SetProperty(Velocity.WidgetContainer,501,1106)</onload>
             <onload condition="String.IsEmpty(Window(1107).Property(Velocity.WidgetContainer))">SetProperty(Velocity.WidgetContainer,501,1107)</onload>
             <onload condition="String.IsEmpty(Window(1108).Property(Velocity.WidgetContainer))">SetProperty(Velocity.WidgetContainer,501,1108)</onload>
+
+            <include content="Hub_Onload_SyncWidgetContainerToHome">
+                <param name="window_id">$PARAM[window_id]</param>
+            </include>
 
             <menucontrol>300</menucontrol>
 
@@ -113,7 +125,7 @@
                     <onback condition="Player.HasMedia">309</onback>
 
                     <ondown>ActivateWindow(1180)</ondown>
-                    <onfocus>SetProperty(Velocity.WidgetContainer,$PARAM[id])</onfocus>
+                    <onfocus>SetProperty(Velocity.WidgetContainer,$PARAM[id],Home)</onfocus>
                     <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
                     <onfocus condition="![$PARAM[home_switcher]]">ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
                     <onfocus condition="$PARAM[home_switcher]">SetProperty(HomeSwitcher.IsVisible,True,Home)</onfocus>
@@ -159,7 +171,7 @@
 
                 <include>Hub_Grouplist_OnLeftRight</include>
                 <ondown>ActivateWindow(1180)</ondown>
-                <onfocus>SetProperty(Velocity.WidgetContainer,$PARAM[id])</onfocus>
+                <onfocus>SetProperty(Velocity.WidgetContainer,$PARAM[id],Home)</onfocus>
                 <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
                 <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
                 <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
@@ -347,7 +359,7 @@
 
     <include name="Hub_Spotlight_Button">
         <!-- <onfocus>SetProperty(HomeSwitcher.IsVisible,True,Home)</onfocus> -->
-        <onfocus>SetProperty(Velocity.WidgetContainer,301,$PARAM[window])</onfocus>
+        <onfocus>SetProperty(Velocity.WidgetContainer,301,Home)</onfocus>
         <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
         <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
         <!-- <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus> -->
@@ -577,7 +589,7 @@
         <definition>
             <control type="wraplist" id="301">
                 <preloaditems>2</preloaditems>
-                <onfocus>SetProperty(Velocity.WidgetContainer,301,$PARAM[window])</onfocus>
+                <onfocus>SetProperty(Velocity.WidgetContainer,301,Home)</onfocus>
                 <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
 
                 <onfocus condition="Integer.IsEqual(Container(301).NumItems,0)">SetFocus(300)</onfocus>

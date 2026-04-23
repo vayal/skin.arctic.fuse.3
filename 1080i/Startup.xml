@@ -2,7 +2,8 @@
 <window>
     <onload condition="Skin.HasSetting(SkinUserLogin.StartupLoginScreen) + !Skin.HasSetting(SkinUserLogin.Disabled) + String.IsEmpty(Window(Home).Property(StartupReplaceWindow))">SetProperty(StartupReplaceWindow,1195,Home)</onload>
     <onload>SetProperty(SplashIsVisible,True,1198)</onload>
-    <onload>AlarmClock(SplashTimeOut,noop,00:59,silent)</onload>
+    <!-- Explicit hh:mm:ss: long safety noop only; real dismiss is skinvariables-splash + Home splash safety -->
+    <onload>AlarmClock(SplashTimeOut,noop,01:00:00,silent)</onload>
     <onload>SetProperty(InitStatus,$LOCALIZE[31145],1198)</onload>
     <onload>Skin.SetString(HomeSwitcher.Home.Mode,Standard)</onload>
     <onload>Skin.SetString(HomeSwitcher.1101.Mode,Standard)</onload>
@@ -26,6 +27,8 @@
     <onload>Skin.SetString(HomeSwitcher.1102.Spotlight.Label,Movies Spotlight)</onload>
     <onload condition="!String.IsEmpty(Window(Home).Property(StartupReplaceWindow))">ReplaceWindow($INFO[Window(Home).Property(StartupReplaceWindow)])</onload>
     <onload condition="String.IsEmpty(Window(Home).Property(StartupReplaceWindow))">ReplaceWindow(Home)</onload>
+    <!-- skinvariables-splash.json is otherwise unreachable (only self-routes); one-shot delayed RunScript after Home can mount -->
+    <onload condition="String.IsEmpty(Window(Home).Property(StartupReplaceWindow))">AlarmClock(SplashVarsStart,RunScript(script.skinvariables,run_executebuiltin=special://skin/shortcuts/skinvariables-splash.json,use_rules=True),00:00:02,silent)</onload>
     <include>Action_ButtonMenu_Onload</include>
 
     <onunload>ClearProperty(StartupReplaceWindow,Home)</onunload>

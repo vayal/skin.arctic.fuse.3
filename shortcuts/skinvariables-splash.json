@@ -25,8 +25,7 @@
         {
             "rules": [
                 "String.IsEmpty(Window(1198).Property(HasPreloadedHubs))",
-                "Skin.HasSetting(Startup.EnableHubPreloading)",
-                "!Skin.HasSetting(Startup.DisableWaitForLoad)"
+                "Skin.HasSetting(Startup.EnableHubPreloading)"
             ],
             "value": [
                 "SetProperty(InitStatus,Preloading Hubs,1198)",
@@ -35,49 +34,49 @@
                 [
                     {
                         "rules": ["!String.IsEmpty(Skin.String(HomeSwitcher.1101.Toggle))"],
-                        "value": ["ActivateWindow(1101)", "sleep=0.3"]
+                        "value": ["ActivateWindow(1101)", "sleep=0.12"]
 
                     }
                 ],
                 [
                     {
                         "rules": ["!String.IsEmpty(Skin.String(HomeSwitcher.1102.Toggle))"],
-                        "value": ["ActivateWindow(1102)", "sleep=0.3"]
+                        "value": ["ActivateWindow(1102)", "sleep=0.12"]
 
                     }
                 ],
                 [
                     {
                         "rules": ["!String.IsEmpty(Skin.String(HomeSwitcher.1103.Toggle))"],
-                        "value": ["ActivateWindow(1103)", "sleep=0.3"]
+                        "value": ["ActivateWindow(1103)", "sleep=0.12"]
 
                     }
                 ],
                 [
                     {
                         "rules": ["!String.IsEmpty(Skin.String(HomeSwitcher.1104.Toggle))"],
-                        "value": ["ActivateWindow(1104)", "sleep=0.3"]
+                        "value": ["ActivateWindow(1104)", "sleep=0.12"]
 
                     }
                 ],
                 [
                     {
                         "rules": ["!String.IsEmpty(Skin.String(HomeSwitcher.1106.Toggle))"],
-                        "value": ["ActivateWindow(1106)", "sleep=0.3"]
+                        "value": ["ActivateWindow(1106)", "sleep=0.12"]
 
                     }
                 ],
                 [
                     {
                         "rules": ["!String.IsEmpty(Skin.String(HomeSwitcher.1107.Toggle)) + System.HasAddon(plugin.video.velocity2)"],
-                        "value": ["ActivateWindow(1107)", "sleep=0.3"]
+                        "value": ["ActivateWindow(1107)", "sleep=0.12"]
 
                     }
                 ],
                 [
                     {
                         "rules": ["!String.IsEmpty(Skin.String(HomeSwitcher.1108.Toggle))"],
-                        "value": ["ActivateWindow(1108)", "sleep=0.3"]
+                        "value": ["ActivateWindow(1108)", "sleep=0.12"]
 
                     }
                 ],
@@ -87,6 +86,7 @@
         {
             "rules": [
                 "!Skin.HasSetting(Startup.DisableWaitForLoad)",
+                "!Skin.HasSetting(Startup.EnableHubPreloading)",
                 "{301Updating}!=||{501Updating}!=",
                 "System.HasAlarm(SplashTimeOut)"
             ],
@@ -99,6 +99,10 @@
         },
         "sleep=0.5",
         "ClearProperty(SplashIsVisible,1198)",
-        "CancelAlarm(SplashTimeOut,silent)"
+        "CancelAlarm(SplashTimeOut,silent)",
+        "CancelAlarm(SplashVarsStart,silent)",
+        "CancelAlarm(SplashSafetyVis,silent)",
+        "CancelAlarm(SplashSafetyStopTO,silent)",
+        "CancelAlarm(SplashSafetyStopVS,silent)"
     ]
 }

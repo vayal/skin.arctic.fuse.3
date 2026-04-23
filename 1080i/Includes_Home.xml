@@ -120,8 +120,8 @@
                 <onleft>SetFocus(300)</onleft>
                 <onright>$VAR[Home_$PARAM[window]_onright]</onright>
                 <onright>SetFocus(300)</onright>
-                <!-- Spotlight first when it has items; 302 is a hidden refocus bridge (do not target from menu). -->
-                <ondown condition="$EXP[Exp_Hubs_Spotlight_HasItems] + !String.IsEmpty(Skin.String(HomeSwitcher.$PARAM[window].Spotlight.Target))">SetFocus(310)</ondown>
+                <!-- Spotlight first only when list 301 has real items (see Exp_Hubs_Spotlight_HasNonEmptyList in Includes_Expressions.xml). -->
+                <ondown condition="$EXP[Exp_Hubs_Spotlight_HasNonEmptyList] + !String.IsEmpty(Skin.String(HomeSwitcher.$PARAM[window].Spotlight.Target))">SetFocus(310)</ondown>
                 <ondown condition="Control.IsVisible(501)">SetFocus(501)</ondown>
                 <ondown condition="Control.IsVisible(301)">SetFocus(301)</ondown>
                 <ondown>SetFocus(300)</ondown>

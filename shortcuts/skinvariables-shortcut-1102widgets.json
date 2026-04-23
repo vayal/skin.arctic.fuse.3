@@ -1,0 +1,14 @@
+[
+    {
+        "label": "In Progress",
+        "icon": "",
+        "path": "plugin://plugin.video.velocity2/?action=smart_list&type=in_progress_movies",
+        "target": "videos"
+    },
+    {
+        "label": "Trending",
+        "icon": "",
+        "path": "plugin://plugin.video.velocity2/?action=list&list_id=movies_global_trending&page=1",
+        "target": "videos"
+    }
+]
