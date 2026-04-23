@@ -59,6 +59,7 @@
         <param name="widgetfade_disable">false</param>
         <param name="widget_hideartwork">false</param>
         <param name="widget_showoverlay">false</param>
+        <param name="icon">$VAR[Velocity_Image_Poster]</param>
         <definition>
             <include content="Widget_Label">
                 <param name="groupid">$PARAM[groupid]</param>

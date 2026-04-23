@@ -424,6 +424,7 @@
         <param name="control">fixedlist</param>
         <param name="orientation">horizontal</param>
         <param name="detailed">!String.IsEmpty(ListItem.Property(role))</param>
+        <param name="icon">$VAR[Velocity_Image_Poster]</param>
         <definition>
             <include content="List_Core">
                 <param name="orientation">$PARAM[orientation]</param>

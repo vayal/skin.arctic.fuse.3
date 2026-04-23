@@ -2016,7 +2016,7 @@
         <param name="selected">false</param>
         <param name="indicator">true</param>
         <param name="diffuse">diffuse/poster_w217_h310.png</param>
-        <param name="icon">$VAR[Image_Poster]</param>
+        <param name="icon">$VAR[Velocity_Image_Poster]</param>
         <param name="listitem">ListItem</param>
         <definition>
             <control type="group">
