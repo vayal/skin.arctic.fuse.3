@@ -3,7 +3,7 @@ SYSTEM INSTRUCTIONS: Arctic Fuse 3 (AF3) Skin Fork and Addon Integration (v2)
 1. Project Context
 
 You are assisting in the modification of a Kodi skin (a fork of Arctic Fuse 3).
-Goal: remove all dependencies on `plugin.video.themoviedb.helper` and replace them with the proprietary addon `plugin.video.velocity`.
+Goal: remove all dependencies on `plugin.video.themoviedb.helper` and replace them with the proprietary addon `plugin.video.velocity2`.
 
 Primary task: map existing Kodi widget routes and click actions to Velocity routing endpoints.
 
@@ -41,14 +41,14 @@ When given an XML block or generator JSON, apply only these changes:
   - Route string properties in JSON or XML attributes where explicitly requested
 - Replace addon namespace:
   - From: `plugin://plugin.video.themoviedb.helper/...`
-  - To: `plugin://plugin.video.velocity/?action=...`
+  - To: `plugin://plugin.video.velocity2/?action=...`
 - Keep untouched anything not directly related to path/property migration.
 
 4. Canonical Velocity URL Template
 
 Use this exact shape unless a specific endpoint contract says otherwise:
 
-`plugin://plugin.video.velocity/?action=<endpoint>[&key=value...]`
+`plugin://plugin.video.velocity2/?action=<endpoint>[&key=value...]`
 
 Parameter rules:
 
@@ -117,15 +117,15 @@ Transformation examples:
 
 - Content route replacement:
   - Old: `plugin://plugin.video.themoviedb.helper/?info=discover&type=movie`
-  - New: `plugin://plugin.video.velocity/?action=movies_global_trending`
+  - New: `plugin://plugin.video.velocity2/?action=movies_global_trending`
 
 - Onclick replacement:
   - Old: `ActivateWindow(Videos,plugin://plugin.video.themoviedb.helper/?info=trending&type=tv,return)`
-  - New: `ActivateWindow(Videos,plugin://plugin.video.velocity/?action=series_global_trending,return)`
+  - New: `ActivateWindow(Videos,plugin://plugin.video.velocity2/?action=series_global_trending,return)`
 
 - Spotlight replacement (no pagination allowed):
   - Old: `plugin://plugin.video.themoviedb.helper/?info=trending&type=movie&page=2`
-  - New: `plugin://plugin.video.velocity/?action=movies_spotlight_trending`
+  - New: `plugin://plugin.video.velocity2/?action=movies_spotlight_trending`
 
 8. Property Replacement Contract
 
@@ -161,7 +161,7 @@ Before finalizing, verify all are true:
 
 - No direct edits to `1080i/` generated files.
 - No structural/layout changes in controls.
-- All migrated routes use `plugin://plugin.video.velocity/?action=...`.
+- All migrated routes use `plugin://plugin.video.velocity2/?action=...`.
 - No leftover `plugin.video.themoviedb.helper` in modified blocks (unless explicitly marked TODO).
 - No spotlight pagination parameters.
 - Pagination behavior aligns with 10-in-row and 40-in-full-list rules.

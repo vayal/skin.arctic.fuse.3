@@ -556,7 +556,7 @@
             "path": "plugin://plugin.video.velocity2/?action=dir_custom_node",
             "icon": "special://skin/extras/icons/plug.png",
             "link": "false",
-            "rule": "System.HasAddon(plugin.video.velocity)",
+            "rule": "System.HasAddon(plugin.video.velocity2)",
             "note": "TODO: velocity-map missing endpoint for custom node browser",
             "node": "videos"
         },
@@ -565,7 +565,7 @@
             "path": "plugin://plugin.video.velocity2/?action=movies_global_trending",
             "icon": "special://skin/extras/icons/plug.png",
             "link": "false",
-            "rule": "System.HasAddon(plugin.video.velocity)",
+            "rule": "System.HasAddon(plugin.video.velocity2)",
             "node": "videos"
         },
         {
@@ -573,7 +573,7 @@
             "path": "plugin://plugin.video.velocity2/?action=series_global_trending",
             "icon": "special://skin/extras/icons/plug.png",
             "link": "false",
-            "rule": "System.HasAddon(plugin.video.velocity)",
+            "rule": "System.HasAddon(plugin.video.velocity2)",
             "node": "videos"
         },
         {
@@ -581,7 +581,7 @@
             "path": "plugin://plugin.video.velocity2/?action=home_spotlight_mixed",
             "icon": "special://skin/extras/icons/plug.png",
             "link": "false",
-            "rule": "System.HasAddon(plugin.video.velocity)",
+            "rule": "System.HasAddon(plugin.video.velocity2)",
             "node": "videos"
         },
         {
@@ -589,7 +589,7 @@
             "path": "plugin://plugin.video.velocity2/?action=home_spotlight_mixed",
             "icon": "special://skin/extras/icons/plug.png",
             "link": "false",
-            "rule": "System.HasAddon(plugin.video.velocity)",
+            "rule": "System.HasAddon(plugin.video.velocity2)",
             "node": "videos"
         }
     ],

@@ -4,7 +4,7 @@ This file mirrors the addon-side Phase 02 sample payload fixtures for roadmap ev
 
 Source fixture file:
 
-- `/home/mfuch/projects/plugin.video.velocity_v2.dev/velocity_v2/plans/phase02-fixtures/contract-family-fixtures.json`
+- `/home/mfuch/projects/plugin.video.velocity2_v2.dev/velocity_v2/plans/phase02-fixtures/contract-family-fixtures.json`
 
 Contract families covered:
 

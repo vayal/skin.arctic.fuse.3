@@ -103,6 +103,12 @@
     <include file="script-skinvariables-skinusers.xml" condition="!String.IsEmpty(Skin.String(SkinVariables.SkinUser))" />
     <include file="script-skinviewtypes-includes.xml" />
 
+    <include name="Home_Switcher_Horz"></include>
+    <include name="Home_Control"></include>
+    <include name="Home_Info_Animation"></include>
+    <include name="Home_Slide_Animation"></include>
+    <include name="Settings_InfoText"></include>
+
     <include file="Includes_Overlay.xml" />
     <include file="Includes_Fallbacks.xml" />
 </includes>

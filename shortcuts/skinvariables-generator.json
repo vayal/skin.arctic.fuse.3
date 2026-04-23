@@ -6,13 +6,13 @@
     "buildv": "0.1.5",
     "skinid": "skin.velocity.af3",
     "getnfo": {
-        "default_home_spotlight_mixed": "plugin://plugin.video.velocity/?action=home_spotlight_mixed",
-        "default_home_in_progress_series": "plugin://plugin.video.velocity/?action=home_in_progress_series",
-        "default_home_in_progress_movies": "plugin://plugin.video.velocity/?action=home_in_progress_movies",
-        "default_series_spotlight_trending": "plugin://plugin.video.velocity/?action=series_spotlight_trending",
-        "default_series_global_trending": "plugin://plugin.video.velocity/?action=series_global_trending",
-        "default_movies_spotlight_trending": "plugin://plugin.video.velocity/?action=movies_spotlight_trending",
-        "default_movies_global_trending": "plugin://plugin.video.velocity/?action=movies_global_trending",
+        "default_home_spotlight_mixed": "plugin://plugin.video.velocity2/?action=home_spotlight_mixed",
+        "default_home_in_progress_series": "plugin://plugin.video.velocity2/?action=home_in_progress_series",
+        "default_home_in_progress_movies": "plugin://plugin.video.velocity2/?action=home_in_progress_movies",
+        "default_series_spotlight_trending": "plugin://plugin.video.velocity2/?action=series_spotlight_trending",
+        "default_series_global_trending": "plugin://plugin.video.velocity2/?action=series_global_trending",
+        "default_movies_spotlight_trending": "plugin://plugin.video.velocity2/?action=movies_spotlight_trending",
+        "default_movies_global_trending": "plugin://plugin.video.velocity2/?action=movies_global_trending",
         "_todo_note_search_aliases": "TODO: velocity-map missing endpoint for discover/movies/tv selector alias defaults if generator consumes them from getnfo"
     },
     "global": {

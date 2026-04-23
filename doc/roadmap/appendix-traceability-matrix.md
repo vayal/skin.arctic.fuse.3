@@ -53,7 +53,7 @@ Phase execution status is tracked only in:
 
 | Artifact | Purpose | Location |
 |---|---|---|
-| Phase 02 fixture source | addon-side contract-family sample payloads | `/home/mfuch/projects/plugin.video.velocity_v2.dev/velocity_v2/plans/phase02-fixtures/contract-family-fixtures.json` |
+| Phase 02 fixture source | addon-side contract-family sample payloads | `/home/mfuch/projects/plugin.video.velocity2_v2.dev/velocity_v2/plans/phase02-fixtures/contract-family-fixtures.json` |
 | Phase 02 fixture mirror | skin-repo roadmap evidence pointer | [Phase 02 Fixture Mirror](./phase-02-fixtures-mirror.md) |
 | Phase 02 validation report | acceptance and blocker tracking | [Phase 02 Validation Report](./phase-02-validation-report.md) |
 

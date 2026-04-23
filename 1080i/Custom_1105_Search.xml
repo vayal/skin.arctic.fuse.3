@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="window" id="1105">
-    <onload condition="String.IsEmpty(Window(Home).Property(Velocity.UserDiscover.FolderPath))">SetProperty(Velocity.UserDiscover.FolderPath,plugin://plugin.video.velocity/?action=discover&amp;with_id=True&amp;tmdb_type=movie,Home)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(Velocity.UserDiscover.FolderPath))">SetProperty(Velocity.UserDiscover.FolderPath,plugin://plugin.video.velocity2/?action=discover&amp;with_id=True&amp;tmdb_type=movie,Home)</onload>
     <onload condition="String.IsEmpty(Window(Home).Property(Velocity.UserDiscover.FolderPath))">SetProperty(Velocity.UserDiscover.FolderPath.Name,$LOCALIZE[467] $LOCALIZE[342],Home)</onload>
 
     <onload>ClearProperty(Background.ShowOverlay,Home)</onload>

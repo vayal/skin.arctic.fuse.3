@@ -26,7 +26,7 @@
 
         <include content="Object_Hidden_List" condition="!String.IsEmpty(Window.Property(tmdb_type)) + !String.IsEmpty(Window.Property(tmdb_id)) + String.IsEmpty(Window.Property(textbox))">
             <param name="id">7000</param>
-            <content limit="1">$INFO[Window.Property(tmdb_id),plugin://plugin.video.velocity/?action=details&amp;tmdb_id=,]$INFO[Window.Property(tmdb_type),&amp;tmdb_type=,]</content>
+            <content limit="1">$INFO[Window.Property(tmdb_id),plugin://plugin.video.velocity2/?action=details&amp;tmdb_id=,]$INFO[Window.Property(tmdb_type),&amp;tmdb_type=,]</content>
         </include>
 
         <include content="Object_Hidden_Button" condition="String.IsEmpty(Window.Property(path))">

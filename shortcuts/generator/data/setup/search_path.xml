@@ -138,11 +138,11 @@
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-TMDBMovies</condition>
-            <value>plugin://plugin.video.velocity/?action=search_movies&amp;amp;query=</value>
+            <value>plugin://plugin.video.velocity2/?action=search_movies&amp;amp;query=</value>
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-TMDBShows</condition>
-            <value>plugin://plugin.video.velocity/?action=search_tvshows&amp;amp;query=</value>
+            <value>plugin://plugin.video.velocity2/?action=search_tvshows&amp;amp;query=</value>
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-TMDBSets</condition>
