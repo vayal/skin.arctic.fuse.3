@@ -115,9 +115,9 @@
             <property name="fanart">resource://resource.images.weatherfanart.multi/$INFO[Window(weather).Property($PARAM[day].FanartCode)]/weather-$INFO[Window(weather).Property($PARAM[day].FanartCode)]-00.jpg</property>
             <property name="imagepath">resource://resource.images.weatherfanart.multi/$INFO[Window(weather).Property($PARAM[day].FanartCode)]/</property>
             <property name="CustomInfo01">$LOCALIZE[8]</property>
-            <property name="CustomInfo02">$INFO[Weather.Location]</property>
+            <property name="CustomInfo02">$LOCALIZE[8]</property>
             <property name="is_weather">true</property>
-            <onclick>ActivateWindow(1161)</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=weather,return)</onclick>
         </item>
     </include>
 
