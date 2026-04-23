@@ -110,7 +110,7 @@
             "icon": "special://skin/extras/icons/hard-drive.png",
             "link": "false"
         },
-        "grouping://shortcuts/tmdbhelper/",
+        "grouping://shortcuts/velocity/",
         {
             "name": "Miscellaneous",
             "path": "grouping://shortcuts/links/kodi/",
@@ -543,7 +543,7 @@
             "link": "false"
         }
     ],
-    "grouping://shortcuts/tmdbhelper/": [
+    "grouping://shortcuts/velocity/": [
         {
             "name": "SkinVariables Custom Filter",
             "icon": "special://skin/extras/icons/filter.png",
@@ -552,43 +552,44 @@
             "path": "plugin://script.skinvariables/?info=get_filter_files"
         },
         {
-            "name": "TMDbHelper Nodes",
+            "name": "Velocity Nodes",
             "path": "plugin://plugin.video.themoviedb.helper/?info=dir_custom_node",
             "icon": "special://skin/extras/icons/plug.png",
             "link": "false",
-            "rule": "System.HasAddon(plugin.video.themoviedb.helper)",
+            "rule": "System.HasAddon(plugin.video.velocity)",
+            "note": "TODO: velocity-map missing endpoint for custom node browser",
             "node": "videos"
         },
         {
-            "name": "TMDbHelper Movies",
-            "path": "plugin://plugin.video.themoviedb.helper/?info=dir_movie",
+            "name": "Velocity Movies",
+            "path": "plugin://plugin.video.velocity/?action=movies_global_trending",
             "icon": "special://skin/extras/icons/plug.png",
             "link": "false",
-            "rule": "System.HasAddon(plugin.video.themoviedb.helper)",
+            "rule": "System.HasAddon(plugin.video.velocity)",
             "node": "videos"
         },
         {
-            "name": "TMDbHelper TV Shows",
-            "path": "plugin://plugin.video.themoviedb.helper/?info=dir_tv",
+            "name": "Velocity TV Shows",
+            "path": "plugin://plugin.video.velocity/?action=series_global_trending",
             "icon": "special://skin/extras/icons/plug.png",
             "link": "false",
-            "rule": "System.HasAddon(plugin.video.themoviedb.helper)",
+            "rule": "System.HasAddon(plugin.video.velocity)",
             "node": "videos"
         },
         {
-            "name": "TMDbHelper Randomised",
-            "path": "plugin://plugin.video.themoviedb.helper/?info=dir_random",
+            "name": "Velocity Spotlight",
+            "path": "plugin://plugin.video.velocity/?action=home_spotlight_mixed",
             "icon": "special://skin/extras/icons/plug.png",
             "link": "false",
-            "rule": "System.HasAddon(plugin.video.themoviedb.helper)",
+            "rule": "System.HasAddon(plugin.video.velocity)",
             "node": "videos"
         },
         {
-            "name": "TMDbHelper All",
-            "path": "plugin://plugin.video.themoviedb.helper/",
+            "name": "Velocity All",
+            "path": "plugin://plugin.video.velocity/?action=home_spotlight_mixed",
             "icon": "special://skin/extras/icons/plug.png",
             "link": "false",
-            "rule": "System.HasAddon(plugin.video.themoviedb.helper)",
+            "rule": "System.HasAddon(plugin.video.velocity)",
             "node": "videos"
         }
     ],
@@ -1112,9 +1113,10 @@
         },
         {
             "icon": "special://skin/extras/icons/configure.png",
-            "name": "Configure TMDbHelper",
+            "name": "Configure Velocity",
             "path": "RunPlugin(plugin://plugin.video.themoviedb.helper/?info=dir_settings)",
-            "link": "true"
+            "link": "true",
+            "note": "TODO: velocity-map missing endpoint for addon settings route"
         }
     ],
     "grouping://shortcuts/widgets/experimental/": [
