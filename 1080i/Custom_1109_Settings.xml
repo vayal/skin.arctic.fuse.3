@@ -11,7 +11,7 @@
         <control type="list" id="501">
             <orientation>horizontal</orientation>
             <autoscroll delay="0" time="20000" repeat="0">true</autoscroll>
-            <onclick>Weather.LocationNext</onclick>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.velocity2/?action=weather,return)</onclick>
             <onup>601</onup>
             <onfocus>SetFocus(601)</onfocus>
             <itemlayout />
@@ -66,7 +66,7 @@
                 <visible>String.IsEqual(Container(601).ListItem.Property(guid),weather)</visible>
                 <include>Dimension_Bottombar</include>
                 <include content="View_Furniture_Footer_ViewLine">
-                    <param name="label">$INFO[Weather.Location]</param>
+                    <param name="label">$LOCALIZE[8]</param>
                     <param name="align">left</param>
                 </include>
             </control> -->
