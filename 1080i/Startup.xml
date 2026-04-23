@@ -4,6 +4,17 @@
     <onload>SetProperty(SplashIsVisible,True,1198)</onload>
     <onload>AlarmClock(SplashTimeOut,noop,00:59,silent)</onload>
     <onload>SetProperty(InitStatus,$LOCALIZE[31145],1198)</onload>
+    <onload>Skin.SetString(HomeSwitcher.Home.Mode,Standard)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1101.Mode,Standard)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1102.Mode,Standard)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1101.Toggle,true)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1102.Toggle,true)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1101.Name,Series)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1102.Name,Movies)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1101.Shortcut.Target,videos)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1101.Shortcut.Path,plugin://plugin.video.velocity2/?action=hub_series)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1102.Shortcut.Target,videos)</onload>
+    <onload>Skin.SetString(HomeSwitcher.1102.Shortcut.Path,plugin://plugin.video.velocity2/?action=hub_movies)</onload>
     <onload condition="!String.IsEmpty(Window(Home).Property(StartupReplaceWindow))">ReplaceWindow($INFO[Window(Home).Property(StartupReplaceWindow)])</onload>
     <onload condition="String.IsEmpty(Window(Home).Property(StartupReplaceWindow))">ReplaceWindow(Home)</onload>
     <include>Action_ButtonMenu_Onload</include>
