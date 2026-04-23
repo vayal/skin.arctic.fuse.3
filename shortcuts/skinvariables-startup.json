@@ -30,7 +30,7 @@
                         "Skin.SetString(Background.DialogImage,Adaptive)",
                         "Skin.SetString(Background.Image,special://skin/extras/backgrounds/blur/purple_blur.jpg)",
                         "Skin.SetString(HomeSwitcher.1107.Toggle,true)",
-                        "Skin.SetString(HomeSwitcher.Home.Shortcut.Path,ActivateWindow(1181))",
+                        "Skin.SetString(HomeSwitcher.Home.Shortcut.Path,ActivateWindow(Home))",
                         "Skin.SetString(HomeSwitcher.Home.Spotlight.Path,special://skin/extras/playlists/RandomMovies.xsp)",
                         "Skin.SetString(HomeSwitcher.Home.Spotlight.Target,videos)",
                         "Skin.SetString(HomeSwitcher.Home.Spotlight.Label,Random Movies)",
@@ -146,7 +146,7 @@
                     "value": "Skin.SetBool(Velocity.EnableData)"
                 }],
                 "SetProperty(InitStatus,Reticulating Splines,1198)",
-                "RunScript(plugin.video.velocity2,blur_image={var_image_simplebackground},prefix=SimpleBackground)",
+                "RunScript(plugin.video.velocity,blur_image={var_image_simplebackground},prefix=SimpleBackground)",
                 "TODO: velocity-map missing endpoint for startup blur-image script hook"
             ]
         }],
@@ -155,19 +155,6 @@
         "SetProperty(ReloadDone,1,Home)",
 
         "sleep=0.5",
-        {
-            "rules": [
-                "!Skin.HasSetting(Startup.DisableWaitForLoad)",
-                "System.HasAlarm(SplashTimeOut)",
-                "System.HasPVRAddon",
-                "!false",
-                "!PVR.HasRadioChannels"
-            ],
-            "value": [
-                "SetProperty(InitStatus,Waiting for PVR,1198)",
-                "route=run_executebuiltin=special://skin/shortcuts/skinvariables-startup.json&use_rules=True&var_image_simplebackground={var_image_simplebackground}"
-            ]
-        },
 
         "{ReplaceWindowCommand}",
         {
