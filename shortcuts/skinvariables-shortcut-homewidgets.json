@@ -2,37 +2,37 @@
     {
         "label": "On Deck",
         "icon": "",
-        "path": "special://skin/extras/playlists/InProgressMovies.xsp",
+        "path": "plugin://plugin.video.velocity/?action=home_in_progress_movies",
         "target": "videos"
     },
     {
         "label": "In-Progress",
         "icon": "",
-        "path": "special://skin/extras/playlists/InProgressEpisodes.xsp",
+        "path": "plugin://plugin.video.velocity/?action=series_continue_watching_episodes",
         "target": "videos"
     },
     {
         "label": "New Movies",
         "icon": "",
-        "path": "special://skin/extras/playlists/NewMovies.xsp",
+        "path": "plugin://plugin.video.velocity/?action=movies_global_trending",
         "target": "videos"
     },
     {
         "label": "New Shows",
         "icon": "",
-        "path": "special://skin/extras/playlists/NewShows.xsp",
+        "path": "plugin://plugin.video.velocity/?action=series_global_trending",
         "target": "videos"
     },
     {
         "label": "Recent Shows",
         "icon": "",
-        "path": "special://skin/extras/playlists/RecentTvShows.xsp",
+        "path": "plugin://plugin.video.velocity/?action=series_global_trending",
         "target": "videos"
     },
     {
         "label": "Top 250",
         "icon": "",
-        "path": "special://skin/extras/playlists/Top250Movies.xsp",
+        "path": "plugin://plugin.video.velocity/?action=movies_global_trending",
         "target": "videos"
     }
 ]

@@ -596,7 +596,7 @@
     "grouping://shortcuts/default/": [
         {
             "name": "Movies",
-            "path": "grouping://shortcuts/default/movies/",
+            "path": "plugin://plugin.video.velocity/?action=hub_movies",
             "icon": "special://skin/extras/icons/folder.png",
             "default": true,
             "link": "false",
@@ -604,7 +604,7 @@
         },
         {
             "name": "TV Shows",
-            "path": "grouping://shortcuts/default/tvshows/",
+            "path": "plugin://plugin.video.velocity/?action=hub_series",
             "icon": "special://skin/extras/icons/folder.png",
             "default": true,
             "link": "false",
