@@ -167,7 +167,7 @@
                     <onclick>Dialog.Close(1141,true)</onclick>
                     <onclick>Dialog.Close(videobookmarks,true)</onclick>
                     <onclick>Skin.SetString(InfoPanel.FullSwitch,Full,Home)</onclick>
-                    <onclick>RunScript(plugin.video.velocity2,add_path=$INFO[Container(7001).ListItem.FolderPath],call_auto=1190,origin_tmdb_type=$INFO[Window.Property(origin_tmdb_type)],origin_tmdb_id=$INFO[Window.Property(origin_tmdb_id)],origin_season=$INFO[Window.Property(origin_season)],origin_episode=$INFO[Window.Property(origin_episode)],return)</onclick>
+                    <onclick>RunPlugin(plugin://plugin.video.velocity2/?add_path=$INFO[Container(7001).ListItem.FolderPath]&amp;call_auto=1190&amp;origin_tmdb_type=$INFO[Window.Property(origin_tmdb_type)]&amp;origin_tmdb_id=$INFO[Window.Property(origin_tmdb_id)]&amp;origin_season=$INFO[Window.Property(origin_season)]&amp;origin_episode=$INFO[Window.Property(origin_episode)]&amp;return)</onclick>
                     <content>$INFO[Window.Property(ModePath)]</content>
                     <visible>!String.IsEmpty(Window.Property(ModePath))</visible>
                 </include>
@@ -195,7 +195,7 @@
             <onfocus>ClearProperty(ModePath)</onfocus>
             <onfocus>ClearProperty(ModeName)</onfocus>
             <onclick>Skin.SetString(InfoPanel.FullSwitch,Full,Home)</onclick>
-            <onclick>RunScript(plugin.video.velocity2,add_path=$INFO[Window.Property(path)],call_auto=1190,origin_tmdb_type=$INFO[Window.Property(origin_tmdb_type)],origin_tmdb_id=$INFO[Window.Property(origin_tmdb_id)],origin_season=$INFO[Window.Property(origin_season)],origin_episode=$INFO[Window.Property(origin_episode)],return)</onclick>
+            <onclick>RunPlugin(plugin://plugin.video.velocity2/?add_path=$INFO[Window.Property(path)]&amp;call_auto=1190&amp;origin_tmdb_type=$INFO[Window.Property(origin_tmdb_type)]&amp;origin_tmdb_id=$INFO[Window.Property(origin_tmdb_id)]&amp;origin_season=$INFO[Window.Property(origin_season)]&amp;origin_episode=$INFO[Window.Property(origin_episode)]&amp;return)</onclick>
             <onclick>Dialog.Close(1114,true)</onclick>
             <onclick>Dialog.Close(videoosd,true)</onclick>
             <onclick>Dialog.Close(1140,true)</onclick>

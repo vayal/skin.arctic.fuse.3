@@ -28,7 +28,7 @@
             <onclick condition="String.IsEqual(ListItem.Property(tmdb_type),person) + !String.IsEmpty(Window(Home).Property(Velocity.IsData))">ActivateWindow(1113)</onclick>
             <onclick condition="!String.IsEqual(ListItem.Property(tmdb_type),person)">SendClick(8)</onclick>
             <!-- TODO: velocity-map missing endpoint for this route -->
-            <onclick condition="!String.IsEqual(ListItem.Property(tmdb_type),person)">RunScript(plugin.video.velocity2,close_dialog=1190)</onclick>
+            <onclick condition="!String.IsEqual(ListItem.Property(tmdb_type),person)">RunPlugin(plugin://plugin.video.velocity2/?close_dialog=1190)</onclick>
         </control>
 
 

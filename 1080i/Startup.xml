@@ -4,6 +4,8 @@
     <onload>SetProperty(SplashIsVisible,True,1198)</onload>
     <onload>AlarmClock(SplashTimeOut,noop,00:59,silent)</onload>
     <onload>SetProperty(InitStatus,$LOCALIZE[31145],1198)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(TemplatesBuilt))">RunScript(script.skinvariables,run_executebuiltin=special://skin/shortcuts/skinvariables-build-templates.json,use_rules=True)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(TemplatesBuilt))">SetProperty(TemplatesBuilt,true,Home)</onload>
 
     <include>Action_ButtonMenu_Onload</include>
 
