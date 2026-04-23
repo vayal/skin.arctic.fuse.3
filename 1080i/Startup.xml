@@ -4,6 +4,8 @@
     <onload>SetProperty(SplashIsVisible,True,1198)</onload>
     <onload>AlarmClock(SplashTimeOut,noop,00:59,silent)</onload>
     <onload>SetProperty(InitStatus,$LOCALIZE[31145],1198)</onload>
+    <onload condition="!String.IsEmpty(Window(Home).Property(StartupReplaceWindow))">ReplaceWindow($INFO[Window(Home).Property(StartupReplaceWindow)])</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(StartupReplaceWindow))">ReplaceWindow(Home)</onload>
     <include>Action_ButtonMenu_Onload</include>
 
     <onunload>ClearProperty(StartupReplaceWindow,Home)</onunload>

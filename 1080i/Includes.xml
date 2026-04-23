@@ -11,45 +11,9 @@
     <variable name="Label_Home_Menu_Home"><value>Home</value></variable>
     <variable name="Label_Home_Menu_Movies"><value>Movies</value></variable>
     <variable name="Label_Home_Menu_Series"><value>Series</value></variable>
-
-    <!-- Restored core home/settings includes (previously safety stubs). -->
-    <include name="Home_Switcher_Horz">
-        <include>Furniture_Home_Menu</include>
-    </include>
-    <include name="Home_Control">
-        <param name="window">10000</param>
-        <param name="overlay">false</param>
-        <param name="onclick_condition">true</param>
-        <definition>
-            <control type="button" id="300">
-                <height>200</height>
-                <texturenofocus />
-                <texturefocus />
-                <onleft>SetFocus(300)</onleft>
-                <onright>SetFocus(300)</onright>
-                <onfocus>SetProperty(HomeSwitcher.IsVisible,True,Home)</onfocus>
-                <onfocus condition="$PARAM[overlay]">SetProperty(InfoPanel.FullSwitch,Wall,Home)</onfocus>
-                <onfocus condition="![$PARAM[overlay]]">ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
-                <onfocus condition="$PARAM[overlay]">SetProperty(Background.ShowOverlay,True,Home)</onfocus>
-                <onfocus condition="![$PARAM[overlay]]">ClearProperty(Background.ShowOverlay,Home)</onfocus>
-                <onclick condition="$PARAM[onclick_condition] + !String.IsEmpty(Skin.String(HomeSwitcher.$PARAM[window].Shortcut.Target))">ActivateWindow($INFO[Skin.String(HomeSwitcher.$PARAM[window].Shortcut.Target)],$INFO[Skin.String(HomeSwitcher.$PARAM[window].Shortcut.Path)],return)</onclick>
-                <onclick condition="$PARAM[onclick_condition] + String.IsEmpty(Skin.String(HomeSwitcher.$PARAM[window].Shortcut.Target))">$INFO[Skin.String(HomeSwitcher.$PARAM[window].Shortcut.Path)]</onclick>
-                <nested />
-            </control>
-            <control type="image">
-                <visible>!String.IsEmpty(Window(Home).Property(HomeSwitcher.IsVisible))</visible>
-                <texture colordiffuse="main_bg_70">background/combined_topmenu.png</texture>
-                <bottom>0</bottom>
-            </control>
-        </definition>
-    </include>
-    <include name="Home_Info_Animation">
-        <animation effect="fade" start="0" end="100" time="400" delay="200" tween="cubic" easing="in">Visible</animation>
-    </include>
-    <include name="Home_Slide_Animation">
-        <animation effect="slide" start="0,-200" end="0" time="400" tween="cubic" easing="out" reversible="false" condition="!String.IsEmpty(Window(Home).Property(HomeSwitcher.IsVisible))">Conditional</animation>
-        <animation effect="slide" end="0,-200" start="0" delay="100" time="400" tween="cubic" easing="out" reversible="false" condition="String.IsEmpty(Window(Home).Property(HomeSwitcher.IsVisible))">Conditional</animation>
-    </include>
+    <variable name="Label_Settings_InfoText">
+        <value>$INFO[System.BuildVersion,Kodi ,]$INFO[System.AddonVersion(skin.velocity.af3), • AF3 v,]</value>
+    </variable>
     <include name="Settings_InfoText">
         <include content="Part_InfoText">
             <param name="id">6</param>
@@ -71,49 +35,7 @@
     <include file="Includes_Constants_21x9.xml" condition="String.IsEqual(Skin.AspectRatio,21:9)" />
     <include file="Includes_Constants.xml" />
 
-    <include name="Furniture_Home_Menu">
-        <control type="list" id="9000">
-            <include>Object_Home_Menu_Config</include>
-            <itemlayout height="80">
-                <control type="label">
-                    <left>0</left>
-                    <width>100%</width>
-                    <height>80</height>
-                    <align>center</align>
-                    <aligny>center</aligny>
-                    <font>font_main_bold</font>
-                    <textcolor>main_fg_70</textcolor>
-                    <label>$INFO[ListItem.Label]</label>
-                </control>
-            </itemlayout>
-            <focusedlayout height="80">
-                <control type="label">
-                    <left>0</left>
-                    <width>100%</width>
-                    <height>80</height>
-                    <align>center</align>
-                    <aligny>center</aligny>
-                    <font>font_main_bold</font>
-                    <textcolor>$VAR[ColorSelected]</textcolor>
-                    <label>$INFO[ListItem.Label]</label>
-                </control>
-            </focusedlayout>
-            <content>
-                <item>
-                    <label>Home</label>
-                    <onclick>ActivateWindow(Home)</onclick>
-                </item>
-                <item>
-                    <label>Movies</label>
-                    <onclick>ActivateWindow(Videos,plugin://plugin.video.velocity2/?action=hub_movies,return)</onclick>
-                </item>
-                <item>
-                    <label>Series</label>
-                    <onclick>ActivateWindow(Videos,plugin://plugin.video.velocity2/?action=hub_series,return)</onclick>
-                </item>
-            </content>
-        </control>
-    </include>
+    <include file="Includes_Home.xml" />
     <include file="Includes_Settings.xml" />
     <include file="Includes_SkinSettings.xml" />
     <include file="Includes_Hubs.xml" />

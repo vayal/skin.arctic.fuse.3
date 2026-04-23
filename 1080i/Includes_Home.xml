@@ -201,6 +201,10 @@
         </control>
     </include>
 
+    <include name="Home_Switcher_Horz">
+        <include>Home_Switcher</include>
+    </include>
+
     <include name="Home_Switcher">
         <include content="Part_Dim_Overlay">
             <param name="visible">Window.IsActive(1181)</param>
