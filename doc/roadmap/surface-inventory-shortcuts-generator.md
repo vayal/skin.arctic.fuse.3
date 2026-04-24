@@ -32,7 +32,7 @@ Cross-links:
 
 ### Item `generator-setup-transform-rules`
 - **Surface:** `generator`
-- **User-visible behavior:** Rule-based path/target/action transformations.
+- **User-visible behavior:** Rule-based pa./action transformations.
 - **Source files:** `shortcuts/generator/data/setup/*.xml`
 - **Contracts used:** alias mapping, path normalization, visibility rules
 - **Dependency type:** `mixed`

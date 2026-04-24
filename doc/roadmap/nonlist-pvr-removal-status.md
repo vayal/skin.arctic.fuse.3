@@ -1,6 +1,6 @@
 # Non-list status — PVR removal
 
-**Truth type:** **as-built** checklist. Target scope: [nonlist-removals-scope-target.md](../target/nonlist-removals-scope-target.md).
+**Truth type:** **as-built** checklist. Target scope: [nonlist-removals-scope-target.md](./nonlist-removals-scope-target.md).
 
 ## Checklist
 
@@ -9,4 +9,4 @@
 
 ## Index
 
-[nonlist-surfaces-index.md](../target/nonlist-surfaces-index.md)
+[nonlist-surfaces-index.md](./nonlist-surfaces-index.md)

@@ -73,8 +73,8 @@ ActivateWindow(Startup)
 **Impact**: Phase 07 cannot be marked completed; freeze gate not satisfied
 
 **Evidence**:
-- No Kodi logs/screenshots appended to [Phase 07 playbook §Validation status](../doc/next/roadmap/phase-07-stabilization-and-freeze.md#validation-status-and-blockers)
-- D-015 pagination / empty-state not exercised at runtime ([appendix-verification-checklists.md](../doc/next/roadmap/appendix-verification-checklists.md) §1–§3)
+- No Kodi logs/screenshots appended to [Phase 1 plan §Validation status](../doc/roadmap/phase-01-freeze-and-runtime-verification.md#validation-status-and-blockers)
+- D-015 pagination / empty-state not exercised at runtime ([Phase 1 Appendix A](../doc/roadmap/phase-01-freeze-and-runtime-verification.md#appendix-a--verification-checklists-operator) §A.1–A.3)
 
 **Resolution**: Requires operator session in Kodi to:
 1. Execute bootstrap reset

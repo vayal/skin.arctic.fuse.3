@@ -5,7 +5,7 @@
 ## High-level removals / simplifications
 
 - **Home submenu** static strip (generator-driven home submenu items) — remove or hide from shipped UX when product agrees.
-- **NextAired** must **not** be the primary Home main rail; see [nonlist-nextaired-home-status.md](../status/nonlist-nextaired-home-status.md).
+- **NextAired** must **not** be the primary Home main rail; see [nonlist-nextaired-home-status.md](./nonlist-nextaired-home-status.md).
 - **User-facing shortcut editor** — out of scope for Velocity fork unless explicitly re-enabled for dev builds.
 - **PVR** entry points and surfaces — remove or block user-visible paths per fork policy.
 - **Specific OSD windows** — **1140** (playlist OSD), **1141**, **1143** (next overlay) — remove, stub, or hard-disable per policy; see OSD status doc.

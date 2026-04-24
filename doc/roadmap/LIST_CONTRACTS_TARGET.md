@@ -1,6 +1,6 @@
 # List contracts — target (required lists)
 
-**Truth document 2 of 3.** Frozen **what** the product and skin expect: `contract_id` / `list_id` families, pagination rules, hub row order, and cross-cutting guarantees. For **how the addon implements** lists internally, see [LIST_ADDON_THEORY.md](../context/LIST_ADDON_THEORY.md). For **what is wired today**, see [LIST_IMPLEMENTATION_STATUS.md](../status/LIST_IMPLEMENTATION_STATUS.md).
+**Truth document 2 of 3.** Frozen **what** the product and skin expect: `contract_id` / `list_id` families, pagination rules, hub row order, and cross-cutting guarantees. For **how the addon implements** lists internally, see [LIST_ADDON_THEORY.md](../context/LIST_ADDON_THEORY.md). For **what is wired today**, see [LIST_IMPLEMENTATION_STATUS.md](./LIST_IMPLEMENTATION_STATUS.md). **Topic IDs** `lists` / `widgets-rails`: [traceability-by-topic.md](../traceability-by-topic.md).
 
 **Historical inputs:** [skin vision v0](../archive/skin-vision-blueprint-v0.md) (archive), [skin vision v1](./skin-vision-blueprint-v1.md) (current narrative).
 

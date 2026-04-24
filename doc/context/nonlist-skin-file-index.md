@@ -15,5 +15,5 @@
 
 ## See also
 
-- [../target/nonlist-surfaces-index.md](../target/nonlist-surfaces-index.md) — hub for targets and status checklists  
+- [../roadmap/nonlist-surfaces-index.md](../roadmap/nonlist-surfaces-index.md) — hub for targets and status checklists  
 - [velocity-surface-source-index.md](velocity-surface-source-index.md) — topic-level map to source files (surface inventory)

@@ -1,6 +1,6 @@
 # Non-list status — details, context menu, D-038
 
-**Truth type:** **as-built** checklist. Targets: [nonlist-details-osd-context-target.md](../target/nonlist-details-osd-context-target.md).
+**Truth type:** **as-built** checklist. Targets: [nonlist-details-osd-context-target.md](./nonlist-details-osd-context-target.md).
 
 ## Checklist
 
@@ -10,4 +10,4 @@
 
 ## Index
 
-[nonlist-surfaces-index.md](../target/nonlist-surfaces-index.md)
+[nonlist-surfaces-index.md](./nonlist-surfaces-index.md)

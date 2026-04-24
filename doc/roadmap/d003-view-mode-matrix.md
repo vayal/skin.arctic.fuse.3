@@ -18,7 +18,7 @@ Mode options:
 
 ## 1) Hub and mini-hub surfaces (HomeSwitcher-backed)
 
-**Canonical window and `HomeSwitcher.*` IDs** match the shipped skin: [Kodi UI verification matrix](roadmap/kodi-ui-verification-matrix.md) §2–3, `shortcuts/skinvariables-startup.json`, `1080i/Includes_Home.xml`. The **Home** root uses the `Home` window and `HomeSwitcher.Home.*` (not `1101`). **Series** = window `1101`, **Movies** = `1102`. **Discovery/search** primary UX is `Custom_1105_Search.xml` (see §2); **1103** / **1104** are optional hub slots, off by default after bootstrap.
+**Canonical window and `HomeSwitcher.*` IDs** match the shipped skin: [Phase 1 — Appendix B](../roadmap/phase-01-freeze-and-runtime-verification.md#appendix-b--kodi-ui-verification-matrix-code-backed-qa) §B.2–B.3, `shortcuts/skinvariables-startup.json`, `1080i/Includes_Home.xml`. The **Home** root uses the `Home` window and `HomeSwitcher.Home.*` (not `1101`). **Series** = window `1101`, **Movies** = `1102`. **Discovery/search** primary UX is `Custom_1105_Search.xml` (see Appendix B §B.2); **1103** / **1104** are optional hub slots, off by default after bootstrap.
 
 | Surface ID | Surface/Window | Uses HomeSwitcher mode | Candidate modes | Decision | Notes |
 |---|---|---|---|---|---|

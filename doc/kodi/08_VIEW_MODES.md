@@ -332,4 +332,4 @@ Hero/featured layout view.
 
 ---
 
-*See also: [Core Architecture](01_CORE_ARCHITECTURE.md), [Hubs](07_HUBS.md), [D-003 view mode matrix](../target/d003-view-mode-matrix.md)*
+*See also: [Core Architecture](01_CORE_ARCHITECTURE.md), [Hubs](07_HUBS.md), [D-003 view mode matrix](../roadmap/d003-view-mode-matrix.md)*

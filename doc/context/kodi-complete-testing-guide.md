@@ -1,6 +1,6 @@
 # Kodi — Complete manual testing guide (Velocity skin fork)
 
-**Purpose:** Step-by-step manual QA in **Kodi** to verify the skin against the roadmap ([README.md](../next/roadmap/README.md)), close **Phase 07** runtime gaps, and confirm addon/list behavior against [LIST_CONTRACTS_TARGET.md](../target/LIST_CONTRACTS_TARGET.md) / [LIST_IMPLEMENTATION_STATUS.md](../status/LIST_IMPLEMENTATION_STATUS.md) and non-list surfaces per [nonlist-surfaces-index.md](../target/nonlist-surfaces-index.md).
+**Purpose:** Step-by-step manual QA in **Kodi** to verify the skin against [ROADMAP_MASTER.md](../ROADMAP_MASTER.md) / [Phase 1 plan](../roadmap/phase-01-freeze-and-runtime-verification.md), close **Phase 1** runtime gaps, and confirm addon/list behavior against [LIST_CONTRACTS_TARGET.md](../roadmap/LIST_CONTRACTS_TARGET.md) / [LIST_IMPLEMENTATION_STATUS.md](../roadmap/LIST_IMPLEMENTATION_STATUS.md) and non-list surfaces per [nonlist-surfaces-index.md](../roadmap/nonlist-surfaces-index.md).
 
 **Audience:** Operators running a real Kodi install (target OS matches the skin’s `addon.xml` / `xbmc.gui` dependency).
 
@@ -20,9 +20,9 @@
 
 **Reference docs (keep open while testing):**
 
-- Code-backed hub wiring: [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-matrix.md)
-- Phase 07 stabilization criteria and evidence bucket: [phase-07-stabilization-and-freeze.md](../next/roadmap/phase-07-stabilization-and-freeze.md) (section **Validation status and blockers**)
-- Checklist buckets: [appendix-verification-checklists.md](../next/roadmap/appendix-verification-checklists.md)
+- Code-backed hub wiring: [Phase 1 — Appendix B](../roadmap/phase-01-freeze-and-runtime-verification.md#appendix-b--kodi-ui-verification-matrix-code-backed-qa)
+- Phase 1 stabilization criteria and evidence bucket: [phase-01-freeze-and-runtime-verification.md](../roadmap/phase-01-freeze-and-runtime-verification.md) (**Validation status and blockers**)
+- Checklist buckets: [Phase 1 — Appendix A](../roadmap/phase-01-freeze-and-runtime-verification.md#appendix-a--verification-checklists-operator)
 - Legacy/helper policy: [D-038 ledger + mapping](./d038-legacy-properties-and-mapping.md)
 
 ---
@@ -37,7 +37,7 @@ For each major section below, capture at least one of:
 
 Paste results into:
 
-- [phase-07-stabilization-and-freeze.md](../next/roadmap/phase-07-stabilization-and-freeze.md) — append operator notes / screenshots / log excerpts under **Validation status and blockers** (Home, Series 1101, Movies 1102, provider drill-in, search, info, D-015 paging).
+- [phase-01-freeze-and-runtime-verification.md](../roadmap/phase-01-freeze-and-runtime-verification.md) — append operator notes / screenshots / log excerpts under **Validation status and blockers** (Home, Series 1101, Movies 1102, provider drill-in, search, info, D-015 paging).
 
 ---
 
@@ -78,8 +78,8 @@ After reset, reload the skin if needed. Confirm **Series (1101)** and **Movies (
 | Step | Action | Pass criteria |
 |------|--------|----------------|
 | 1 | From Home, open spotlight / hero if visible | Content loads or shows an explicit empty state (no silent failure). |
-| 2 | Open Series (1101) and Movies (1102) | Rows load from `plugin://plugin.video.velocity2/...` per [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-matrix.md) §4. |
-| 3 | **Optional (addon contract):** For any paginated row, open “full list” or next page if the UI exposes it | Response matches [LIST_CONTRACTS_TARGET](../target/LIST_CONTRACTS_TARGET.md): pagination fields where applicable; terminal page has no spurious next step (verify in log or addon debug if available). |
+| 2 | Open Series (1101) and Movies (1102) | Rows load from `plugin://plugin.video.velocity2/...` per [Phase 1 — Appendix B](../roadmap/phase-01-freeze-and-runtime-verification.md#appendix-b--kodi-ui-verification-matrix-code-backed-qa) §B.4. |
+| 3 | **Optional (addon contract):** For any paginated row, open “full list” or next page if the UI exposes it | Response matches [LIST_CONTRACTS_TARGET](../roadmap/LIST_CONTRACTS_TARGET.md): pagination fields where applicable; terminal page has no spurious next step (verify in log or addon debug if available). |
 
 **Failure:** Note addon error in log; remediation may be **addon** (Phase 02) or skin path (Phase 03).
 
@@ -87,14 +87,14 @@ After reset, reload the skin if needed. Confirm **Series (1101)** and **Movies (
 
 ### 4.2 Phase 03 — Skin core plumbing (hubs, switcher, bootstrap)
 
-Follow [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-matrix.md) **§2–§4** in order.
+Follow [Phase 1 — Appendix B](../roadmap/phase-01-freeze-and-runtime-verification.md#appendix-b--kodi-ui-verification-matrix-code-backed-qa) **§B.2–B.4** in order.
 
 | Area | What to verify |
 |------|----------------|
 | Top bar | Search (if not disabled), **Home**, **Series**, **Movies** visible; optional **1103/1104/1106–1108** absent on clean bootstrap. |
 | Hub IDs | **Series → window 1101**, **Movies → 1102**; Home remains `Home`. |
-| Home rows | In-progress tab strip + poster row; spotlight uses mixed home list (see matrix §4.1). |
-| Series / Movies rows | Row counts and labels per matrix §4.2–4.3; submenu strips §4.4. |
+| Home rows | In-progress tab strip + poster row; spotlight uses mixed home list (see Appendix B §B.4.1). |
+| Series / Movies rows | Row counts and labels per Appendix B §B.4.2–B.4.3; submenu strips §B.4.4. |
 | Log | No missing-include or fatal skin parse errors on first navigation. |
 
 **Matrix §6** is a minimal copy-paste checklist for tickets.
@@ -133,7 +133,7 @@ Follow [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-mat
 
 ---
 
-### 4.6 Phase 07 — End-to-end journeys and freeze
+### 4.6 Phase 1 — End-to-end journeys and freeze
 
 Run these **user journeys** (see [journeys/](journeys/)):
 
@@ -159,7 +159,7 @@ Run these **user journeys** (see [journeys/](journeys/)):
 3. Context menu: confirm D-021 behavior (§4.3).  
 4. Optional: writer/director drill-down if exposed — note any remaining helper-property-backed UI (documented in [D-038](./d038-legacy-properties-and-mapping.md) §4).
 
-#### D. Pagination and empty states ([appendix-verification-checklists.md](../next/roadmap/appendix-verification-checklists.md) §3)
+#### D. Pagination and empty states ([Phase 1 — Appendix A](../roadmap/phase-01-freeze-and-runtime-verification.md#appendix-a--verification-checklists-operator) §A.3)
 
 | Check | Pass criteria |
 |-------|----------------|
@@ -167,13 +167,13 @@ Run these **user journeys** (see [journeys/](journeys/)):
 | Paged rows | In-row cap and “show more” / browse behavior match product intent; full list paging (e.g. 40/page) matches **addon** contract. |
 | Empty lists | Skin shows expected empty copy (e.g. “No items” / blank row), not a hard error. |
 
-When all Phase 07 criteria are met, update [README.md](../next/roadmap/README.md) Phase 07 row and mark **Validation status and blockers** in [phase-07-stabilization-and-freeze.md](../next/roadmap/phase-07-stabilization-and-freeze.md) accordingly.
+When all Phase 1 criteria are met, update the **Phase 1** line in [ROADMAP_MASTER.md](../ROADMAP_MASTER.md) and mark **Validation status and blockers** in [phase-01-freeze-and-runtime-verification.md](../roadmap/phase-01-freeze-and-runtime-verification.md) accordingly.
 
 ---
 
 ## 5. Master checklist (appendix verification — full pass)
 
-Use this as a **single-session** or **release** gate. Items reference [appendix-verification-checklists.md](../next/roadmap/appendix-verification-checklists.md).
+Use this as a **single-session** or **release** gate. Items reference [Phase 1 — Appendix A](../roadmap/phase-01-freeze-and-runtime-verification.md#appendix-a--verification-checklists-operator).
 
 ### §1 Contract wiring
 
@@ -220,14 +220,14 @@ Use this as a **single-session** or **release** gate. Items reference [appendix-
 
 - [ ] All phases 01–07 accepted **in README** with evidence.  
 - [ ] Traceability docs updated.  
-- [ ] No open P0/P1 blockers in Phase 07 report.  
+- [ ] No open P0/P1 blockers in Phase 1 plan.  
 - [ ] Temporary exceptions listed in D-038 §4 with follow-up.
 
 ---
 
 ## 6. Known alignment gaps (log, not always blockers)
 
-See [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-matrix.md) **§5**: contract row names vs generator rows, optional library search tabs, and “mini-hub” wording differences. Log discrepancies in your test notes for product/addon backlog.
+See [Phase 1 — Appendix B §B.5](../roadmap/phase-01-freeze-and-runtime-verification.md#b5-alignment-gaps-to-log-while-testing): contract row names vs generator rows, optional library search tabs, and “mini-hub” wording differences. Log discrepancies in your test notes for product/addon backlog.
 
 ---
 
@@ -248,10 +248,10 @@ See [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-matrix
 
 | Resource | Role |
 |----------|------|
-| [roadmap/README.md](../next/roadmap/README.md) | Phase status and playbooks |
-| [appendix-traceability-matrix.md](../next/roadmap/appendix-traceability-matrix.md) | D-003 / D-015 / D-021 / D-038 mapping |
+| [ROADMAP_MASTER.md](../ROADMAP_MASTER.md) | Program vision + phase index |
+| [phase-00-historic-implementation-audit.md](../roadmap/phase-00-historic-implementation-audit.md) | Legacy phase ↔ decision ↔ file audit map |
 | [skin-vision-blueprint-v0.md](../archive/skin-vision-blueprint-v0.md) | Product vision (archive) |
 | [context/README.md](./README.md) | Context hub (list theory, D-038, inventories) |
-| [LIST_CONTRACTS_TARGET.md](../target/LIST_CONTRACTS_TARGET.md) | List **target** (D-015) |
-| [LIST_IMPLEMENTATION_STATUS.md](../status/LIST_IMPLEMENTATION_STATUS.md) | List **as-built** status |
-| [nonlist-surfaces-index.md](../target/nonlist-surfaces-index.md) | Non-list targets + status checklists (hub) |
+| [LIST_CONTRACTS_TARGET.md](../roadmap/LIST_CONTRACTS_TARGET.md) | List **target** (D-015) |
+| [LIST_IMPLEMENTATION_STATUS.md](../roadmap/LIST_IMPLEMENTATION_STATUS.md) | List **as-built** status |
+| [nonlist-surfaces-index.md](../roadmap/nonlist-surfaces-index.md) | Non-list targets + status checklists (hub) |

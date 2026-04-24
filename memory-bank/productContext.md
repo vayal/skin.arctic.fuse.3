@@ -52,7 +52,7 @@ User clicks row → Kodi calls Velocity → Velocity returns structured data
 
 ## Screen-by-Screen Contract
 
-See [`doc/context/README.md`](../doc/context/README.md) (addon list **theory**), [`doc/target/LIST_CONTRACTS_TARGET.md`](../doc/target/LIST_CONTRACTS_TARGET.md) (D-015 **target**), and [`doc/status/LIST_IMPLEMENTATION_STATUS.md`](../doc/status/LIST_IMPLEMENTATION_STATUS.md) (**as-built** list status). Non-list surfaces: [`doc/target/nonlist-surfaces-index.md`](../doc/target/nonlist-surfaces-index.md).
+**Program roadmap:** [`doc/ROADMAP_MASTER.md`](../doc/ROADMAP_MASTER.md) · **Topic index:** [`doc/traceability-by-topic.md`](../doc/traceability-by-topic.md). See [`doc/context/README.md`](../doc/context/README.md) (addon list **theory**), [`doc/roadmap/LIST_CONTRACTS_TARGET.md`](../doc/roadmap/LIST_CONTRACTS_TARGET.md) (D-015 **target**), and [`doc/roadmap/LIST_IMPLEMENTATION_STATUS.md`](../doc/roadmap/LIST_IMPLEMENTATION_STATUS.md) (**as-built** list status). Non-list surfaces: [`doc/roadmap/nonlist-surfaces-index.md`](../doc/roadmap/nonlist-surfaces-index.md).
 
 ### Home Hub
 - Spotlight: Mixed movies/series hero

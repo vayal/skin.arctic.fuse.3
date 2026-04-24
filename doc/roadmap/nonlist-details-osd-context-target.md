@@ -6,7 +6,7 @@
 
 - **Full-screen details** are the canonical **“Info”** experience.
 - **Rails** on details should stay **lean** (minimal clutter, Velocity-first content).
-- **Context menu** (`Dialog_DialogContextMenu.xml`) should be **curated** — only actions that make sense for Velocity; formal keep/remove is tracked under **D-021** (see [nonlist-details-context-status.md](../status/nonlist-details-context-status.md)).
+- **Context menu** (`Dialog_DialogContextMenu.xml`) should be **curated** — only actions that make sense for Velocity; formal keep/remove is tracked under **D-021** (see [nonlist-details-context-status.md](./nonlist-details-context-status.md)).
 
 ## OSD and playback chrome
 

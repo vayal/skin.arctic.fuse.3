@@ -115,7 +115,7 @@ Capture end-to-end journey evidence for:
 6. **Capture OSD bridge flow**:
    - `1080i/Custom_1193_VideoOSDInfo.xml` — `Action(Info)` then close overlay
 
-7. **Pagination checks** (per `kodi-ui-verification-matrix.md`):
+7. **Pagination checks** (per `doc/roadmap/phase-01-freeze-and-runtime-verification.md` Appendix B):
    - Spotlight uses `page=1` with empty `limit` on Omega binding
    - In-row cap 10 vs contract §1
    - Row header → full list behavior

@@ -1,6 +1,6 @@
 # List contracts — implementation status (skin + addon)
 
-**Truth document 3 of 3.** Tracks **current** alignment between `skin.velocity.af3` wiring and [LIST_CONTRACTS_TARGET.md](../target/LIST_CONTRACTS_TARGET.md), plus list-focused open work. For addon internals, see [LIST_ADDON_THEORY.md](../context/LIST_ADDON_THEORY.md).
+**Truth document 3 of 3.** Tracks **current** alignment between `skin.velocity.af3` wiring and [LIST_CONTRACTS_TARGET.md](./LIST_CONTRACTS_TARGET.md), plus list-focused open work. For addon internals, see [LIST_ADDON_THEORY.md](../context/LIST_ADDON_THEORY.md). **Topic IDs** `lists` / `widgets-rails`: [traceability-by-topic.md](../traceability-by-topic.md).
 
 **Update rule:** when wiring or addon routes change, edit this file first; do not scatter list status across roadmap appendices.
 
@@ -46,7 +46,7 @@ Legend: **Yes** = matches contract; **Partial** = incomplete, alternate path, or
 ## Contract alignment matrix (skin vs D-015)
 
 This section tracks what the skin actually calls today and how that aligns to
-[LIST_CONTRACTS_TARGET.md](../target/LIST_CONTRACTS_TARGET.md).
+[LIST_CONTRACTS_TARGET.md](./LIST_CONTRACTS_TARGET.md).
 
 Legend:
 - **Used**: actively referenced by skin routes in current XML.

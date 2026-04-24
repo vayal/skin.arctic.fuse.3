@@ -1,6 +1,6 @@
 # D-038 legacy properties — ledger and mapping
 
-Single **`doc/context/`** reference for **D-038** (file-level ledger, batches, exceptions, completion) and the **TMDbHelper → native/Velocity mapping table**. Gap backlog: [`master-triage-list.md`](../next/gap-analysis/master-triage-list.md).
+Single **`doc/context/`** reference for **D-038** (file-level ledger, batches, exceptions, completion) and the **TMDbHelper → native/Velocity mapping table**. Open helper/property backlog: [phase-02 plan](../roadmap/phase-02-legacy-helper-and-d038-debt.md).
 
 ---
 
@@ -230,7 +230,7 @@ Purpose: define non-guessy translation targets for legacy `TMDbHelper`/`TMDBHelp
 Sources:
 
 - **Ledger:** Part A (above in this document).
-- [master-triage-list.md](../next/gap-analysis/master-triage-list.md)
+- [phase-02-legacy-helper-and-d038-debt.md](../roadmap/phase-02-legacy-helper-and-d038-debt.md)
 
 ## Mapping Table
 

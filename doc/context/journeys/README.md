@@ -1,6 +1,6 @@
 # Journey Index
 
-These pages provide user-flow views and link back to **surface inventories** ([hub](../surface-inventory-index.md) → `doc/status/surface-inventory-*.md`).
+These pages provide user-flow views and link back to **surface inventories** ([hub](../surface-inventory-index.md) → `doc/roadmap/surface-inventory-*.md`).
 
 - [`browse-to-play.md`](./browse-to-play.md)
 - [`search-to-play.md`](./search-to-play.md)

@@ -1,6 +1,6 @@
 # Non-list status — OSD and playback
 
-**Truth type:** **as-built** checklist (non-list). Targets: [nonlist-details-osd-context-target.md](../target/nonlist-details-osd-context-target.md), [nonlist-removals-scope-target.md](../target/nonlist-removals-scope-target.md).
+**Truth type:** **as-built** checklist (non-list). Targets: [nonlist-details-osd-context-target.md](./nonlist-details-osd-context-target.md), [nonlist-removals-scope-target.md](./nonlist-removals-scope-target.md).
 
 ## Checklist
 
@@ -11,4 +11,4 @@
 
 ## Index
 
-[nonlist-surfaces-index.md](../target/nonlist-surfaces-index.md)
+[nonlist-surfaces-index.md](./nonlist-surfaces-index.md)

@@ -1,31 +1,34 @@
 # Velocity skin (`skin.velocity.af3`) — documentation
 
-**Start here.** This tree is split so you can tell **context** (definitions & fork rules), **target**, **status**, **what is next**, **Kodi engine mechanics**, **Velocity redirect**, and **archive** apart.
+**Start here.** Program execution is driven by **[ROADMAP_MASTER.md](ROADMAP_MASTER.md)** and everything under **[`roadmap/`](roadmap/README.md)** (phase plans, D-015/D-003/non-list specs, surface inventories, status checklists).
 
-| Section | Purpose | Start file |
-|--------|---------|------------|
-| **Context** | List theory, D-038, surface inventory hub, journeys, generator rules, fork docs, QA guide | [context/README.md](context/README.md) |
-| **Target** | Product intent, **D-015 list target**, D-003, **non-list** targets ([hub](target/nonlist-surfaces-index.md)) | [target/README.md](target/README.md) |
-| **Status** | **List** as-built status, **non-list** checklists, **surface inventories** (01–07), performance notes | [status/README.md](status/README.md) |
-| **Next steps** | Phased roadmap, gap analysis, triage | [next/README.md](next/README.md) |
-| **Kodi engine** | Generic Kodi skin XML/engine guides (numbered 01–10) | [kodi/README.md](kodi/README.md) |
-| **Velocity** | Redirect only (historical `doc/velocity/` links) | [velocity/README.md](velocity/README.md) |
-| **Archive** | Superseded narrative / blueprint versions kept for history only | [archive/README.md](archive/README.md) |
+## Canonical execution
 
-## Quick links (most used)
+| Entry | Role |
+|------|------|
+| **[ROADMAP_MASTER.md](ROADMAP_MASTER.md)** | Vision, objectives, phase index (high level) |
+| **[roadmap/README.md](roadmap/README.md)** | Index of phase plans + consolidated specs |
 
-- **Context hub:** [context/README.md](context/README.md) → list theory, D-038, surface inventory, journeys, testing guide  
-- **List addon theory:** [context/LIST_ADDON_THEORY.md](context/LIST_ADDON_THEORY.md)  
-- **List contract target (D-015):** [target/LIST_CONTRACTS_TARGET.md](target/LIST_CONTRACTS_TARGET.md)  
-- **List implementation status:** [status/LIST_IMPLEMENTATION_STATUS.md](status/LIST_IMPLEMENTATION_STATUS.md)  
-- **Non-list surfaces (hub):** [target/nonlist-surfaces-index.md](target/nonlist-surfaces-index.md)  
-- **Refined product blueprint (current):** [target/skin-vision-blueprint-v1.md](target/skin-vision-blueprint-v1.md)  
-- **View-mode / hub ID decisions (D-003):** [target/d003-view-mode-matrix.md](target/d003-view-mode-matrix.md)  
-- **Roadmap package:** [next/roadmap/README.md](next/roadmap/README.md)  
-- **Gap analysis:** [next/gap-analysis/master-triage-list.md](next/gap-analysis/master-triage-list.md)  
-- **Surface inventory & journeys:** [context/surface-inventory-index.md](context/surface-inventory-index.md) · [context/journeys/](context/journeys/README.md)  
-- **D-038 (ledger + mapping):** [context/d038-legacy-properties-and-mapping.md](context/d038-legacy-properties-and-mapping.md)  
-- **Kodi skin engine series (01–10):** [kodi/00_README.md](kodi/00_README.md)  
+## Supporting references
+
+| Area | Role | Entry |
+|------|------|--------|
+| **Topic spine** | Topic IDs → roadmap + context | **[traceability-by-topic.md](traceability-by-topic.md)** |
+| **Context** | Theory, rules, journeys, D-038 | [context/README.md](context/README.md) |
+| **Kodi engine** | Generic skin XML literacy | [kodi/README.md](kodi/README.md) |
+| **Velocity** | Redirect (historical paths) | [velocity/README.md](velocity/README.md) |
+| **Archive** | Superseded narratives | [archive/README.md](archive/README.md) |
+
+## Quick links
+
+- **Master roadmap:** [ROADMAP_MASTER.md](ROADMAP_MASTER.md)  
+- **Phase 1 (freeze & QA):** [roadmap/phase-01-freeze-and-runtime-verification.md](roadmap/phase-01-freeze-and-runtime-verification.md)  
+- **Historic audit (phase 0):** [roadmap/phase-00-historic-implementation-audit.md](roadmap/phase-00-historic-implementation-audit.md)  
+- **Topic matrix:** [traceability-by-topic.md](traceability-by-topic.md)  
+- **List triple:** [context/LIST_ADDON_THEORY.md](context/LIST_ADDON_THEORY.md) · [roadmap/LIST_CONTRACTS_TARGET.md](roadmap/LIST_CONTRACTS_TARGET.md) · [roadmap/LIST_IMPLEMENTATION_STATUS.md](roadmap/LIST_IMPLEMENTATION_STATUS.md)  
+- **Non-list hub:** [roadmap/nonlist-surfaces-index.md](roadmap/nonlist-surfaces-index.md)  
+- **D-038:** [context/d038-legacy-properties-and-mapping.md](context/d038-legacy-properties-and-mapping.md)  
+- **Kodi skin series (01–10):** [kodi/00_README.md](kodi/00_README.md)  
 
 ## Repo layout reminder
 
@@ -34,16 +37,9 @@
 
 ## Path migration (2026-04)
 
-Older links used flat paths under `doc/` (e.g. `doc/roadmap/…`, `doc/d015-…`). New layout:
+- **`doc/target/`** and **`doc/status/`** removed — files live in **`doc/roadmap/`** alongside phase plans.
+- **`doc/next/`** removed — use **`doc/ROADMAP_MASTER.md`** + **`doc/roadmap/`** only.
+- Fork definitions & rules → **`doc/context/`**
+- **Surface inventory hub:** `doc/context/surface-inventory-index.md` · **journeys:** `doc/context/journeys/`
 
-- `doc/roadmap/*` → `doc/next/roadmap/*`
-- `doc/gap-analysis/*` → `doc/next/gap-analysis/*`
-- **Fork definitions & rules** (former `doc/contracts/` + former `doc/velocity/` authoring docs) → **`doc/context/`** (list theory, nonlist guidelines, surface inventory hub, journeys, D-038, AF3 fork doc, testing guide)
-- Contract / blueprint / non-list **targets** → `doc/target/*`; non-list **status checklists** → `doc/status/nonlist-*-status.md`
-- **List target (D-015)** → `doc/target/LIST_CONTRACTS_TARGET.md` · **List status** → `doc/status/LIST_IMPLEMENTATION_STATUS.md`
-- **Kodi-generic guides** → `doc/kodi/*` (was mixed under `doc/reference/`)
-- **Surface inventories `01`–`07`:** `doc/status/surface-inventory-*.md` · **hub:** `doc/context/surface-inventory-index.md` · **journeys:** `doc/context/journeys/`
-- `doc/velocity/*` (except redirect README) → **`doc/context/`** (same basenames where applicable)
-- `skin-vision-blueprint-v0.md` → `doc/archive/skin-vision-blueprint-v0.md`
-
-If you find a stale link, fix it to the paths above or open an issue.
+If you find a stale link, fix it or open an issue.
