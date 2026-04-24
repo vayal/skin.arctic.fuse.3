@@ -1,16 +1,54 @@
-# D-015 Addon Required Lists Contract
+# List contracts — target (required lists)
 
-Purpose:
-- Enumerate all addon-provided lists/feeds required by the frozen skin vision.
-- Define contract characteristics so skin wiring is deterministic.
-- Serve as the handoff document for addon implementation.
+**Truth document 2 of 3.** Frozen **what** the product and skin expect: `contract_id` / `list_id` families, pagination rules, hub row order, and cross-cutting guarantees. For **how the addon implements** lists internally, see [LIST_ADDON_THEORY.md](../contracts/LIST_ADDON_THEORY.md). For **what is wired today**, see [LIST_IMPLEMENTATION_STATUS.md](../status/LIST_IMPLEMENTATION_STATUS.md).
 
-Status:
-- Draft contract list derived from [`../archive/skin-vision-blueprint-v0.md`](../archive/skin-vision-blueprint-v0.md) and [`screen-by-screen-build-contract.md`](./screen-by-screen-build-contract.md).
+**Historical inputs:** [skin vision v0](../archive/skin-vision-blueprint-v0.md) (archive), [skin vision v1](./skin-vision-blueprint-v1.md) (current narrative).
 
 ---
 
-## 1) Contract schema (applies to every list below)
+## Skin surface mapping (main hubs)
+
+**Architecture**
+
+- **Main hubs:** `Home`, `Series` (1101), `Movies` (1102). Primary wiring: `Home.xml`, `Custom_1101_Hub.xml`, `Custom_1102_Hub.xml`, `Includes_Hubs.xml`, `Includes_Home.xml`.
+- **Provider mini-hubs (curated):** One logical surface per provider in the agreed roster (Netflix, Disney+, Prime Video, Apple TV+, Hulu, Max, Paramount+, Peacock, BBC iPlayer).
+- **Search / discovery:** `Custom_1105_Search.xml`, `Includes_Search.xml`, generator under `shortcuts/generator/…`.
+
+**Global UX rules (list-related)**
+
+| Rule | |
+|------|---|
+| Spotlight | Hero, near full-screen, **single** item, info-first; **non-paginated** (no next-page). |
+| Row cards | **Image-only** (poster / landscape / square) — no metadata overlays on cards. |
+| Row density | Baseline `balanced`. |
+| Paging | In-row **≤10** → row-end “next” → row title / header opens **full** list; full list **40 items per page** (not a total cap). |
+| Empty | Explicit **“No items available”** (or product string) via shared empty/now-results patterns. |
+
+**Main hub row contracts (feeds + layout)**
+
+| Hub | Order | Row | Card / layout | Addon contract (`list_id` or family) | Pag. |
+|-----|------:|-----|---------------|----------------------------------------|:----:|
+| **Home** | 1 | Spotlight | Hero | `home_spotlight_mixed` | No |
+| | 2a / 2b | In-progress Series / Movies | Poster | `home_in_progress_series` / `home_in_progress_movies` | Yes |
+| **Series** | 1 | Spotlight | Hero | `series_spotlight_trending` | No |
+| | 2 | Continue watching | Landscape | `series_continue_watching_episodes` | Yes |
+| | 3 | In-progress shows | Poster | `series_in_progress_shows` | Yes |
+| | 4 | Global trending | Poster | `series_global_trending` | Yes |
+| | 5 | Provider icons | Square | `series_provider_icons` | No |
+| | 6 | Genre | Square strip / navigation to discover | `series_genre_navigation` → `genre_global_{slug}` (`media_type=show`) | Yes |
+| **Movies** | 1 | Spotlight | Hero | `movies_spotlight_trending` | No |
+| | 2 | In progress | Poster | `movies_in_progress` | Yes |
+| | 3 | Global trending | Poster | `movies_global_trending` | Yes |
+| | 4 | Provider icons | Square | `movies_provider_icons` | No |
+| | 5 | Genre | Square strip / navigation to discover | `movies_genre_navigation` → `genre_global_{slug}` (`media_type=movie`) | Yes |
+
+**Provider mini-hub (per provider) — target rows:** `provider_{id}_spotlight` (No), `provider_{id}_trending` / `popular` / `genre_{genre}` (Yes). Skin: dedicated mini-hub surface(s) TBD. Addon: `phase02_contracts` family.
+
+**Search:** Tab set Discover / Movies / TV; combined movie+series mode supported; trim aliases to product; generator/search paths should not pull dead music rows.
+
+---
+
+## D-015 — contract schema (applies to every list below)
 
 For each list/feed, define:
 - `contract_id`: stable identifier used by skin routing.
@@ -36,7 +74,7 @@ For each list/feed, define:
 
 ---
 
-## 2) Home contracts
+## D-015 — Home contracts
 
 | contract_id | media_scope | surface_usage | sort_rule | pagination | required_item_fields (minimum) | notes |
 |---|---|---|---|---|---|---|
@@ -46,7 +84,7 @@ For each list/feed, define:
 
 ---
 
-## 3) Series hub contracts
+## D-015 — Series hub contracts
 
 | contract_id | media_scope | surface_usage | sort_rule | pagination | required_item_fields (minimum) | notes |
 |---|---|---|---|---|---|---|
@@ -58,7 +96,7 @@ For each list/feed, define:
 
 ---
 
-## 4) Movies hub contracts
+## D-015 — Movies hub contracts
 
 | contract_id | media_scope | surface_usage | sort_rule | pagination | required_item_fields (minimum) | notes |
 |---|---|---|---|---|---|---|
@@ -69,7 +107,7 @@ For each list/feed, define:
 
 ---
 
-## 5) Provider mini-hub contracts
+## D-015 — Provider mini-hub contracts
 
 Provider IDs (curated roster):
 - `netflix`
@@ -93,7 +131,7 @@ Required contract families per provider `{provider_id}`:
 
 ---
 
-## 6) Genre discovery contracts (global + provider)
+## D-015 — Genre discovery contracts (global + provider)
 
 Fixed genre set:
 - Action
@@ -124,7 +162,7 @@ Decision locked:
 
 ---
 
-## 7) Search contracts
+## D-015 — Search contracts
 
 Selector tabs:
 - Discover
@@ -148,7 +186,7 @@ Alias policy:
 
 ---
 
-## 8) Cross-cutting contract guarantees
+## D-015 — Cross-cutting contract guarantees
 
 1. Pagination guarantees:
 - Spotlight contracts: non-paginated.
@@ -172,11 +210,10 @@ Alias policy:
 
 ---
 
-## 9) Completion criteria for D-015
+## D-015 — Completion criteria
 
 D-015 can move from `modify` to `accept` when:
 - Every contract above has an implemented addon route or mapped equivalent.
 - Route naming/parameters are frozen and documented.
 - Skin path wiring references only these frozen contracts.
 - Paging and metadata guarantees are validated on hub, mini-hub, and search surfaces.
-

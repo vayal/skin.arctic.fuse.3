@@ -282,7 +282,76 @@ sudo apt install -y kodi-dev
 
 ---
 
-## 7. Resources
+## 7. Supplement: CLI checks, debug windows, packaging, Kodi upgrades
+
+*Merged from the former `KODI_SKINS_DEEP_DOCUMENTATION.md` (2026-04).*
+
+### ripgrep examples (repo root)
+
+```bash
+rg "TMDbHelper|TMDBHelper|Exp_TMDbHelper" 1080i/*.xml
+rg "TMDbHelper" 1080i/Includes_Hubs.xml
+rg "TMDbHelper" 1080i/*.xml | wc -l
+```
+
+### Generator / bootstrap smoke test
+
+After changing shortcuts or startup rules: reset toggles, `ActivateWindow(Startup)`, then scan `kodi.log` for missing-include warnings.
+
+### Built-in debug windows (IDs)
+
+| ID | Purpose |
+|----|---------|
+| 1199 | Debug overlay |
+| 1194 | Debug grid |
+| 1191 | Test window |
+
+Example: `<onclick>ActivateWindow(1199)</onclick>` on a dev-only button.
+
+### Log triage snippets
+
+```bash
+tail -f ~/.kodi/temp/kodi.log
+# or: ~/.kodi/log/kodi.log — path depends on install (Flatpak uses different temp paths)
+```
+
+Typical warnings: failed include path, unset `Skin.String(...)`, invisible control (visibility chain), z-order.
+
+### Zip / repo layout (distribution)
+
+```
+skin.<id>.zip
+├── addon.xml
+├── 1080i/
+├── colors/
+├── fonts/
+├── media/
+├── language/
+└── …
+```
+
+`addon.xml` uses semantic versioning (`major.minor.patch`). Raise **major** only for breaking `xbmc.gui` or structural rewrites.
+
+### Velocity / addon migration reminders
+
+1. Contract-first (feeds before skin paths).
+2. Document every non-native property in `doc/velocity/d038-legacy-property-ledger.md`.
+3. Never hand-edit generated SkinVariables output — change generator inputs.
+
+### Kodi version upgrades
+
+When bumping `xbmc.gui` / targeting a newer Kodi: test all hub and dialog paths, re-check default control IDs, and re-run the skinvariables generator. Official skinning manual: [Skinning Manual](https://kodi.wiki/view/Skinning_Manual).
+
+### External references
+
+- [Kodi Wiki — Skinning Manual](https://kodi.wiki/view/Skinning_Manual)
+- [Kodi Wiki — Skin development introduction](https://kodi.wiki/view/Skin_development_introduction)
+- [script.skinvariables (GitHub)](https://github.com/jurialmunkey/script.skinvariables)
+- [Kodi developer docs (generated)](https://xbmc.github.io/docs.kodi.tv/)
+
+---
+
+## 8. Resources
 
 ### Documentation
 
@@ -298,4 +367,4 @@ sudo apt install -y kodi-dev
 
 ---
 
-*See also: [Best Practices](09_BEST_PRACTICES.md), [Testing & Debugging](11_TESTING_DEBUGGING.md), [Deployment](12_DEPLOYMENT.md)*
+*See also: [Best Practices](09_BEST_PRACTICES.md), [Core Architecture](01_CORE_ARCHITECTURE.md)*

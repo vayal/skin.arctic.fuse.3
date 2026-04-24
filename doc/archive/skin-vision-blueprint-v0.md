@@ -515,7 +515,7 @@ Legend:
 | D-012 | Movies | Final UI copy for in-progress row | Concept decided; naming semi-locked | Use `In Progress` | P1 | accept | In Progress |
 | D-013 | Movies | Final Movies row specs | Partially defined | Mirror Series philosophy exactly where possible | P0 | accept | user agreed |
 | D-014 | Genre discovery | Main-hub genre button placement | Decided conceptually | Keep at end of hub rows (after provider icons) | P1 | accept | user agreed |
-| D-015 | Genre discovery | Genre button target behavior | Decided `B2` filtered list | Confirm final list route contract shape | P0 | accept | locked in `../target/d015-addon-required-lists-contract.md` with standardized media-specific provider/genre routes and explicit contract guarantees |
+| D-015 | Genre discovery | Genre button target behavior | Decided `B2` filtered list | Confirm final list route contract shape | P0 | accept | locked in `../target/LIST_CONTRACTS_TARGET.md` with standardized media-specific provider/genre routes and explicit contract guarantees |
 | D-016 | Provider mini-hub | Final row order inside provider hub | Mostly defined | Spotlight -> Trending -> Most Popular -> 4 Genre rows | P0 | accept | user agreed |
 | D-017 | Provider mini-hub | Genre set fixed list viability | Fixed list chosen | Accept fixed 8 genres globally | P1 | accept | fixed global genre set |
 | D-018 | Details page | Final content depth in details page | Broadly undecided | Balanced: key metadata + plot + trailer + limited related rows | P0 | accept | remove Wikipedia, person widgets, cast rows, crew widgets, extra buttons |
@@ -538,7 +538,7 @@ Legend:
 | D-035 | Settings | Keep/remove shortcut editor UI | Present but complex | Defer/remove from user-facing flow | P1 | accept | remove/hide |
 | D-036 | Settings | Keep/remove legacy helper settings entries | Still present in settings files | Remove to reduce confusion | P1 | accept | remove legacy helper settings entries; preserve media info/progress labels (watched/in-progress/unwatched) |
 | D-037 | Contracts | Action dispatch simplification level | Mixed legacy/stateful complexity | Simplify to minimal required actions | P1 | accept | medium simplification |
-| D-038 | Contracts | Remaining legacy property-model references | Deprecated but present in places | Retire where possible; leave documented exceptions only | P1 | accept | locked via `../reference/d038-legacy-property-ledger.md` with batch-based decisions and explicit deferred exceptions |
+| D-038 | Contracts | Remaining legacy property-model references | Deprecated but present in places | Retire where possible; leave documented exceptions only | P1 | accept | locked via `../velocity/d038-legacy-property-ledger.md` with batch-based decisions and explicit deferred exceptions |
 | D-039 | Generator | Hardcode vs keep full generator flexibility | Not finalized | Keep generator, but hardcode default outputs for primary hubs | P1 | accept | agreed |
 | D-040 | Generator | Search alias families beyond current scope | Partial mappings and legacy aliases exist | Trim to used aliases only | P1 | accept | trim to used aliases only (Discover/Movies/TV) |
 | D-041 | Visual consistency | Row density baseline | `balanced` chosen in many rows | Accept balanced as global default | P2 | accept | balanced |

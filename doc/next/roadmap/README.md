@@ -48,11 +48,11 @@ Phases **01–06** markdown playbooks were **deleted** from this repository (202
 - [Verification Checklists](./appendix-verification-checklists.md)
 - [Traceability Matrix](./appendix-traceability-matrix.md)
 - [Kodi UI verification matrix](./kodi-ui-verification-matrix.md) — code-backed top bar, hub IDs, and Standard widget rows for manual QA in Kodi
-- [Kodi complete manual testing guide](../../reference/kodi-complete-testing-guide.md) — end-to-end operator QA to verify all roadmap phases and close Phase 07 runtime evidence
+- [Kodi complete manual testing guide](../../velocity/kodi-complete-testing-guide.md) — end-to-end operator QA to verify all roadmap phases and close Phase 07 runtime evidence
 
 ## Phase Status Tracking (Single Source)
 
-Use this table as the only execution status tracker for roadmap phases. **Actionable backlog** (not historical narrative): [Phase 07 playbook](./phase-07-stabilization-and-freeze.md) (validation status at top), [master triage](../gap-analysis/master-triage-list.md), [D-038](../../reference/d038-legacy-property-ledger.md).
+Use this table as the only execution status tracker for roadmap phases. **Actionable backlog** (not historical narrative): [Phase 07 playbook](./phase-07-stabilization-and-freeze.md) (validation status at top), [master triage](../gap-analysis/master-triage-list.md), [D-038](../../velocity/d038-legacy-property-ledger.md).
 
 | Phase | Status | Evidence |
 |---|---|---|
@@ -68,11 +68,11 @@ Use this table as the only execution status tracker for roadmap phases. **Action
 
 - [Skin Vision Blueprint v1 (current)](../../target/skin-vision-blueprint-v1.md)
 - [Skin Vision Blueprint v0 (historical)](../../archive/skin-vision-blueprint-v0.md)
-- [Screen-by-Screen Build Contract](../../target/screen-by-screen-build-contract.md)
+- List contracts: [theory](../../contracts/README.md) · [target](../../target/LIST_CONTRACTS_TARGET.md) · [status](../../status/LIST_IMPLEMENTATION_STATUS.md)
+- [Non-list surface build contract](../../target/screen-by-screen-build-contract.md)
 - [D-003 View Mode Matrix](../../target/d003-view-mode-matrix.md)
-- [D-015 Addon Required Lists Contract](../../target/d015-addon-required-lists-contract.md)
-- [D-038 Legacy Property Ledger](../../reference/d038-legacy-property-ledger.md)
-- [Inventory Root](../../inventory/README.md)
+- [D-038 Legacy Property Ledger](../../velocity/d038-legacy-property-ledger.md)
+- [Inventory Root](../../velocity/surfaces/README.md)
 
 ## Do / Don't (for less capable agents)
 

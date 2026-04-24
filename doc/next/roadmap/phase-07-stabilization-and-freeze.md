@@ -8,17 +8,17 @@
 
 **Where to work next**
 
-- Operator QA: [kodi-complete-testing guide](../../reference/kodi-complete-testing-guide.md), [kodi-ui-verification-matrix.md](./kodi-ui-verification-matrix.md)
-- Code/property backlog: [master triage](../gap-analysis/master-triage-list.md), [D-038](../../reference/d038-legacy-property-ledger.md)
-- Contracts: [screen-by-screen-build-contract.md](../../target/screen-by-screen-build-contract.md), [D-015](../../target/d015-addon-required-lists-contract.md)
+- Operator QA: [kodi-complete-testing guide](../../velocity/kodi-complete-testing-guide.md), [kodi-ui-verification-matrix.md](./kodi-ui-verification-matrix.md)
+- Code/property backlog: [master triage](../gap-analysis/master-triage-list.md), [D-038](../../velocity/d038-legacy-property-ledger.md)
+- Contracts: [list target](../../target/LIST_CONTRACTS_TARGET.md) + [list status](../../status/LIST_IMPLEMENTATION_STATUS.md) + [addon theory](../../contracts/README.md); [non-list surfaces](../../target/screen-by-screen-build-contract.md)
 
 ### P1 blockers (close before marking Phase 07 completed)
 
 | Blocker | What to capture |
 |--------|------------------|
-| Browse / hub / provider / OSD | Evidence per [browse-to-play](../../inventory/journeys/browse-to-play.md) + matrix §2–§5 |
-| Search-to-play, info-and-related | [search-to-play](../../inventory/journeys/search-to-play.md), [info-and-related](../../inventory/journeys/info-and-related.md) |
-| D-015 at runtime | `items` / `page` / `has_more` / `next_page`; in-row cap vs full list; empty state copy ([D-015](../../target/d015-addon-required-lists-contract.md), build contract §1) |
+| Browse / hub / provider / OSD | Evidence per [browse-to-play](../../velocity/surfaces/journeys/browse-to-play.md) + matrix §2–§5 |
+| Search-to-play, info-and-related | [search-to-play](../../velocity/surfaces/journeys/search-to-play.md), [info-and-related](../../velocity/surfaces/journeys/info-and-related.md) |
+| D-015 at runtime | `items` / `page` / `has_more` / `next_page`; in-row cap vs full list; empty state copy ([LIST_CONTRACTS_TARGET](../../target/LIST_CONTRACTS_TARGET.md) cross-cutting §) |
 
 ### Static notes (sanity only, not freeze proof)
 
@@ -40,12 +40,12 @@ Run end-to-end validation, reconcile traceability, and enforce final freeze gate
 ## Inputs and Prerequisite Checks
 
 - [Skin Vision Blueprint](../../archive/skin-vision-blueprint-v0.md)
-- [Screen-by-Screen Build Contract](../../target/screen-by-screen-build-contract.md)
-- [D-015 Addon Required Lists Contract](../../target/d015-addon-required-lists-contract.md)
-- [D-038 Legacy Property Ledger](../../reference/d038-legacy-property-ledger.md)
+- [List theory](../../contracts/README.md) · [list target](../../target/LIST_CONTRACTS_TARGET.md) · [list status](../../status/LIST_IMPLEMENTATION_STATUS.md)
+- [Non-list surface build contract](../../target/screen-by-screen-build-contract.md)
+- [D-038 Legacy Property Ledger](../../velocity/d038-legacy-property-ledger.md)
 - [Verification Checklists Appendix](./appendix-verification-checklists.md)
 - [Traceability Matrix Appendix](./appendix-traceability-matrix.md)
-- [Inventory Journeys](../../inventory/journeys/README.md)
+- [Inventory Journeys](../../velocity/surfaces/journeys/README.md)
 
 Checks:
 

@@ -6,4 +6,4 @@ or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisc
 
 ## Velocity fork documentation
 
-Product context, target specs, status notes, roadmap, and technical reference for this fork live under **[`doc/README.md`](doc/README.md)** (restructured layout: `context/`, `target/`, `status/`, `next/`, `reference/`, `archive/`).
+Product context, target specs, status notes, roadmap, and technical docs for this fork live under **[`doc/README.md`](doc/README.md)** (layout: `context/`, `target/`, `status/`, `next/`, `kodi/`, `velocity/`, `archive/`).

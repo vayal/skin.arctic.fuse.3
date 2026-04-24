@@ -10,7 +10,10 @@
 | Topic | Location |
 |--------|-----------|
 | Skin navigation & Velocity URL wrappers | `1080i/Includes_*.xml`, `1080i/Home.xml`, hub windows |
-| Addon actions & `list_id` contracts | Addon repo `plans/velocity-addon-reference-for-skin-forks.md`; optional copy in this repo as `docs/VELOCITY_ADDON_REFERENCE.md` |
+| **List** addon theory | [../contracts/README.md](../contracts/README.md) |
+| **List** contract target (D-015) | [../target/LIST_CONTRACTS_TARGET.md](../target/LIST_CONTRACTS_TARGET.md) |
+| **List** as-built status | [../status/LIST_IMPLEMENTATION_STATUS.md](../status/LIST_IMPLEMENTATION_STATUS.md) |
+| Addon actions & `list_id` reference tables | Addon repo `plans/velocity-addon-reference-for-skin-forks.md`; optional copy in this repo as `docs/VELOCITY_ADDON_REFERENCE.md` |
 | Cursor agent rules | `.cursor/rules/*.mdc` |
 | Human-readable product + delivery plan | [../README.md](../README.md) (this doc tree) → **Target** / **Next** |
 
@@ -22,4 +25,5 @@
 ## See also
 
 - [Target / product specs](../target/README.md)
-- [Reference / Kodi skin mechanics](../reference/README.md)
+- [Kodi skin engine (generic)](../kodi/README.md)
+- [Velocity fork docs + surfaces](../velocity/README.md)

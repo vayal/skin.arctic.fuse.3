@@ -12,7 +12,7 @@ This repository is a **Kodi skin** (e.g. Arctic Fuse 3 fork) tuned for **Velocit
 - Primary languages: **XML** (skin), optional **includes**, **language PO**, assets.
 - **Navigation** must use `plugin://plugin.video.velocity2/?...` actions documented for the Velocity addon — never assume TMDbHelper or `plugin.video.themoviedb.helper` for core flows unless explicitly maintaining a compatibility shim.
 - Centralize Velocity paths in **wrapper includes** (one place to change `action=` and query params).
-- When unsure of the correct `action` or HTTP contract, read `docs/VELOCITY_ADDON_REFERENCE.md` in this repo or the addon repo’s `plans/velocity-addon-reference-for-skin-forks.md`.
+- When unsure of the correct `action` or HTTP contract, read `docs/VELOCITY_ADDON_REFERENCE.md` in this repo or the addon repo’s `plans/velocity-addon-reference-for-skin-forks.md`. For skin-side legacy property policy, read `doc/velocity/d038-legacy-property-ledger.md`.
 
 ## Do not
 

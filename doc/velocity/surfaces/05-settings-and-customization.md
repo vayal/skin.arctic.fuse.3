@@ -2,7 +2,7 @@
 
 Cross-links:
 - Journeys: [`journeys/settings-and-customize.md`](./journeys/settings-and-customize.md)
-- Seed docs (if present): [`../settings-inventory.md`](../settings-inventory.md)
+- Seed docs (if present under `doc/`): [`../../settings-inventory.md`](../../settings-inventory.md)
 - Traceability: [`_traceability-index.md`](./_traceability-index.md)
 
 ## Items

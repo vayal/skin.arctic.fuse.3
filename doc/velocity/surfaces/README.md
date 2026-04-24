@@ -1,6 +1,6 @@
 # Skin Inventory System
 
-This directory lives under **`doc/inventory/`** (moved from repo root `inventory/` in 2026-04). It is the canonical decision workspace for the `skin.velocity.af3` fork.
+This directory is **`doc/velocity/surfaces/`** — the canonical **surface and journey** workspace for the `skin.velocity.af3` fork (hierarchy `01`–`07`, user journeys, decision templates). Parent index: **[`../README.md`](../README.md)**.
 
 Scope in this inventory pass:
 - Runtime-visible UX surfaces.

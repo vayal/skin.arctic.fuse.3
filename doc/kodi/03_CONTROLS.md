@@ -500,4 +500,65 @@ Background overlay control.
 
 ---
 
+## Supplement: control attribute quick reference
+
+*Merged from the former `KODI_SKINS_DEEP_DOCUMENTATION.md` (2026-04).*
+
+### Group controls
+
+| Attribute | Description |
+|-----------|-------------|
+| id | Unique identifier |
+| visible | Visibility condition |
+| posx, posy | X, Y position in pixels |
+| width, height | Width, height in pixels |
+| zorder | Z-axis layering |
+| animation | Fade, slide, zoom |
+| fadetime | Animation duration in milliseconds |
+
+### List controls
+
+| Attribute | Description |
+|-----------|-------------|
+| content | Playlist, directory, list, image |
+| onselect | Action on item selection |
+| onfocus | Action on focus |
+| onup, ondown | Action on movement |
+| highlight | Highlighted item appearance |
+| selecteditemhighlight | Selected item appearance |
+| itemheight | Height of each item |
+
+### Button controls
+
+| Attribute | Description |
+|-----------|-------------|
+| label | Text displayed |
+| onclick | Action on click |
+| onfocus | Action on focus |
+| onhover | Action on hover |
+| texture | Background image |
+| textcolor | Text color |
+
+### Label controls
+
+| Attribute | Description |
+|-----------|-------------|
+| label | Static text or infolabel |
+| font | Font definition |
+| textcolor | Text color |
+| align | left, center, right |
+| halign | left, center, right |
+| wrap | Wrap text |
+
+### Image controls
+
+| Attribute | Description |
+|-----------|-------------|
+| texture | Image source |
+| aspectratio | stretch, keep, zoom, etc. |
+| zpos | Z-axis position |
+| fadetime | Fade animation time |
+
+---
+
 *See also: [Core Architecture](01_CORE_ARCHITECTURE.md), [Components](02_CORE_COMPONENTS.md)*

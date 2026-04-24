@@ -312,4 +312,52 @@ Expressions are evaluated using `$EXP[]` and are commonly used in variables and 
 
 ---
 
+## Supplement: common `$INFO` and expressions
+
+*Merged from the former `KODI_SKINS_DEEP_DOCUMENTATION.md` (2026-04).*
+
+### Playback info (examples)
+
+```xml
+$INFO[VideoPlayer.Title]
+$INFO[VideoPlayer.Plot]
+$INFO[VideoPlayer.SeekTime]
+$INFO[MusicPlayer.Title]
+$INFO[MusicPlayer.Artist]
+```
+
+### List / container info (examples)
+
+```xml
+$INFO[Container.FolderPath]
+$INFO[Container.Folder]
+$INFO[Container.SortMethod]
+$INFO[Container.Viewmode]
+```
+
+### ListItem (examples)
+
+```xml
+$INFO[ListItem.Title]
+$INFO[ListItem.Plot]
+$INFO[ListItem.Year]
+$INFO[ListItem.Genre]
+$INFO[ListItem.Path]
+```
+
+### Skin settings and booleans
+
+```xml
+Skin.HasSetting(HomeSwitcher.DisableSearch)
+Skin.String(HomeSwitcher.Home.Spotlight.List)
+Skin.Boolean(HomeSwitcher.DisableSearch)
+Skin.Integer(HomeSwitcher.LoopBack)
+```
+
+### Expressions (`$EXP[...]`)
+
+Skin-defined expressions live in includes (e.g. `Includes_Constants.xml`). Prefer native `ListItem.*` / `Container.*` where possible; document any legacy helper-backed `Exp_*` in the fork D-038 ledger under `doc/velocity/`.
+
+---
+
 *See also: [Core Architecture](01_CORE_ARCHITECTURE.md), [Components](02_CORE_COMPONENTS.md), [Controls](03_CONTROLS.md)*

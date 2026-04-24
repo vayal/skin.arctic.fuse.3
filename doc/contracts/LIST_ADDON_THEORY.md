@@ -1,4 +1,16 @@
-# Velocity Addon Lists and Rails: Creation, Retrieval, Storage, and Exposure
+# List contracts — addon theory (`plugin.video.velocity2`)
+
+**Truth document 1 of 3.** Describes how the Velocity **addon** creates, stores, resolves, and exposes lists and rails (daemon, SQLite, HTTP, smart endpoints). It is **not** the skin wiring checklist.
+
+| Also read | Purpose |
+|-------------|---------|
+| [LIST_CONTRACTS_TARGET.md](../target/LIST_CONTRACTS_TARGET.md) | Frozen **required** list IDs and payload rules (what skin + product expect). |
+| [LIST_IMPLEMENTATION_STATUS.md](../status/LIST_IMPLEMENTATION_STATUS.md) | **Current** skin vs addon alignment and open gaps. |
+
+**Codebase:** companion addon sources live next to this skin repo, e.g.  
+`~/.var/app/tv.kodi.Kodi/data/addons/plugin.video.velocity2/` (module layout: `lib/daemon/`, `lib/repo/`, `lib/client/`, …).
+
+---
 
 ## Scope and Perspective
 
@@ -377,64 +389,3 @@ Common request template:
 
 ---
 
-## 12) Contract Alignment Matrix (Skin vs D-015)
-
-This section tracks what the skin actually calls today and how that aligns to
-[`../target/d015-addon-required-lists-contract.md`](../target/d015-addon-required-lists-contract.md).
-
-Legend:
-- **Used**: actively referenced by skin routes in current XML.
-- **Not used**: contract exists in D-015 but is not referenced by current skin routes.
-- **Missing**: required by D-015 but not present as a dedicated contract route in current implementation.
-- **Out of D-015 scope**: route is used by skin but is not a D-015 list contract ID.
-
-### 12.1 D-015 contracts currently used by skin
-
-| Contract ID | D-015 section | Current status |
-|---|---|---|
-| `home_spotlight_mixed` | Home | Used |
-| `home_in_progress_series` | Home | Used |
-| `home_in_progress_movies` | Home | Used |
-| `series_spotlight_trending` | Series | Used |
-| `series_continue_watching_episodes` | Series | Used |
-| `series_in_progress_shows` | Series | Used |
-| `series_global_trending` | Series | Used |
-| `series_provider_icons` | Series | Used |
-| `movies_spotlight_trending` | Movies | Used |
-| `movies_in_progress` | Movies | Used |
-| `movies_global_trending` | Movies | Used |
-| `movies_provider_icons` | Movies | Used |
-
-### 12.2 D-015 contracts not currently wired by skin
-
-| Contract group | D-015 section | Current status |
-|---|---|---|
-| `provider_{provider_id}_{media}_spotlight` | Provider mini-hubs | Not used |
-| `provider_{provider_id}_{media}_trending` | Provider mini-hubs | Not used |
-| `provider_{provider_id}_{media}_popular` | Provider mini-hubs | Not used |
-| `provider_{provider_id}_{media}_genre_{genre}` | Provider mini-hubs | Not used |
-| `genre_global_*` | Global genre discovery | Not used (skin uses `action=browse_genres`) |
-| `search_movies` | Search | Not used |
-| `search_tvshows` | Search | Not used |
-
-### 12.3 Skin-used rails/routes outside D-015 list IDs
-
-These are used in skin routing but are not modeled as D-015 list contract IDs.
-
-| Route/rail | Current status | Notes |
-|---|---|---|
-| `action=discover` | Used | Used as row items; discovery action route, not a list_id contract |
-| `action=browse_genres&kind=tv` | Used | Genre entry route, not explicit `genre_global_*` contract ID |
-| `action=browse_genres&kind=movie` | Used | Genre entry route, not explicit `genre_global_*` contract ID |
-| Smart rails (`continue_watching`, `recently_watched`, `up_next`, `active_shows`, `new_episodes`, `in_progress_movies`) | Partially used outside core hubs | Still used in non-core/legacy surfaces (for example next-aired, OSD, path helpers), but no longer used in core Home/1101/1102 contract rows |
-
-### 12.4 Key discrepancy summary
-
-1. **Old alias mapping is obsolete**  
-   Current core hub wiring now calls explicit D-015 contract IDs directly (for example `series_in_progress_shows`, `movies_global_trending`) instead of aliasing to smart rails.
-
-2. **Provider mini-hub contract families remain unimplemented/unwired**  
-   D-015 defines them, but current skin wiring intentionally does not consume them in this hard-replacement pass.
-
-3. **Genre/search contract IDs vs action routes**  
-   D-015 lists explicit `genre_global_*`, `search_movies`, and `search_tvshows` contracts; current skin uses `browse_genres` and `discover` routes instead.

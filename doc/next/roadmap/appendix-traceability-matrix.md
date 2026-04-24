@@ -7,9 +7,9 @@ This matrix links decision artifacts and migration batches to roadmap phases and
 | Decision Artifact | Decision Scope | Roadmap Phase(s) | Primary References |
 |---|---|---|---|
 | `D-003` | view mode locking per surface | Phase 01, 05, 07 | [D-003](../../target/d003-view-mode-matrix.md), [Build Contract](../../target/screen-by-screen-build-contract.md) |
-| `D-015` | addon list contract families | Phase 01, 02, 03, 07 | [D-015](../../target/d015-addon-required-lists-contract.md), [Build Contract](../../target/screen-by-screen-build-contract.md) |
-| `D-021` | context menu policy | Phase 01, 04, 07 | [Blueprint](../../archive/skin-vision-blueprint-v0.md), [D-038](../../reference/d038-legacy-property-ledger.md) |
-| `D-038` | legacy property migration ledger | Phase 01, 03, 04, 05, 06, 07 | [D-038](../../reference/d038-legacy-property-ledger.md) |
+| `D-015` | addon list contract families | Phase 01, 02, 03, 07 | [LIST_CONTRACTS_TARGET](../../target/LIST_CONTRACTS_TARGET.md), [list status](../../status/LIST_IMPLEMENTATION_STATUS.md) |
+| `D-021` | context menu policy | Phase 01, 04, 07 | [Blueprint](../../archive/skin-vision-blueprint-v0.md), [D-038](../../velocity/d038-legacy-property-ledger.md) |
+| `D-038` | legacy property migration ledger | Phase 01, 03, 04, 05, 06, 07 | [D-038](../../velocity/d038-legacy-property-ledger.md) |
 
 ## 2) Ledger Batch-to-Phase Mapping
 
@@ -25,23 +25,23 @@ This matrix links decision artifacts and migration batches to roadmap phases and
 
 | Screen Contract Area | Roadmap Phase(s) | Source |
 |---|---|---|
-| Hub architecture and row definitions | Phase 01, 03, 05, 07 | [Screen-by-Screen Build Contract](../../target/screen-by-screen-build-contract.md) |
-| Addon feed requirements | Phase 02, 03, 07 | [D-015](../../target/d015-addon-required-lists-contract.md) |
+| Hub architecture and row definitions | Phase 01, 03, 05, 07 | [LIST_CONTRACTS_TARGET](../../target/LIST_CONTRACTS_TARGET.md) |
+| Addon feed requirements | Phase 02, 03, 07 | [LIST_CONTRACTS_TARGET](../../target/LIST_CONTRACTS_TARGET.md), [addon theory](../../contracts/LIST_ADDON_THEORY.md) |
 | Details/context/OSD behaviors | Phase 03, 04, 05, 07 | [Blueprint](../../archive/skin-vision-blueprint-v0.md), [Build Contract](../../target/screen-by-screen-build-contract.md) |
-| Removal/edit worklist | Phase 04, 06 | [Build Contract](../../target/screen-by-screen-build-contract.md), [D-038](../../reference/d038-legacy-property-ledger.md) |
+| Removal/edit worklist | Phase 04, 06 | [Build Contract](../../target/screen-by-screen-build-contract.md), [D-038](../../velocity/d038-legacy-property-ledger.md) |
 
 ## 4) Inventory Verification-to-Phase Mapping
 
 | Inventory Area | Verification Use | Roadmap Phase(s) |
 |---|---|---|
-| [Inventory 01 Home and Hubs](../../inventory/01-home-and-hubs.md) | hub row and mode verification | 03, 05, 07 |
-| [Inventory 02 Search and Discovery](../../inventory/02-search-and-discovery.md) | search/discovery behavior verification | 02, 03, 07 |
-| [Inventory 03 Dialogs Info and Context](../../inventory/03-dialogs-info-and-context.md) | details/context policy verification | 04, 05, 07 |
-| [Inventory 04 OSD and Playback Surfaces](../../inventory/04-osd-and-playback-surfaces.md) | OSD policy and playback bridge verification | 03, 04, 07 |
-| [Inventory 06 Actions Properties and Background Contracts](../../inventory/06-actions-properties-and-background-contracts.md) | control-plane migration verification | 03, 05, 06 |
-| [Browse to Play Journey](../../inventory/journeys/browse-to-play.md) | end-to-end browsing validation | 07 |
-| [Search to Play Journey](../../inventory/journeys/search-to-play.md) | end-to-end search validation | 07 |
-| [Info and Related Journey](../../inventory/journeys/info-and-related.md) | details/context validation | 07 |
+| [Inventory 01 Home and Hubs](../../velocity/surfaces/01-home-and-hubs.md) | hub row and mode verification | 03, 05, 07 |
+| [Inventory 02 Search and Discovery](../../velocity/surfaces/02-search-and-discovery.md) | search/discovery behavior verification | 02, 03, 07 |
+| [Inventory 03 Dialogs Info and Context](../../velocity/surfaces/03-dialogs-info-and-context.md) | details/context policy verification | 04, 05, 07 |
+| [Inventory 04 OSD and Playback Surfaces](../../velocity/surfaces/04-osd-and-playback-surfaces.md) | OSD policy and playback bridge verification | 03, 04, 07 |
+| [Inventory 06 Actions Properties and Background Contracts](../../velocity/surfaces/06-actions-properties-and-background-contracts.md) | control-plane migration verification | 03, 05, 06 |
+| [Browse to Play Journey](../../velocity/surfaces/journeys/browse-to-play.md) | end-to-end browsing validation | 07 |
+| [Search to Play Journey](../../velocity/surfaces/journeys/search-to-play.md) | end-to-end search validation | 07 |
+| [Info and Related Journey](../../velocity/surfaces/journeys/info-and-related.md) | details/context validation | 07 |
 
 ## 5) Status Tracking Location
 

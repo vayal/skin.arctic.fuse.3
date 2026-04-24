@@ -9,8 +9,8 @@ This appendix defines mandatory execution guardrails for less capable agents.
 - Do not reopen frozen design decisions from:
   - [Skin Vision Blueprint](../../archive/skin-vision-blueprint-v0.md)
   - [D-003](../../target/d003-view-mode-matrix.md)
-  - [D-015](../../target/d015-addon-required-lists-contract.md)
-  - [D-038](../../reference/d038-legacy-property-ledger.md)
+  - [D-015 / list target](../../target/LIST_CONTRACTS_TARGET.md)
+  - [D-038](../../velocity/d038-legacy-property-ledger.md)
 
 ## 2) Forbidden Actions
 

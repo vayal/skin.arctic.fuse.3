@@ -262,7 +262,21 @@ Best practices for Kodi skin development ensure maintainable, performant, and us
 
 ---
 
-## 8. Quick Reference
+## 8. Golden rules (XML and generator discipline)
+
+*Merged from the former `KODI_SKINS_DEEP_DOCUMENTATION.md` (2026-04).*
+
+1. **Do not invent `<control>` XML from scratch** — copy patterns from this skin or upstream; Kodi control XML is easy to get subtly wrong.
+2. **Prefer includes and variables** over pasting long `plugin://` strings in many places.
+3. **URL-encode** query parameters in addon URLs where required.
+4. **Respect the generator** — `script.skinvariables` output can be overwritten; change shortcuts / overrides / blueprints, not generated blobs.
+5. **Edit-and-replace** — when swapping integrations, keep layout/focus IDs stable; change `<content>`, `<onclick>`, and visibility as needed.
+6. **Native infolabels first** — `ListItem.*`, `Container.*`, `VideoPlayer.*` before helper-era properties.
+7. **Document exceptions** — any remaining non-native binding belongs in `doc/velocity/d038-legacy-property-ledger.md`.
+
+---
+
+## 9. Quick Reference
 
 ### Do's
 
@@ -288,4 +302,4 @@ Best practices for Kodi skin development ensure maintainable, performant, and us
 
 ---
 
-*See also: [Core Architecture](01_CORE_ARCHITECTURE.md), [Variables & Includes](04_VARIABLES_INCLUDES.md), [Hubs](07_HUBS.md), [View Modes](08_VIEW_MODES.md)*
+*See also: [Core Architecture](01_CORE_ARCHITECTURE.md), [Variables & Includes](04_VARIABLES_INCLUDES.md), [Hubs](07_HUBS.md), [View Modes](08_VIEW_MODES.md), [Development environment](10_DEVELOPMENT_ENV.md)*

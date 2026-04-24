@@ -1,6 +1,6 @@
 # Kodi — Complete manual testing guide (Velocity skin fork)
 
-**Purpose:** Step-by-step manual QA in **Kodi** to verify the skin against the roadmap ([README.md](../next/roadmap/README.md)), close **Phase 07** runtime gaps, and confirm addon/list behavior against [D-015](../target/d015-addon-required-lists-contract.md) and [screen-by-screen-build-contract.md](../target/screen-by-screen-build-contract.md).
+**Purpose:** Step-by-step manual QA in **Kodi** to verify the skin against the roadmap ([README.md](../next/roadmap/README.md)), close **Phase 07** runtime gaps, and confirm addon/list behavior against [LIST_CONTRACTS_TARGET.md](../target/LIST_CONTRACTS_TARGET.md) / [LIST_IMPLEMENTATION_STATUS.md](../status/LIST_IMPLEMENTATION_STATUS.md) and non-list surfaces in [screen-by-screen-build-contract.md](../target/screen-by-screen-build-contract.md).
 
 **Audience:** Operators running a real Kodi install (target OS matches the skin’s `addon.xml` / `xbmc.gui` dependency).
 
@@ -79,7 +79,7 @@ After reset, reload the skin if needed. Confirm **Series (1101)** and **Movies (
 |------|--------|----------------|
 | 1 | From Home, open spotlight / hero if visible | Content loads or shows an explicit empty state (no silent failure). |
 | 2 | Open Series (1101) and Movies (1102) | Rows load from `plugin://plugin.video.velocity2/...` per [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-matrix.md) §4. |
-| 3 | **Optional (addon contract):** For any paginated row, open “full list” or next page if the UI exposes it | Response matches [D-015](../target/d015-addon-required-lists-contract.md): pagination fields where applicable; terminal page has no spurious next step (verify in log or addon debug if available). |
+| 3 | **Optional (addon contract):** For any paginated row, open “full list” or next page if the UI exposes it | Response matches [LIST_CONTRACTS_TARGET](../target/LIST_CONTRACTS_TARGET.md): pagination fields where applicable; terminal page has no spurious next step (verify in log or addon debug if available). |
 
 **Failure:** Note addon error in log; remediation may be **addon** (Phase 02) or skin path (Phase 03).
 
@@ -135,9 +135,9 @@ Follow [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-mat
 
 ### 4.6 Phase 07 — End-to-end journeys and freeze
 
-Run these **user journeys** (see [inventory/journeys/](../inventory/journeys/)):
+Run these **user journeys** (see [surfaces/journeys/](surfaces/journeys/)):
 
-#### A. Browse to play ([browse-to-play.md](../inventory/journeys/browse-to-play.md))
+#### A. Browse to play ([browse-to-play.md](surfaces/journeys/browse-to-play.md))
 
 1. **Home** → confirm switcher and spotlight.  
 2. **Series (1101)** → pick a row item → **Info** and/or **Play**.  
@@ -146,13 +146,13 @@ Run these **user journeys** (see [inventory/journeys/](../inventory/journeys/)):
 5. **Playback** → OSD visible; play/pause; exit.  
 6. Optional: post-play / “next” behavior if enabled.
 
-#### B. Search to play ([search-to-play.md](../inventory/journeys/search-to-play.md))
+#### B. Search to play ([search-to-play.md](surfaces/journeys/search-to-play.md))
 
 1. Open **Search** from top bar.  
 2. Run a query and/or use **Discover** / combined widgets per your build.  
 3. Select a result → **Play** or **Info** → **Play**.
 
-#### C. Info and related ([info-and-related.md](../inventory/journeys/info-and-related.md))
+#### C. Info and related ([info-and-related.md](surfaces/journeys/info-and-related.md))
 
 1. From a list or OSD, open **Info** → full details.  
 2. Extended plot / custom plot path if still in scope.  
@@ -251,4 +251,7 @@ See [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-matrix
 | [roadmap/README.md](../next/roadmap/README.md) | Phase status and playbooks |
 | [appendix-traceability-matrix.md](../next/roadmap/appendix-traceability-matrix.md) | D-003 / D-015 / D-021 / D-038 mapping |
 | [skin-vision-blueprint-v0.md](skin-vision-blueprint-v0.md) | Product vision |
-| [screen-by-screen-build-contract.md](../target/screen-by-screen-build-contract.md) | Target UX + list contracts |
+| [contracts/README.md](../contracts/README.md) | List addon **theory** |
+| [LIST_CONTRACTS_TARGET.md](../target/LIST_CONTRACTS_TARGET.md) | List **target** (D-015) |
+| [LIST_IMPLEMENTATION_STATUS.md](../status/LIST_IMPLEMENTATION_STATUS.md) | List **as-built** status |
+| [screen-by-screen-build-contract.md](../target/screen-by-screen-build-contract.md) | Non-list surface target + backlog |
