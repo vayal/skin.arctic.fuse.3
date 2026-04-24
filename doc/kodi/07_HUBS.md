@@ -465,4 +465,4 @@ Hero/featured layout view.
 
 ---
 
-*See also: [Core Architecture](01_CORE_ARCHITECTURE.md), [Velocity surfaces inventory](../velocity/surfaces/README.md), [View Modes](08_VIEW_MODES.md)*
+*See also: [Core Architecture](01_CORE_ARCHITECTURE.md), [Velocity surface inventory](../context/surface-inventory-index.md), [View Modes](08_VIEW_MODES.md)*

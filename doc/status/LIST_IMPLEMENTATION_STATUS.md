@@ -1,6 +1,6 @@
 # List contracts — implementation status (skin + addon)
 
-**Truth document 3 of 3.** Tracks **current** alignment between `skin.velocity.af3` wiring and [LIST_CONTRACTS_TARGET.md](../target/LIST_CONTRACTS_TARGET.md), plus list-focused open work. For addon internals, see [LIST_ADDON_THEORY.md](../contracts/LIST_ADDON_THEORY.md).
+**Truth document 3 of 3.** Tracks **current** alignment between `skin.velocity.af3` wiring and [LIST_CONTRACTS_TARGET.md](../target/LIST_CONTRACTS_TARGET.md), plus list-focused open work. For addon internals, see [LIST_ADDON_THEORY.md](../context/LIST_ADDON_THEORY.md).
 
 **Update rule:** when wiring or addon routes change, edit this file first; do not scatter list status across roadmap appendices.
 
@@ -107,7 +107,7 @@ These are used in skin routing but are not modeled as D-015 list contract IDs.
 
 ---
 
-## List-focused remaining work (from former screen-by-screen plan)
+## List-focused remaining work (historical note: formerly bundled in monolithic non-list doc)
 
 ### Home hub — URL parity (D-015)
 

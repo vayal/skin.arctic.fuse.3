@@ -1,9 +1,10 @@
-# 05 Settings And Customization
+# Surface inventory: Settings and customization
+
+**Hub:** [Surface inventory index](../context/surface-inventory-index.md) · [Glossary](../context/velocity-contract-glossary.md) · [Schema](../context/velocity-surface-inventory-schema.md) · [Source index](../context/velocity-surface-source-index.md)
 
 Cross-links:
-- Journeys: [`journeys/settings-and-customize.md`](./journeys/settings-and-customize.md)
-- Seed docs (if present under `doc/`): [`../../settings-inventory.md`](../../settings-inventory.md)
-- Traceability: [`_traceability-index.md`](./_traceability-index.md)
+- Journeys: [`settings-and-customize`](../context/journeys/settings-and-customize.md)
+- Optional seed docs (add under `doc/` if needed): `doc/settings-inventory.md`
 
 ## Items
 

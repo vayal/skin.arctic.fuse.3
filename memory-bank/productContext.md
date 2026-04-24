@@ -52,7 +52,7 @@ User clicks row → Kodi calls Velocity → Velocity returns structured data
 
 ## Screen-by-Screen Contract
 
-See [`doc/contracts/README.md`](../doc/contracts/README.md) (addon list **theory**), [`doc/target/LIST_CONTRACTS_TARGET.md`](../doc/target/LIST_CONTRACTS_TARGET.md) (D-015 **target**), and [`doc/status/LIST_IMPLEMENTATION_STATUS.md`](../doc/status/LIST_IMPLEMENTATION_STATUS.md) (**as-built** list status). Non-list surfaces: [`doc/target/screen-by-screen-build-contract.md`](../doc/target/screen-by-screen-build-contract.md).
+See [`doc/context/README.md`](../doc/context/README.md) (addon list **theory**), [`doc/target/LIST_CONTRACTS_TARGET.md`](../doc/target/LIST_CONTRACTS_TARGET.md) (D-015 **target**), and [`doc/status/LIST_IMPLEMENTATION_STATUS.md`](../doc/status/LIST_IMPLEMENTATION_STATUS.md) (**as-built** list status). Non-list surfaces: [`doc/target/nonlist-surfaces-index.md`](../doc/target/nonlist-surfaces-index.md).
 
 ### Home Hub
 - Spotlight: Mixed movies/series hero
@@ -82,7 +82,7 @@ Phase 04 removed:
 
 ## What Remains (Documented Exceptions)
 
-See [`doc/velocity/d038-legacy-property-ledger.md`](../doc/velocity/d038-legacy-property-ledger.md) §4 for:
+See [`doc/context/d038-legacy-properties-and-mapping.md`](../doc/context/d038-legacy-properties-and-mapping.md) §4 for:
 - Helper-named discover property key in search (keep-temporary)
 - Writer/director crew strip bindings
 - OSD crop image binding

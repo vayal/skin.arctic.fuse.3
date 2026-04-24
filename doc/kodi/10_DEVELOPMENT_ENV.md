@@ -335,7 +335,7 @@ skin.<id>.zip
 ### Velocity / addon migration reminders
 
 1. Contract-first (feeds before skin paths).
-2. Document every non-native property in `doc/velocity/d038-legacy-property-ledger.md`.
+2. Document every non-native property in `doc/context/d038-legacy-properties-and-mapping.md`.
 3. Never hand-edit generated SkinVariables output — change generator inputs.
 
 ### Kodi version upgrades

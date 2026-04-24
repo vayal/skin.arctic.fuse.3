@@ -1,9 +1,10 @@
-# 07 Shortcuts Generator Pipeline
+# Surface inventory: Shortcuts and generator pipeline
+
+**Hub:** [Surface inventory index](../context/surface-inventory-index.md) · [Glossary](../context/velocity-contract-glossary.md) · [Schema](../context/velocity-surface-inventory-schema.md) · [Source index](../context/velocity-surface-source-index.md)
 
 Cross-links:
-- Seed docs (if present under `doc/`): [`../../menu-inventory.md`](../../menu-inventory.md), [`../../settings-inventory.md`](../../settings-inventory.md)
-- Journeys: [`journeys/settings-and-customize.md`](./journeys/settings-and-customize.md)
-- Traceability: [`_traceability-index.md`](./_traceability-index.md)
+- Optional seed docs (add under `doc/` if needed): `doc/menu-inventory.md`, `doc/settings-inventory.md`
+- Journeys: [`settings-and-customize`](../context/journeys/settings-and-customize.md)
 
 ## Items
 

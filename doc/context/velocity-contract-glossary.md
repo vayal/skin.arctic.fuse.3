@@ -1,4 +1,8 @@
-# Contract Glossary
+# Velocity contract glossary (surface inventory)
+
+Shared definitions for **surface inventory** items. **Hub:** [Surface inventory index](./surface-inventory-index.md) · **Item schema:** [velocity-surface-inventory-schema.md](velocity-surface-inventory-schema.md).
+
+---
 
 ## Path contract
 

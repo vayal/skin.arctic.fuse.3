@@ -1,8 +1,9 @@
-# 03 Dialogs Info And Context
+# Surface inventory: Dialogs, info, and context
+
+**Hub:** [Surface inventory index](../context/surface-inventory-index.md) · [Glossary](../context/velocity-contract-glossary.md) · [Schema](../context/velocity-surface-inventory-schema.md) · [Source index](../context/velocity-surface-source-index.md)
 
 Cross-links:
-- Journeys: [`journeys/info-and-related.md`](./journeys/info-and-related.md)
-- Traceability: [`_traceability-index.md`](./_traceability-index.md)
+- Journeys: [`info-and-related`](../context/journeys/info-and-related.md)
 
 ## Items
 

@@ -37,9 +37,8 @@ skin.velocity.af3/
 ├── scripts/               # Python scripts
 ├── shortcuts/             # SkinVariables shortcuts
 ├── language/              # Localization files
-├── doc/velocity/surfaces/ # Surface & journey inventory (this fork)
 ├── extras/                # Extra files
-└── doc/                   # Documentation
+└── doc/                   # Documentation (includes `context/surface-inventory-index.md`, `status/surface-inventory-*.md`, `context/journeys/`)
 ```
 
 ---

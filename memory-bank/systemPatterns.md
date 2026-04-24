@@ -154,7 +154,7 @@
 
 **Pattern**: Any remaining helper binding must be explicitly documented.
 
-**File**: `doc/velocity/d038-legacy-property-ledger.md`
+**File**: `doc/context/d038-legacy-properties-and-mapping.md`
 
 **Sections**:
 - §2: Ledger batches (A/B/C/D)

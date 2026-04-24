@@ -1,8 +1,9 @@
-# 02 Search And Discovery
+# Surface inventory: Search and discovery
+
+**Hub:** [Surface inventory index](../context/surface-inventory-index.md) · [Glossary](../context/velocity-contract-glossary.md) · [Schema](../context/velocity-surface-inventory-schema.md) · [Source index](../context/velocity-surface-source-index.md)
 
 Cross-links:
-- Journeys: [`journeys/search-to-play.md`](./journeys/search-to-play.md)
-- Traceability: [`_traceability-index.md`](./_traceability-index.md)
+- Journeys: [`search-to-play`](../context/journeys/search-to-play.md)
 
 ## Items
 

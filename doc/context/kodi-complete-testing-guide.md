@@ -1,6 +1,6 @@
 # Kodi — Complete manual testing guide (Velocity skin fork)
 
-**Purpose:** Step-by-step manual QA in **Kodi** to verify the skin against the roadmap ([README.md](../next/roadmap/README.md)), close **Phase 07** runtime gaps, and confirm addon/list behavior against [LIST_CONTRACTS_TARGET.md](../target/LIST_CONTRACTS_TARGET.md) / [LIST_IMPLEMENTATION_STATUS.md](../status/LIST_IMPLEMENTATION_STATUS.md) and non-list surfaces in [screen-by-screen-build-contract.md](../target/screen-by-screen-build-contract.md).
+**Purpose:** Step-by-step manual QA in **Kodi** to verify the skin against the roadmap ([README.md](../next/roadmap/README.md)), close **Phase 07** runtime gaps, and confirm addon/list behavior against [LIST_CONTRACTS_TARGET.md](../target/LIST_CONTRACTS_TARGET.md) / [LIST_IMPLEMENTATION_STATUS.md](../status/LIST_IMPLEMENTATION_STATUS.md) and non-list surfaces per [nonlist-surfaces-index.md](../target/nonlist-surfaces-index.md).
 
 **Audience:** Operators running a real Kodi install (target OS matches the skin’s `addon.xml` / `xbmc.gui` dependency).
 
@@ -23,7 +23,7 @@
 - Code-backed hub wiring: [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-matrix.md)
 - Phase 07 stabilization criteria and evidence bucket: [phase-07-stabilization-and-freeze.md](../next/roadmap/phase-07-stabilization-and-freeze.md) (section **Validation status and blockers**)
 - Checklist buckets: [appendix-verification-checklists.md](../next/roadmap/appendix-verification-checklists.md)
-- Legacy/helper policy: [d038-legacy-property-ledger.md](d038-legacy-property-ledger.md)
+- Legacy/helper policy: [D-038 ledger + mapping](./d038-legacy-properties-and-mapping.md)
 
 ---
 
@@ -135,9 +135,9 @@ Follow [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-mat
 
 ### 4.6 Phase 07 — End-to-end journeys and freeze
 
-Run these **user journeys** (see [surfaces/journeys/](surfaces/journeys/)):
+Run these **user journeys** (see [journeys/](journeys/)):
 
-#### A. Browse to play ([browse-to-play.md](surfaces/journeys/browse-to-play.md))
+#### A. Browse to play ([browse-to-play.md](journeys/browse-to-play.md))
 
 1. **Home** → confirm switcher and spotlight.  
 2. **Series (1101)** → pick a row item → **Info** and/or **Play**.  
@@ -146,18 +146,18 @@ Run these **user journeys** (see [surfaces/journeys/](surfaces/journeys/)):
 5. **Playback** → OSD visible; play/pause; exit.  
 6. Optional: post-play / “next” behavior if enabled.
 
-#### B. Search to play ([search-to-play.md](surfaces/journeys/search-to-play.md))
+#### B. Search to play ([search-to-play.md](journeys/search-to-play.md))
 
 1. Open **Search** from top bar.  
 2. Run a query and/or use **Discover** / combined widgets per your build.  
 3. Select a result → **Play** or **Info** → **Play**.
 
-#### C. Info and related ([info-and-related.md](surfaces/journeys/info-and-related.md))
+#### C. Info and related ([info-and-related.md](journeys/info-and-related.md))
 
 1. From a list or OSD, open **Info** → full details.  
 2. Extended plot / custom plot path if still in scope.  
 3. Context menu: confirm D-021 behavior (§4.3).  
-4. Optional: writer/director drill-down if exposed — note any remaining helper-property-backed UI (documented in [D-038](d038-legacy-property-ledger.md) §4).
+4. Optional: writer/director drill-down if exposed — note any remaining helper-property-backed UI (documented in [D-038](./d038-legacy-properties-and-mapping.md) §4).
 
 #### D. Pagination and empty states ([appendix-verification-checklists.md](../next/roadmap/appendix-verification-checklists.md) §3)
 
@@ -250,8 +250,8 @@ See [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-matrix
 |----------|------|
 | [roadmap/README.md](../next/roadmap/README.md) | Phase status and playbooks |
 | [appendix-traceability-matrix.md](../next/roadmap/appendix-traceability-matrix.md) | D-003 / D-015 / D-021 / D-038 mapping |
-| [skin-vision-blueprint-v0.md](skin-vision-blueprint-v0.md) | Product vision |
-| [contracts/README.md](../contracts/README.md) | List addon **theory** |
+| [skin-vision-blueprint-v0.md](../archive/skin-vision-blueprint-v0.md) | Product vision (archive) |
+| [context/README.md](./README.md) | Context hub (list theory, D-038, inventories) |
 | [LIST_CONTRACTS_TARGET.md](../target/LIST_CONTRACTS_TARGET.md) | List **target** (D-015) |
 | [LIST_IMPLEMENTATION_STATUS.md](../status/LIST_IMPLEMENTATION_STATUS.md) | List **as-built** status |
-| [screen-by-screen-build-contract.md](../target/screen-by-screen-build-contract.md) | Non-list surface target + backlog |
+| [nonlist-surfaces-index.md](../target/nonlist-surfaces-index.md) | Non-list targets + status checklists (hub) |

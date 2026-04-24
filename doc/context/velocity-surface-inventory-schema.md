@@ -1,6 +1,8 @@
-# Decision Template
+# Surface inventory item schema (decision template)
 
-Copy this block for each inventory item.
+Copy this block for each inventory item. **Hub:** [Surface inventory index](./surface-inventory-index.md) · **Terminology:** [velocity-contract-glossary.md](velocity-contract-glossary.md).
+
+---
 
 ## Item `<item-id>`
 

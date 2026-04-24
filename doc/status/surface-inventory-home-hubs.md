@@ -1,8 +1,9 @@
-# 01 Home And Hubs
+# Surface inventory: Home and hubs
+
+**Hub:** [Surface inventory index](../context/surface-inventory-index.md) · [Glossary](../context/velocity-contract-glossary.md) · [Schema](../context/velocity-surface-inventory-schema.md) · [Source index](../context/velocity-surface-source-index.md)
 
 Cross-links:
-- Journeys: [`journeys/browse-to-play.md`](./journeys/browse-to-play.md)
-- Traceability: [`_traceability-index.md`](./_traceability-index.md)
+- Journeys: [`browse-to-play`](../context/journeys/browse-to-play.md)
 
 ## Items
 

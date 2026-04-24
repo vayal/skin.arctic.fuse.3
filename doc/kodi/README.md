@@ -2,7 +2,7 @@
 
 Material here is **Kodi-skin-generic**: it applies to any skin using the same engine concepts (XML controls, includes, `script.skinvariables`, hubs, view modes).
 
-It does **not** carry Velocity fork contracts, D-038 batches, or surface inventories — use **[`../velocity/README.md`](../velocity/README.md)** for that.
+It does **not** carry Velocity fork contracts, D-038 batches, or surface inventories — use **[`../context/README.md`](../context/README.md)** for that.
 
 ## Start here
 

@@ -272,7 +272,7 @@ Best practices for Kodi skin development ensure maintainable, performant, and us
 4. **Respect the generator** — `script.skinvariables` output can be overwritten; change shortcuts / overrides / blueprints, not generated blobs.
 5. **Edit-and-replace** — when swapping integrations, keep layout/focus IDs stable; change `<content>`, `<onclick>`, and visibility as needed.
 6. **Native infolabels first** — `ListItem.*`, `Container.*`, `VideoPlayer.*` before helper-era properties.
-7. **Document exceptions** — any remaining non-native binding belongs in `doc/velocity/d038-legacy-property-ledger.md`.
+7. **Document exceptions** — any remaining non-native binding belongs in `doc/context/d038-legacy-properties-and-mapping.md`.
 
 ---
 

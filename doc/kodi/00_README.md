@@ -2,7 +2,7 @@
 
 Numbered guides for **general** Kodi skin development (engine, controls, SkinVariables, hubs, view modes). These files live in **`doc/kodi/`** alongside this index.
 
-**Velocity fork** (D-038, contracts, roadmap, surface inventory): **[`../velocity/README.md`](../velocity/README.md)**.
+**Velocity fork** (D-038, fork definitions & rules, roadmap, surface inventory): **[`../context/README.md`](../context/README.md)**.
 
 ## Quick navigation — general Kodi skin development
 
@@ -17,7 +17,7 @@ Numbered guides for **general** Kodi skin development (engine, controls, SkinVar
 - [Best Practices](09_BEST_PRACTICES.md) — Golden rules, code style, testing
 - [Development Environment](10_DEVELOPMENT_ENV.md) — Setup, tools, installation, log triage, packaging notes
 
-Some “See also” links in older chapters may mention fork-only filenames (e.g. `26_HUBS_DEEP.md`) that are **not** in this folder — treat those as historical stubs and use **`../velocity/`** + **`../target/`** instead.
+Some “See also” links in older chapters may mention fork-only filenames (e.g. `26_HUBS_DEEP.md`) that are **not** in this folder — treat those as historical stubs and use **`../context/`** + **`../target/`** instead.
 
 ## How to use
 

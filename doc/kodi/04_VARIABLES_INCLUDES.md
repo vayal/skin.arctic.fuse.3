@@ -356,7 +356,7 @@ Skin.Integer(HomeSwitcher.LoopBack)
 
 ### Expressions (`$EXP[...]`)
 
-Skin-defined expressions live in includes (e.g. `Includes_Constants.xml`). Prefer native `ListItem.*` / `Container.*` where possible; document any legacy helper-backed `Exp_*` in the fork D-038 ledger under `doc/velocity/`.
+Skin-defined expressions live in includes (e.g. `Includes_Constants.xml`). Prefer native `ListItem.*` / `Container.*` where possible; document any legacy helper-backed `Exp_*` in the fork D-038 ledger under `doc/context/`.
 
 ---
 

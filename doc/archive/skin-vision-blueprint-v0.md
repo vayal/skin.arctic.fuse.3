@@ -538,7 +538,7 @@ Legend:
 | D-035 | Settings | Keep/remove shortcut editor UI | Present but complex | Defer/remove from user-facing flow | P1 | accept | remove/hide |
 | D-036 | Settings | Keep/remove legacy helper settings entries | Still present in settings files | Remove to reduce confusion | P1 | accept | remove legacy helper settings entries; preserve media info/progress labels (watched/in-progress/unwatched) |
 | D-037 | Contracts | Action dispatch simplification level | Mixed legacy/stateful complexity | Simplify to minimal required actions | P1 | accept | medium simplification |
-| D-038 | Contracts | Remaining legacy property-model references | Deprecated but present in places | Retire where possible; leave documented exceptions only | P1 | accept | locked via `../velocity/d038-legacy-property-ledger.md` with batch-based decisions and explicit deferred exceptions |
+| D-038 | Contracts | Remaining legacy property-model references | Deprecated but present in places | Retire where possible; leave documented exceptions only | P1 | accept | locked via `../context/d038-legacy-properties-and-mapping.md` with batch-based decisions and explicit deferred exceptions |
 | D-039 | Generator | Hardcode vs keep full generator flexibility | Not finalized | Keep generator, but hardcode default outputs for primary hubs | P1 | accept | agreed |
 | D-040 | Generator | Search alias families beyond current scope | Partial mappings and legacy aliases exist | Trim to used aliases only | P1 | accept | trim to used aliases only (Discover/Movies/TV) |
 | D-041 | Visual consistency | Row density baseline | `balanced` chosen in many rows | Accept balanced as global default | P2 | accept | balanced |

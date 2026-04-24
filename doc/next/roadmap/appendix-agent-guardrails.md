@@ -10,7 +10,7 @@ This appendix defines mandatory execution guardrails for less capable agents.
   - [Skin Vision Blueprint](../../archive/skin-vision-blueprint-v0.md)
   - [D-003](../../target/d003-view-mode-matrix.md)
   - [D-015 / list target](../../target/LIST_CONTRACTS_TARGET.md)
-  - [D-038](../../velocity/d038-legacy-property-ledger.md)
+  - [D-038](../../context/d038-legacy-properties-and-mapping.md)
 
 ## 2) Forbidden Actions
 
