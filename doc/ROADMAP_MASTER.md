@@ -29,7 +29,7 @@ Deliver `skin.velocity.af3` as a coherent Velocity-only experience with:
 ## Phase sequence
 
 | Phase | Name | Primary outcome | Depends on |
-|-------|------|------------------|------------|
+|-----|------|------------------|------------|
 | 0 | [Historic implementation audit](./roadmap/phase-00-historic-implementation-audit.md) | Legacy-to-consolidated mapping and roadmap governance baseline accepted. | — |
 | 1 | [Contract and IA baseline](./roadmap/phase-01-contract-and-ia-baseline.md) | IA, D-003, D-015, and baseline matrix frozen for execution phases. | 0 |
 | 2 | [List implementation alignment](./roadmap/phase-02-list-implementation-alignment.md) | As-built list behavior reconciled against D-015 with documented deviations. | 1 |
@@ -45,8 +45,8 @@ Deliver `skin.velocity.af3` as a coherent Velocity-only experience with:
 ## Program status (current)
 
 | Phase | Status | Control note |
-|-------|--------|--------------|
-| 0 | planned | Actionable audit checklist is defined; mapping/governance sign-off pending. |
+|-----|--------|--------------|
+| 0 | **completed** | Historic implementation audit complete; legacy-to-current mapping verified; governance baseline locked. |
 | 1 | planned | Baseline lock checklist is defined; IA/D-003/D-015 acceptance pending. |
 | 2 | planned | List alignment execution plan is defined; route/paging/rendering closure pending. |
 | 3 | planned | Non-list execution plan is defined; surface keep/remove/defer decisions pending. |
