@@ -10,10 +10,10 @@ The original Arctic Fuse 3 skin relies heavily on `plugin.video.themoviedb.helpe
 - OSD and playback overlays
 
 This creates several issues:
-1. **TMDbHelper is unmaintained** - slow updates, breaking changes
-2. **Dual dependency complexity** - skin + addon both needing updates
-3. **Data contract fragility** - skin changes break when addon schema changes
-4. **No vendor control** - can't customize behavior to match product vision
+1. **TMDbHelper is unmaintained** — slow updates, breaking changes
+2. **Dual dependency complexity** — skin + addon both needing updates
+3. **Data contract fragility** — skin changes break when addon schema changes
+4. **No vendor control** — can't customize behavior to match product vision
 
 ## Solution: Velocity Addon
 
@@ -43,16 +43,14 @@ User clicks row → Kodi calls Velocity → Velocity returns structured data
 
 ## User Experience Goals
 
-1. **Seamless browsing** - Home, Series, Movies hubs with consistent spotlight + row patterns
-2. **Provider mini-hubs** - Netflix, Disney+, Prime, Apple TV+, Hulu, Max, Paramount+, Peacock, BBC
-3. **Smart progress tracking** - Continue watching, in-progress shows/movies, recently watched
-4. **Genre navigation** - Fixed genre set (Action, Comedy, Drama, Thriller, Romance, Sci-Fi, Crime, Animation)
-5. **Image-only cards** - No metadata clutter on row cards
-6. **Non-paginated spotlights** - Hero surfaces never show "Next Page"
+1. **Seamless browsing** — Home, Series, Movies hubs with consistent spotlight + row patterns
+2. **Provider mini-hubs** — Netflix, Disney+, Prime, Apple TV+, Hulu, Max, Paramount+, Peacock, BBC
+3. **Smart progress tracking** — Continue watching, in-progress shows/movies, recently watched
+4. **Genre navigation** — Fixed genre set (Action, Comedy, Drama, Thriller, Romance, Sci-Fi, Crime, Animation)
+5. **Image-only cards** — No metadata clutter on row cards
+6. **Non-paginated spotlights** — Hero surfaces never show "Next Page"
 
-## Screen-by-Screen Contract
-
-**Program roadmap:** [`doc/ROADMAP_MASTER.md`](../doc/ROADMAP_MASTER.md) · **Topic index:** [`doc/traceability-by-topic.md`](../doc/traceability-by-topic.md). See [`doc/context/README.md`](../doc/context/README.md) (addon list **theory**), [`doc/roadmap/LIST_CONTRACTS_TARGET.md`](../doc/roadmap/LIST_CONTRACTS_TARGET.md) (D-015 **target**), and [`doc/roadmap/LIST_IMPLEMENTATION_STATUS.md`](../doc/roadmap/LIST_IMPLEMENTATION_STATUS.md) (**as-built** list status). Non-list surfaces: [`doc/roadmap/nonlist-surfaces-index.md`](../doc/roadmap/nonlist-surfaces-index.md).
+## Hub Structure
 
 ### Home Hub
 - Spotlight: Mixed movies/series hero
@@ -69,9 +67,8 @@ User clicks row → Kodi calls Velocity → Velocity returns structured data
 ### Provider Mini-Hubs
 - Spotlight, Trending, Popular, Genre rows (up to 4)
 
-## What Was Removed
+## What Was Removed (Phase 04)
 
-Phase 04 removed:
 - Expanded context menu items (D-021)
 - OSD cast dialog
 - PVR surfaces (Batches A)
@@ -89,8 +86,9 @@ See [`doc/context/d038-legacy-properties-and-mapping.md`](../doc/context/d038-le
 - Background blur toggle
 - Shortcut generator presets
 
-## Future Considerations
+## Roadmap Reference
 
-- Phase 07 freeze will lock all remaining helper bindings
-- Generator pipeline may need trimming of library DB tabs (videodb://, musicdb://)
-- Full details screen is canonical info destination (no small info dialog UX)
+- **Program roadmap:** [`doc/ROADMAP_MASTER.md`](../doc/ROADMAP_MASTER.md)
+- **Topic index:** [`doc/traceability-by-topic.md`](../doc/traceability-by-topic.md)
+- **Context:** [`doc/context/README.md`](../doc/context/README.md)
+- **Phase 04 (runtime verification):** [`doc/roadmap/phase-04-freeze-and-runtime-verification.md`](../doc/roadmap/phase-04-freeze-and-runtime-verification.md)

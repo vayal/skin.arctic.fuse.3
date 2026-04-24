@@ -1,4 +1,4 @@
-# Arctic Fuse 3 (AF3) Skin Fork & Velocity Addon Migration
+# Velocity Skin Fork — Project Brief
 
 ## Project Overview
 
@@ -6,31 +6,23 @@ This is a Kodi skin fork of Arctic Fuse 3, modified to completely strip out depe
 
 ## Core Objective
 
-**Replace TMDbHelper with Velocity** - Map Kodi GUI widget pathways to Velocity's routing endpoints while preserving the skin's dynamic generation architecture driven by `script.skinvariables`.
+**Replace TMDbHelper with Velocity** — Map Kodi GUI widget pathways to Velocity's routing endpoints while preserving the skin's dynamic generation architecture driven by `script.skinvariables`.
 
-## Key Constraints (The Golden Rules)
+## Current Phase Status
 
-1. **NEVER edit output XML files** (`Includes_Home.xml`, `Includes_Hubs.xml`, `Includes_Search.xml`) - they are overwritten by the generator
-2. **NEVER write Kodi `<control>` XML from scratch** - you will hallucinate syntax
-3. **ONLY edit blueprint/shortcut files** (`shortcuts/generator/data/setup/*.xml`, `shortcuts/generator/data/base/*.xml`, `shortcuts/skinvariables-generator.json`)
-4. **Edit & Replace strategy** - preserve layout tags, only replace `<content>` and `<onclick>` paths
-
-## Architecture
-
-- **Dynamic skin generation** via `script.skinvariables` addon
-- **Blueprint files** define the UI structure
-- **Velocity addon** provides the data contracts (D-015)
-- **Generator pipeline** produces final XML from blueprints + addon data
-
-## Roadmap Status
-
-- **Phase 01-06**: Completed (preflight, addon contracts, core plumbing, removals, metadata migration, cleanup)
-- **Phase 07**: Blocked - requires Kodi runtime evidence for end-to-end journeys
+| Phase | Name | Status |
+|-------|------|--------|
+| 0 | Historic implementation audit | ✅ Completed |
+| 1 | Contract and IA baseline | ✅ Completed |
+| 2 | List implementation alignment | ✅ Completed |
+| 3 | Non-list surfaces implementation | ✅ Completed |
+| 4 | Freeze and runtime verification | 🚧 Blocked (runtime evidence pending) |
+| 5 | Debt cleanup and policy closure | 📋 Planned |
 
 ## Critical Decisions (Frozen)
 
 | ID | Scope | Status |
-|---|---|---|
+|----|-------|--------|
 | D-003 | View mode matrix per surface | Frozen |
 | D-015 | Addon list contract families | Frozen |
 | D-021 | Context menu policy | Frozen |
@@ -38,11 +30,13 @@ This is a Kodi skin fork of Arctic Fuse 3, modified to completely strip out depe
 
 ## Primary Touch Files
 
-- `1080i/Includes_Paths.xml` - Path contract variables
-- `1080i/Includes_Actions.xml` - Action dispatch
-- `1080i/Includes_Home.xml` - Home switcher & hub rows
-- `1080i/Includes_Hubs.xml` - Hub widget definitions
-- `1080i/Custom_1105_Search.xml` - Search window (temporary helper key retained)
+- `1080i/Includes_Paths.xml` — Path contract variables
+- `1080i/Includes_Actions.xml` — Action dispatch
+- `1080i/Includes_Home.xml` — Home switcher & hub rows
+- `1080i/Includes_Hubs.xml` — Hub widget definitions
+- `1080i/Custom_1105_Search.xml` — Search window
+- `1080i/DialogVideoInfo.xml` — Full details screen
+- `1080i/Custom_1193_VideoOSDInfo.xml` — OSD bridge
 
 ## Velocity Endpoint Contract Summary
 
@@ -58,5 +52,14 @@ This is a Kodi skin fork of Arctic Fuse 3, modified to completely strip out depe
 
 ## Current Blockers
 
-- Phase 07 requires live Kodi runtime evidence for browse-to-play, search-to-play, and info journeys
+- Phase 04 requires live Kodi runtime evidence for browse-to-play, search-to-play, and info journeys
 - No Kodi execution environment available in CI/agent pipelines
+
+## Golden Rules
+
+1. **NEVER edit output XML files** (`1080i/Includes_Home.xml`, `1080i/Includes_Hubs.xml`) — they are overwritten by the generator
+2. **NEVER write Kodi `<control>` XML from scratch** — you will hallucinate syntax
+3. **ONLY edit blueprint/shortcut files** (`shortcuts/generator/data/setup/*.xml`, `shortcuts/generator/data/base/*.xml`, `shortcuts/skinvariables-generator.json`)
+4. **Edit & Replace strategy** — preserve layout tags, only replace `<content>` and `<onclick>` paths
+5. **Use native Kodi properties** — `ListItem.*`, `Container.*`, `VideoPlayer.*` over `TMDbHelper.*`
+6. **Document all exceptions** — any remaining helper binding must be in D-038 ledger
