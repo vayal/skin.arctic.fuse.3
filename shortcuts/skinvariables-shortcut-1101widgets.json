@@ -1,5 +1,11 @@
 [
     {
+        "label": "Continue Watching",
+        "icon": "",
+        "path": "plugin://plugin.video.velocity2/?action=list&list_id=series_continue_watching_episodes&page=1",
+        "target": "videos"
+    },
+    {
         "label": "In-progress Series",
         "icon": "",
         "path": "plugin://plugin.video.velocity2/?action=list&list_id=series_in_progress_shows&page=1",
@@ -9,6 +15,18 @@
         "label": "Trending Series",
         "icon": "",
         "path": "plugin://plugin.video.velocity2/?action=list&list_id=series_global_trending&page=1",
+        "target": "videos"
+    },
+    {
+        "label": "Providers",
+        "icon": "",
+        "path": "plugin://plugin.video.velocity2/?action=list&list_id=series_provider_icons&page=1",
+        "target": "videos"
+    },
+    {
+        "label": "Browse by genre",
+        "icon": "",
+        "path": "plugin://plugin.video.velocity2/?action=list&list_id=series_genre_navigation&page=1",
         "target": "videos"
     }
 ]
