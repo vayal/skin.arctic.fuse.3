@@ -72,7 +72,7 @@
         <value condition="!String.IsEmpty({listitem}.Icon)">$INFO[{listitem}.Icon]</value>
     </variable>
 
-    <variable name="Image_Square" containers="450" null_id="true">
+    <variable name="Image_Square" containers="450,301,501,502,503,504,505,506,507" null_id="true">
         <value condition="!String.IsEmpty({listitem}.Property(override_square))">$INFO[{listitem}.Property(override_square)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(poster))">$INFO[{listitem}.Art(poster)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(season.poster))">$INFO[{listitem}.Art(season.poster)]</value>

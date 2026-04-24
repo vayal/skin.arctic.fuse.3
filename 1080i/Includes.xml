@@ -97,6 +97,8 @@
 
     <include file="Includes_Search.xml" />
 
+    <!-- Load Velocity overrides first so duplicate include names resolve to custom hub definitions. -->
+    <include file="script-skinvariables-generator-overrides.xml" />
     <include file="script-skinvariables-generator-includes.xml" />
     <include file="script-skinvariables-skinusers.xml" condition="!String.IsEmpty(Skin.String(SkinVariables.SkinUser))" />
     <include file="script-skinviewtypes-includes.xml" />

@@ -4,6 +4,35 @@
 
 **Phase 07: Stabilization and Freeze** — The skin fork is 94% complete with Phases 01-06 finished. Phase 07 requires runtime validation evidence in Kodi that cannot be captured in CI/agent environments.
 
+**Gap Analysis Status** (2026-04-22 to 2026-04-23):
+- 120+ surviving TMDbHelper references identified across 1080i/ and shortcuts/ directories
+- Bucket A (Generator Sources): 5 files wiped, 2 files survived rollback
+- Bucket B (Base Screens): 44 files wiped, 11 files survived rollback
+- Batch C (Metadata/Rendering): 19 files still contain legacy helper bindings
+- Batch D (Deferred Exceptions): 5 open items including weather file mismatches
+- PVR references: 11 instances surviving in Dialog_DialogShortcuts.xml and Includes_Home.xml
+- Weather references: 6 instances surviving in Dialog_DialogWeather.xml, MyWeather.xml, Includes_Weather.xml, Custom_1109_Settings.xml
+- TMDbHelper.ListItem.*: ~50+ references in paths, labels, info, views, widgets, lists, home, dialogs, trailer
+- TMDbHelper.Player.*: ~15+ references in player status, crop image, clear art
+- TMDbHelper.WidgetContainer: ~30+ references across views, widgets, overlay paths
+- TMDbHelper.ContextMenu: ~7 references in dialog onloads
+- TMDbHelper.IsData / EnableExtendedProperties: ~7 references in DialogVideoInfo.xml
+- TMDbHelper.UserDiscover.*: ~3 references in search flow (temporary exception)
+
+**Migration Status Summary**:
+- Wiped: 49 files (Phase 01-06 changes lost to rollback)
+- Survived: 13 files (still using TMDbHelper)
+- Total: 62 files audited
+
+**Generator Exceptions (D-038 Documented)**:
+- Search path: Uses `TMDbHelper.UserDiscover.FolderPath` property key (keep-temporary)
+- Widget rows: Helper path conditions remain
+- Shortcut presets: Generator pipeline artifact (temporary exception)
+- OSD crop image binding: D-038 §4; playback OSD still uses it
+- Background blur toggle: D-038 §4; user setting preserved
+- Writer/director crew bindings: D-038 §4; no active UX path yet
+- Freeze risk: Home.xml still sets `TMDbHelper.Corner.Radius` and `TMDbHelper.UseLocalWindowIDs`
+
 ### Primary Task
 
 Capture end-to-end journey evidence for:

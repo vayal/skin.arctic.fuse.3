@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <!--
+        Velocity hard overrides loaded AFTER script-skinvariables-generator-includes.xml.
+        Keeps Home/Series/Movies hub rows stable across skin resets / generator rebuilds.
+    -->
+
+    <include name="skinvariables-homewidgets-standard">
+        <include content="Hub_Widgets_Grouplist">
+            <include content="Widget_Row">
+                <param name="id">501</param>
+                <param name="groupid">701</param>
+                <param name="label">In-progress Series</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Poster_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_HasItems]">310</onup>
+                <onup>300</onup>
+                <description />
+                <include content="Widget_NoResults">
+                    <param name="id">501</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_series&amp;page=1</content>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">502</param>
+                <param name="groupid">702</param>
+                <param name="label">In-progress Movies</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Poster_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_HasItems]">310</onup>
+                <onup>300</onup>
+                <description />
+                <include content="Widget_NoResults">
+                    <param name="id">502</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=home_in_progress_movies&amp;page=1</content>
+            </include>
+        </include>
+    </include>
+
+    <include name="skinvariables-1101widgets-standard">
+        <include content="Hub_Widgets_Grouplist">
+            <include content="Widget_Row">
+                <param name="id">501</param>
+                <param name="groupid">701</param>
+                <param name="label">In-progress Series</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Poster_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_HasItems]">310</onup>
+                <onup>300</onup>
+                <description />
+                <include content="Widget_NoResults">
+                    <param name="id">501</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_in_progress_shows&amp;page=1</content>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">502</param>
+                <param name="groupid">702</param>
+                <param name="label">Trending Series</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Poster_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_HasItems]">310</onup>
+                <onup>300</onup>
+                <description />
+                <include content="Widget_NoResults">
+                    <param name="id">502</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_global_trending&amp;page=1</content>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">503</param>
+                <param name="groupid">703</param>
+                <param name="label">Providers</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Square_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_HasItems]">310</onup>
+                <onup>300</onup>
+                <description />
+                <include content="Widget_NoResults">
+                    <param name="id">503</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_provider_icons&amp;page=1</content>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">504</param>
+                <param name="groupid">704</param>
+                <param name="label">Browse by genre</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Square_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_HasItems]">310</onup>
+                <onup>300</onup>
+                <description />
+                <include content="Widget_NoResults">
+                    <param name="id">504</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=series_genre_navigation&amp;page=1</content>
+            </include>
+        </include>
+    </include>
+
+    <include name="skinvariables-1102widgets-standard">
+        <include content="Hub_Widgets_Grouplist">
+            <include content="Widget_Row">
+                <param name="id">501</param>
+                <param name="groupid">701</param>
+                <param name="label">In Progress</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Poster_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_HasItems]">310</onup>
+                <onup>300</onup>
+                <description />
+                <include content="Widget_NoResults">
+                    <param name="id">501</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_in_progress&amp;page=1</content>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">502</param>
+                <param name="groupid">702</param>
+                <param name="label">Trending</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Poster_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_HasItems]">310</onup>
+                <onup>300</onup>
+                <description />
+                <include content="Widget_NoResults">
+                    <param name="id">502</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_global_trending&amp;page=1</content>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">503</param>
+                <param name="groupid">703</param>
+                <param name="label">Providers</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Square_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_HasItems]">310</onup>
+                <onup>300</onup>
+                <description />
+                <include content="Widget_NoResults">
+                    <param name="id">503</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_provider_icons&amp;page=1</content>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">504</param>
+                <param name="groupid">704</param>
+                <param name="label">Browse by genre</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Square_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <onup condition="$EXP[Exp_Hubs_Spotlight_HasItems]">310</onup>
+                <onup>300</onup>
+                <description />
+                <include content="Widget_NoResults">
+                    <param name="id">504</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.velocity2/?action=list&amp;list_id=movies_genre_navigation&amp;page=1</content>
+            </include>
+        </include>
+    </include>
+</includes>

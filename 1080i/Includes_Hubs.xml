@@ -22,6 +22,11 @@
         <definition>
 
             <include>Action_Blur_Onload</include>
+            <!-- Splash safety for all hub windows (Home/1101/1102/...). Startup dialog 1198 can be re-opened
+                 after skin reset while a non-Home hub is active; without this, only Home.xml clears it. -->
+            <onload condition="System.HasAlarm(SplashTimeOut)">AlarmClock(SplashSafetyVis,ClearProperty(SplashIsVisible,1198),00:00:08,silent)</onload>
+            <onload condition="System.HasAlarm(SplashTimeOut)">AlarmClock(SplashSafetyStopTO,CancelAlarm(SplashTimeOut),00:00:08,silent)</onload>
+            <onload condition="System.HasAlarm(SplashTimeOut)">AlarmClock(SplashSafetyStopVS,CancelAlarm(SplashVarsStart),00:00:08,silent)</onload>
 
             <include content="Hub_Onload_Window">
                 <param name="window">Home</param>
