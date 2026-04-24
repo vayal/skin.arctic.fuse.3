@@ -36,15 +36,11 @@ flowchart TD
     p6 --> p7[Phase07_StabilizeAndFreeze]
 ```
 
-## Phase Playbooks
+## Playbook
 
-- [Phase 01 - Preflight and Contract Lock](./phase-01-preflight-and-contract-lock.md)
-- [Phase 02 - Addon Contract Implementation](./phase-02-addon-contract-implementation.md)
-- [Phase 03 - Skin Core Plumbing Migration](./phase-03-skin-core-plumbing-migration.md)
-- [Phase 04 - Skin Removal and Policy Enforcement](./phase-04-skin-removal-and-policy-enforcement.md)
-- [Phase 05 - Metadata and Rendering Migration](./phase-05-metadata-and-rendering-migration.md)
-- [Phase 06 - Deferred Exceptions and Final Cleanup](./phase-06-deferred-exceptions-and-final-cleanup.md)
-- [Phase 07 - Stabilization and Freeze](./phase-07-stabilization-and-freeze.md)
+Phases **01–06** markdown playbooks were **deleted** from this repository (2026-04-24). Rationale and old step lists live in **git history** only.
+
+- [Phase 07 - Stabilization and Freeze](./phase-07-stabilization-and-freeze.md) — only active execution playbook here
 
 ## Guardrail Appendices
 
@@ -56,17 +52,17 @@ flowchart TD
 
 ## Phase Status Tracking (Single Source)
 
-Use this table as the only execution status tracker for roadmap phases.
+Use this table as the only execution status tracker for roadmap phases. **Actionable backlog** (not historical narrative): [Phase 07 playbook](./phase-07-stabilization-and-freeze.md) (validation status at top), [master triage](../gap-analysis/master-triage-list.md), [D-038](../../reference/d038-legacy-property-ledger.md).
 
 | Phase | Status | Evidence |
 |---|---|---|
-| [Phase 01 - Preflight and Contract Lock](./phase-01-preflight-and-contract-lock.md) | completed | [Phase 01 completion note](./phase-01-preflight-and-contract-lock.md) |
-| [Phase 02 - Addon Contract Implementation](./phase-02-addon-contract-implementation.md) | completed | [Phase 02 validation report](./phase-02-validation-report.md) |
-| [Phase 03 - Skin Core Plumbing Migration](./phase-03-skin-core-plumbing-migration.md) | completed | [Phase 03 validation report](./phase-03-validation-report.md) (static Batch B; runtime hub journeys require operator evidence in same report) |
-| [Phase 04 - Skin Removal and Policy Enforcement](./phase-04-skin-removal-and-policy-enforcement.md) | completed | [Phase 04 validation report](./phase-04-validation-report.md) |
-| [Phase 05 - Metadata and Rendering Migration](./phase-05-metadata-and-rendering-migration.md) | completed | [Phase 05 validation report](./phase-05-validation-report.md) |
-| [Phase 06 - Deferred Exceptions and Final Cleanup](./phase-06-deferred-exceptions-and-final-cleanup.md) | completed | [Phase 06 validation report](./phase-06-validation-report.md); [D-038](../../reference/d038-legacy-property-ledger.md) §4 exception list updated |
-| [Phase 07 - Stabilization and Freeze](./phase-07-stabilization-and-freeze.md) | blocked | [Phase 07 validation report](./phase-07-validation-report.md) — **blocked:** no Kodi runtime evidence for mandatory end-to-end journeys and D-015 pagination checks; Phase 03 addendum runtime table still empty. Re-run in Kodi per [kodi-ui-verification-matrix.md](./kodi-ui-verification-matrix.md), attach evidence, then set status to **completed** only when all Phase 07 acceptance criteria pass. |
+| Phase 01 — Preflight and contract lock | completed | playbook deleted |
+| Phase 02 — Addon contract implementation | completed | [phase-02-fixtures-mirror.md](./phase-02-fixtures-mirror.md) |
+| Phase 03 — Skin core plumbing migration | completed | validation report removed |
+| Phase 04 — Skin removal and policy | completed | validation report removed |
+| Phase 05 — Metadata and rendering | completed | validation report removed |
+| Phase 06 — Deferred exceptions cleanup | completed | validation report removed |
+| [Phase 07 - Stabilization and Freeze](./phase-07-stabilization-and-freeze.md) | blocked | Run Kodi QA per [kodi-ui-verification-matrix.md](./kodi-ui-verification-matrix.md); append evidence in **Phase 07 playbook** §Validation status; clear P1 blockers |
 
 ## Canonical Source Documents
 
@@ -76,18 +72,18 @@ Use this table as the only execution status tracker for roadmap phases.
 - [D-003 View Mode Matrix](../../target/d003-view-mode-matrix.md)
 - [D-015 Addon Required Lists Contract](../../target/d015-addon-required-lists-contract.md)
 - [D-038 Legacy Property Ledger](../../reference/d038-legacy-property-ledger.md)
-- [Inventory Root](../../../inventory/README.md)
+- [Inventory Root](../../inventory/README.md)
 
 ## Do / Don't (for less capable agents)
 
 - **Do**
-  - follow phase order strictly
-  - use the active phase doc as the only execution source
+  - use [Phase 07 playbook](./phase-07-stabilization-and-freeze.md) as the only execution playbook here (01–06 playbooks removed)
+  - treat contracts (build contract, D-015, D-038) as authoritative for product rules
   - validate after each logical slice
   - update traceability as changes land
 - **Don't**
-  - skip prerequisites
-  - mix tasks from multiple phases in one run
+  - skip Phase 07 prerequisites (Kodi runtime, addon installed)
+  - mix unrelated refactors into freeze verification
   - infer missing contract details
   - continue after an unresolved blocker
 
@@ -95,7 +91,7 @@ Use this table as the only execution status tracker for roadmap phases.
 
 All conditions must be true:
 
-- all phase acceptance checklists pass
+- Phase 07 freeze checklist and runtime evidence pass; phases 01–06 accepted as **closed in tree** (playbooks removed)
 - active surfaces are wired to Velocity/native contracts
 - deprecated helper surfaces in approved removal scope are removed
 - deferred exceptions are explicitly documented

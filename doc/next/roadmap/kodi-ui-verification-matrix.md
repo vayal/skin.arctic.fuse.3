@@ -12,10 +12,10 @@
 
 | Layer | Document | Use for UI verification |
 |--------|-----------|-------------------------|
-| **Skin bootstrap & switcher** | [phase-03-skin-core-plumbing-migration.md](./phase-03-skin-core-plumbing-migration.md), [phase-03-validation-report.md](./phase-03-validation-report.md) | Default hubs on, names, Velocity paths, optional hub toggles cleared |
-| **Inventory / traceability** | [inventory/01-home-and-hubs.md](../../../inventory/01-home-and-hubs.md), [appendix-traceability-matrix.md](./appendix-traceability-matrix.md) | Structural IDs (`HomeSwitcher.*`, hub windows) |
+| **Skin bootstrap & switcher** | [README.md](./README.md) (phase table), `shortcuts/skinvariables-startup.json` | Default hubs on, names, Velocity paths, optional hub toggles cleared |
+| **Inventory / traceability** | [inventory/01-home-and-hubs.md](../../inventory/01-home-and-hubs.md), [appendix-traceability-matrix.md](./appendix-traceability-matrix.md) | Structural IDs (`HomeSwitcher.*`, hub windows) |
 | **Product / addon contract names** | [screen-by-screen-build-contract.md](../../target/screen-by-screen-build-contract.md) | **Target** UX and named feeds (e.g. `series_spotlight_trending`) — **not** yet 1:1 with skin XML paths today |
-| **Roadmap status** | [README.md](./README.md) | Phase 03 is **completed** in the phase table; static acceptance matches [phase-03-validation-report.md](./phase-03-validation-report.md); runtime hub checks still require operator-captured evidence in that report |
+| **Roadmap status** | [README.md](./README.md) | Phases 01–06 **closed** (static stubs); runtime closure is **Phase 07** only |
 
 **Rule of thumb:** For “does the skin do what we shipped?” verify against **§2–§5** below (code-backed). For “does the addon eventually match the long-form contract?” track **screen-by-screen** separately and map `smart_list` / `list` types to those contract IDs in addon docs.
 
@@ -80,25 +80,23 @@
 
 ### 4.2 Series hub 1101 (`skinvariables-1101widgets-standard`)
 
-| Order | Row label | `type=` |
-|------:|-----------|---------|
-| 1 | Continue Watching | `continue_watching` |
-| 2 | New Episodes | `new_episodes` |
-| 3 | Active Shows | `active_shows` |
-| 4 | Up Next | `up_next` |
-| 5 | Recently Watched | `recently_watched` |
-| 6 | Discover | *(action=discover)* |
+Each row is `plugin://plugin.video.velocity2/?action=list&list_id=…&page=1` (see overrides).
+
+| Order | Row label | `list_id` |
+|------:|-----------|-----------|
+| 1 | In-progress Series | `series_in_progress_shows` |
+| 2 | Trending Series | `series_global_trending` |
+| 3 | Providers | `series_provider_icons` |
+| 4 | Browse by genre | `series_genre_navigation` |
 
 ### 4.3 Movies hub 1102 (`skinvariables-1102widgets-standard`)
 
-| Order | Row label | `type=` / action |
-|------:|-----------|------------------|
-| 1 | In Progress | `in_progress_movies` |
-| 2 | Recently Watched | `recently_watched` |
-| 3 | Continue Watching | `continue_watching` |
-| 4 | Recent | `recent` |
-| 5 | Discover | `discover` |
-| 6 | Velocity Home | `home` |
+| Order | Row label | `list_id` |
+|------:|-----------|-----------|
+| 1 | In Progress | `movies_in_progress` |
+| 2 | Trending | `movies_global_trending` |
+| 3 | Providers | `movies_provider_icons` |
+| 4 | Browse by genre | `movies_genre_navigation` |
 
 ### 4.4 Submenu strip (1101 / 1102)
 
@@ -113,8 +111,8 @@ Overrides define **`skinvariables-1101submenu-staticitems`** and **`skinvariable
 
 | Topic | Plan / contract doc | Current skin behavior |
 |--------|---------------------|------------------------|
-| Feed naming | [screen-by-screen-build-contract.md](../../target/screen-by-screen-build-contract.md) uses IDs like `series_spotlight_trending`, `home_spotlight_mixed` | Skin uses **Velocity** `smart_list` / `discover` / `home` — map in addon reference docs |
-| Row set / order | Contract tables describe spotlight + in-progress tabs + provider rows + genres | **1101/1102/Home** rows match **overrides** (§4), not every contract row yet |
+| Feed naming | [screen-by-screen-build-contract.md](../../target/screen-by-screen-build-contract.md) uses IDs like `series_spotlight_trending`, `home_spotlight_mixed` | Hubs use **`action=list` + `list_id=`** per overrides — map contract names to addon `list_id` in reference docs |
+| Row set / order | Contract tables may still describe older smart-rail sets | **1101/1102/Home** rows match **overrides** (§4); reconcile contract doc when product locks IDs |
 | “Mini-hubs” | Contract: per **streaming provider** roster | **1106–1108** in skin are **calendar/up next**, **PVR**, **addons** — different concept; treat contract mini-hub section as **future** unless product says otherwise |
 | Optional hubs | Phase 03: default off | Still **implemented** if user sets toggles — OK, but QA should note if 1103/1104 reappear unexpectedly |
 | **Search tabs (videodb/musicdb)** | [screen-by-screen-build-contract.md](../../target/screen-by-screen-build-contract.md) search scope centers on Velocity discover + movies/TV | Base generator [script-skinvariables-generator-includes-.xml](../../../1080i/script-skinvariables-generator-includes-.xml) still defines **Movies / TV / Music / Artists** rows using `videodb://` and `musicdb://` smart-playlist URLs alongside Velocity `plugin://plugin.video.velocity2/?action=execute_search`. **Canonical product path:** Velocity `execute_search` + Discover (see `Custom_1105_Search.xml` / `Includes_Search.xml`). Library DB tabs remain as optional Kodi-library compatibility; trimming them is **Phase 04+** unless product drops local-library search entirely. |
@@ -125,10 +123,9 @@ Overrides define **`skinvariables-1101submenu-staticitems`** and **`skinvariable
 
 - [ ] Top bar: Search (if enabled) + Home + **Series** + **Movies**; no 1103/1104/1106–1108 on clean profile after skin init  
 - [ ] Home: in-progress tab row + poster row (§4.1) populate or show empty state; spotlight uses `home_spotlight_mixed` Velocity list  
-- [ ] 1101: six rows (§4.2); submenu two items  
-- [ ] 1102: six rows (§4.3); submenu two items  
-- [ ] No missing textures in log for submenu icons (e.g. `resume.png` if referenced elsewhere)  
-- [x] Phase 03 status reconciled in [README.md](./README.md) with [phase-03-validation-report.md](./phase-03-validation-report.md)
+- [ ] 1101: four rows (§4.2); submenu two items  
+- [ ] 1102: four rows (§4.3); submenu two items  
+- [ ] No missing textures in log for submenu icons (e.g. `resume.png` if referenced elsewhere)
 
 ---
 

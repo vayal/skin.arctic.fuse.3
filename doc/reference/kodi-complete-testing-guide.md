@@ -21,8 +21,7 @@
 **Reference docs (keep open while testing):**
 
 - Code-backed hub wiring: [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-matrix.md)
-- Phase 03 bootstrap + runtime evidence table: [phase-03-validation-report.md](../next/roadmap/phase-03-validation-report.md)
-- Phase 07 stabilization criteria: [phase-07-validation-report.md](../next/roadmap/phase-07-validation-report.md)
+- Phase 07 stabilization criteria and evidence bucket: [phase-07-stabilization-and-freeze.md](../next/roadmap/phase-07-stabilization-and-freeze.md) (section **Validation status and blockers**)
 - Checklist buckets: [appendix-verification-checklists.md](../next/roadmap/appendix-verification-checklists.md)
 - Legacy/helper policy: [d038-legacy-property-ledger.md](d038-legacy-property-ledger.md)
 
@@ -38,8 +37,7 @@ For each major section below, capture at least one of:
 
 Paste results into:
 
-- [phase-03-validation-report.md](../next/roadmap/phase-03-validation-report.md) — §“Runtime evidence (operator capture)” table (items: Home, Series 1101, Movies 1102, provider drill-in).
-- [phase-07-validation-report.md](../next/roadmap/phase-07-validation-report.md) — update §2 runtime columns and §1 overall outcome when all gates pass.
+- [phase-07-stabilization-and-freeze.md](../next/roadmap/phase-07-stabilization-and-freeze.md) — append operator notes / screenshots / log excerpts under **Validation status and blockers** (Home, Series 1101, Movies 1102, provider drill-in, search, info, D-015 paging).
 
 ---
 
@@ -47,7 +45,7 @@ Paste results into:
 
 Default hub behavior is defined in [shortcuts/skinvariables-startup.json](../../shortcuts/skinvariables-startup.json). For a repeatable test, reset skin hub toggles and re-run startup.
 
-**Option A — focused reset (from [phase-03-validation-report.md](../next/roadmap/phase-03-validation-report.md))**
+**Option A — focused reset (hub toggles + startup)**
 
 Run these **builtins** in Kodi (e.g. from RunScript, keymap, or a test profile):
 
@@ -111,7 +109,7 @@ Follow [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-mat
 | 2 | Try old removed entry points | No navigation to deleted custom windows (e.g. weather **1161**, plot **1113**, OSD cast **1141**, wiki/crew dialogs) from normal IA. |
 | 3 | Settings | No mandatory dependency on `plugin.video.themoviedb.helper` for core Velocity flows. |
 
-**Note:** Core Kodi PVR windows may still exist at the Kodi level; Phase 04 removed **skin XML** in scope per [phase-04-validation-report.md](../next/roadmap/phase-04-validation-report.md).
+**Note:** Core Kodi PVR windows may still exist at the Kodi level; deprecated skin-only entry points were removed during migration (see git history and D-038).
 
 ---
 
@@ -122,7 +120,7 @@ Follow [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-mat
 | 1 | Hub row posters | Row cards remain **image-forward**; no unintended giant metadata blocks on every tile (per blueprint). |
 | 2 | Spotlight / hero | Title, year, rating, plot strip readable where addon provides data. |
 | 3 | Details | Full **DialogVideoInfo** path opens; no regression to deprecated small-plot-only flows for primary actions. |
-| 4 | Trailer | If used: play trailer from item; windows **1122/1123** behave per [phase-05-validation-report.md](../next/roadmap/phase-05-validation-report.md). |
+| 4 | Trailer | If used: play trailer from item; windows **1122/1123** behave without skin XML errors in `kodi.log`. |
 
 ---
 
@@ -137,9 +135,9 @@ Follow [kodi-ui-verification-matrix.md](../next/roadmap/kodi-ui-verification-mat
 
 ### 4.6 Phase 07 — End-to-end journeys and freeze
 
-Run these **user journeys** (see [inventory/journeys/](../../inventory/journeys/)):
+Run these **user journeys** (see [inventory/journeys/](../inventory/journeys/)):
 
-#### A. Browse to play ([browse-to-play.md](../../inventory/journeys/browse-to-play.md))
+#### A. Browse to play ([browse-to-play.md](../inventory/journeys/browse-to-play.md))
 
 1. **Home** → confirm switcher and spotlight.  
 2. **Series (1101)** → pick a row item → **Info** and/or **Play**.  
@@ -148,13 +146,13 @@ Run these **user journeys** (see [inventory/journeys/](../../inventory/journeys/
 5. **Playback** → OSD visible; play/pause; exit.  
 6. Optional: post-play / “next” behavior if enabled.
 
-#### B. Search to play ([search-to-play.md](../../inventory/journeys/search-to-play.md))
+#### B. Search to play ([search-to-play.md](../inventory/journeys/search-to-play.md))
 
 1. Open **Search** from top bar.  
 2. Run a query and/or use **Discover** / combined widgets per your build.  
 3. Select a result → **Play** or **Info** → **Play**.
 
-#### C. Info and related ([info-and-related.md](../../inventory/journeys/info-and-related.md))
+#### C. Info and related ([info-and-related.md](../inventory/journeys/info-and-related.md))
 
 1. From a list or OSD, open **Info** → full details.  
 2. Extended plot / custom plot path if still in scope.  
@@ -169,7 +167,7 @@ Run these **user journeys** (see [inventory/journeys/](../../inventory/journeys/
 | Paged rows | In-row cap and “show more” / browse behavior match product intent; full list paging (e.g. 40/page) matches **addon** contract. |
 | Empty lists | Skin shows expected empty copy (e.g. “No items” / blank row), not a hard error. |
 
-When all Phase 07 criteria are met, update [README.md](../next/roadmap/README.md) Phase 07 row and [phase-07-validation-report.md](../next/roadmap/phase-07-validation-report.md) per that document.
+When all Phase 07 criteria are met, update [README.md](../next/roadmap/README.md) Phase 07 row and mark **Validation status and blockers** in [phase-07-stabilization-and-freeze.md](../next/roadmap/phase-07-stabilization-and-freeze.md) accordingly.
 
 ---
 

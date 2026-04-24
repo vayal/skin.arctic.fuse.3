@@ -7,7 +7,7 @@
 | **Context** | What this repo is, how it relates to the addon, where Cursor rules live | [context/README.md](context/README.md) |
 | **Target** | Product intent: hubs, widgets, contracts, decisions (canonical “where we’re going”) | [target/README.md](target/README.md) |
 | **Status** | Performance notes, investigations, addon list reports, session feedback | [status/README.md](status/README.md) |
-| **Next steps** | Phased roadmap, gap analysis, validation reports, triage | [next/README.md](next/README.md) |
+| **Next steps** | Phased roadmap, gap analysis, triage | [next/README.md](next/README.md) |
 | **Reference** | Kodi skin mechanics (numbered series), D-038 ledger, property dictionary, testing guide | [reference/README.md](reference/README.md) |
 | **Archive** | Superseded narrative / blueprint versions kept for history only | [archive/README.md](archive/README.md) |
 
@@ -19,6 +19,7 @@
 - **View-mode / hub ID decisions (D-003):** [target/d003-view-mode-matrix.md](target/d003-view-mode-matrix.md)
 - **Roadmap package:** [next/roadmap/README.md](next/roadmap/README.md)
 - **Gap analysis:** [next/gap-analysis/master-triage-list.md](next/gap-analysis/master-triage-list.md)
+- **Surface / journey inventory:** [inventory/README.md](inventory/README.md)
 - **Legacy property ledger (D-038):** [reference/d038-legacy-property-ledger.md](reference/d038-legacy-property-ledger.md)
 - **Kodi skin engine series (01–10):** [reference/00_README.md](reference/00_README.md)
 
@@ -36,5 +37,6 @@ Older links used flat paths under `doc/` (e.g. `doc/roadmap/…`, `doc/d015-…`
 - Contract / blueprint / build-contract → `doc/target/*`
 - D-038, property map, numbered guides → `doc/reference/*`
 - `skin-vision-blueprint-v0.md` → `doc/archive/skin-vision-blueprint-v0.md`
+- `inventory/*` (repo root) → `doc/inventory/*`
 
 If you find a stale link, fix it to the paths above or open an issue.

@@ -55,7 +55,7 @@ skin.velocity.af3/
 ├── scripts/               # Python scripts
 ├── shortcuts/             # SkinVariables shortcuts
 ├── language/              # Localization files
-├── inventory/             # Asset inventory
+├── doc/inventory/         # Asset / surface inventory
 ├── extras/                # Extra files
 └── doc/                   # Documentation
 ```
@@ -901,7 +901,7 @@ skin.velocity.af3.zip
 ├── fonts/
 ├── media/
 ├── language/
-├── inventory/
+├── doc/inventory/
 └── extras/
 ```
 

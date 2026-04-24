@@ -1,6 +1,6 @@
 # Skin Inventory System
 
-This directory is the canonical decision workspace for the `skin.velocity.af3` fork.
+This directory lives under **`doc/inventory/`** (moved from repo root `inventory/` in 2026-04). It is the canonical decision workspace for the `skin.velocity.af3` fork.
 
 Scope in this inventory pass:
 - Runtime-visible UX surfaces.

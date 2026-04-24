@@ -1,7 +1,7 @@
 # 07 Shortcuts Generator Pipeline
 
 Cross-links:
-- Seed docs: [`../doc/menu-inventory.md`](../doc/menu-inventory.md), [`../doc/settings-inventory.md`](../doc/settings-inventory.md)
+- Seed docs (if present alongside `doc/`): [`../menu-inventory.md`](../menu-inventory.md), [`../settings-inventory.md`](../settings-inventory.md)
 - Journeys: [`journeys/settings-and-customize.md`](./journeys/settings-and-customize.md)
 - Traceability: [`_traceability-index.md`](./_traceability-index.md)
 

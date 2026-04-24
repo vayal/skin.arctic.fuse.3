@@ -5,9 +5,7 @@ Purpose: define non-guessy translation targets for legacy `TMDbHelper`/`TMDBHelp
 Sources:
 
 - [d038-legacy-property-ledger.md](d038-legacy-property-ledger.md)
-- [phase-01-02-gap.md](../next/gap-analysis/phase-01-02-gap.md)
-- [phase-03-04-gap.md](../next/gap-analysis/phase-03-04-gap.md)
-- [phase-05-07-gap.md](../next/gap-analysis/phase-05-07-gap.md)
+- [master-triage-list.md](../next/gap-analysis/master-triage-list.md)
 
 ## Mapping Table
 

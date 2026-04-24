@@ -1,6 +1,6 @@
 # Appendix - Verification Checklists
 
-Use these reusable checklists across phases.
+Reusable **operator** gates (mostly Phase 07 / freeze). They intentionally stay unchecked until someone runs Kodi and records evidence — see [phase-07-stabilization-and-freeze.md](./phase-07-stabilization-and-freeze.md) (**Validation status and blockers**).
 
 ## 1) Contract Wiring Checklist
 

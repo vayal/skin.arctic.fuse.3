@@ -20,3 +20,4 @@ The original index (with navigation) is **[00_README.md](00_README.md)**. All si
 | [ARCTIC_FUSE_3_VELOCITY_FORK_DOCUMENTATION.md](ARCTIC_FUSE_3_VELOCITY_FORK_DOCUMENTATION.md) | AF3 fork-specific documentation |
 | [af3-agent-rules.md](af3-agent-rules.md) | Agent-oriented guardrails |
 | [kodi-complete-testing-guide.md](kodi-complete-testing-guide.md) | Manual testing guide |
+| [../inventory/README.md](../inventory/README.md) | Surface / journey inventory (under **doc/inventory**) |
