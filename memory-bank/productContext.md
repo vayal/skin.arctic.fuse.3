@@ -52,7 +52,7 @@ User clicks row → Kodi calls Velocity → Velocity returns structured data
 
 ## Screen-by-Screen Contract
 
-See [`doc/screen-by-screen-build-contract.md`](../doc/screen-by-screen-build-contract.md) for the complete surface-by-surface specification.
+See [`doc/target/screen-by-screen-build-contract.md`](../doc/target/screen-by-screen-build-contract.md) for the complete surface-by-surface specification.
 
 ### Home Hub
 - Spotlight: Mixed movies/series hero
@@ -82,7 +82,7 @@ Phase 04 removed:
 
 ## What Remains (Documented Exceptions)
 
-See [`doc/d038-legacy-property-ledger.md`](../doc/d038-legacy-property-ledger.md) §4 for:
+See [`doc/reference/d038-legacy-property-ledger.md`](../doc/reference/d038-legacy-property-ledger.md) §4 for:
 - Helper-named discover property key in search (keep-temporary)
 - Writer/director crew strip bindings
 - OSD crop image binding
