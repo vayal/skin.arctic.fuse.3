@@ -4,7 +4,7 @@ Canonical hub for the **surface hierarchy inventories** (per-topic item lists wi
 
 **Journeys** (end-to-end flows) remain in **[`journeys/`](journeys/README.md)**.
 
-**Topic spine:** [traceability-by-topic.md](../traceability-by-topic.md) — topic IDs → roadmap, context, verification. **Related product truth (non-list):** [nonlist-surfaces-index.md](../roadmap/nonlist-surfaces-index.md). **List triple:** [context README](./README.md) (theory index), [LIST_CONTRACTS_TARGET.md](../roadmap/LIST_CONTRACTS_TARGET.md), [LIST_IMPLEMENTATION_STATUS.md](../roadmap/LIST_IMPLEMENTATION_STATUS.md).
+**Topic spine:** [traceability-by-topic.md](../traceability-by-topic.md) — topic IDs → roadmap, context, verification. **Related product truth (non-list):** [phase-03-non-list-surfaces-implementation.md](../roadmap/phase-03-non-list-surfaces-implementation.md). **List triple:** [context README](./README.md) (theory index), [phase-01-contract-and-ia-baseline.md](../roadmap/phase-01-contract-and-ia-baseline.md), [phase-02-list-implementation-alignment.md](../roadmap/phase-02-list-implementation-alignment.md).
 
 ## How to use
 
@@ -27,13 +27,13 @@ Canonical hub for the **surface hierarchy inventories** (per-topic item lists wi
 
 | # | Topic | File |
 |---|--------|------|
-| 01 | Home and hubs | [surface-inventory-home-hubs.md](../roadmap/surface-inventory-home-hubs.md) |
-| 02 | Search and discovery | [surface-inventory-search-discovery.md](../roadmap/surface-inventory-search-discovery.md) |
-| 03 | Dialogs, info, context | [surface-inventory-dialogs-info-context.md](../roadmap/surface-inventory-dialogs-info-context.md) |
-| 04 | OSD and playback | [surface-inventory-osd-playback.md](../roadmap/surface-inventory-osd-playback.md) |
-| 05 | Settings and customization | [surface-inventory-settings-customization.md](../roadmap/surface-inventory-settings-customization.md) |
-| 06 | Actions, paths, background | [surface-inventory-actions-paths-background.md](../roadmap/surface-inventory-actions-paths-background.md) |
-| 07 | Shortcuts and generator | [surface-inventory-shortcuts-generator.md](../roadmap/surface-inventory-shortcuts-generator.md) |
+| 01 | Home and hubs | [phase-03-non-list-surfaces-implementation.md](../roadmap/phase-03-non-list-surfaces-implementation.md) |
+| 02 | Search and discovery | [phase-03-non-list-surfaces-implementation.md](../roadmap/phase-03-non-list-surfaces-implementation.md) |
+| 03 | Dialogs, info, context | [phase-03-non-list-surfaces-implementation.md](../roadmap/phase-03-non-list-surfaces-implementation.md) |
+| 04 | OSD and playback | [phase-03-non-list-surfaces-implementation.md](../roadmap/phase-03-non-list-surfaces-implementation.md) |
+| 05 | Settings and customization | [phase-03-non-list-surfaces-implementation.md](../roadmap/phase-03-non-list-surfaces-implementation.md) |
+| 06 | Actions, paths, background | [phase-03-non-list-surfaces-implementation.md](../roadmap/phase-03-non-list-surfaces-implementation.md) |
+| 07 | Shortcuts and generator | [phase-03-non-list-surfaces-implementation.md](../roadmap/phase-03-non-list-surfaces-implementation.md) |
 
 ## Review order
 

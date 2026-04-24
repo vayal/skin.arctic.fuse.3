@@ -503,7 +503,7 @@ Legend:
 |---|---|---|---|---|---|---|---|
 | D-001 | Home/Hubs | Keep/remove `nextaired-home-rails` | Present in inventory, not aligned to current core 3-hub vision | Remove from main UX (or move to optional/deferred surface) | P1 | accept | remove |
 | D-002 | Home | Home submenu static items | Exists via generator includes | Keep minimal (or none) in v1; avoid extra clutter | P1 | accept | remove |
-| D-003 | Home/Hubs | Keep all hub widget modes (`standard/combined/wall`) | Multiple modes coexist | Hardcode one primary mode for personal fork | P1 | accept | locked via `../roadmap/d003-view-mode-matrix.md` with case-by-case decisions and no fallback mode switching |
+| D-003 | Home/Hubs | Keep all hub widget modes (`standard/combined/wall`) | Multiple modes coexist | Hardcode one primary mode for personal fork | P1 | accept | locked via `../roadmap/phase-01-contract-and-ia-baseline.md` with case-by-case decisions and no fallback mode switching |
 | D-004 | Search | Keep/remove autocomplete dropdown | Still available | Remove or disable by default for cleaner controller flow | P1 | accept | keep current |
 | D-005 | Search | Final selector tabs list | Not explicitly locked | Keep only core tabs used weekly | P0 | accept | Option A: Discover, Movies, TV Shows |
 | D-006 | Search | Search mode strategy | Combined+standard both exist | Hardcode one (recommended combined) | P1 | accept | combined for movies and series |
@@ -515,7 +515,7 @@ Legend:
 | D-012 | Movies | Final UI copy for in-progress row | Concept decided; naming semi-locked | Use `In Progress` | P1 | accept | In Progress |
 | D-013 | Movies | Final Movies row specs | Partially defined | Mirror Series philosophy exactly where possible | P0 | accept | user agreed |
 | D-014 | Genre discovery | Main-hub genre button placement | Decided conceptually | Keep at end of hub rows (after provider icons) | P1 | accept | user agreed |
-| D-015 | Genre discovery | Genre button target behavior | Decided `B2` filtered list | Confirm final list route contract shape | P0 | accept | locked in `../roadmap/LIST_CONTRACTS_TARGET.md` with standardized media-specific provider/genre routes and explicit contract guarantees |
+| D-015 | Genre discovery | Genre button target behavior | Decided `B2` filtered list | Confirm final list route contract shape | P0 | accept | locked in `../roadmap/phase-01-contract-and-ia-baseline.md` with standardized media-specific provider/genre routes and explicit contract guarantees |
 | D-016 | Provider mini-hub | Final row order inside provider hub | Mostly defined | Spotlight -> Trending -> Most Popular -> 4 Genre rows | P0 | accept | user agreed |
 | D-017 | Provider mini-hub | Genre set fixed list viability | Fixed list chosen | Accept fixed 8 genres globally | P1 | accept | fixed global genre set |
 | D-018 | Details page | Final content depth in details page | Broadly undecided | Balanced: key metadata + plot + trailer + limited related rows | P0 | accept | remove Wikipedia, person widgets, cast rows, crew widgets, extra buttons |

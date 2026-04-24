@@ -1,31 +1,31 @@
-# Roadmap — execution, contracts, and evidence
+# Roadmap — phase implementation workspace
 
-All **phase plans**, **list/non-list contract specs**, **surface inventories**, and **non-list status checklists** for the Velocity skin fork live in **this directory** (formerly split across `doc/target/`, `doc/status/`, and `doc/next/`).
+This folder intentionally contains **phase implementation documents** (plus optional helper files like template/map).
 
-**Program hub (vision + phase index):** [../ROADMAP_MASTER.md](../ROADMAP_MASTER.md)
+**Master roadmap (high level):** [../ROADMAP_MASTER.md](../ROADMAP_MASTER.md)
 
-## Phase plans (`Implemented` / `Verified`)
+## Phase documents
 
 | Phase | Document |
 |-------|----------|
 | 0 | [phase-00-historic-implementation-audit.md](phase-00-historic-implementation-audit.md) |
-| 1 | [phase-01-freeze-and-runtime-verification.md](phase-01-freeze-and-runtime-verification.md) |
-| 2 | [phase-02-legacy-helper-and-d038-debt.md](phase-02-legacy-helper-and-d038-debt.md) |
-| 3 | [phase-03-pvr-gating-product-policy.md](phase-03-pvr-gating-product-policy.md) |
+| 1 | [phase-01-contract-and-ia-baseline.md](phase-01-contract-and-ia-baseline.md) |
+| 2 | [phase-02-list-implementation-alignment.md](phase-02-list-implementation-alignment.md) |
+| 3 | [phase-03-non-list-surfaces-implementation.md](phase-03-non-list-surfaces-implementation.md) |
+| 4 | [phase-04-freeze-and-runtime-verification.md](phase-04-freeze-and-runtime-verification.md) |
+| 5 | [phase-05-debt-cleanup-and-policy-closure.md](phase-05-debt-cleanup-and-policy-closure.md) |
 
-## Policy
+## Standard
 
-- Update **Implemented** / **Verified** in the **active phase** document first, then sync the one-line row in [ROADMAP_MASTER.md](../ROADMAP_MASTER.md).
-- When you change a contract or inventory, edit the **canonical file in this folder** (not a removed `target/` or `status/` path).
+- Template: [PHASE_TEMPLATE.md](PHASE_TEMPLATE.md)
+- Artifact ownership: [PHASE_ARTIFACT_MAP.md](PHASE_ARTIFACT_MAP.md)
 
-## Consolidated specs & inventories (same folder)
+## Operating rule
 
-| Area | Files (representative) |
-|------|-------------------------|
-| List D-015 | [LIST_CONTRACTS_TARGET.md](LIST_CONTRACTS_TARGET.md), [LIST_IMPLEMENTATION_STATUS.md](LIST_IMPLEMENTATION_STATUS.md) |
-| Product blueprint | [skin-vision-blueprint-v1.md](skin-vision-blueprint-v1.md) |
-| View modes (D-003) | [d003-view-mode-matrix.md](d003-view-mode-matrix.md) |
-| Non-list | [nonlist-surfaces-index.md](nonlist-surfaces-index.md), `nonlist-*-target.md`, `nonlist-*-status.md` |
-| Surface inventories | `surface-inventory-*.md` |
+All implementation planning/status content should be added to one of the phase files above, not as standalone roadmap artifacts.
 
-**Context** (theory, D-038, journeys): [../context/README.md](../context/README.md)
+## Consolidation status
+
+- All roadmap target/status material extracted from legacy roadmap artifacts now lives inside phase documents.
+- Each phase file is expected to carry end-to-end implementation detail for its scope: target baseline, as-built status, verification checklist, blockers, and handoff.
+- `ROADMAP_MASTER.md` is program control only (ordering, dependencies, gates, high-level status).

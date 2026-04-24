@@ -38,7 +38,7 @@ skin.velocity.af3/
 ├── shortcuts/             # SkinVariables shortcuts
 ├── language/              # Localization files
 ├── extras/                # Extra files
-└── doc/                   # Documentation (includes `context/surface-inventory-index.md`, `status/surface-inventory-*.md`, `context/journeys/`)
+└── doc/                   # Documentation (includes `context/surface-inventory-index.md`, `roadmap/phase-03-non-list-surfaces-implementation.md`, `context/journeys/`)
 ```
 
 ---

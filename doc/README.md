@@ -22,11 +22,11 @@
 ## Quick links
 
 - **Master roadmap:** [ROADMAP_MASTER.md](ROADMAP_MASTER.md)  
-- **Phase 1 (freeze & QA):** [roadmap/phase-01-freeze-and-runtime-verification.md](roadmap/phase-01-freeze-and-runtime-verification.md)  
+- **Phase 4 (freeze Phase 1 (freeze & QA) QA):** [roadmap/phase-04-freeze-and-runtime-verification.md](roadmap/phase-04-freeze-and-runtime-verification.md)  
 - **Historic audit (phase 0):** [roadmap/phase-00-historic-implementation-audit.md](roadmap/phase-00-historic-implementation-audit.md)  
 - **Topic matrix:** [traceability-by-topic.md](traceability-by-topic.md)  
-- **List triple:** [context/LIST_ADDON_THEORY.md](context/LIST_ADDON_THEORY.md) · [roadmap/LIST_CONTRACTS_TARGET.md](roadmap/LIST_CONTRACTS_TARGET.md) · [roadmap/LIST_IMPLEMENTATION_STATUS.md](roadmap/LIST_IMPLEMENTATION_STATUS.md)  
-- **Non-list hub:** [roadmap/nonlist-surfaces-index.md](roadmap/nonlist-surfaces-index.md)  
+- **List triple:** [context/LIST_ADDON_THEORY.md](context/LIST_ADDON_THEORY.md) · [roadmap/phase-01-contract-and-ia-baseline.md](roadmap/phase-01-contract-and-ia-baseline.md) · [roadmap/phase-02-list-implementation-alignment.md](roadmap/phase-02-list-implementation-alignment.md)  
+- **Non-list hub:** [roadmap/phase-03-non-list-surfaces-implementation.md](roadmap/phase-03-non-list-surfaces-implementation.md)  
 - **D-038:** [context/d038-legacy-properties-and-mapping.md](context/d038-legacy-properties-and-mapping.md)  
 - **Kodi skin series (01–10):** [kodi/00_README.md](kodi/00_README.md)  
 

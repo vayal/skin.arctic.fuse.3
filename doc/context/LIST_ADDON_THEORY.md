@@ -4,8 +4,8 @@
 
 | Also read | Purpose |
 |-------------|---------|
-| [LIST_CONTRACTS_TARGET.md](../roadmap/LIST_CONTRACTS_TARGET.md) | Frozen **required** list IDs and payload rules (what skin + product expect). |
-| [LIST_IMPLEMENTATION_STATUS.md](../roadmap/LIST_IMPLEMENTATION_STATUS.md) | **Current** skin vs addon alignment and open gaps. |
+| [phase-01-contract-and-ia-baseline.md](../roadmap/phase-01-contract-and-ia-baseline.md) | Frozen **required** list IDs and payload rules (what skin + product expect). |
+| [phase-02-list-implementation-alignment.md](../roadmap/phase-02-list-implementation-alignment.md) | **Current** skin vs addon alignment and open gaps. |
 
 **Codebase:** companion addon sources live next to this skin repo, e.g.  
 `~/.var/app/tv.kodi.Kodi/data/addons/plugin.video.velocity2/` (module layout: `lib/daemon/`, `lib/repo/`, `lib/client/`, …).
